@@ -4,175 +4,25 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Hyeongseo Jang | Power systems</title>
-<meta name="description" content="Hyeongseo Jang is an engineering student at Sejong University preparing for a career in utility power system planning, design and control. Seeking an M.S. in power systems from fall 2027.">
+<meta name="description" content="Hyeongseo Jang is an engineering student at Sejong University preparing for a career in utility power system planning, design and control.">
 <meta property="og:title" content="Hyeongseo Jang | Power systems">
-<meta property="og:description" content="Utility power system planning, design and control.">
+<meta property="og:description" content="Hyeongseo Jang is an engineering student at Sejong University preparing for a career in utility power system planning, design and control.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://hyeongseojang.com/">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%2310202F'/%3E%3Ccircle cx='16' cy='16' r='9' fill='none' stroke='%23F5C400' stroke-width='2.5'/%3E%3Cpath d='M10.5 16c1.8-4.5 3.7-4.5 5.5 0s3.7 4.5 5.5 0' fill='none' stroke='%23F5C400' stroke-width='2.2'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,400..800&family=Noto+Sans+KR:wght@400;500;700;800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --porcelain: #F7F8F6;
-    --ink: #10202F;
-    --slate: #51606E;
-    --rule: #D3D9D8;
-    --grid-blue: #1B4B8F;
-    --signal: #F5C400;
-    --display: "Archivo", "Noto Sans KR", system-ui, sans-serif;
-    --text: "Source Serif 4", "Noto Sans KR", Georgia, serif;
-  }
-  * { box-sizing: border-box; }
-  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
-  body {
-    margin: 0; background: var(--porcelain); color: var(--ink);
-    font-family: var(--text); font-size: 1.0938rem; line-height: 1.65;
-    word-break: keep-all; overflow-wrap: break-word;
-  }
-  html[data-lang="ko"] body { font-family: "Noto Sans KR", system-ui, sans-serif; font-size: 1.0313rem; line-height: 1.8; }
-  html[data-lang="en"] [data-l="ko"],
-  html[data-lang="ko"] [data-l="en"] { display: none !important; }
-
-  a { color: var(--grid-blue); text-underline-offset: 0.18em; text-decoration-thickness: 1px; }
-  a:hover { text-decoration-thickness: 2px; }
-  :focus-visible { outline: 3px solid var(--signal); outline-offset: 3px; }
-  p { margin: 0 0 1em; max-width: 64ch; }
-
-  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 32px; }
-
-  /* Top bar */
-  .top {
-    display: flex; align-items: center; gap: 24px; padding: 22px 0;
-    font-family: var(--display); font-size: 0.9375rem; border-bottom: 2px solid var(--ink);
-    position: sticky; top: 0; z-index: 10; background: var(--porcelain);
-  }
-  .top .who { font-weight: 700; font-stretch: 110%; color: var(--ink); text-decoration: none; }
-  .top nav { display: flex; gap: 26px; margin-left: auto; }
-  .top nav a { color: var(--ink); text-decoration: none; }
-  .top nav a:hover { text-decoration: underline; }
-  .top nav a[aria-current="true"] { text-decoration: underline; text-decoration-color: var(--signal); text-decoration-thickness: 3px; text-underline-offset: 0.35em; }
-  .lang { display: flex; border: 2px solid var(--ink); }
-  .lang button { font: inherit; font-weight: 600; color: var(--ink); background: transparent; border: 0; padding: 5px 12px; cursor: pointer; }
-  .lang button[aria-pressed="true"] { background: var(--ink); color: var(--porcelain); }
-
-  /* Hero */
-  .hero { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 64px; align-items: start; padding: 72px 0 64px; }
-  .hero.no-photo { grid-template-columns: minmax(0, 1fr); }
-  .hero.no-photo .portrait { display: none; }
-  h1 {
-    font-family: var(--display); font-weight: 800; font-stretch: 112%;
-    font-size: clamp(2.6rem, 6vw, 4.5rem); line-height: 1.0; letter-spacing: -0.025em; margin: 0 0 18px;
-  }
-  html[data-lang="ko"] h1 { letter-spacing: -0.03em; line-height: 1.15; }
-  .tagline {
-    font-family: var(--display); font-weight: 600; font-size: clamp(1.2rem, 2.3vw, 1.625rem);
-    line-height: 1.3; margin: 0 0 28px; max-width: 26em;
-  }
-  html[data-lang="ko"] .tagline { line-height: 1.5; }
-  .lede { font-size: 1.1875rem; line-height: 1.6; max-width: 36em; margin-bottom: 32px; }
-  html[data-lang="ko"] .lede { font-size: 1.0938rem; line-height: 1.85; }
-  .portrait { margin: 0; }
-  .portrait img { display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border: 2px solid var(--ink); background: #E6EAE8; }
-
-  .links { display: flex; flex-wrap: wrap; gap: 12px; }
-  .links a {
-    font-family: var(--display); font-weight: 600; font-size: 0.9688rem;
-    color: var(--ink); text-decoration: none; border: 2px solid var(--ink); padding: 9px 18px;
-  }
-  .links a.primary { background: var(--ink); color: var(--porcelain); }
-  .links a:hover { background: var(--signal); color: var(--ink); }
-  .links a[hidden] { display: none; }
-
-  .facts { margin: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0 28px; background: var(--ink); color: var(--porcelain); padding: 6px 28px; }
-  .facts div { padding: 18px 0 20px; }
-  .facts dt { font-family: var(--display); font-size: 0.875rem; font-weight: 600; color: #AEBBC7; margin-bottom: 4px; }
-  .facts dd { margin: 0; font-family: var(--display); font-weight: 600; font-size: 1.0625rem; line-height: 1.4; }
-
-  /* Sections: title on the left, content on the right */
-  .section, #top { scroll-margin-top: 84px; }
-  .section { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 48px; padding: 56px 0; border-bottom: 1px solid var(--rule); }
-  .section:last-of-type { border-bottom: 0; }
-  h2 { font-family: var(--display); font-weight: 750; font-stretch: 108%; font-size: 1.375rem; line-height: 1.2; letter-spacing: -0.01em; margin: 0; }
-  h2::before { content: ""; display: block; width: 32px; height: 6px; background: var(--signal); margin-bottom: 14px; }
-  h3 { font-family: var(--display); font-weight: 700; font-size: 1.0313rem; margin: 0 0 8px; }
-
-  /* Beyond engineering cards */
-  .cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
-  .card { border: 2px solid var(--ink); background: #fff; }
-  .card .when { background: var(--ink); color: var(--porcelain); font-family: var(--display); font-weight: 600; font-size: 0.8438rem; padding: 7px 16px; }
-  .card img { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-bottom: 2px solid var(--ink); }
-  .card .body { padding: 16px 16px 20px; }
-  .card strong { display: block; font-family: var(--display); font-weight: 750; font-size: 1.0625rem; line-height: 1.3; margin-bottom: 8px; }
-  .card p { font-size: 0.9688rem; line-height: 1.55; margin: 0; color: var(--slate); }
-  html[data-lang="ko"] .card p { font-size: 0.9375rem; line-height: 1.7; }
-
-  /* Project */
-  .study { border: 2px solid var(--ink); background: #fff; margin-top: 24px; }
-  .study-head { padding: 26px 28px 22px; border-bottom: 2px solid var(--ink); }
-  .status { display: inline-block; background: var(--signal); font-family: var(--display); font-weight: 700; font-size: 0.8125rem; padding: 3px 10px; margin-bottom: 14px; }
-  .study-title { font-family: var(--display); font-weight: 750; font-stretch: 105%; font-size: clamp(1.2rem, 2.1vw, 1.5rem); line-height: 1.28; margin: 0; max-width: none; }
-  .study-body > div { padding: 22px 28px; border-top: 1px solid var(--rule); display: grid; grid-template-columns: 130px minmax(0, 1fr); gap: 20px; }
-  .study-body > div:first-child { border-top: 0; }
-  .study-body p { font-size: 1rem; line-height: 1.6; margin: 0; max-width: 58ch; }
-  html[data-lang="ko"] .study-body p { font-size: 0.9688rem; line-height: 1.75; }
-  .study-body h3 { margin: 2px 0 0; }
-
-  /* Rows */
-  .rows { border-top: 2px solid var(--ink); }
-  .row { display: grid; grid-template-columns: 190px minmax(0, 1fr); gap: 24px; padding: 18px 0; border-bottom: 1px solid var(--rule); }
-  .row .when { font-family: var(--display); font-size: 0.9375rem; color: var(--slate); padding-top: 3px; }
-  .row .what strong { font-family: var(--display); font-weight: 700; font-size: 1.0938rem; display: block; line-height: 1.35; }
-  .row .what span { display: block; color: var(--slate); font-size: 0.9688rem; }
-
-  .courses { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 36px; margin-top: 32px; }
-  .courses ul, .skills ul { list-style: none; margin: 0; padding: 0; }
-  .courses li { padding: 7px 0; border-bottom: 1px solid var(--rule); font-size: 1rem; }
-
-  .skills { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 36px; border-top: 2px solid var(--ink); padding-top: 20px; }
-  .skills li { font-family: var(--display); font-weight: 600; font-size: 1.0313rem; padding: 4px 0; }
-  .skills li small { font-family: var(--text); font-weight: 400; font-size: 0.9063rem; color: var(--slate); display: block; }
-  html[data-lang="ko"] .skills li small { font-family: inherit; }
-
-  .mail {
-    font-family: var(--display); font-weight: 750; font-stretch: 108%;
-    font-size: clamp(1.25rem, 3vw, 2rem); letter-spacing: -0.015em; color: var(--ink);
-    text-decoration-color: var(--signal); text-decoration-thickness: 4px; text-underline-offset: 0.2em; overflow-wrap: anywhere;
-  }
-  .mail:hover { text-decoration-thickness: 6px; }
-
-  footer { border-top: 2px solid var(--ink); padding: 24px 0 44px; font-family: var(--display); font-size: 0.875rem; color: var(--slate); display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
-
-  @media (max-width: 860px) {
-    .wrap { padding: 0 20px; }
-    body { font-size: 1.0625rem; }
-    .top nav { display: none; }
-    .top { padding: 16px 0; justify-content: space-between; }
-    .hero { grid-template-columns: 1fr; gap: 32px; padding: 44px 0 40px; }
-    .portrait { order: -1; max-width: 200px; }
-    .facts { grid-template-columns: 1fr; padding: 4px 20px; }
-    .cards { grid-template-columns: 1fr; }
-    .facts div { padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,.18); }
-    .facts div:last-child { border-bottom: 0; }
-    .section { grid-template-columns: 1fr; gap: 20px; padding: 40px 0; }
-    .study-head, .study-body > div { padding: 20px; }
-    .study-body > div { grid-template-columns: 1fr; gap: 6px; }
-    .courses, .skills { grid-template-columns: 1fr; gap: 24px; }
-    .row { grid-template-columns: 1fr; gap: 4px; }
-  }
-  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body data-title-en="Hyeongseo Jang | Power systems" data-title-ko="장형서 | 전력계통">
 <div class="wrap">
-
   <header class="top">
-    <a class="who" href="#top"><span data-l="en">Hyeongseo Jang</span><span data-l="ko">장형서</span></a>
-    <nav aria-label="Sections">
-      <a href="#project"><span data-l="en">Project</span><span data-l="ko">프로젝트</span></a>
-      <a href="#education"><span data-l="en">Education</span><span data-l="ko">학력</span></a>
-      <a href="#skills"><span data-l="en">Skills</span><span data-l="ko">기술</span></a>
+    <a class="who" href="index.html"><span data-l="en">Hyeongseo Jang</span><span data-l="ko">장형서</span></a>
+    <nav aria-label="Pages">
+      <a href="index.html" aria-current="page"><span data-l="en">Home</span><span data-l="ko">홈</span></a>
+      <a href="research.html"><span data-l="en">Research</span><span data-l="ko">연구</span></a>
+      <a href="background.html"><span data-l="en">Background</span><span data-l="ko">학력·기술</span></a>
+      <a href="beyond.html"><span data-l="en">Beyond engineering</span><span data-l="ko">공학 밖에서</span></a>
       <a href="#contact"><span data-l="en">Contact</span><span data-l="ko">연락처</span></a>
     </nav>
     <div class="lang" role="group" aria-label="Language">
@@ -180,273 +30,74 @@
       <button type="button" data-set="ko" aria-pressed="false">한국어</button>
     </div>
   </header>
+  <main>
 
-  <main id="top">
     <section class="hero" id="hero">
       <div>
         <h1><span data-l="en">Hyeongseo Jang</span><span data-l="ko">장형서</span></h1>
         <p class="tagline" data-l="en">Engineering student preparing for a career in utility power system planning, design and control.</p>
-        <p class="tagline" data-l="ko">유틸리티 전력계통의 계획, 설계, 제어 분야를 준비하는 공학도입니다.</p>
+<p class="tagline" data-l="ko">유틸리티 전력계통의 계획, 설계, 제어 분야를 준비하는 공학도입니다.</p>
         <p class="lede" data-l="en">I'm moving from aerospace engineering into power systems. My coursework is in signals and automatic control, and the grid poses the same problem at a larger scale: directing power flow so that a network runs efficiently and stays within its limits. I plan to work in utility planning and design, and to earn a Professional Engineer license.</p>
-        <p class="lede" data-l="ko">항공우주공학에서 전력계통으로 방향을 옮기고 있습니다. 신호와 자동제어를 공부해 왔고, 전력망은 같은 문제를 더 큰 규모로 다루는 분야라고 생각합니다. 계통이 한계 안에서 효율적으로 운전되도록 전력의 흐름을 관리하는 일입니다. 유틸리티의 계통 계획과 설계 분야에서 일하며 미국 기술사(PE) 자격까지 취득하는 것이 목표입니다.</p>
+<p class="lede" data-l="ko">항공우주공학에서 전력계통으로 방향을 옮기고 있습니다. 신호와 자동제어를 공부해 왔고, 전력망은 같은 문제를 더 큰 규모로 다루는 분야라고 생각합니다. 계통이 한계 안에서 효율적으로 운전되도록 전력의 흐름을 관리하는 일입니다. 유틸리티의 계통 계획과 설계 분야에서 일하며 미국 기술사(PE) 자격까지 취득하는 것이 목표입니다.</p>
         <div class="links">
-          <a class="primary" href="mailto:haveagoodjay00@gmail.com"><span data-l="en">Email me</span><span data-l="ko">이메일 보내기</span></a>
-          <a href="https://www.linkedin.com/in/hyeongseo-jang-05a7a744a">LinkedIn</a>
-          <a href="https://github.com/haveagoodjay00">GitHub</a>
-          <!-- CV: upload cv.pdf next to this file, then delete the word hidden -->
-          <a href="cv.pdf" hidden><span data-l="en">Download CV (PDF)</span><span data-l="ko">CV 내려받기 (PDF)</span></a>
+          <a class="primary" href="research.html"><span data-l="en">Read my research</span><span data-l="ko">연구 보기</span></a>
+          <a href="mailto:haveagoodjay00@gmail.com"><span data-l="en">Email me</span><span data-l="ko">이메일 보내기</span></a>
         </div>
       </div>
-      <!-- Photo: upload a portrait named photo.jpg next to this file and it appears here automatically -->
-      <figure class="portrait">
-        <img src="photo.jpg" alt="Portrait of Hyeongseo Jang" onerror="document.getElementById('hero').classList.add('no-photo')">
-      </figure>
+      <!-- Photo: upload a portrait named photo.jpg next to these files and it appears here -->
+      <figure class="portrait"><img src="photo.jpg" alt="Portrait of Hyeongseo Jang" onerror="document.getElementById('hero').classList.add('no-photo')"></figure>
     </section>
 
     <dl class="facts">
-      <div>
-        <dt><span data-l="en">Now</span><span data-l="ko">현재</span></dt>
-        <dd><span data-l="en">B.S. Aerospace Engineering, Sejong University</span><span data-l="ko">세종대학교 항공우주공학 학사 과정</span></dd>
-      </div>
-      <div>
-        <dt><span data-l="en">Next</span><span data-l="ko">다음</span></dt>
-        <dd><span data-l="en">M.S. in power systems, United States, from fall 2027</span><span data-l="ko">2027년 가을, 미국 전력계통 석사 과정 진학 준비</span></dd>
-      </div>
-      <div>
-        <dt><span data-l="en">Focus</span><span data-l="ko">관심 분야</span></dt>
-        <dd><span data-l="en">Utility system planning, power-flow management and control</span><span data-l="ko">유틸리티 계통 계획, 조류 관리와 제어</span></dd>
-      </div>
+      <div><dt><span data-l="en">Now</span><span data-l="ko">현재</span></dt><dd><span data-l="en">B.S. Aerospace Engineering, Sejong University</span><span data-l="ko">세종대학교 항공우주공학 학사 과정</span></dd></div>
+      <div><dt><span data-l="en">Next</span><span data-l="ko">다음</span></dt><dd><span data-l="en">M.S. in power systems, United States, from fall 2027</span><span data-l="ko">2027년 가을, 미국 전력계통 석사 과정 진학 준비</span></dd></div>
+      <div><dt><span data-l="en">Focus</span><span data-l="ko">관심 분야</span></dt><dd><span data-l="en">Utility system planning, power-flow management and control</span><span data-l="ko">유틸리티 계통 계획, 조류 관리와 제어</span></dd></div>
     </dl>
 
-    <section class="section" id="project">
-      <h2><span data-l="en">Project</span><span data-l="ko">프로젝트</span></h2>
+    <section class="section feature">
+      <h2><span data-l="en">Research</span><span data-l="ko">연구</span></h2>
       <div>
-        <p data-l="en">Data centers are the largest new loads utilities are planning for today, so I used one as the test case for a general operating question: when a large load is added, how much room is left before the network reaches its limits?</p>
-        <p data-l="ko">데이터센터는 지금 유틸리티가 계획에 반영해야 하는 가장 큰 신규 부하입니다. 그래서 "큰 부하가 추가되면 계통이 한계에 닿기까지 여유가 얼마나 남는가"라는 일반적인 운전 문제의 시험 사례로 삼았습니다.</p>
-        <article class="study">
-          <div class="study-head">
-            <span class="status"><span data-l="en">In progress</span><span data-l="ko">진행 중</span></span>
-            <p class="study-title" data-l="en">Operating margin for a data center load on the IEEE 24-bus Reliability Test System</p>
-            <p class="study-title" data-l="ko">IEEE 24모선 신뢰도 시험계통(RTS-24)에 데이터센터 부하를 추가했을 때의 운전 여유</p>
-          </div>
-          <div class="study-body">
-            <div>
-              <h3><span data-l="en">Question</span><span data-l="ko">질문</span></h3>
-              <div>
-                <p data-l="en">When a data center of about 100 MW is added at one bus, do the generator settings chosen for it still keep the network within its original limits, with margin to spare, as that demand rises or falls?</p>
-                <p data-l="ko">한 모선에 약 100 MW 규모의 데이터센터를 추가했을 때, 그에 맞춰 정한 발전기 운전 설정이 수요가 늘거나 줄어도 계통의 원래 한계를 지키고 여유까지 남기는가?</p>
-              </div>
-            </div>
-            <div>
-              <h3><span data-l="en">Method</span><span data-l="ko">방법</span></h3>
-              <div>
-                <p data-l="en">Static AC analysis on a public benchmark network. Optimal power flow produces candidate generator settings. Separate power-flow runs then hold each setting fixed and check it at demand levels from 90 to 110 MW, with and without generator reactive-power limits. Tools: Python with pandapower, and MATPOWER in MATLAB.</p>
-                <p data-l="ko">공개 벤치마크 계통에서의 정적 교류 해석입니다. 최적조류계산(OPF)으로 발전기 설정 후보를 만들고, 각 설정을 고정한 채 90~110 MW 수요 구간에서 별도의 조류계산으로 확인했습니다. 발전기 무효전력 제한을 적용한 경우와 적용하지 않은 경우를 비교했습니다. 도구는 Python의 pandapower와 MATLAB의 MATPOWER입니다.</p>
-              </div>
-            </div>
-            <div>
-              <h3><span data-l="en">Scope</span><span data-l="ko">범위</span></h3>
-              <div>
-                <p data-l="en">This is a static study of selected cases. It does not establish N-1 security, maximum hosting capacity or optimal siting. Reports for the current scope are complete, and the code and results will be published after a final review.</p>
-                <p data-l="ko">선택한 사례에 대한 정적 연구이며, N-1 안전성이나 최대 수용용량, 최적 입지를 입증한 것은 아닙니다. 현재 범위의 보고서는 완성했고, 코드와 결과는 최종 검토 후 공개할 예정입니다.</p>
-              </div>
-            </div>
-            <div>
-              <h3><span data-l="en">My role</span><span data-l="ko">역할</span></h3>
-              <div>
-                <p data-l="en">I set the direction, scope and pass or fail criteria and reviewed the results. ChatGPT supported planning and review, and Claude Code and Codex implemented and ran the calculations.</p>
-                <p data-l="ko">연구 방향과 범위, 합격 기준을 정하고 결과를 검토했습니다. 기획과 검토에는 ChatGPT의 도움을 받았고, 계산의 구현과 실행은 Claude Code와 Codex가 맡았습니다.</p>
-              </div>
-            </div>
-          </div>
-        </article>
+        <p class="kicker-title"><span data-l="en">Operating margin for a data center load on the IEEE 24-bus Reliability Test System</span><span data-l="ko">IEEE 24모선 신뢰도 시험계통(RTS-24)에 데이터센터 부하를 추가했을 때의 운전 여유</span></p>
+        <p data-l="en">When a data center of about 100 MW is added to a transmission network, do the generator settings chosen for it still hold as demand moves? I tested one fixed setting at 17 demand levels from 90 to 110 MW. 13 met every criterion and 4 broke a physical limit, the first at 106.25 MW.</p>
+<p data-l="ko">약 100 MW 규모의 데이터센터를 송전망에 추가했을 때, 그에 맞춰 정한 발전기 설정은 수요가 변해도 유효할까요? 하나의 고정 설정을 90~110 MW 사이 17개 수요에서 확인했습니다. 13개는 모든 기준을 충족했고 4개는 물리 한계를 넘었으며, 첫 위반은 106.25 MW에서 나타났습니다.</p>
+        <div class="links"><a class="primary" href="research.html"><span data-l="en">See the results and my reading of them</span><span data-l="ko">결과와 해석 보기</span></a></div>
       </div>
     </section>
 
-    <section class="section" id="education">
-      <h2><span data-l="en">Education</span><span data-l="ko">학력</span></h2>
+    <section class="section">
+      <h2><span data-l="en">Background</span><span data-l="ko">학력·기술</span></h2>
       <div>
-        <div class="rows">
-          <div class="row">
-            <div class="when"><span data-l="en">Mar 2020 to Aug 2027 (expected)</span><span data-l="ko">2020년 3월 ~ 2027년 8월 (졸업 예정)</span></div>
-            <div class="what">
-              <strong><span data-l="en">Sejong University, Seoul</span><span data-l="ko">세종대학교</span></strong>
-              <span data-l="en">B.S. in Aerospace Engineering. Includes 21 months of military service.</span>
-              <span data-l="ko">항공우주공학 학사. 재학 중 군 복무 21개월 포함.</span>
-            </div>
-          </div>
-        </div>
-        <div class="courses">
-          <div>
-            <h3><span data-l="en">Relevant coursework, completed</span><span data-l="ko">관련 이수 과목</span></h3>
-            <ul>
-              <li><span data-l="en">Signals and Systems</span><span data-l="ko">신호 및 시스템</span></li>
-              <li><span data-l="en">Automatic Control</span><span data-l="ko">자동제어</span></li>
-              <li><span data-l="en">Probability, Statistics and Programming</span><span data-l="ko">확률통계 및 프로그래밍</span></li>
-              <li><span data-l="en">Introduction to Electronic Engineering (circuit theory)</span><span data-l="ko">전자공학개론(회로이론)</span></li>
-            </ul>
-          </div>
-          <div>
-            <h3><span data-l="en">Planned for spring 2027</span><span data-l="ko">2027년 1학기 수강 예정</span></h3>
-            <ul>
-              <li><span data-l="en">Electric Circuits</span><span data-l="ko">전기회로</span></li>
-              <li><span data-l="en">Electronic Circuits</span><span data-l="ko">전자회로</span></li>
-              <li><span data-l="en">Introduction to Electrical and Electronic Engineering</span><span data-l="ko">전기전자개론</span></li>
-              <li><span data-l="en">Computer-Aided Design</span><span data-l="ko">CAD</span></li>
-            </ul>
-          </div>
-        </div>
+        <p data-l="en">B.S. in Aerospace Engineering at Sejong University, graduating in August 2027. Coursework in signals, automatic control and circuit theory. I work in Python and MATLAB, and use pandapower and MATPOWER for power-flow studies.</p>
+<p data-l="ko">세종대학교 항공우주공학 학사 과정으로 2027년 8월 졸업 예정입니다. 신호, 자동제어, 회로이론을 이수했습니다. Python과 MATLAB을 쓰고, 조류계산에는 pandapower와 MATPOWER를 사용합니다.</p>
+        <div class="links"><a href="background.html"><span data-l="en">Education, skills and certifications</span><span data-l="ko">학력, 기술, 자격 보기</span></a></div>
       </div>
     </section>
 
-    <section class="section" id="skills">
-      <h2><span data-l="en">Skills</span><span data-l="ko">기술</span></h2>
-      <div class="skills">
-        <div>
-          <h3><span data-l="en">Programming</span><span data-l="ko">프로그래밍</span></h3>
-          <ul>
-            <li>Python</li>
-            <li>MATLAB</li>
-            <li>C, C++</li>
-            <li>R</li>
-          </ul>
-        </div>
-        <div>
-          <h3><span data-l="en">Power system analysis</span><span data-l="ko">전력계통 해석</span></h3>
-          <ul>
-            <li>pandapower <small><span data-l="en">AC power flow, optimal power flow</span><span data-l="ko">교류 조류계산, 최적조류계산</span></small></li>
-            <li>MATPOWER <small><span data-l="en">Cross-checking results in MATLAB</span><span data-l="ko">MATLAB에서의 결과 교차 확인</span></small></li>
-          </ul>
-        </div>
-        <div>
-          <h3><span data-l="en">Working tools</span><span data-l="ko">작업 도구</span></h3>
-          <ul>
-            <li><span data-l="en">Git and GitHub</span><span data-l="ko">Git, GitHub</span></li>
-            <li>VS Code</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="credentials">
-      <h2><span data-l="en">Licenses and certifications</span><span data-l="ko">자격</span></h2>
-      <div class="rows">
-        <div class="row">
-          <div class="when"><span data-l="en">Planned for 2027</span><span data-l="ko">2027년 응시 예정</span></div>
-          <div class="what">
-            <strong>FE Electrical and Computer</strong>
-            <span data-l="en">NCEES Fundamentals of Engineering exam, the first step toward a Professional Engineer license.</span>
-            <span data-l="ko">NCEES 주관 기초공학 시험. 미국 기술사(PE) 취득의 첫 단계.</span>
-          </div>
-        </div>
-        <div class="row">
-          <div class="when">2022</div>
-          <div class="what">
-            <strong><span data-l="en">Industrial Engineer, Information Processing</span><span data-l="ko">정보처리산업기사</span></strong>
-            <span data-l="en">Korean national technical qualification in software and data processing.</span>
-            <span data-l="ko">국가기술자격</span>
-          </div>
-        </div>
-        <div class="row">
-          <div class="when">2022</div>
-          <div class="what">
-            <strong><span data-l="en">Industrial Engineer, Office Automation</span><span data-l="ko">사무자동화산업기사</span></strong>
-            <span data-l="en">Korean national technical qualification.</span>
-            <span data-l="ko">국가기술자격</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="beyond">
+    <section class="section">
       <h2><span data-l="en">Beyond engineering</span><span data-l="ko">공학 밖에서</span></h2>
-      <!-- Photos: upload airforce.jpg, unit.jpg, band.jpg next to this file and each appears on its card -->
-      <div class="cards">
-        <article class="card">
-          <div class="when"><span data-l="en">2021 to 2023</span><span data-l="ko">2021년 ~ 2023년</span></div>
-          <img src="airforce.jpg" alt="" onerror="this.remove()">
-          <div class="body">
-            <strong><span data-l="en">Republic of Korea Air Force</span><span data-l="ko">대한민국 공군</span></strong>
-            <p data-l="en">Served 21 months as a short-range guided missile operator.</p>
-            <p data-l="ko">단거리유도무기운용병으로 21개월 복무 후 만기 전역했습니다.</p>
-          </div>
-        </article>
-        <article class="card">
-          <div class="when"><span data-l="en">2024 to present</span><span data-l="ko">2024년 ~ 현재</span></div>
-          <img src="unit.jpg" alt="" onerror="this.remove()">
-          <div class="body">
-            <strong><span data-l="en">UNIT, intercollegiate sports club</span><span data-l="ko">전국 대학교 종합스포츠 연합동아리 UNIT</span></strong>
-            <p data-l="en">Member of the 74th cohort of a multi-sport club for students from universities across Korea. Won the club's new-member bowling tournament, and have gone paragliding and played paintball on club outings.</p>
-            <p data-l="ko">전국 대학생이 함께하는 종합스포츠 연합동아리의 74기로 활동하고 있습니다. 신입생 볼링대회에서 1위를 했고, 패러글라이딩과 서바이벌 페인트볼 같은 특색 활동에도 참여했습니다.</p>
-          </div>
-        </article>
-        <article class="card">
-          <div class="when"><span data-l="en">First place</span><span data-l="ko">1위 수상</span></div>
-          <img src="band.jpg" alt="" onerror="this.remove()">
-          <div class="body">
-            <strong><span data-l="en">Lead vocalist, band DICE</span><span data-l="ko">밴드 '다이스' 보컬</span></strong>
-            <p data-l="en">Won first place at the Dobong and Nowon district band competition in Seoul.</p>
-            <p data-l="ko">도봉구·노원구 연합 밴드대회에서 1위를 수상했습니다.</p>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section class="section" id="contact">
-      <h2><span data-l="en">Contact</span><span data-l="ko">연락처</span></h2>
       <div>
-        <p data-l="en">I'm glad to hear from faculty, engineers and students working on grid planning, operations or control.</p>
-        <p data-l="ko">계통 계획, 운영, 제어를 연구하거나 실무에서 다루는 분들의 연락을 환영합니다.</p>
-        <p style="max-width:none"><a class="mail" href="mailto:haveagoodjay00@gmail.com">haveagoodjay00@gmail.com</a></p>
+        <p data-l="en">Air Force veteran, member of a national intercollegiate sports club, and lead vocalist of a band that won a district competition.</p>
+<p data-l="ko">공군 만기 전역, 전국 대학 연합 스포츠 동아리 활동, 그리고 구 연합 밴드대회에서 1위를 한 밴드의 보컬입니다.</p>
+        <div class="links"><a href="beyond.html"><span data-l="en">Service and activities</span><span data-l="ko">복무와 활동 보기</span></a></div>
       </div>
     </section>
-  </main>
 
-  <footer>
-    <span>© 2026 <span data-l="en">Hyeongseo Jang</span><span data-l="ko">장형서</span></span>
-    <span><span data-l="en">Updated November 2026</span><span data-l="ko">2026년 11월 업데이트</span></span>
+  </main>
+  <footer id="contact">
+    <div>
+      <h2><span data-l="en">Contact</span><span data-l="ko">연락처</span></h2>
+      <p><a class="mail" href="mailto:haveagoodjay00@gmail.com">haveagoodjay00@gmail.com</a></p>
+      <div class="links">
+        <a href="https://www.linkedin.com/in/hyeongseo-jang-05a7a744a">LinkedIn</a>
+        <a href="https://github.com/haveagoodjay00">GitHub</a>
+        <!-- CV: upload cv.pdf next to these files, then delete the word hidden -->
+        <a href="cv.pdf" hidden><span data-l="en">Download CV (PDF)</span><span data-l="ko">CV 내려받기 (PDF)</span></a>
+      </div>
+    </div>
+    <p class="fine">© 2026 <span data-l="en">Hyeongseo Jang</span><span data-l="ko">장형서</span><br><span data-l="en">Updated November 2026</span><span data-l="ko">2026년 11월 업데이트</span></p>
   </footer>
 </div>
-
-<script>
-(function () {
-  var root = document.documentElement;
-  var buttons = document.querySelectorAll('.lang button');
-  var titles = { en: 'Hyeongseo Jang | Power systems', ko: '장형서 | 전력계통' };
-
-  function setLang(lang, remember) {
-    root.setAttribute('data-lang', lang);
-    root.setAttribute('lang', lang);
-    document.title = titles[lang];
-    buttons.forEach(function (b) {
-      b.setAttribute('aria-pressed', String(b.getAttribute('data-set') === lang));
-    });
-    if (remember) { try { localStorage.setItem('lang', lang); } catch (e) {} }
-  }
-
-  var saved = null;
-  try { saved = localStorage.getItem('lang'); } catch (e) {}
-  var initial = saved || ((navigator.language || '').toLowerCase().indexOf('ko') === 0 ? 'ko' : 'en');
-  setLang(initial, false);
-
-  buttons.forEach(function (b) {
-    b.addEventListener('click', function () { setLang(b.getAttribute('data-set'), true); });
-  });
-
-  // Mark the section currently on screen in the top menu
-  var navLinks = document.querySelectorAll('.top nav a');
-  if ('IntersectionObserver' in window) {
-    var seen = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) {
-        if (!e.isIntersecting) return;
-        navLinks.forEach(function (a) {
-          a.setAttribute('aria-current', String(a.getAttribute('href') === '#' + e.target.id));
-        });
-      });
-    }, { rootMargin: '-30% 0px -60% 0px' });
-    document.querySelectorAll('.section').forEach(function (sec) { seen.observe(sec); });
-  }
-})();
-</script>
+<div id="tip" role="status" aria-live="polite" hidden></div>
+<script src="site.js"></script>
 </body>
 </html>
