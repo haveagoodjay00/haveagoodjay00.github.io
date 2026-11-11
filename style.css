@@ -175,3 +175,28 @@ footer .links { margin-top: 20px; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 
 table.verdicts th, table.verdicts td { padding-right: 8px; }
+
+/* Research roadmap */
+.chip { display: inline-block; font-family: var(--display); font-weight: 700; font-size: 0.8125rem; line-height: 1.3; padding: 3px 10px; border: 1.5px solid var(--ink); margin: 0; vertical-align: 2px; }
+.chip.done { background: var(--ink); color: var(--porcelain); }
+.chip.next { background: var(--signal); }
+.chip.planned { background: #fff; color: var(--slate); border-color: var(--slate); }
+.chips { margin: 0 0 14px; display: flex; flex-wrap: wrap; gap: 8px; }
+ol.stages { list-style: none; margin: 0 0 14px; padding: 0; border-top: 2px solid var(--ink); }
+ol.stages li { display: grid; grid-template-columns: 44px minmax(0, 1fr); gap: 16px; padding: 18px 0; border-bottom: 1px solid var(--rule); }
+ol.stages .n { font-family: var(--display); font-weight: 800; font-size: 1.25rem; width: 36px; height: 36px; display: grid; place-items: center; border: 2px solid var(--ink); }
+ol.stages li.done .n { background: var(--ink); color: var(--porcelain); }
+ol.stages li.next .n { background: var(--signal); }
+ol.stages li.planned .n { border-color: var(--slate); color: var(--slate); }
+ol.stages p { margin: 0 0 6px; font-size: 1rem; }
+ol.stages .st-head { font-family: var(--display); font-size: 1.0938rem; }
+ol.stages .st-head strong { margin-right: 6px; }
+ol.stages a { font-family: var(--display); font-weight: 600; font-size: 0.9375rem; }
+.stageband { background: var(--ink); color: var(--porcelain); padding: 26px 28px 28px; margin-top: 52px; }
+.stageband .chip.done { background: var(--signal); color: var(--ink); border-color: var(--signal); margin-bottom: 10px; }
+.stagetitle { font-family: var(--display); font-weight: 750; font-stretch: 105%; font-size: clamp(1.3rem, 2.6vw, 1.75rem); line-height: 1.25; margin: 0; max-width: 30em; }
+#stage1 { scroll-margin-top: 84px; }
+@media (max-width: 900px) {
+  .stageband { padding: 20px; margin-top: 38px; }
+  #stage1 { scroll-margin-top: 110px; }
+}

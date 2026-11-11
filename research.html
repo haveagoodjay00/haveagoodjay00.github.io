@@ -33,11 +33,43 @@
   <main>
 
     <section class="pagehead">
-      <p class="status"><span data-l="en">In progress</span><span data-l="ko">진행 중</span></p>
-      <h1 class="h1-page"><span data-l="en">Operating margin for a data center load on the IEEE 24-bus Reliability Test System</span><span data-l="ko">IEEE 24모선 신뢰도 시험계통(RTS-24)에 데이터센터 부하를 추가했을 때의 운전 여유</span></h1>
-      <p class="lede" data-l="en">A static AC study of whether generator settings chosen for a large new load still respect the network's limits, and leave room to spare, when that load changes.</p>
-<p class="lede" data-l="ko">큰 신규 부하에 맞춰 정한 발전기 설정이, 그 부하가 변해도 계통의 한계를 지키고 여유까지 남기는지 살펴본 정적 교류 해석 연구입니다.</p>
+      <p class="status"><span data-l="en">Stage 1 of 4 completed</span><span data-l="ko">4단계 중 1단계 완료</span></p>
+      <h1 class="h1-page"><span data-l="en">Large loads on a transmission network: a staged study on the IEEE 24-bus Reliability Test System</span><span data-l="ko">송전망의 대규모 부하 수용: IEEE 24모선 신뢰도 시험계통(RTS-24)에서의 단계별 연구</span></h1>
+      <p class="lede" data-l="en">I'm studying how much room a transmission network has for a large new load such as a data center, in four stages. The first stage is complete and is reported in detail below.</p>
+<p class="lede" data-l="ko">데이터센터 같은 큰 신규 부하를 송전망이 얼마나 받아낼 여유가 있는지 네 단계로 나눠 연구하고 있습니다. 첫 단계를 마쳤고, 아래에 자세히 정리했습니다.</p>
     </section>
+
+    <section class="section" id="roadmap">
+      <h2><span data-l="en">Roadmap</span><span data-l="ko">로드맵</span></h2>
+      <div>
+        <ol class="stages">
+          <li class="done"><span class="n">1</span><div>
+            <p class="st-head"><strong><span data-l="en">Operating margin at one bus</span><span data-l="ko">한 모선에서의 운전 여유</span></strong> <span class="chip done"><span data-l="en">Completed, Nov 2026</span><span data-l="ko">2026년 11월 완료</span></span></p>
+            <p data-l="en">Do generator settings chosen for a data center of about 100 MW keep the network within its limits, with margin to spare, as that demand moves?</p>
+<p data-l="ko">약 100 MW 데이터센터에 맞춰 정한 발전기 설정이, 수요가 변해도 계통의 한계를 지키고 여유를 남기는가?</p>
+            <a href="#stage1"><span data-l="en">Read the stage 1 results</span><span data-l="ko">1단계 결과 보기</span></a></div></li>
+          <li class="next"><span class="n">2</span><div>
+            <p class="st-head"><strong><span data-l="en">N-1 security</span><span data-l="ko">N-1 안전성</span></strong> <span class="chip next"><span data-l="en">Up next</span><span data-l="ko">다음 단계</span></span></p>
+            <p data-l="en">Repeat the check after each single line or generator outage, with post-outage limits and redispatch rules defined before any calculation is run.</p>
+<p data-l="ko">선로나 발전기 하나씩이 탈락한 뒤에도 같은 판정을 반복합니다. 사고 후 허용 한계와 재급전 규칙은 계산 전에 먼저 정합니다.</p></div></li>
+          <li class="planned"><span class="n">3</span><div>
+            <p class="st-head"><strong><span data-l="en">Hosting capacity</span><span data-l="ko">수용용량</span></strong> <span class="chip planned"><span data-l="en">Planned</span><span data-l="ko">예정</span></span></p>
+            <p data-l="en">Under a stated operating policy, find how much load the bus can take before the first violation, in normal operation and after outages.</p>
+<p data-l="ko">명시한 운전 정책 아래에서, 정상 상태와 사고 후 각각 첫 위반이 나기 전까지 모선이 받아낼 수 있는 부하를 찾습니다.</p></div></li>
+          <li class="planned"><span class="n">4</span><div>
+            <p class="st-head"><strong><span data-l="en">Other locations</span><span data-l="ko">다른 위치</span></strong> <span class="chip planned"><span data-l="en">Planned</span><span data-l="ko">예정</span></span></p>
+            <p data-l="en">Compare candidate buses to see whether a setting or a capacity found at one location carries over to others.</p>
+<p data-l="ko">후보 모선들을 비교해, 한 위치에서 찾은 설정이나 수용용량이 다른 위치에서도 통하는지 확인합니다.</p></div></li>
+        </ol>
+        <p class="note" data-l="en">Stages 2 to 4 are planned work. Results will be added to this page as each stage is finished.</p>
+<p class="note" data-l="ko">2~4단계는 계획된 작업입니다. 각 단계를 마칠 때마다 결과를 이 페이지에 추가합니다.</p>
+      </div>
+    </section>
+
+    <div class="stageband" id="stage1">
+      <p class="chip done"><span data-l="en">Stage 1, completed November 2026</span><span data-l="ko">1단계, 2026년 11월 완료</span></p>
+      <p class="stagetitle"><span data-l="en">Operating margin for a data center load at one bus</span><span data-l="ko">한 모선의 데이터센터 부하에 대한 운전 여유</span></p>
+    </div>
 
     <section class="section">
       <h2><span data-l="en">The question</span><span data-l="ko">질문</span></h2>
@@ -270,12 +302,12 @@
     </section>
 
     <section class="section">
-      <h2><span data-l="en">What this does not show</span><span data-l="ko">이 연구가 보여주지 않는 것</span></h2>
+      <h2><span data-l="en">What stage 1 does not show</span><span data-l="ko">1단계가 보여주지 않는 것</span></h2>
       <div>
         <ul class="plain">
-          <li><span data-l="en">N-1 security. Outages were screened in an earlier step for selected cases only.</span><span data-l="ko">N-1 안전성. 상정사고는 이전 단계에서 선택한 사례만 검토했습니다.</span></li>
-          <li><span data-l="en">A maximum hosting capacity, or a continuous range of acceptable demand.</span><span data-l="ko">최대 수용용량, 또는 허용 수요의 연속 구간.</span></li>
-          <li><span data-l="en">Optimal siting. The data center stays at bus 4 throughout.</span><span data-l="ko">최적 입지. 데이터센터는 계속 4번 모선에 있습니다.</span></li>
+          <li><span data-l="en">N-1 security. Outages were screened earlier for selected cases only. This is stage 2.</span><span data-l="ko">N-1 안전성. 상정사고는 이전에 선택한 사례만 검토했습니다. 2단계에서 다룹니다.</span></li>
+          <li><span data-l="en">A maximum hosting capacity, or a continuous range of acceptable demand. This is stage 3.</span><span data-l="ko">최대 수용용량, 또는 허용 수요의 연속 구간. 3단계에서 다룹니다.</span></li>
+          <li><span data-l="en">Other locations. The data center stays at bus 4 throughout. This is stage 4.</span><span data-l="ko">다른 위치. 데이터센터는 계속 4번 모선에 있습니다. 4단계에서 다룹니다.</span></li>
           <li><span data-l="en">Dynamic behaviour. Every result is a steady-state snapshot.</span><span data-l="ko">동특성. 모든 결과는 정상상태의 한 시점입니다.</span></li>
           <li><span data-l="en">A real system. Open questions about some benchmark reactive limits were inherited and not resolved.</span><span data-l="ko">실제 계통. 벤치마크의 일부 무효전력 한계에 대한 출처 의문은 해결하지 못한 채 이어받았습니다.</span></li>
         </ul>
@@ -285,12 +317,12 @@
     <section class="section">
       <h2><span data-l="en">How it was done</span><span data-l="ko">수행 방식</span></h2>
       <div>
-        <p data-l="en">The page shows 33 stored results that come from 29 unique power-flow runs, since four results are reused between sections. The four optimal power flows that produced the settings are counted separately. Tools: Python with pandapower, and MATPOWER in MATLAB.</p>
-<p data-l="ko">이 페이지에 표시한 저장 결과는 33개이고, 섹션 사이에 네 개가 재사용되어 고유한 조류계산은 29회입니다. 설정을 만든 최적조류계산 4회는 따로 셉니다. 도구는 Python의 pandapower와 MATLAB의 MATPOWER입니다.</p>
+        <p data-l="en">Stage 1 shows 33 stored results that come from 29 unique power-flow runs, since four results are reused between sections. The four optimal power flows that produced the settings are counted separately. Tools: Python with pandapower, and MATPOWER in MATLAB.</p>
+<p data-l="ko">1단계에서 표시한 저장 결과는 33개이고, 섹션 사이에 네 개가 재사용되어 고유한 조류계산은 29회입니다. 설정을 만든 최적조류계산 4회는 따로 셉니다. 도구는 Python의 pandapower와 MATLAB의 MATPOWER입니다.</p>
         <p data-l="en">I set the direction, scope and pass or fail criteria and reviewed the results. ChatGPT supported planning and review, and Claude Code and Codex implemented and ran the calculations. I did not write all of the code by hand.</p>
 <p data-l="ko">연구 방향과 범위, 합격 기준을 정하고 결과를 검토했습니다. 기획과 검토에는 ChatGPT의 도움을 받았고, 계산의 구현과 실행은 Claude Code와 Codex가 맡았습니다. 모든 코드를 직접 작성한 것은 아닙니다.</p>
-        <p class="note" data-l="en">The full report and code will be linked here after a final review.</p>
-<p class="note" data-l="ko">전체 보고서와 코드는 최종 검토 후 이곳에 연결할 예정입니다.</p>
+        <p class="note" data-l="en">The stage 1 report and code will be linked here once I have finished reviewing them for public release.</p>
+<p class="note" data-l="ko">1단계 보고서와 코드는 공개용 검토를 마친 뒤 이곳에 연결할 예정입니다.</p>
       </div>
     </section>
 
