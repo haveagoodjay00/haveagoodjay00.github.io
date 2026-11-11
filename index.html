@@ -46,11 +46,13 @@
   .top {
     display: flex; align-items: center; gap: 24px; padding: 22px 0;
     font-family: var(--display); font-size: 0.9375rem; border-bottom: 2px solid var(--ink);
+    position: sticky; top: 0; z-index: 10; background: var(--porcelain);
   }
   .top .who { font-weight: 700; font-stretch: 110%; color: var(--ink); text-decoration: none; }
   .top nav { display: flex; gap: 26px; margin-left: auto; }
   .top nav a { color: var(--ink); text-decoration: none; }
   .top nav a:hover { text-decoration: underline; }
+  .top nav a[aria-current="true"] { text-decoration: underline; text-decoration-color: var(--signal); text-decoration-thickness: 3px; text-underline-offset: 0.35em; }
   .lang { display: flex; border: 2px solid var(--ink); }
   .lang button { font: inherit; font-weight: 600; color: var(--ink); background: transparent; border: 0; padding: 5px 12px; cursor: pointer; }
   .lang button[aria-pressed="true"] { background: var(--ink); color: var(--porcelain); }
@@ -89,6 +91,7 @@
   .facts dd { margin: 0; font-family: var(--display); font-weight: 600; font-size: 1.0625rem; line-height: 1.4; }
 
   /* Sections: title on the left, content on the right */
+  .section, #top { scroll-margin-top: 84px; }
   .section { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 48px; padding: 56px 0; border-bottom: 1px solid var(--rule); }
   .section:last-of-type { border-bottom: 0; }
   h2 { font-family: var(--display); font-weight: 750; font-stretch: 108%; font-size: 1.375rem; line-height: 1.2; letter-spacing: -0.01em; margin: 0; }
@@ -413,6 +416,20 @@
   buttons.forEach(function (b) {
     b.addEventListener('click', function () { setLang(b.getAttribute('data-set'), true); });
   });
+
+  // Mark the section currently on screen in the top menu
+  var navLinks = document.querySelectorAll('.top nav a');
+  if ('IntersectionObserver' in window) {
+    var seen = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        navLinks.forEach(function (a) {
+          a.setAttribute('aria-current', String(a.getAttribute('href') === '#' + e.target.id));
+        });
+      });
+    }, { rootMargin: '-30% 0px -60% 0px' });
+    document.querySelectorAll('.section').forEach(function (sec) { seen.observe(sec); });
+  }
 })();
 </script>
 </body>
