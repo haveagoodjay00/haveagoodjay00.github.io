@@ -232,3 +232,10 @@ table.gloss th:first-child { width: 36%; }
 table.gloss th[scope="row"] { overflow-wrap: anywhere; padding-right: 14px; }
 @media (max-width: 640px) { table.gloss th:first-child { width: 46%; } }
 table.gloss th[scope="row"] { white-space: normal; }
+
+/* Floating scroll buttons */
+.scrollbtns { position: fixed; right: 20px; bottom: 24px; z-index: 40; display: flex; flex-direction: column; gap: 8px; }
+.scrollbtns[hidden], .scrollbtns button[hidden] { display: none; }
+.scrollbtns button { width: 44px; height: 44px; border: 2px solid var(--ink); background: var(--porcelain); color: var(--ink); font-size: 1.25rem; line-height: 1; cursor: pointer; box-shadow: 0 2px 6px rgba(16,32,47,.15); }
+.scrollbtns button:hover { background: var(--ink); color: #fff; }
+@media (max-width: 640px) { .scrollbtns { right: 12px; bottom: 16px; } .scrollbtns button { width: 40px; height: 40px; } }

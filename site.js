@@ -43,4 +43,25 @@
     el.addEventListener('click', function () { show(el); });
   });
   window.addEventListener('scroll', hide, { passive: true });
+
+  // Floating scroll buttons: top hides at the top, bottom hides at the bottom
+  var box = document.createElement('div');
+  box.className = 'scrollbtns';
+  box.innerHTML = '<button type="button" class="up" aria-label="Scroll to top" title="Top">\u2191</button>' +
+                  '<button type="button" class="down" aria-label="Scroll to bottom" title="Bottom">\u2193</button>';
+  document.body.appendChild(box);
+  var up = box.querySelector('.up'), down = box.querySelector('.down');
+  var smooth = !window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'smooth' : 'auto';
+  up.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: smooth }); });
+  down.addEventListener('click', function () { window.scrollTo({ top: document.documentElement.scrollHeight, behavior: smooth }); });
+  function updateBtns() {
+    var y = window.scrollY, max = document.documentElement.scrollHeight - window.innerHeight;
+    up.hidden = y < 40;
+    down.hidden = y > max - 40;
+    box.hidden = max < 200;
+  }
+  window.addEventListener('scroll', updateBtns, { passive: true });
+  window.addEventListener('resize', updateBtns);
+  document.addEventListener('toggle', updateBtns, true);
+  updateBtns();
 })();
