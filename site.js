@@ -64,4 +64,75 @@
   window.addEventListener('resize', updateBtns);
   document.addEventListener('toggle', updateBtns, true);
   updateBtns();
+
+  // Section rail (research page): stage blocks, sub-sections, scroll-spy
+  (function () {
+    var stages = document.querySelectorAll('.stage[data-stage]');
+    if (!stages.length) return;
+    function label(el, short) {
+      var h = el.querySelector('h2');
+      var txt = h ? h.textContent.replace(/\s+/g, ' ').trim() : '';
+      if (short) txt = txt.split(':')[0];
+      return txt;
+    }
+    var entries = [];   // {el, li, stage, sub}
+    var nav = document.createElement('nav');
+    nav.className = 'rail';
+    nav.setAttribute('aria-label', 'Sections on this page');
+    var ul = document.createElement('ul');
+    nav.appendChild(ul);
+    function mk(el, text, cls, parentUl) {
+      var li = document.createElement('li');
+      li.className = cls;
+      var a = document.createElement('a');
+      a.href = '#' + el.id;
+      a.innerHTML = '<span class="lbl"></span><span class="dot"></span>';
+      a.querySelector('.lbl').textContent = text;
+      li.appendChild(a);
+      parentUl.appendChild(li);
+      return li;
+    }
+    function plain(id) {
+      var el = document.getElementById(id);
+      if (!el) return;
+      entries.push({ el: el, li: mk(el, label(el), 'l1', ul), stage: null, sub: false });
+    }
+    plain('motivation');
+    plain('roadmap');
+    stages.forEach(function (st) {
+      var li = mk(st, 'Stage ' + st.getAttribute('data-stage'), 'l1 stagehead', ul);
+      var subUl = document.createElement('ul');
+      subUl.className = 'sub';
+      li.appendChild(subUl);
+      var rec = { el: st, li: li, stage: st, sub: false };
+      entries.push(rec);
+      st.querySelectorAll('.section[id]').forEach(function (sec) {
+        entries.push({ el: sec, li: mk(sec, label(sec, true), 'l2', subUl), stage: st, sub: true });
+      });
+    });
+    plain('glossary');
+    document.body.appendChild(nav);
+
+    var ticking = false;
+    function update() {
+      ticking = false;
+      var y = window.scrollY;
+      nav.classList.toggle('show', y > 160);
+      var line = window.innerHeight * 0.35, cur = null;
+      entries.forEach(function (e) {
+        if (e.el.getBoundingClientRect().top <= line) cur = e;
+      });
+      var activeStage = cur && cur.stage ? cur.stage : null;
+      entries.forEach(function (e) {
+        e.li.classList.toggle('on', e === cur);
+        if (!e.sub && e.stage) e.li.classList.toggle('open', e.stage === activeStage);
+      });
+    }
+    window.addEventListener('scroll', function () {
+      if (!ticking) { ticking = true; requestAnimationFrame(update); }
+    }, { passive: true });
+    window.addEventListener('resize', update);
+    document.addEventListener('toggle', update, true);
+    update();
+  })();
 })();
