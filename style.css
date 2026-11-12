@@ -215,14 +215,12 @@ ol.stages a { font-family: var(--display); font-weight: 600; font-size: 0.9375re
   .stageend { padding: 16px 18px 20px; }
 }
 
-/* Certification list: name, then what it covers */
-ul.certs { list-style: none; margin: 0 0 16px; padding: 0; border-top: 1px solid var(--rule); }
-ul.certs li { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: 16px; padding: 10px 0; border-bottom: 1px solid var(--rule); font-size: 0.9688rem; }
-ul.certs strong { font-family: var(--display); font-weight: 700; color: var(--ink); }
-ul.certs span { color: var(--slate); }
-@media (max-width: 900px) { ul.certs li { grid-template-columns: minmax(0, 1fr); gap: 2px; } }
+/* Other certifications: one quiet line */
+.others { font-size: 0.9063rem; color: var(--slate); margin: 14px 0 0; max-width: none; }
 
 /* Activity photos open full size; certificates are shown whole */
 .item .thumb { flex: none; display: block; line-height: 0; }
-.item img.doc { object-fit: contain; background: #fff; }
+.item img.doc { width: 90px; height: 120px; object-fit: cover; object-position: center top; }
 .item .thumb:hover img { outline: 3px solid var(--signal); }
+
+@media (max-width: 640px) { .item img.doc { width: 66px; height: 88px; } }
