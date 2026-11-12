@@ -192,11 +192,25 @@ ol.stages p { margin: 0 0 6px; font-size: 1rem; }
 ol.stages .st-head { font-family: var(--display); font-size: 1.0938rem; }
 ol.stages .st-head strong { margin-right: 6px; }
 ol.stages a { font-family: var(--display); font-weight: 600; font-size: 0.9375rem; }
-.stageband { background: var(--ink); color: var(--porcelain); padding: 26px 28px 28px; margin-top: 52px; }
-.stageband .chip.done { background: var(--signal); color: var(--ink); border-color: var(--signal); margin-bottom: 10px; }
-.stagetitle { font-family: var(--display); font-weight: 750; font-stretch: 105%; font-size: clamp(1.3rem, 2.6vw, 1.75rem); line-height: 1.25; margin: 0; max-width: 30em; }
-#stage1 { scroll-margin-top: 84px; }
+/* A stage is one framed block: header band, sections tagged with the stage number, end marker */
+.stage { margin-top: 56px; border: 2px solid var(--ink); border-top: 0; background: #fff; scroll-margin-top: 84px; }
+.stageband { display: grid; grid-template-columns: 72px minmax(0, 1fr); gap: 22px; align-items: start; background: var(--ink); color: var(--porcelain); padding: 28px 30px 26px; }
+.stagenum { font-family: var(--display); font-weight: 800; font-size: 2.75rem; line-height: 1; width: 72px; height: 72px; display: grid; place-items: center; background: var(--signal); color: var(--ink); }
+.stageband .chip.done { background: transparent; color: #AEBBC7; border: 0; padding: 0; margin-bottom: 6px; font-weight: 600; }
+.stagetitle { font-family: var(--display); font-weight: 750; font-stretch: 105%; font-size: clamp(1.3rem, 2.6vw, 1.75rem); line-height: 1.25; margin: 0 0 16px; max-width: 30em; }
+.jump { display: flex; flex-wrap: wrap; gap: 8px; }
+.jump a { font-family: var(--display); font-weight: 600; font-size: 0.875rem; color: var(--porcelain); text-decoration: none; border: 1.5px solid rgba(255,255,255,.35); padding: 4px 10px; }
+.jump a:hover { background: var(--signal); color: var(--ink); border-color: var(--signal); }
+.stage .section { padding-left: 30px; padding-right: 30px; }
+.stage .section > h2::before { content: "Stage " attr(data-stage-label); width: fit-content; height: auto; background: none; display: block; font-size: 0.75rem; font-weight: 700; color: var(--ink); background-color: var(--signal); padding: 2px 8px; margin-bottom: 12px; letter-spacing: 0; }
+.stage .section:last-of-type { border-bottom: 1px solid var(--rule); }
+.stageend { font-family: var(--display); font-size: 0.9375rem; color: var(--slate); margin: 0; padding: 18px 30px 22px; max-width: none; }
+.stageend a { font-weight: 600; margin-left: 8px; }
+.stage .section { scroll-margin-top: 84px; }
 @media (max-width: 900px) {
-  .stageband { padding: 20px; margin-top: 38px; }
-  #stage1 { scroll-margin-top: 110px; }
+  .stage { margin-top: 38px; scroll-margin-top: 110px; }
+  .stageband { grid-template-columns: 1fr; gap: 14px; padding: 20px; }
+  .stagenum { width: 52px; height: 52px; font-size: 2rem; }
+  .stage .section { padding-left: 18px; padding-right: 18px; scroll-margin-top: 110px; }
+  .stageend { padding: 16px 18px 20px; }
 }
