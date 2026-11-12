@@ -351,7 +351,7 @@
     <section class="section" id="glossary">
       <h2>Glossary</h2>
       <div>
-      <h3>System and model</h3>
+      <details class="data"><summary>System and model</summary>
       <div class="scroll"><table class="gloss"><thead><tr><th>Term</th><th>Meaning</th></tr></thead><tbody>
 <tr><th scope="row">Power system</th><td><span data-l="en">The whole network of generators, transmission lines and loads</span><span data-l="ko">발전기·송전망·부하로 이루어진 전력망 전체</span></td></tr>
 <tr><th scope="row">Bus</th><td><span data-l="en">A connection point where generators, loads and lines meet</span><span data-l="ko">발전기·부하·선로가 만나는 접속점(모선)</span></td></tr>
@@ -362,8 +362,8 @@
 <tr><th scope="row">Data center load</th><td><span data-l="en">The constant P/Q load added at bus 4</span><span data-l="ko">bus 4에 추가한 일정 P/Q 부하</span></td></tr>
 <tr><th scope="row">Static generator (sgen)</th><td><span data-l="en">A fixed source that keeps the P/Q it is given</span><span data-l="ko">입력한 P/Q를 그대로 유지하는 고정 발전원</span></td></tr>
 <tr><th scope="row">Responsive sources</th><td><span data-l="en">Sources whose output (Q and so on) reacts during the calculation</span><span data-l="ko">계산 중 출력(Q 등)이 반응하는 발전원</span></td></tr>
-</tbody></table></div>
-      <h3>Electrical quantities and units</h3>
+</tbody></table></div></details>
+      <details class="data"><summary>Electrical quantities and units</summary>
       <div class="scroll"><table class="gloss"><thead><tr><th>Term</th><th>Meaning</th></tr></thead><tbody>
 <tr><th scope="row">Active power (P), MW</th><td><span data-l="en">Power that does real work</span><span data-l="ko">실제로 일을 하는 전력</span></td></tr>
 <tr><th scope="row">Reactive power (Q), Mvar</th><td><span data-l="en">Power tied to voltage support; it does no work but has to flow</span><span data-l="ko">전압 유지와 관련된 전력. 일을 하지 않지만 흘러야 하는 성분</span></td></tr>
@@ -371,8 +371,8 @@
 <tr><th scope="row">Voltage setpoint (Vg)</th><td><span data-l="en">The voltage target given to a generator; the calculated Vm can differ</span><span data-l="ko">발전기에 입력한 전압 목표값. 실제 Vm과 다를 수 있음</span></td></tr>
 <tr><th scope="row">Per unit (pu)</th><td><span data-l="en">A value expressed as a ratio to a base value; 1.0 pu is the base voltage</span><span data-l="ko">기준값 대비 비율로 나타낸 값. 1.0 pu = 기준 전압</span></td></tr>
 <tr><th scope="row">Losses</th><td><span data-l="en">Power that disappears in the lines during transmission</span><span data-l="ko">송전 중 선로에서 사라지는 전력</span></td></tr>
-</tbody></table></div>
-      <h3>Calculation methods</h3>
+</tbody></table></div></details>
+      <details class="data"><summary>Calculation methods</summary>
       <div class="scroll"><table class="gloss"><thead><tr><th>Term</th><th>Meaning</th></tr></thead><tbody>
 <tr><th scope="row">Power flow (PF)</th><td><span data-l="en">Calculating voltages and power flows for given generation and load</span><span data-l="ko">주어진 발전·부하에서 전압과 전력 흐름을 계산(조류계산)</span></td></tr>
 <tr><th scope="row">AC power flow</th><td><span data-l="en">A power flow that solves P, Q, voltage magnitude and angle; unrelated to the “DC” in data center</span><span data-l="ko">P와 Q, 전압 크기와 각도를 모두 푸는 조류계산. 데이터센터 “DC”와 무관</span></td></tr>
@@ -382,8 +382,8 @@
 <tr><th scope="row">Optimal power flow (OPF)</th><td><span data-l="en">A power flow that optimizes a goal (such as cost) while respecting limits</span><span data-l="ko">한계를 지키면서 목표(비용 등)를 최적화하는 조류계산</span></td></tr>
 <tr><th scope="row">Steady-state (static) analysis</th><td><span data-l="en">Looks at one stable moment only (a single photograph)</span><span data-l="ko">한 시점의 안정된 상태만 보는 해석(사진 한 장)</span></td></tr>
 <tr><th scope="row">Stability (dynamic) analysis</th><td><span data-l="en">Looks at how things change over the few seconds after an event (a video); outside this study</span><span data-l="ko">사고 직후 수 초간의 시간 변화를 보는 해석(영상). 이 연구의 범위 밖</span></td></tr>
-</tbody></table></div>
-      <h3>Bus types and control</h3>
+</tbody></table></div></details>
+      <details class="data"><summary>Bus types and control</summary>
       <div class="scroll"><table class="gloss"><thead><tr><th>Term</th><th>Meaning</th></tr></thead><tbody>
 <tr><th scope="row">PQ bus</th><td><span data-l="en">A bus where P and Q are given and the voltage is calculated</span><span data-l="ko">P와 Q를 입력하고 전압을 계산하는 bus</span></td></tr>
 <tr><th scope="row">PV bus</th><td><span data-l="en">A bus where P and a voltage target are given and Q is calculated</span><span data-l="ko">P와 전압 목표를 입력하고 Q를 계산하는 bus</span></td></tr>
@@ -391,8 +391,8 @@
 <tr><th scope="row">Reference source</th><td><span data-l="en">The source at the slack bus; it balances P but shares Q response with the other generators</span><span data-l="ko">slack bus의 발전원. P 수지를 맞추지만 Q 반응은 다른 발전기들과 나눔</span></td></tr>
 <tr><th scope="row">Q limit enforcement</th><td><span data-l="en">A rule that pins a generator's Q at its limit once it would exceed it</span><span data-l="ko">발전기 Q가 한계를 넘으면 한계값에 고정하는 계산 규칙</span></td></tr>
 <tr><th scope="row">PV → PQ switching</th><td><span data-l="en">The change that releases the voltage target when Q is pinned at its limit</span><span data-l="ko">Q가 한계에 고정되면서 전압 목표를 풀어 주는 전환</span></td></tr>
-</tbody></table></div>
-      <h3>Evaluation criteria</h3>
+</tbody></table></div></details>
+      <details class="data"><summary>Evaluation criteria</summary>
       <div class="scroll"><table class="gloss"><thead><tr><th>Term</th><th>Meaning</th></tr></thead><tbody>
 <tr><th scope="row">Physical limit</th><td><span data-l="en">What the equipment can actually withstand (ratings, voltage range and so on)</span><span data-l="ko">설비가 원래 견딜 수 있는 한계(정격, 전압 범위 등)</span></td></tr>
 <tr><th scope="row">Margin</th><td><span data-l="en">The distance from the current value to a physical limit</span><span data-l="ko">현재 값에서 physical limit까지 남은 거리</span></td></tr>
@@ -402,8 +402,8 @@
 <tr><th scope="row">Criterion C</th><td><span data-l="en">Was the reference source's P buffer left?</span><span data-l="ko">reference source P buffer를 남겼는가</span></td></tr>
 <tr><th scope="row">Design range (P0/P1, Q0/Q1)</th><td><span data-l="en">The P and Q range given to the reference source in the OPF; “0” does not mean unconstrained</span><span data-l="ko">OPF에서 reference source에 준 P/Q 설계 범위 표기. “0”은 제약 없음이 아님</span></td></tr>
 <tr><th scope="row">Demand test points</th><td><span data-l="en">The 17 data center demand values chosen in advance</span><span data-l="ko">미리 정한 17개 데이터센터 수요값</span></td></tr>
-</tbody></table></div>
-      <h3>Stage 2: N-1 security</h3>
+</tbody></table></div></details>
+      <details class="data"><summary>Stage 2: N-1 security</summary>
       <div class="scroll"><table class="gloss"><thead><tr><th>Term</th><th>Meaning</th></tr></thead><tbody>
 <tr><th scope="row">N-1 security</th><td><span data-l="en">A steady-state check of whether the network respects its limits when any one element is out</span><span data-l="ko">설비 하나가 빠져도 계통이 한계를 지키는지 보는 정상상태 검사</span></td></tr>
 <tr><th scope="row">Contingency / outage</th><td><span data-l="en">The loss of one element, for example through a fault</span><span data-l="ko">설비 하나가 고장 등으로 빠지는 사건</span></td></tr>
@@ -416,7 +416,7 @@
 <tr><th scope="row">Re-dispatch</th><td><span data-l="en">Redistributing generator output after an outage</span><span data-l="ko">사고 후 발전기 출력을 다시 나누는 조정</span></td></tr>
 <tr><th scope="row">Hosting capacity</th><td><span data-l="en">The largest load that can be connected while respecting limits</span><span data-l="ko">한계를 지키며 연결할 수 있는 최대 부하</span></td></tr>
 <tr><th scope="row">Independent solver check</th><td><span data-l="en">Repeating a calculation in a different program to compare</span><span data-l="ko">다른 프로그램으로 같은 계산을 다시 해 대조하는 검증</span></td></tr>
-</tbody></table></div>
+</tbody></table></div></details>
       </div>
     </section>
 
