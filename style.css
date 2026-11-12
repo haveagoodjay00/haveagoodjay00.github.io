@@ -224,3 +224,11 @@ ol.stages a { font-family: var(--display); font-weight: 600; font-size: 0.9375re
 .item .thumb:hover img { outline: 3px solid var(--signal); }
 
 @media (max-width: 640px) { .item:has(img.doc) { flex-direction: column; gap: 16px; } .item img.doc { width: min(210px, 100%); height: auto; aspect-ratio: 210 / 311; } }
+
+/* Glossary tables: same column widths in every group */
+table.gloss { table-layout: fixed; }
+table.gloss th:first-child { width: 36%; }
+@media (max-width: 640px) { table.gloss th:first-child { width: 42%; } }
+table.gloss th[scope="row"] { overflow-wrap: anywhere; padding-right: 14px; }
+@media (max-width: 640px) { table.gloss th:first-child { width: 46%; } }
+table.gloss th[scope="row"] { white-space: normal; }
