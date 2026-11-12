@@ -140,7 +140,7 @@ details.data summary { font-family: var(--display); font-weight: 600; font-size:
 
 /* Beyond engineering: compact entries with a small photo */
 .items { border-top: 2px solid var(--ink); }
-.item { display: flex; gap: 20px; padding: 20px 0; border-bottom: 1px solid var(--rule); align-items: flex-start; }
+.item { display: flex; gap: 32px; padding: 20px 0; border-bottom: 1px solid var(--rule); align-items: flex-start; }
 .item img { width: 120px; height: 90px; object-fit: cover; border: 1.5px solid var(--ink); flex: none; }
 .item h3 { margin: 2px 0 6px; font-size: 1.0938rem; }
 .item p { font-size: 0.9688rem; color: var(--slate); margin: 0; }
@@ -220,7 +220,7 @@ ol.stages a { font-family: var(--display); font-weight: 600; font-size: 0.9375re
 
 /* Activity photos open full size; certificates are shown whole */
 .item .thumb { flex: none; display: block; line-height: 0; }
-.item img.doc { width: 108px; height: 160px; object-fit: cover; object-position: center top; }
+.item img.doc { width: 150px; height: 222px; object-fit: cover; object-position: center top; }
 .item .thumb:hover img { outline: 3px solid var(--signal); }
 
-@media (max-width: 640px) { .item img.doc { width: 81px; height: 120px; } }
+@media (max-width: 640px) { .item img.doc { width: 96px; height: 142px; } }
