@@ -115,6 +115,7 @@
     <section class="section" id="s1-model">
       <h2 data-stage-label="1">Model</h2>
       <div>
+        <details class="data"><summary>Show the model assumptions</summary>
         <ul class="plain">
           <li><span data-l="en">Network: the IEEE 24-bus Reliability Test System, a public benchmark.</span><span data-l="ko">계통: 누구나 같은 데이터로 재현할 수 있는 공개 benchmark system인 IEEE RTS-24(24-bus Reliability Test System).</span></li>
           <li><span data-l="en">Data center: a constant-power load at bus 4, with reactive demand assumed to be 0.25 times active demand.</span><span data-l="ko">데이터센터: bus 4의 일정 부하. Active power(P, 실제로 일을 하는 전력)의 0.25배를 reactive power(Q, 전압 유지와 관련된 전력)로 가정(Q = 0.25P).</span></li>
@@ -123,12 +124,14 @@
         </ul>
         <p class="note" data-l="en">These are modelling assumptions on a test network, not measurements from a real data center or a real grid.</p>
 <p class="note" data-l="ko">시험 계통에서의 모델링 가정이며, 실제 데이터센터나 실제 전력망의 측정값이 아닙니다.</p>
+        </details>
       </div>
     </section>
 
     <section class="section" id="s1-checks">
       <h2 data-stage-label="1">Three checks</h2>
       <div>
+        <details class="data"><summary>Show the three checks and thresholds</summary>
         <div class="scroll"><table>
           <thead><tr><th>Check</th><th>What it asks</th><th>Threshold used here</th></tr></thead>
           <tbody>
@@ -140,6 +143,7 @@
         </table></div>
         <p class="note" data-l="en">The margins in B and C are buffers I chose for this study. They are not a regulatory requirement or a guarantee of operating reserve.</p>
 <p class="note" data-l="ko">B와 C의 margin 목표는 이 연구를 위해 제가 정한 buffer입니다. 규정상의 요구나 실제 예비력의 보장이 아닙니다.</p>
+        </details>
       </div>
     </section>
 
@@ -356,8 +360,8 @@
 <p data-l="ko">1단계에서 표시한 저장 결과는 33개이고, 섹션 사이에 네 개가 재사용되어 고유한 power flow는 29회입니다. 설정을 만든 OPF 4회는 따로 셉니다. 도구는 Python의 pandapower와 MATLAB의 MATPOWER입니다.</p>
         <p data-l="en">I set the direction, scope and pass or fail criteria and reviewed the results. ChatGPT supported planning and review, and Claude Code and Codex implemented and ran the calculations. I did not write all of the code by hand.</p>
 <p data-l="ko">연구 방향과 범위, 합격 기준을 정하고 결과를 검토했습니다. 기획과 검토에는 ChatGPT의 도움을 받았고, 계산의 구현과 실행은 Claude Code와 Codex가 맡았습니다. 모든 코드를 직접 작성한 것은 아닙니다.</p>
-        <p class="note" data-l="en">The stage 1 report and code will be linked here once I have finished reviewing them for public release.</p>
-<p class="note" data-l="ko">1단계 보고서와 코드는 공개용 검토를 마친 뒤 이곳에 연결할 예정입니다.</p>
+        <p class="note" data-l="en">For the full report, code, run records and the journal of each decision, see my GitHub once the repository is public. This page keeps to the results.</p>
+<p class="note" data-l="ko">전체 보고서, 코드, 실행 기록, 결정마다의 저널은 저장소가 공개되면 GitHub에서 확인할 수 있습니다. 이 페이지에는 결과만 담았습니다.</p>
       </div>
     </section>
     <p class="stageend"><span data-l="en">End of stage 1.</span><span data-l="ko">1단계 끝.</span> <a href="#roadmap"><span data-l="en">Back to the roadmap</span><span data-l="ko">로드맵으로 돌아가기</span></a></p>
