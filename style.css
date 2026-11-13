@@ -359,3 +359,6 @@ footer .links .icons a:nth-child(3):hover { color: #181717; }
 .stages > li:target { background: rgba(245,196,0,.12); transition: background .6s; }
 .stages > li > .n { cursor: default; }
 .stages > li { scroll-margin-top: 120px; }
+/* inline "View details" next to project title */
+.sheet-title .vd { white-space: nowrap; margin-left: 8px; font-family: var(--display); font-size: 0.8125rem; font-weight: 600; color: var(--grid-blue, #1F5FA8); text-decoration: underline; text-underline-offset: 0.2em; vertical-align: 1px; }
+.sheet-title .vd:hover { color: var(--ink); }
