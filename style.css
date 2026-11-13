@@ -260,3 +260,7 @@ table.gloss th[scope="row"] { white-space: normal; }
 .rail .on > a .lbl { opacity: 1; transform: none; color: var(--ink); font-weight: 700; }
 @media (min-width: 1180px) { .rail { display: block; } }
 @media (prefers-reduced-motion: reduce) { .rail *, .rail { transition: none !important; } }
+
+/* Portrait photo in an activity entry */
+.item img.tall { width: 168px; height: 210px; object-fit: cover; object-position: center top; }
+@media (max-width: 640px) { .item:has(img.tall) { flex-direction: column; gap: 16px; } .item img.tall { width: min(168px, 100%); height: auto; aspect-ratio: 4 / 5; } }
