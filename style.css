@@ -332,3 +332,13 @@ table.gloss th[scope="row"] { white-space: normal; }
 footer .links { margin-top: 4px; }
 footer .links .icons a { border: 0; padding: 4px; background: none; }
 footer .links .icons a:hover { background: none; color: var(--grid-blue, #1F5FA8); }
+/* larger portrait on the left */
+.id { grid-template-columns: 380px minmax(0, 1fr); gap: 56px; }
+.id .portrait { order: -1; }
+@media (max-width: 900px) { .id { grid-template-columns: 300px minmax(0, 1fr); gap: 36px; } }
+@media (max-width: 760px) { .id { grid-template-columns: minmax(0, 1fr); } .id .portrait { max-width: 260px; } }
+/* small icons, like the reference site */
+.icons { gap: 12px; }
+.icons svg { width: 18px; height: 18px; }
+.icons a { color: var(--slate); padding: 3px; margin: -3px; }
+.icons a:hover, .icons a:focus-visible { transform: none; }
