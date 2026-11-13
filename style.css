@@ -268,3 +268,7 @@ table.gloss th[scope="row"] { white-space: normal; }
 /* School mark beside the school name (official mark, unaltered, small) */
 .schoolhead { display: flex; align-items: center; gap: 12px; margin-bottom: 6px; }
 .schoolhead img { width: 44px; height: 44px; flex: none; }
+
+/* Timeline rows: planned entries are quieter */
+.tl .row.future .when, .tl .row.future .what, .tl .row.future .what strong { color: var(--slate); }
+.tl .row.future { border-bottom-style: dashed; }
