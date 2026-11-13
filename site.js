@@ -15,7 +15,7 @@
   }
   var saved = null;
   try { saved = localStorage.getItem('lang'); } catch (e) {}
-  setLang(saved || ((navigator.language || '').toLowerCase().indexOf('ko') === 0 ? 'ko' : 'en'), false);
+  setLang('en', false);
   buttons.forEach(function (b) {
     b.addEventListener('click', function () { setLang(b.getAttribute('data-set'), true); });
   });

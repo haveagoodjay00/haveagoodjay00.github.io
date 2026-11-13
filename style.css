@@ -366,3 +366,5 @@ footer .links .icons a:nth-child(3):hover { color: #181717; }
 .sheet > h2 .vd, .section > h2 .vd { display: inline-block; margin-left: 6px; font-family: var(--display); font-size: 0.8125rem; font-weight: 600; letter-spacing: 0; color: var(--grid-blue, #1F5FA8); text-decoration: underline; text-underline-offset: 0.2em; white-space: nowrap; vertical-align: 2px; }
 .sheet > h2 .vd:hover { color: var(--ink); }
 .sheet > h2 .vd, .section > h2 .vd { margin-left: 0; margin-right: 4px; }
+/* small Korean name next to the English name */
+.id h1 .kname { font-family: "Noto Sans KR", var(--display); font-size: 0.38em; font-weight: 500; letter-spacing: 0; color: var(--slate); margin-left: 10px; vertical-align: 0.35em; white-space: nowrap; }

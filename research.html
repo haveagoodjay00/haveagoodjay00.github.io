@@ -14,10 +14,10 @@
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,400..800&family=Noto+Sans+KR:wght@400;500;700;800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
-<body data-title-en="Research | Hyeongseo Jang" data-title-ko="연구 | 장형서">
+<body data-title-en="Research | Hyeongseo Jang">
 <div class="wrap">
   <header class="top">
-    <a class="who" href="index.html"><span data-l="en">Hyeongseo Jang</span><span data-l="ko">장형서</span></a>
+    <a class="who" href="index.html">Hyeongseo Jang</a>
     <nav aria-label="Pages">
       <a href="index.html">Home</a>
       <a href="research.html" aria-current="page">Research</a>
@@ -25,26 +25,20 @@
       <a href="activities.html">Activities</a>
       <a href="#contact">Contact</a>
     </nav>
-    <div class="lang" role="group" aria-label="Language">
-      <button type="button" data-set="en" aria-pressed="true">EN</button>
-      <button type="button" data-set="ko" aria-pressed="false">한국어</button>
-    </div>
   </header>
   <main>
 
     <section class="pagehead">
       <p class="status">Stage 1 of 4 completed</p>
       <h1 class="h1-page">Large loads on a transmission network: a staged study on the IEEE 24-bus Reliability Test System</h1>
-      <p class="lede" data-l="en">I'm studying how much room a transmission network has for a large new load such as a data center, in four stages. The first stage is complete and is reported in detail below.</p>
-<p class="lede" data-l="ko">데이터센터 같은 큰 신규 부하를 송전망이 margin(한계까지 남은 거리)을 지키며 받아낼 수 있는지 네 단계로 나눠 연구하고 있습니다. 첫 단계를 마쳤고, 아래에 자세히 정리했습니다.</p>
+      <p class="lede">I'm studying how much room a transmission network has for a large new load such as a data center, in four stages. The first stage is complete and is reported in detail below.</p>
     </section>
 
     <section class="section" id="motivation">
       <h2>Motivation</h2>
       <div>
-        <p data-l="en">This study started from a single question. I see engineering as work that makes people's lives a little more convenient and more harmonious. As the AI industry grows, data centers are being built quickly, and there are continuing reports of nearby households facing problems such as less reliable power supply, outages and noise. Instead of responding after problems appear, could they be prevented at the planning and design stage? This study takes up the power-grid side of that question: when a large data center load is connected, can the existing grid stay within its limits and keep a margin? Other issues, such as noise, are outside its scope.</p>
-        <p data-l="ko">이 연구는 하나의 의문에서 시작했다. 나는 엔지니어링이 사람들의 삶을 조금 더 편리하고 조화롭게 만드는 일이라고 생각한다. 그런데 AI 산업이 커지면서 데이터센터가 빠르게 들어서고, 주변의 기존 가구들이 전력 공급 reliability(신뢰성), 정전, 소음 같은 문제를 겪는다는 이야기가 이어지고 있다. 문제가 생긴 뒤에 대응하기보다, 처음 계획하고 설계하는 단계에서부터 이런 문제를 막을 수는 없을까? 이 연구는 그중 전력망 쪽 질문을 다룬다. 큰 데이터센터 부하를 연결했을 때 기존 전력망이 limit을 지키고 margin을 남길 수 있는지를 계산으로 살펴본다. 소음 같은 다른 문제는 이 연구의 범위가 아니다.</p>
-        <p class="note"><a href="#glossary"><span data-l="en">Terms used on this page are listed in the Glossary.</span><span data-l="ko">이 페이지의 용어는 Glossary에 정리했습니다.</span></a></p>
+        <p>This study started from a single question. I see engineering as work that makes people's lives a little more convenient and more harmonious. As the AI industry grows, data centers are being built quickly, and there are continuing reports of nearby households facing problems such as less reliable power supply, outages and noise. Instead of responding after problems appear, could they be prevented at the planning and design stage? This study takes up the power-grid side of that question: when a large data center load is connected, can the existing grid stay within its limits and keep a margin? Other issues, such as noise, are outside its scope.</p>
+        <p class="note"><a href="#glossary">Terms used on this page are listed in the Glossary.</a></p>
       </div>
     </section>
 
@@ -53,25 +47,20 @@
       <div>
         <ol class="stages">
           <li class="done" id="plan-s1"><span class="n">1</span><div>
-            <p class="st-head"><a class="stlink" href="#stage1"><strong><span data-l="en">Operating margin at one bus</span><span data-l="ko">한 모선에서의 운전 여유</span></strong></a> <span class="chip done">Completed, Nov 2026</span></p>
-            <p data-l="en">Do generator settings chosen for a data center of about 100 MW keep the network within its limits, with margin to spare, as that demand moves?</p>
-<p data-l="ko">약 100 MW 데이터센터에 맞춰 정한 발전기 설정이, 수요가 변해도 계통의 physical limit(설비가 견딜 수 있는 한계)을 지키고 margin을 남기는가?</p>
-            <a href="#stage1"><span data-l="en">Read the stage 1 results</span><span data-l="ko">1단계 결과 보기</span></a></div></li>
+            <p class="st-head"><a class="stlink" href="#stage1"><strong>Operating margin at one bus</strong></a> <span class="chip done">Completed, Nov 2026</span></p>
+            <p>Do generator settings chosen for a data center of about 100 MW keep the network within its limits, with margin to spare, as that demand moves?</p>
+            <a href="#stage1">Read the stage 1 results</a></div></li>
           <li class="next" id="plan-s2"><span class="n">2</span><div>
             <p class="st-head"><strong>N-1 security</strong> <span class="chip next">Up next</span></p>
-            <p data-l="en">Repeat the check after each single line or generator outage, with post-outage limits and redispatch rules defined before any calculation is run. The outage list and criteria are planned to follow NERC TPL-001-5.1, category P1 (single contingency).</p>
-<p data-l="ko">N-1 security(설비 하나가 빠져도 계통이 한계를 지키는지 보는 정상상태 검사)를 봅니다. 선로나 발전기 하나가 빠진 뒤(outage)에도 같은 판정을 반복하며, 사고 후 허용 한계와 re-dispatch(출력 재조정) 규칙은 계산 전에 먼저 정합니다. 사고 목록과 판정 기준은 NERC TPL-001-5.1의 P1 contingency를 따를 예정입니다.</p></div></li>
+            <p>Repeat the check after each single line or generator outage, with post-outage limits and redispatch rules defined before any calculation is run. The outage list and criteria are planned to follow NERC TPL-001-5.1, category P1 (single contingency).</p></div></li>
           <li class="planned" id="plan-s3"><span class="n">3</span><div>
             <p class="st-head"><strong>Hosting capacity</strong> <span class="chip planned">Planned</span></p>
-            <p data-l="en">Under a stated operating policy, find how much load the bus can take before the first violation, in normal operation and after outages.</p>
-<p data-l="ko">명시한 운전 정책 아래에서, 정상 상태와 사고 후 각각 첫 위반이 나기 전까지 bus가 받아낼 수 있는 부하를 찾습니다. 이 최대 부하가 hosting capacity(한계를 지키며 연결할 수 있는 최대 부하)입니다.</p></div></li>
+            <p>Under a stated operating policy, find how much load the bus can take before the first violation, in normal operation and after outages.</p></div></li>
           <li class="planned" id="plan-s4"><span class="n">4</span><div>
             <p class="st-head"><strong>Other locations</strong> <span class="chip planned">Planned</span></p>
-            <p data-l="en">Compare candidate buses to see whether a setting or a capacity found at one location carries over to others.</p>
-<p data-l="ko">후보 bus들을 비교해, 한 위치에서 찾은 설정이나 hosting capacity가 다른 위치에서도 통하는지 확인합니다.</p></div></li>
+            <p>Compare candidate buses to see whether a setting or a capacity found at one location carries over to others.</p></div></li>
         </ol>
-        <p class="note" data-l="en">Stages 2 to 4 are planned work. Results will be added to this page as each stage is finished.</p>
-<p class="note" data-l="ko">2~4단계는 계획된 작업입니다. 각 단계를 마칠 때마다 결과를 이 페이지에 추가합니다.</p>
+        <p class="note">Stages 2 to 4 are planned work. Results will be added to this page as each stage is finished.</p>
       </div>
     </section>
 
@@ -92,23 +81,20 @@
       <h2 data-stage-label="1">Summary</h2>
       <div>
         <ul class="plain">
-          <li><span data-l="en">Question: with generator settings fixed for a data center of about 100 MW at bus 4, does the network stay within its limits as demand changes?</span><span data-l="ko">질문: bus 4의 약 100 MW 데이터센터에 맞춰 발전기 설정을 고정했을 때, 수요가 변해도 계통이 한계를 지키는가?</span></li>
-          <li><span data-l="en">Result 1: only one of four candidate settings (P1Q1) met all three criteria at 95, 100 and 105 MW.</span><span data-l="ko">결과 1: 네 가지 설정 후보 중 P1Q1만 95, 100, 105 MW에서 세 가지 기준을 모두 충족했습니다.</span></li>
-          <li><span data-l="en">Result 2: over 17 demand levels from 90 to 110 MW, 13 passed and 4 broke a physical limit, the first at 106.25 MW.</span><span data-l="ko">결과 2: 90~110 MW의 17개 수요 중 13개는 통과했고 4개는 physical limit을 넘었으며, 첫 위반은 106.25 MW였습니다.</span></li>
-          <li><span data-l="en">Result 3: enforcing generator reactive limits removes the violation at 106.25 MW but still leaves no margin.</span><span data-l="ko">결과 3: 발전기 Q limit을 적용하면 106.25 MW의 위반은 사라지지만 margin은 여전히 남지 않습니다.</span></li>
+          <li>Question: with generator settings fixed for a data center of about 100 MW at bus 4, does the network stay within its limits as demand changes?</li>
+          <li>Result 1: only one of four candidate settings (P1Q1) met all three criteria at 95, 100 and 105 MW.</li>
+          <li>Result 2: over 17 demand levels from 90 to 110 MW, 13 passed and 4 broke a physical limit, the first at 106.25 MW.</li>
+          <li>Result 3: enforcing generator reactive limits removes the violation at 106.25 MW but still leaves no margin.</li>
         </ul>
-        <p class="note" data-l="en">The sections below give the model, criteria and numbers. The stage 1 report and code will be on GitHub once I have finished reviewing them for public release.</p>
-<p class="note" data-l="ko">아래 섹션에 모델, 기준, 수치를 자세히 정리했습니다. 1단계 보고서와 코드는 공개용 검토를 마친 뒤 GitHub에 올릴 예정입니다.</p>
+        <p class="note">The sections below give the model, criteria and numbers. The stage 1 report and code will be on GitHub once I have finished reviewing them for public release.</p>
       </div>
     </section>
 
     <section class="section" id="s1-question">
       <h2 data-stage-label="1">The question</h2>
       <div>
-        <p data-l="en">I use a data center as the test case for a general operating question: when a large load is added, how much margin is left before the network reaches its limits?</p>
-<p data-l="ko">데이터센터를 시험 사례로 삼아, 큰 부하가 추가되면 계통이 한계에 닿기까지 margin이 얼마나 남는가라는 일반적인 운전 문제를 살펴봤습니다.</p>
-        <p data-l="en">A power-flow calculation that converges only tells you the equations were solved. It does not tell you that every generator and line stayed inside its rating, and it says nothing about how close to the edge the system is running. I kept those three questions separate throughout.</p>
-<p data-l="ko">Power flow(PF, 조류계산)가 convergence(반복 계산이 해에 도달한 상태)에 이르렀다는 것은 방정식이 풀렸다는 뜻일 뿐입니다. 이는 feasibility(모든 발전기와 선로가 정격 안에 있는 상태)를 뜻하지 않으며, 계통이 한계에 얼마나 가깝게 운전되는지도 알려주지 않습니다. 이 연구는 convergence ≠ feasibility라는 점을 출발점으로 삼아, 세 가지 질문을 끝까지 분리해서 다뤘습니다.</p>
+        <p>I use a data center as the test case for a general operating question: when a large load is added, how much margin is left before the network reaches its limits?</p>
+        <p>A power-flow calculation that converges only tells you the equations were solved. It does not tell you that every generator and line stayed inside its rating, and it says nothing about how close to the edge the system is running. I kept those three questions separate throughout.</p>
       </div>
     </section>
 
@@ -117,13 +103,12 @@
       <div>
         <details class="data"><summary>Show the model assumptions</summary>
         <ul class="plain">
-          <li><span data-l="en">Network: the IEEE 24-bus Reliability Test System, a public benchmark.</span><span data-l="ko">계통: 누구나 같은 데이터로 재현할 수 있는 공개 benchmark system인 IEEE RTS-24(24-bus Reliability Test System).</span></li>
-          <li><span data-l="en">Data center: a constant-power load at bus 4, with reactive demand assumed to be 0.25 times active demand.</span><span data-l="ko">데이터센터: bus 4의 일정 부하. Active power(P, 실제로 일을 하는 전력)의 0.25배를 reactive power(Q, 전압 유지와 관련된 전력)로 가정(Q = 0.25P).</span></li>
-          <li><span data-l="en">Generation: 22 fixed injections keep their input values. Eleven sources respond: ten generators and the reference source at bus 13.</span><span data-l="ko">발전: static generator(입력한 P/Q를 그대로 유지하는 고정 발전원) 22개는 입력값을 유지합니다. 출력이 반응하는 responsive sources는 일반 발전기 10개와 bus 13의 reference source(slack bus의 발전원) 1개, 합쳐 11개입니다.</span></li>
-          <li><span data-l="en">Control: each generator's active power and voltage target are held fixed, and its reactive power responds. The reference source balances active power, losses included.</span><span data-l="ko">제어: 각 발전기의 P와 voltage setpoint(전압 목표값)를 고정하고 Q가 반응합니다. reference source는 손실을 포함한 P 수지를 맞춥니다.</span></li>
+          <li>Network: the IEEE 24-bus Reliability Test System, a public benchmark.</li>
+          <li>Data center: a constant-power load at bus 4, with reactive demand assumed to be 0.25 times active demand.</li>
+          <li>Generation: 22 fixed injections keep their input values. Eleven sources respond: ten generators and the reference source at bus 13.</li>
+          <li>Control: each generator's active power and voltage target are held fixed, and its reactive power responds. The reference source balances active power, losses included.</li>
         </ul>
-        <p class="note" data-l="en">These are modelling assumptions on a test network, not measurements from a real data center or a real grid.</p>
-<p class="note" data-l="ko">시험 계통에서의 모델링 가정이며, 실제 데이터센터나 실제 전력망의 측정값이 아닙니다.</p>
+        <p class="note">These are modelling assumptions on a test network, not measurements from a real data center or a real grid.</p>
         </details>
       </div>
     </section>
@@ -135,14 +120,13 @@
         <div class="scroll"><table>
           <thead><tr><th>Check</th><th>What it asks</th><th>Threshold used here</th></tr></thead>
           <tbody>
-            <tr><th scope="row">Convergence</th><td><span data-l="en">Did the solver reach a solution?</span><span data-l="ko">solver가 해에 도달했는가?</span></td><td><span data-l="en">Recorded separately from the limits below</span><span data-l="ko">아래 한계 판정과 별도로 기록</span></td></tr>
-            <tr><th scope="row">Criterion A</th><td><span data-l="en">Are the original physical limits respected?</span><span data-l="ko">원래의 physical limit을 지키는가?</span></td><td><span data-l="en">Generator P and Q, bus voltages, line and transformer ratings, power balance</span><span data-l="ko">발전기 P와 Q, bus 전압, 선로와 변압기 정격, 전력 수지</span></td></tr>
-            <tr><th scope="row">Criterion B</th><td><span data-l="en">Is there reactive and voltage margin left?</span><span data-l="ko">Q와 전압 margin이 남는가?</span></td><td><span data-l="en">At least 0.25 Mvar on every responding source and 0.001 pu on every bus</span><span data-l="ko">모든 responsive source에서 0.25 Mvar 이상, 모든 bus에서 0.001 pu 이상</span></td></tr>
-            <tr><th scope="row">Criterion C</th><td><span data-l="en">Is there active-power margin on the reference source?</span><span data-l="ko">reference source의 P margin이 남는가?</span></td><td><span data-l="en">At least 1 MW from either limit</span><span data-l="ko">양쪽 한계에서 1 MW 이상</span></td></tr>
+            <tr><th scope="row">Convergence</th><td>Did the solver reach a solution?</td><td>Recorded separately from the limits below</td></tr>
+            <tr><th scope="row">Criterion A</th><td>Are the original physical limits respected?</td><td>Generator P and Q, bus voltages, line and transformer ratings, power balance</td></tr>
+            <tr><th scope="row">Criterion B</th><td>Is there reactive and voltage margin left?</td><td>At least 0.25 Mvar on every responding source and 0.001 pu on every bus</td></tr>
+            <tr><th scope="row">Criterion C</th><td>Is there active-power margin on the reference source?</td><td>At least 1 MW from either limit</td></tr>
           </tbody>
         </table></div>
-        <p class="note" data-l="en">The margins in B and C are buffers I chose for this study. They are not a regulatory requirement or a guarantee of operating reserve.</p>
-<p class="note" data-l="ko">B와 C의 margin 목표는 이 연구를 위해 제가 정한 buffer입니다. 규정상의 요구나 실제 예비력의 보장이 아닙니다.</p>
+        <p class="note">The margins in B and C are buffers I chose for this study. They are not a regulatory requirement or a guarantee of operating reserve.</p>
         </details>
       </div>
     </section>
@@ -150,32 +134,27 @@
     <section class="section" id="s1-r1">
       <h2 data-stage-label="1">Result 1: four candidate settings</h2>
       <div>
-        <p data-l="en">At first, all I set up was a simple scenario: connecting a data center. Comparing several operating settings was ChatGPT's suggestion; I accepted it and worked out the comparison together with it. The result was four settings (P0Q0, P1Q0, P0Q1, P1Q1) that change the reference source's P design range and Q design range separately and together, each evaluated at 95, 100 and 105 MW. Claude Code carried out the calculations and wrote the code.</p>
-        <p data-l="ko">처음에 내가 정한 것은 데이터센터를 연결하는 단순한 상황 하나였다. 운전 설정값을 여러 가지로 두고 비교해 보자는 것은 ChatGPT의 의견이었고, 나는 이를 받아들여 함께 비교 방법을 정했다. 그 결과 reference source의 P 설계 범위와 Q 설계 범위를 각각, 또 함께 바꾼 네 설정(P0Q0, P1Q0, P0Q1, P1Q1)을 만들고, 각각을 95, 100, 105 MW에서 평가했다. 계산과 코드는 Claude Code가 수행했다.</p>
-        <p data-l="en">An optimal power flow at 100 MW produced four candidate generator settings. They differ only in the active and reactive range the reference source was designed to stay within. Each setting was then held fixed and checked by a separate power flow at 95, 100 and 105 MW.</p>
-<p data-l="ko">100 MW에서 OPF(optimal power flow, 한계를 지키면서 목표를 최적화하는 power flow)로 발전기 설정 후보 네 개를 만들었습니다. 네 후보는 reference source가 머물도록 설계한 P와 Q의 design range만 다릅니다. 그다음 각 설정을 고정하고 95, 100, 105 MW에서 별도의 power flow로 확인했습니다.</p>
+        <p>At first, all I set up was a simple scenario: connecting a data center. Comparing several operating settings was ChatGPT's suggestion; I accepted it and worked out the comparison together with it. The result was four settings (P0Q0, P1Q0, P0Q1, P1Q1) that change the reference source's P design range and Q design range separately and together, each evaluated at 95, 100 and 105 MW. Claude Code carried out the calculations and wrote the code.</p>
+        <p>An optimal power flow at 100 MW produced four candidate generator settings. They differ only in the active and reactive range the reference source was designed to stay within. Each setting was then held fixed and checked by a separate power flow at 95, 100 and 105 MW.</p>
         <div class="scroll"><table class="verdicts">
           <thead><tr><th>Setting</th><th>P design (MW)</th><th>Q design (Mvar)</th><th>95 MW</th><th>100 MW</th><th>105 MW</th></tr></thead>
           <tbody><tr><th scope="row">P0Q0</th><td>69 to 197</td><td>0.98 to 79.02</td><td><span class="v ok" title="A: pass">A ✓</span><span class="v ok" title="B: pass">B ✓</span><span class="v na" title="C: not applied">C –</span></td><td><span class="v ok" title="A: pass">A ✓</span><span class="v ok" title="B: pass">B ✓</span><span class="v na" title="C: not applied">C –</span></td><td><span class="v no" title="A: fail">A ✕</span><span class="v no" title="B: fail">B ✕</span><span class="v na" title="C: not applied">C –</span></td></tr><tr><th scope="row">P1Q0</th><td>76 to 190</td><td>0.98 to 79.02</td><td><span class="v ok" title="A: pass">A ✓</span><span class="v ok" title="B: pass">B ✓</span><span class="v ok" title="C: pass">C ✓</span></td><td><span class="v ok" title="A: pass">A ✓</span><span class="v ok" title="B: pass">B ✓</span><span class="v ok" title="C: pass">C ✓</span></td><td><span class="v ok" title="A: pass">A ✓</span><span class="v no" title="B: fail">B ✕</span><span class="v ok" title="C: pass">C ✓</span></td></tr><tr><th scope="row">P0Q1</th><td>69 to 197</td><td>1.5 to 78.5</td><td><span class="v ok" title="A: pass">A ✓</span><span class="v ok" title="B: pass">B ✓</span><span class="v ok" title="C: pass">C ✓</span></td><td><span class="v ok" title="A: pass">A ✓</span><span class="v ok" title="B: pass">B ✓</span><span class="v no" title="C: fail">C ✕</span></td><td><span class="v no" title="A: fail">A ✕</span><span class="v ok" title="B: pass">B ✓</span><span class="v no" title="C: fail">C ✕</span></td></tr><tr class="hl"><th scope="row">P1Q1</th><td>76 to 190</td><td>1.5 to 78.5</td><td><span class="v ok" title="A: pass">A ✓</span><span class="v ok" title="B: pass">B ✓</span><span class="v ok" title="C: pass">C ✓</span></td><td><span class="v ok" title="A: pass">A ✓</span><span class="v ok" title="B: pass">B ✓</span><span class="v ok" title="C: pass">C ✓</span></td><td><span class="v ok" title="A: pass">A ✓</span><span class="v ok" title="B: pass">B ✓</span><span class="v ok" title="C: pass">C ✓</span></td></tr></tbody>
         </table></div>
-        <p class="legend"><span data-l="en">P and Q design: the range the reference source was designed to stay within.</span><span data-l="ko">P, Q 설계: reference source가 머물도록 설계한 범위(design range). 0은 제약 없음을 뜻하지 않습니다.</span> ✓ <span data-l="en">pass</span><span data-l="ko">합격</span> &nbsp; ✕ <span data-l="en">fail</span><span data-l="ko">불합격</span> &nbsp; – <span data-l="en">not applied</span><span data-l="ko">미적용</span></p>
+        <p class="legend">P and Q design: the range the reference source was designed to stay within. ✓ pass &nbsp; ✕ fail &nbsp; – not applied</p>
         <h3>How I read this</h3>
-        <p data-l="en">Only P1Q1, which narrows both ranges, met all three criteria at all three demand levels. The two settings that narrow just one range fail in different ways. With only the active range narrowed (P1Q0), the smallest reactive margin at 105 MW is 0.1833 Mvar, short of the 0.25 Mvar buffer. With only the reactive range narrowed (P0Q1), the reference source reaches 202.494 MW at 105 MW, above its 197 MW limit.</p>
-<p data-l="ko">두 범위를 모두 좁힌 P1Q1만 세 수요 전부에서 Criterion A, B, C를 충족했습니다. 한 범위만 좁힌 두 설정은 서로 다른 방식으로 실패합니다. P 범위만 좁힌 P1Q0은 105 MW에서 최소 Q margin이 0.1833 Mvar로, buffer 0.25 Mvar에 못 미칩니다. Q 범위만 좁힌 P0Q1은 105 MW에서 reference source 출력이 202.494 MW로, 상한 197 MW를 넘습니다.</p>
-        <p class="note" data-l="en">Leaving headroom in active power and in reactive power are separate design decisions, and here both were needed. This is one candidate per setting, so it shows what happened in these four cases and not a general rule. Criterion C did not exist when P0Q0 was run, so it is left as not applied.</p>
-<p class="note" data-l="ko">P margin과 Q margin은 서로 다른 설계 결정이고, 이 사례에서는 둘 다 필요했습니다. 설정마다 후보 하나씩만 본 결과이므로 이 네 경우에서 일어난 일을 보여줄 뿐 일반 법칙은 아닙니다. Criterion C는 P0Q0을 실행할 당시에는 없던 기준이어서 미적용으로 두었습니다.</p>
+        <p>Only P1Q1, which narrows both ranges, met all three criteria at all three demand levels. The two settings that narrow just one range fail in different ways. With only the active range narrowed (P1Q0), the smallest reactive margin at 105 MW is 0.1833 Mvar, short of the 0.25 Mvar buffer. With only the reactive range narrowed (P0Q1), the reference source reaches 202.494 MW at 105 MW, above its 197 MW limit.</p>
+        <p class="note">Leaving headroom in active power and in reactive power are separate design decisions, and here both were needed. This is one candidate per setting, so it shows what happened in these four cases and not a general rule. Criterion C did not exist when P0Q0 was run, so it is left as not applied.</p>
       </div>
     </section>
 
     <section class="section" id="s1-r2">
       <h2 data-stage-label="1">Result 2: one setting, seventeen demand levels</h2>
       <div>
-        <p data-l="en">I held the P1Q1 setting fixed and checked 17 demand levels chosen in advance, 1.25 MW apart from 90 to 110 MW. 13 met all three criteria. The last 4 broke at least one physical limit.</p>
-<p data-l="ko">P1Q1 설정을 고정하고, 90~110 MW 사이에 1.25 MW 간격으로 미리 정한 demand test points 17개를 확인했습니다. 13개는 Criterion A, B, C를 모두 충족했고, 마지막 4개는 physical limit을 하나 이상 넘었습니다.</p>
+        <p>I held the P1Q1 setting fixed and checked 17 demand levels chosen in advance, 1.25 MW apart from 90 to 110 MW. 13 met all three criteria. The last 4 broke at least one physical limit.</p>
         <figure>
           <figcaption>Generator 1 runs out of reactive power first</figcaption>
-          <p class="legend"><span class="lg ok"></span><span data-l="en">Met criteria A, B and C</span><span data-l="ko">A, B, C 기준 충족</span>
- <span class="lg bad"></span><span data-l="en">Broke a physical limit</span><span data-l="ko">물리 한계 위반</span></p>
+          <p class="legend"><span class="lg ok"></span>Met criteria A, B and C
+ <span class="lg bad"></span>Broke a physical limit</p>
           <svg class="chart" viewBox="0 0 720 320" role="img" aria-label="Line chart of generator 1 reactive power against data center demand from 90 to 110 MW, crossing its 10 Mvar upper limit at 106.25 MW.">
 <line class="grid" x1="58" x2="696" y1="245.7" y2="245.7"/>
 <text class="tick" x="48" y="249.7" text-anchor="end">4</text>
@@ -193,56 +172,52 @@
 <text class="tick" x="522.0" y="292" text-anchor="middle">105</text>
 <text class="tick" x="667.0" y="292" text-anchor="middle">110</text>
 <line class="axis" x1="58" x2="696" y1="272" y2="272"/>
-<text class="axlab" data-l="en" x="377.0" y="312" text-anchor="middle">Data center demand (MW)</text>
-<text class="axlab" data-l="ko" x="377.0" y="312" text-anchor="middle">데이터센터 수요 (MW)</text>
-<text class="axlab" data-l="en" x="58" y="12">Gen 1 reactive power (Mvar)</text>
-<text class="axlab" data-l="ko" x="58" y="12">Gen 1 Q (Mvar)</text>
+<text class="axlab" x="377.0" y="312" text-anchor="middle">Data center demand (MW)</text>
+<text class="axlab" x="58" y="12">Gen 1 reactive power (Mvar)</text>
 <line class="limit" x1="58" x2="696" y1="87.8" y2="87.8"/>
-<text class="lim-lab limit-lab" data-l="en" x="64" y="80.8">Gen 1 upper limit, 10 Mvar</text>
-<text class="lim-lab limit-lab" data-l="ko" x="64" y="80.8">Gen 1 상한 10 Mvar</text>
+<text class="lim-lab limit-lab" x="64" y="80.8">Gen 1 upper limit, 10 Mvar</text>
 <polyline class="series" points="87.0,254.4 123.2,241.4 159.5,228.3 195.8,215.2 232.0,202.0 268.2,188.8 304.5,175.5 340.8,162.2 377.0,148.8 413.2,135.3 449.5,121.8 485.8,108.3 522.0,94.7 558.2,81.1 594.5,67.4 630.8,53.6 667.0,39.8"/>
 <circle class="pt ok" cx="87.0" cy="254.4" r="5"/>
-<circle class="hit" tabindex="0" cx="87.0" cy="254.4" r="14" data-tip-en="90 MW: Gen 1 Q 3.6684 Mvar. Met A, B and C." data-tip-ko="90 MW: Gen 1 Q 3.6684 Mvar. A, B, C 충족."/>
+<circle class="hit" tabindex="0" cx="87.0" cy="254.4" r="14" data-tip-en="90 MW: Gen 1 Q 3.6684 Mvar. Met A, B and C."/>
 <circle class="pt ok" cx="123.2" cy="241.4" r="5"/>
-<circle class="hit" tabindex="0" cx="123.2" cy="241.4" r="14" data-tip-en="91.25 MW: Gen 1 Q 4.1634 Mvar. Met A, B and C." data-tip-ko="91.25 MW: Gen 1 Q 4.1634 Mvar. A, B, C 충족."/>
+<circle class="hit" tabindex="0" cx="123.2" cy="241.4" r="14" data-tip-en="91.25 MW: Gen 1 Q 4.1634 Mvar. Met A, B and C."/>
 <circle class="pt ok" cx="159.5" cy="228.3" r="5"/>
-<circle class="hit" tabindex="0" cx="159.5" cy="228.3" r="14" data-tip-en="92.5 MW: Gen 1 Q 4.6603 Mvar. Met A, B and C." data-tip-ko="92.5 MW: Gen 1 Q 4.6603 Mvar. A, B, C 충족."/>
+<circle class="hit" tabindex="0" cx="159.5" cy="228.3" r="14" data-tip-en="92.5 MW: Gen 1 Q 4.6603 Mvar. Met A, B and C."/>
 <circle class="pt ok" cx="195.8" cy="215.2" r="5"/>
-<circle class="hit" tabindex="0" cx="195.8" cy="215.2" r="14" data-tip-en="93.75 MW: Gen 1 Q 5.1591 Mvar. Met A, B and C." data-tip-ko="93.75 MW: Gen 1 Q 5.1591 Mvar. A, B, C 충족."/>
+<circle class="hit" tabindex="0" cx="195.8" cy="215.2" r="14" data-tip-en="93.75 MW: Gen 1 Q 5.1591 Mvar. Met A, B and C."/>
 <circle class="pt ok" cx="232.0" cy="202.0" r="5"/>
-<circle class="hit" tabindex="0" cx="232.0" cy="202.0" r="14" data-tip-en="95 MW: Gen 1 Q 5.6599 Mvar. Met A, B and C." data-tip-ko="95 MW: Gen 1 Q 5.6599 Mvar. A, B, C 충족."/>
+<circle class="hit" tabindex="0" cx="232.0" cy="202.0" r="14" data-tip-en="95 MW: Gen 1 Q 5.6599 Mvar. Met A, B and C."/>
 <circle class="pt ok" cx="268.2" cy="188.8" r="5"/>
-<circle class="hit" tabindex="0" cx="268.2" cy="188.8" r="14" data-tip-en="96.25 MW: Gen 1 Q 6.1626 Mvar. Met A, B and C." data-tip-ko="96.25 MW: Gen 1 Q 6.1626 Mvar. A, B, C 충족."/>
+<circle class="hit" tabindex="0" cx="268.2" cy="188.8" r="14" data-tip-en="96.25 MW: Gen 1 Q 6.1626 Mvar. Met A, B and C."/>
 <circle class="pt ok" cx="304.5" cy="175.5" r="5"/>
-<circle class="hit" tabindex="0" cx="304.5" cy="175.5" r="14" data-tip-en="97.5 MW: Gen 1 Q 6.6673 Mvar. Met A, B and C." data-tip-ko="97.5 MW: Gen 1 Q 6.6673 Mvar. A, B, C 충족."/>
+<circle class="hit" tabindex="0" cx="304.5" cy="175.5" r="14" data-tip-en="97.5 MW: Gen 1 Q 6.6673 Mvar. Met A, B and C."/>
 <circle class="pt ok" cx="340.8" cy="162.2" r="5"/>
-<circle class="hit" tabindex="0" cx="340.8" cy="162.2" r="14" data-tip-en="98.75 MW: Gen 1 Q 7.1739 Mvar. Met A, B and C." data-tip-ko="98.75 MW: Gen 1 Q 7.1739 Mvar. A, B, C 충족."/>
+<circle class="hit" tabindex="0" cx="340.8" cy="162.2" r="14" data-tip-en="98.75 MW: Gen 1 Q 7.1739 Mvar. Met A, B and C."/>
 <circle class="pt ok" cx="377.0" cy="148.8" r="5"/>
-<circle class="hit" tabindex="0" cx="377.0" cy="148.8" r="14" data-tip-en="100 MW: Gen 1 Q 7.6826 Mvar. Met A, B and C." data-tip-ko="100 MW: Gen 1 Q 7.6826 Mvar. A, B, C 충족."/>
+<circle class="hit" tabindex="0" cx="377.0" cy="148.8" r="14" data-tip-en="100 MW: Gen 1 Q 7.6826 Mvar. Met A, B and C."/>
 <circle class="pt ok" cx="413.2" cy="135.3" r="5"/>
-<circle class="hit" tabindex="0" cx="413.2" cy="135.3" r="14" data-tip-en="101.25 MW: Gen 1 Q 8.1932 Mvar. Met A, B and C." data-tip-ko="101.25 MW: Gen 1 Q 8.1932 Mvar. A, B, C 충족."/>
+<circle class="hit" tabindex="0" cx="413.2" cy="135.3" r="14" data-tip-en="101.25 MW: Gen 1 Q 8.1932 Mvar. Met A, B and C."/>
 <circle class="pt ok" cx="449.5" cy="121.8" r="5"/>
-<circle class="hit" tabindex="0" cx="449.5" cy="121.8" r="14" data-tip-en="102.5 MW: Gen 1 Q 8.7058 Mvar. Met A, B and C." data-tip-ko="102.5 MW: Gen 1 Q 8.7058 Mvar. A, B, C 충족."/>
+<circle class="hit" tabindex="0" cx="449.5" cy="121.8" r="14" data-tip-en="102.5 MW: Gen 1 Q 8.7058 Mvar. Met A, B and C."/>
 <circle class="pt ok" cx="485.8" cy="108.3" r="5"/>
-<circle class="hit" tabindex="0" cx="485.8" cy="108.3" r="14" data-tip-en="103.75 MW: Gen 1 Q 9.2204 Mvar. Met A, B and C." data-tip-ko="103.75 MW: Gen 1 Q 9.2204 Mvar. A, B, C 충족."/>
+<circle class="hit" tabindex="0" cx="485.8" cy="108.3" r="14" data-tip-en="103.75 MW: Gen 1 Q 9.2204 Mvar. Met A, B and C."/>
 <circle class="pt ok" cx="522.0" cy="94.7" r="5"/>
-<circle class="hit" tabindex="0" cx="522.0" cy="94.7" r="14" data-tip-en="105 MW: Gen 1 Q 9.7370 Mvar. Met A, B and C." data-tip-ko="105 MW: Gen 1 Q 9.7370 Mvar. A, B, C 충족."/>
+<circle class="hit" tabindex="0" cx="522.0" cy="94.7" r="14" data-tip-en="105 MW: Gen 1 Q 9.7370 Mvar. Met A, B and C."/>
 <rect class="pt bad" x="552.8" y="75.6" width="11" height="11" transform="rotate(45 558.2 81.1)"/>
-<circle class="hit" tabindex="0" cx="558.2" cy="81.1" r="14" data-tip-en="106.25 MW: Gen 1 Q 10.2557 Mvar. Broke a physical limit." data-tip-ko="106.25 MW: Gen 1 Q 10.2557 Mvar. 물리 한계 위반."/>
+<circle class="hit" tabindex="0" cx="558.2" cy="81.1" r="14" data-tip-en="106.25 MW: Gen 1 Q 10.2557 Mvar. Broke a physical limit."/>
 <rect class="pt bad" x="589.0" y="61.9" width="11" height="11" transform="rotate(45 594.5 67.4)"/>
-<circle class="hit" tabindex="0" cx="594.5" cy="67.4" r="14" data-tip-en="107.5 MW: Gen 1 Q 10.7764 Mvar. Broke a physical limit." data-tip-ko="107.5 MW: Gen 1 Q 10.7764 Mvar. 물리 한계 위반."/>
+<circle class="hit" tabindex="0" cx="594.5" cy="67.4" r="14" data-tip-en="107.5 MW: Gen 1 Q 10.7764 Mvar. Broke a physical limit."/>
 <rect class="pt bad" x="625.2" y="48.1" width="11" height="11" transform="rotate(45 630.8 53.6)"/>
-<circle class="hit" tabindex="0" cx="630.8" cy="53.6" r="14" data-tip-en="108.75 MW: Gen 1 Q 11.2991 Mvar. Broke a physical limit." data-tip-ko="108.75 MW: Gen 1 Q 11.2991 Mvar. 물리 한계 위반."/>
+<circle class="hit" tabindex="0" cx="630.8" cy="53.6" r="14" data-tip-en="108.75 MW: Gen 1 Q 11.2991 Mvar. Broke a physical limit."/>
 <rect class="pt bad" x="661.5" y="34.3" width="11" height="11" transform="rotate(45 667.0 39.8)"/>
-<circle class="hit" tabindex="0" cx="667.0" cy="39.8" r="14" data-tip-en="110 MW: Gen 1 Q 11.8239 Mvar. Broke a physical limit." data-tip-ko="110 MW: Gen 1 Q 11.8239 Mvar. 물리 한계 위반."/>
+<circle class="hit" tabindex="0" cx="667.0" cy="39.8" r="14" data-tip-en="110 MW: Gen 1 Q 11.8239 Mvar. Broke a physical limit."/>
 </svg>
         </figure>
-        <p data-l="en">As demand grows, Gen 1 at bus 2 supplies more reactive power to hold its voltage target, by about half a megavar per step. At 106.25 MW it would need 10.2557 Mvar against a limit of 10. That single violation is the first one in the series.</p>
-<p data-l="ko">수요가 늘수록 bus 2의 Gen 1은 전압 목표를 유지하려고 Q를 더 공급하며, 한 단계마다 약 0.5 Mvar씩 늘어납니다. 106.25 MW에서는 Q 상한 10 Mvar에 대해 10.2557 Mvar가 필요해집니다. 이 위반 하나가 전체에서 첫 번째 위반입니다.</p>
+        <p>As demand grows, Gen 1 at bus 2 supplies more reactive power to hold its voltage target, by about half a megavar per step. At 106.25 MW it would need 10.2557 Mvar against a limit of 10. That single violation is the first one in the series.</p>
         <figure>
           <figcaption>The reference source follows one step later</figcaption>
-          <p class="legend"><span class="lg ok"></span><span data-l="en">Met criteria A, B and C</span><span data-l="ko">A, B, C 기준 충족</span>
- <span class="lg bad"></span><span data-l="en">Broke a physical limit</span><span data-l="ko">물리 한계 위반</span></p>
+          <p class="legend"><span class="lg ok"></span>Met criteria A, B and C
+ <span class="lg bad"></span>Broke a physical limit</p>
           <svg class="chart" viewBox="0 0 720 320" role="img" aria-label="Line chart of reference source active power against data center demand, crossing its 197 MW upper limit at 107.5 MW.">
 <line class="grid" x1="58" x2="696" y1="236.3" y2="236.3"/>
 <text class="tick" x="48" y="240.3" text-anchor="end">180</text>
@@ -260,95 +235,84 @@
 <text class="tick" x="522.0" y="292" text-anchor="middle">105</text>
 <text class="tick" x="667.0" y="292" text-anchor="middle">110</text>
 <line class="axis" x1="58" x2="696" y1="272" y2="272"/>
-<text class="axlab" data-l="en" x="377.0" y="312" text-anchor="middle">Data center demand (MW)</text>
-<text class="axlab" data-l="ko" x="377.0" y="312" text-anchor="middle">데이터센터 수요 (MW)</text>
-<text class="axlab" data-l="en" x="58" y="12">Reference source active power (MW)</text>
-<text class="axlab" data-l="ko" x="58" y="12">Reference source P (MW)</text>
+<text class="axlab" x="377.0" y="312" text-anchor="middle">Data center demand (MW)</text>
+<text class="axlab" x="58" y="12">Reference source active power (MW)</text>
 <line class="limit" x1="58" x2="696" y1="84.5" y2="84.5"/>
-<text class="lim-lab limit-lab" data-l="en" x="64" y="77.5">Reference source upper limit, 197 MW</text>
-<text class="lim-lab limit-lab" data-l="ko" x="64" y="77.5">reference source 상한 197 MW</text>
+<text class="lim-lab limit-lab" x="64" y="77.5">Reference source upper limit, 197 MW</text>
 <line class="buffer" x1="58" x2="696" y1="93.4" y2="93.4"/>
-<text class="lim-lab buffer-lab" data-l="en" x="64" y="109.4">Limit minus the 1 MW buffer (Criterion C)</text>
-<text class="lim-lab buffer-lab" data-l="ko" x="64" y="109.4">상한에서 buffer 1 MW를 뺀 선 (Criterion C)</text>
+<text class="lim-lab buffer-lab" x="64" y="109.4">Limit minus the 1 MW buffer (Criterion C)</text>
 <polyline class="series" points="87.0,244.6 123.2,232.4 159.5,220.3 195.8,208.1 232.0,195.9 268.2,183.7 304.5,171.5 340.8,159.2 377.0,147.0 413.2,134.8 449.5,122.5 485.8,110.2 522.0,98.0 558.2,85.7 594.5,73.4 630.8,61.1 667.0,48.8"/>
 <circle class="pt ok" cx="87.0" cy="244.6" r="5"/>
-<circle class="hit" tabindex="0" cx="87.0" cy="244.6" r="14" data-tip-en="90 MW: reference source 179.068 MW. Met A, B and C." data-tip-ko="90 MW: reference source 179.068 MW. A, B, C 충족."/>
+<circle class="hit" tabindex="0" cx="87.0" cy="244.6" r="14" data-tip-en="90 MW: reference source 179.068 MW. Met A, B and C."/>
 <circle class="pt ok" cx="123.2" cy="232.4" r="5"/>
-<circle class="hit" tabindex="0" cx="123.2" cy="232.4" r="14" data-tip-en="91.25 MW: reference source 180.431 MW. Met A, B and C." data-tip-ko="91.25 MW: reference source 180.431 MW. A, B, C 충족."/>
+<circle class="hit" tabindex="0" cx="123.2" cy="232.4" r="14" data-tip-en="91.25 MW: reference source 180.431 MW. Met A, B and C."/>
 <circle class="pt ok" cx="159.5" cy="220.3" r="5"/>
-<circle class="hit" tabindex="0" cx="159.5" cy="220.3" r="14" data-tip-en="92.5 MW: reference source 181.794 MW. Met A, B and C." data-tip-ko="92.5 MW: reference source 181.794 MW. A, B, C 충족."/>
+<circle class="hit" tabindex="0" cx="159.5" cy="220.3" r="14" data-tip-en="92.5 MW: reference source 181.794 MW. Met A, B and C."/>
 <circle class="pt ok" cx="195.8" cy="208.1" r="5"/>
-<circle class="hit" tabindex="0" cx="195.8" cy="208.1" r="14" data-tip-en="93.75 MW: reference source 183.159 MW. Met A, B and C." data-tip-ko="93.75 MW: reference source 183.159 MW. A, B, C 충족."/>
+<circle class="hit" tabindex="0" cx="195.8" cy="208.1" r="14" data-tip-en="93.75 MW: reference source 183.159 MW. Met A, B and C."/>
 <circle class="pt ok" cx="232.0" cy="195.9" r="5"/>
-<circle class="hit" tabindex="0" cx="232.0" cy="195.9" r="14" data-tip-en="95 MW: reference source 184.525 MW. Met A, B and C." data-tip-ko="95 MW: reference source 184.525 MW. A, B, C 충족."/>
+<circle class="hit" tabindex="0" cx="232.0" cy="195.9" r="14" data-tip-en="95 MW: reference source 184.525 MW. Met A, B and C."/>
 <circle class="pt ok" cx="268.2" cy="183.7" r="5"/>
-<circle class="hit" tabindex="0" cx="268.2" cy="183.7" r="14" data-tip-en="96.25 MW: reference source 185.892 MW. Met A, B and C." data-tip-ko="96.25 MW: reference source 185.892 MW. A, B, C 충족."/>
+<circle class="hit" tabindex="0" cx="268.2" cy="183.7" r="14" data-tip-en="96.25 MW: reference source 185.892 MW. Met A, B and C."/>
 <circle class="pt ok" cx="304.5" cy="171.5" r="5"/>
-<circle class="hit" tabindex="0" cx="304.5" cy="171.5" r="14" data-tip-en="97.5 MW: reference source 187.260 MW. Met A, B and C." data-tip-ko="97.5 MW: reference source 187.260 MW. A, B, C 충족."/>
+<circle class="hit" tabindex="0" cx="304.5" cy="171.5" r="14" data-tip-en="97.5 MW: reference source 187.260 MW. Met A, B and C."/>
 <circle class="pt ok" cx="340.8" cy="159.2" r="5"/>
-<circle class="hit" tabindex="0" cx="340.8" cy="159.2" r="14" data-tip-en="98.75 MW: reference source 188.630 MW. Met A, B and C." data-tip-ko="98.75 MW: reference source 188.630 MW. A, B, C 충족."/>
+<circle class="hit" tabindex="0" cx="340.8" cy="159.2" r="14" data-tip-en="98.75 MW: reference source 188.630 MW. Met A, B and C."/>
 <circle class="pt ok" cx="377.0" cy="147.0" r="5"/>
-<circle class="hit" tabindex="0" cx="377.0" cy="147.0" r="14" data-tip-en="100 MW: reference source 190.000 MW. Met A, B and C." data-tip-ko="100 MW: reference source 190.000 MW. A, B, C 충족."/>
+<circle class="hit" tabindex="0" cx="377.0" cy="147.0" r="14" data-tip-en="100 MW: reference source 190.000 MW. Met A, B and C."/>
 <circle class="pt ok" cx="413.2" cy="134.8" r="5"/>
-<circle class="hit" tabindex="0" cx="413.2" cy="134.8" r="14" data-tip-en="101.25 MW: reference source 191.371 MW. Met A, B and C." data-tip-ko="101.25 MW: reference source 191.371 MW. A, B, C 충족."/>
+<circle class="hit" tabindex="0" cx="413.2" cy="134.8" r="14" data-tip-en="101.25 MW: reference source 191.371 MW. Met A, B and C."/>
 <circle class="pt ok" cx="449.5" cy="122.5" r="5"/>
-<circle class="hit" tabindex="0" cx="449.5" cy="122.5" r="14" data-tip-en="102.5 MW: reference source 192.744 MW. Met A, B and C." data-tip-ko="102.5 MW: reference source 192.744 MW. A, B, C 충족."/>
+<circle class="hit" tabindex="0" cx="449.5" cy="122.5" r="14" data-tip-en="102.5 MW: reference source 192.744 MW. Met A, B and C."/>
 <circle class="pt ok" cx="485.8" cy="110.2" r="5"/>
-<circle class="hit" tabindex="0" cx="485.8" cy="110.2" r="14" data-tip-en="103.75 MW: reference source 194.118 MW. Met A, B and C." data-tip-ko="103.75 MW: reference source 194.118 MW. A, B, C 충족."/>
+<circle class="hit" tabindex="0" cx="485.8" cy="110.2" r="14" data-tip-en="103.75 MW: reference source 194.118 MW. Met A, B and C."/>
 <circle class="pt ok" cx="522.0" cy="98.0" r="5"/>
-<circle class="hit" tabindex="0" cx="522.0" cy="98.0" r="14" data-tip-en="105 MW: reference source 195.493 MW. Met A, B and C." data-tip-ko="105 MW: reference source 195.493 MW. A, B, C 충족."/>
+<circle class="hit" tabindex="0" cx="522.0" cy="98.0" r="14" data-tip-en="105 MW: reference source 195.493 MW. Met A, B and C."/>
 <rect class="pt bad" x="552.8" y="80.2" width="11" height="11" transform="rotate(45 558.2 85.7)"/>
-<circle class="hit" tabindex="0" cx="558.2" cy="85.7" r="14" data-tip-en="106.25 MW: reference source 196.869 MW. Broke a physical limit." data-tip-ko="106.25 MW: reference source 196.869 MW. 물리 한계 위반."/>
+<circle class="hit" tabindex="0" cx="558.2" cy="85.7" r="14" data-tip-en="106.25 MW: reference source 196.869 MW. Broke a physical limit."/>
 <rect class="pt bad" x="589.0" y="67.9" width="11" height="11" transform="rotate(45 594.5 73.4)"/>
-<circle class="hit" tabindex="0" cx="594.5" cy="73.4" r="14" data-tip-en="107.5 MW: reference source 198.246 MW. Broke a physical limit." data-tip-ko="107.5 MW: reference source 198.246 MW. 물리 한계 위반."/>
+<circle class="hit" tabindex="0" cx="594.5" cy="73.4" r="14" data-tip-en="107.5 MW: reference source 198.246 MW. Broke a physical limit."/>
 <rect class="pt bad" x="625.2" y="55.6" width="11" height="11" transform="rotate(45 630.8 61.1)"/>
-<circle class="hit" tabindex="0" cx="630.8" cy="61.1" r="14" data-tip-en="108.75 MW: reference source 199.624 MW. Broke a physical limit." data-tip-ko="108.75 MW: reference source 199.624 MW. 물리 한계 위반."/>
+<circle class="hit" tabindex="0" cx="630.8" cy="61.1" r="14" data-tip-en="108.75 MW: reference source 199.624 MW. Broke a physical limit."/>
 <rect class="pt bad" x="661.5" y="43.3" width="11" height="11" transform="rotate(45 667.0 48.8)"/>
-<circle class="hit" tabindex="0" cx="667.0" cy="48.8" r="14" data-tip-en="110 MW: reference source 201.003 MW. Broke a physical limit." data-tip-ko="110 MW: reference source 201.003 MW. 물리 한계 위반."/>
+<circle class="hit" tabindex="0" cx="667.0" cy="48.8" r="14" data-tip-en="110 MW: reference source 201.003 MW. Broke a physical limit."/>
 </svg>
         </figure>
-        <p data-l="en">The reference source picks up the added demand and the added losses, so its output rises almost in a straight line. At 106.25 MW it is at 196.869 MW, still inside its 197 MW limit but inside the 1 MW buffer. At 107.5 MW it is at 198.246 MW and over the limit. From there the violations accumulate: 1/3/4/6 across the last four points.</p>
-<p data-l="ko">reference source는 늘어난 수요와 손실을 떠맡기 때문에 출력이 거의 직선으로 올라갑니다. 106.25 MW에서는 196.869 MW로, 상한 197 MW 안쪽이지만 1 MW buffer는 이미 침범했습니다. 107.5 MW에서는 198.246 MW로 상한을 넘습니다. 그 뒤로는 위반이 누적되어 마지막 네 점에서 각각 1/3/4/6건이 됩니다.</p>
+        <p>The reference source picks up the added demand and the added losses, so its output rises almost in a straight line. At 106.25 MW it is at 196.869 MW, still inside its 197 MW limit but inside the 1 MW buffer. At 107.5 MW it is at 198.246 MW and over the limit. From there the violations accumulate: 1/3/4/6 across the last four points.</p>
         <details class="data"><summary>Show the numbers behind both charts</summary>
 <div class="scroll"><table class="num">
 <thead><tr><th>Demand (MW)</th><th>Gen 1 Q (Mvar)</th><th>Reference P (MW)</th><th>Smallest Q margin (Mvar)</th><th>Smallest voltage margin (pu)</th><th>Violations</th><th>Verdict</th></tr></thead>
-<tbody><tr><td>90</td><td>3.6684</td><td>179.068</td><td>0.2695</td><td>0.001000</td><td>0</td><td><span data-l="en">Pass</span><span data-l="ko">합격</span></td></tr><tr><td>91.25</td><td>4.1634</td><td>180.431</td><td>0.2706</td><td>0.001000</td><td>0</td><td><span data-l="en">Pass</span><span data-l="ko">합격</span></td></tr><tr><td>92.5</td><td>4.6603</td><td>181.794</td><td>0.2717</td><td>0.001000</td><td>0</td><td><span data-l="en">Pass</span><span data-l="ko">합격</span></td></tr><tr><td>93.75</td><td>5.1591</td><td>183.159</td><td>0.2727</td><td>0.001000</td><td>0</td><td><span data-l="en">Pass</span><span data-l="ko">합격</span></td></tr><tr><td>95</td><td>5.6599</td><td>184.525</td><td>0.2738</td><td>0.001000</td><td>0</td><td><span data-l="en">Pass</span><span data-l="ko">합격</span></td></tr><tr><td>96.25</td><td>6.1626</td><td>185.892</td><td>0.2748</td><td>0.001000</td><td>0</td><td><span data-l="en">Pass</span><span data-l="ko">합격</span></td></tr><tr><td>97.5</td><td>6.6673</td><td>187.260</td><td>0.2758</td><td>0.001000</td><td>0</td><td><span data-l="en">Pass</span><span data-l="ko">합격</span></td></tr><tr><td>98.75</td><td>7.1739</td><td>188.630</td><td>0.2767</td><td>0.001000</td><td>0</td><td><span data-l="en">Pass</span><span data-l="ko">합격</span></td></tr><tr><td>100</td><td>7.6826</td><td>190.000</td><td>0.2777</td><td>0.001000</td><td>0</td><td><span data-l="en">Pass</span><span data-l="ko">합격</span></td></tr><tr><td>101.25</td><td>8.1932</td><td>191.371</td><td>0.2786</td><td>0.001000</td><td>0</td><td><span data-l="en">Pass</span><span data-l="ko">합격</span></td></tr><tr><td>102.5</td><td>8.7058</td><td>192.744</td><td>0.2795</td><td>0.001000</td><td>0</td><td><span data-l="en">Pass</span><span data-l="ko">합격</span></td></tr><tr><td>103.75</td><td>9.2204</td><td>194.118</td><td>0.2804</td><td>0.001000</td><td>0</td><td><span data-l="en">Pass</span><span data-l="ko">합격</span></td></tr><tr><td>105</td><td>9.7370</td><td>195.493</td><td>0.2566</td><td>0.001000</td><td>0</td><td><span data-l="en">Pass</span><span data-l="ko">합격</span></td></tr><tr><td>106.25</td><td>10.2557</td><td>196.869</td><td>-0.2557</td><td>0.000424</td><td>1</td><td><span data-l="en">Physical violation</span><span data-l="ko">physical limit 위반</span></td></tr><tr><td>107.5</td><td>10.7764</td><td>198.246</td><td>-0.7764</td><td>-0.000172</td><td>3</td><td><span data-l="en">Physical violation</span><span data-l="ko">physical limit 위반</span></td></tr><tr><td>108.75</td><td>11.2991</td><td>199.624</td><td>-1.2991</td><td>-0.000771</td><td>4</td><td><span data-l="en">Physical violation</span><span data-l="ko">physical limit 위반</span></td></tr><tr><td>110</td><td>11.8239</td><td>201.003</td><td>-1.8239</td><td>-0.001371</td><td>6</td><td><span data-l="en">Physical violation</span><span data-l="ko">physical limit 위반</span></td></tr></tbody></table></div></details>
+<tbody><tr><td>90</td><td>3.6684</td><td>179.068</td><td>0.2695</td><td>0.001000</td><td>0</td><td>Pass</td></tr><tr><td>91.25</td><td>4.1634</td><td>180.431</td><td>0.2706</td><td>0.001000</td><td>0</td><td>Pass</td></tr><tr><td>92.5</td><td>4.6603</td><td>181.794</td><td>0.2717</td><td>0.001000</td><td>0</td><td>Pass</td></tr><tr><td>93.75</td><td>5.1591</td><td>183.159</td><td>0.2727</td><td>0.001000</td><td>0</td><td>Pass</td></tr><tr><td>95</td><td>5.6599</td><td>184.525</td><td>0.2738</td><td>0.001000</td><td>0</td><td>Pass</td></tr><tr><td>96.25</td><td>6.1626</td><td>185.892</td><td>0.2748</td><td>0.001000</td><td>0</td><td>Pass</td></tr><tr><td>97.5</td><td>6.6673</td><td>187.260</td><td>0.2758</td><td>0.001000</td><td>0</td><td>Pass</td></tr><tr><td>98.75</td><td>7.1739</td><td>188.630</td><td>0.2767</td><td>0.001000</td><td>0</td><td>Pass</td></tr><tr><td>100</td><td>7.6826</td><td>190.000</td><td>0.2777</td><td>0.001000</td><td>0</td><td>Pass</td></tr><tr><td>101.25</td><td>8.1932</td><td>191.371</td><td>0.2786</td><td>0.001000</td><td>0</td><td>Pass</td></tr><tr><td>102.5</td><td>8.7058</td><td>192.744</td><td>0.2795</td><td>0.001000</td><td>0</td><td>Pass</td></tr><tr><td>103.75</td><td>9.2204</td><td>194.118</td><td>0.2804</td><td>0.001000</td><td>0</td><td>Pass</td></tr><tr><td>105</td><td>9.7370</td><td>195.493</td><td>0.2566</td><td>0.001000</td><td>0</td><td>Pass</td></tr><tr><td>106.25</td><td>10.2557</td><td>196.869</td><td>-0.2557</td><td>0.000424</td><td>1</td><td>Physical violation</td></tr><tr><td>107.5</td><td>10.7764</td><td>198.246</td><td>-0.7764</td><td>-0.000172</td><td>3</td><td>Physical violation</td></tr><tr><td>108.75</td><td>11.2991</td><td>199.624</td><td>-1.2991</td><td>-0.000771</td><td>4</td><td>Physical violation</td></tr><tr><td>110</td><td>11.8239</td><td>201.003</td><td>-1.8239</td><td>-0.001371</td><td>6</td><td>Physical violation</td></tr></tbody></table></div></details>
         <h3>How I read this</h3>
-        <p data-l="en">The setting passes at 105 MW, but only just. Its smallest reactive margin there is 0.2566 Mvar against a 0.25 buffer, and its smallest voltage margin is 0.001000 pu against 0.001. A setting optimized for one demand level sits close to its limits, so it does not carry far to other levels.</p>
-<p data-l="ko">이 설정은 105 MW에서 합격하지만 아슬아슬합니다. 그 점의 최소 Q margin은 buffer 0.25에 대해 0.2566 Mvar이고, 최소 voltage margin은 0.001에 대해 0.001000 pu입니다. 한 수요에 맞춰 최적화한 설정은 한계 가까이에 놓이기 때문에, 다른 수요로 멀리 옮겨 쓸 수 없습니다.</p>
-        <p class="note" data-l="en">These are seventeen separate test points. They do not prove that every demand between them passes, and 105 MW is not a maximum capacity for this bus.</p>
-<p class="note" data-l="ko">이 결과는 서로 떨어진 17개 시험점입니다. 그 사이의 모든 수요가 합격한다는 증명이 아니며, 105 MW가 이 bus의 최대 hosting capacity라는 뜻도 아닙니다.</p>
+        <p>The setting passes at 105 MW, but only just. Its smallest reactive margin there is 0.2566 Mvar against a 0.25 buffer, and its smallest voltage margin is 0.001000 pu against 0.001. A setting optimized for one demand level sits close to its limits, so it does not carry far to other levels.</p>
+        <p class="note">These are seventeen separate test points. They do not prove that every demand between them passes, and 105 MW is not a maximum capacity for this bus.</p>
       </div>
     </section>
 
     <section class="section" id="s1-r3">
       <h2 data-stage-label="1">Result 3: enforcing reactive limits</h2>
       <div>
-        <p data-l="en">A power-flow solver can be told to enforce generator reactive limits. When a generator reaches its limit, the solver pins its reactive power there and stops holding its voltage target, which changes the bus from PV to PQ. I compared the same inputs with that option off and on.</p>
-<p data-l="ko">Power flow solver에는 Q limit enforcement(발전기 Q가 한계를 넘으면 한계값에 고정하는 계산 규칙) 옵션이 있습니다. 발전기가 한계에 닿으면 Q를 그 값에 묶고 전압 목표 유지를 포기하며, 그 bus는 PV bus(P와 전압 목표를 입력하는 bus)에서 PQ bus(P와 Q를 입력하는 bus)로 바뀝니다. 이를 PV → PQ switching이라 부릅니다. 같은 입력에서 이 옵션을 껐을 때와 켰을 때를 비교했습니다.</p>
+        <p>A power-flow solver can be told to enforce generator reactive limits. When a generator reaches its limit, the solver pins its reactive power there and stops holding its voltage target, which changes the bus from PV to PQ. I compared the same inputs with that option off and on.</p>
         <div class="scroll"><table class="verdicts">
           <thead><tr><th>Case</th><th>Gen 1 Q (Mvar)</th><th>Gen 1 bus type</th><th>Criteria</th></tr></thead>
           <tbody><tr><th scope="row">105.5 MW, limits off</th><td>9.9442</td><td>PV</td><td><span class="v ok" title="A: pass">A ✓</span><span class="v no" title="B: fail">B ✕</span><span class="v no" title="C: fail">C ✕</span></td></tr><tr><th scope="row">105.5 MW, limits on</th><td>9.9442</td><td>PV</td><td><span class="v ok" title="A: pass">A ✓</span><span class="v no" title="B: fail">B ✕</span><span class="v no" title="C: fail">C ✕</span></td></tr><tr><th scope="row">106.25 MW, limits off</th><td>10.2557</td><td>PV</td><td><span class="v no" title="A: fail">A ✕</span><span class="v no" title="B: fail">B ✕</span><span class="v no" title="C: fail">C ✕</span></td></tr><tr><th scope="row">106.25 MW, limits on</th><td>10.0000</td><td>PQ</td><td><span class="v ok" title="A: pass">A ✓</span><span class="v no" title="B: fail">B ✕</span><span class="v no" title="C: fail">C ✕</span></td></tr></tbody>
         </table></div>
         <h3>How I read this</h3>
-        <p data-l="en">At 105.5 MW no generator reaches a limit, so the option changes nothing and the two rows are identical. At 106.25 MW, turning it on pins Gen 1 at 10 Mvar and the physical violation disappears. The bus 2 voltage ends slightly below its target, and criteria B and C still fail because a generator sitting on its limit has no margin left.</p>
-<p data-l="ko">105.5 MW에서는 한계에 닿는 발전기가 없어서 옵션이 아무것도 바꾸지 않고, 두 행이 정확히 같습니다. 106.25 MW에서는 옵션을 켜면 Gen 1이 10 Mvar에 묶이면서 physical violation이 사라집니다. 대신 bus 2 전압이 목표보다 약간 낮아지고, 한계에 붙은 발전기에는 margin이 남지 않으므로 Criterion B와 C는 여전히 불합격입니다.</p>
-        <p class="note" data-l="en">Removing a violation is not the same as passing. The PV to PQ switch is a rule inside a static calculation, and not a simulation of how a real voltage regulator behaves over time.</p>
-<p class="note" data-l="ko">위반이 사라졌다고 합격이 되는 것은 아닙니다. PV → PQ switching은 steady-state 계산 안의 규칙이며, 실제 전압조정기가 시간에 따라 동작하는 모습을 모의한 것이 아닙니다.</p>
+        <p>At 105.5 MW no generator reaches a limit, so the option changes nothing and the two rows are identical. At 106.25 MW, turning it on pins Gen 1 at 10 Mvar and the physical violation disappears. The bus 2 voltage ends slightly below its target, and criteria B and C still fail because a generator sitting on its limit has no margin left.</p>
+        <p class="note">Removing a violation is not the same as passing. The PV to PQ switch is a rule inside a static calculation, and not a simulation of how a real voltage regulator behaves over time.</p>
       </div>
     </section>
 
     <section class="section" id="s1-limits">
       <h2 data-stage-label="1">What stage 1 does not show</h2>
       <div>
-        <p data-l="en">The original goal was a data center hosting study that includes single-contingency (N-1) security. The first calculations showed that the base network violated normal-operation limits even without the data center, so Stage 1 first established and evaluated operating settings that respect limits and margins under normal conditions. What Stage 1 does not show (N-1 security, hosting capacity, other locations) became the research questions for the later stages.</p>
-        <p data-l="ko">원래 목표는 단일 설비 사고(N-1)까지 고려한 데이터센터 hosting capacity 연구였다. 그러나 첫 계산에서 기준 계통이 데이터센터 없이도 정상 상태의 physical limit을 넘었기 때문에, Stage 1에서는 먼저 정상 상태에서 limit과 margin을 지키는 운전 설정을 확보하고 평가했다. Stage 1이 보이지 못한 N-1 security, hosting capacity, 다른 위치 비교는 이후 단계의 연구 질문이 되었다.</p>
+        <p>The original goal was a data center hosting study that includes single-contingency (N-1) security. The first calculations showed that the base network violated normal-operation limits even without the data center, so Stage 1 first established and evaluated operating settings that respect limits and margins under normal conditions. What Stage 1 does not show (N-1 security, hosting capacity, other locations) became the research questions for the later stages.</p>
         <ul class="plain">
-          <li><span data-l="en">N-1 security. Outages were screened earlier for selected cases only. This is stage 2.</span><span data-l="ko">N-1 security. 이전에는 일부 outage만 선택해 검토했습니다. 2단계에서 다룹니다.</span></li>
-          <li><span data-l="en">A maximum hosting capacity, or a continuous range of acceptable demand. This is stage 3.</span><span data-l="ko">최대 hosting capacity, 또는 허용 수요의 연속 구간. 3단계에서 다룹니다.</span></li>
-          <li><span data-l="en">Other locations. The data center stays at bus 4 throughout. This is stage 4.</span><span data-l="ko">다른 위치. 데이터센터는 계속 bus 4에 있습니다. 4단계에서 다룹니다.</span></li>
-          <li><span data-l="en">Dynamic behaviour. Every result is a steady-state snapshot.</span><span data-l="ko">Dynamic behavior(사고 직후 수 초간의 시간 변화). 모든 결과는 steady-state, 곧 한 시점의 안정된 상태입니다.</span></li>
-          <li><span data-l="en">A real system. Open questions about some benchmark reactive limits were inherited and not resolved.</span><span data-l="ko">실제 계통. benchmark의 일부 Q limit에 대한 출처 의문은 해결하지 못한 채 이어받았습니다.</span></li>
+          <li>N-1 security. Outages were screened earlier for selected cases only. This is stage 2.</li>
+          <li>A maximum hosting capacity, or a continuous range of acceptable demand. This is stage 3.</li>
+          <li>Other locations. The data center stays at bus 4 throughout. This is stage 4.</li>
+          <li>Dynamic behaviour. Every result is a steady-state snapshot.</li>
+          <li>A real system. Open questions about some benchmark reactive limits were inherited and not resolved.</li>
         </ul>
       </div>
     </section>
@@ -356,84 +320,81 @@
     <section class="section" id="s1-method">
       <h2 data-stage-label="1">How it was done</h2>
       <div>
-        <p data-l="en">Stage 1 shows 33 stored results that come from 29 unique power-flow runs, since four results are reused between sections. The four optimal power flows that produced the settings are counted separately. Tools: Python with pandapower, and MATPOWER in MATLAB.</p>
-<p data-l="ko">1단계에서 표시한 저장 결과는 33개이고, 섹션 사이에 네 개가 재사용되어 고유한 power flow는 29회입니다. 설정을 만든 OPF 4회는 따로 셉니다. 도구는 Python의 pandapower와 MATLAB의 MATPOWER입니다.</p>
-        <p data-l="en">I set the direction, scope and pass or fail criteria and reviewed the results. ChatGPT supported planning and review, and Claude Code and Codex implemented and ran the calculations. I did not write all of the code by hand.</p>
-<p data-l="ko">연구 방향과 범위, 합격 기준을 정하고 결과를 검토했습니다. 기획과 검토에는 ChatGPT의 도움을 받았고, 계산의 구현과 실행은 Claude Code와 Codex가 맡았습니다. 모든 코드를 직접 작성한 것은 아닙니다.</p>
-        <p class="note" data-l="en">For the full report, code, run records and the journal of each decision, see my GitHub once the repository is public. This page keeps to the results.</p>
-<p class="note" data-l="ko">전체 보고서, 코드, 실행 기록, 결정마다의 저널은 저장소가 공개되면 GitHub에서 확인할 수 있습니다. 이 페이지에는 결과만 담았습니다.</p>
+        <p>Stage 1 shows 33 stored results that come from 29 unique power-flow runs, since four results are reused between sections. The four optimal power flows that produced the settings are counted separately. Tools: Python with pandapower, and MATPOWER in MATLAB.</p>
+        <p>I set the direction, scope and pass or fail criteria and reviewed the results. ChatGPT supported planning and review, and Claude Code and Codex implemented and ran the calculations. I did not write all of the code by hand.</p>
+        <p class="note">For the full report, code, run records and the journal of each decision, see my GitHub once the repository is public. This page keeps to the results.</p>
       </div>
     </section>
-    <p class="stageend"><span data-l="en">End of stage 1.</span><span data-l="ko">1단계 끝.</span> <a href="#roadmap"><span data-l="en">Back to the roadmap</span><span data-l="ko">로드맵으로 돌아가기</span></a></p>
+    <p class="stageend">End of stage 1. <a href="#roadmap">Back to the roadmap</a></p>
     </div>
     <section class="section" id="glossary">
       <h2>Glossary</h2>
       <div>
       <details class="data"><summary>System and model</summary>
       <div class="scroll"><table class="gloss"><thead><tr><th>Term</th><th>Meaning</th></tr></thead><tbody>
-<tr><th scope="row">Power system</th><td><span data-l="en">The whole network of generators, transmission lines and loads</span><span data-l="ko">발전기·송전망·부하로 이루어진 전력망 전체</span></td></tr>
-<tr><th scope="row">Bus</th><td><span data-l="en">A connection point where generators, loads and lines meet</span><span data-l="ko">발전기·부하·선로가 만나는 접속점(모선)</span></td></tr>
-<tr><th scope="row">Branch</th><td><span data-l="en">A line or transformer joining two buses</span><span data-l="ko">두 bus를 잇는 선로 또는 변압기</span></td></tr>
-<tr><th scope="row">IEEE RTS-24</th><td><span data-l="en">A public 24-bus test network (benchmark)</span><span data-l="ko">공개된 24-bus 시험용 전력망(benchmark)</span></td></tr>
-<tr><th scope="row">Benchmark system</th><td><span data-l="en">A standard test network anyone can reproduce and compare using the same data</span><span data-l="ko">누구나 같은 데이터로 재현·비교할 수 있는 표준 시험 계통</span></td></tr>
-<tr><th scope="row">Model variant A</th><td><span data-l="en">The name of the RTS-24 input data version used here; unrelated to Criterion A</span><span data-l="ko">이 프로젝트에서 쓴 RTS-24 입력 데이터 버전 이름. Criterion A와 무관</span></td></tr>
-<tr><th scope="row">Data center load</th><td><span data-l="en">The constant P/Q load added at bus 4</span><span data-l="ko">bus 4에 추가한 일정 P/Q 부하</span></td></tr>
-<tr><th scope="row">Static generator (sgen)</th><td><span data-l="en">A fixed source that keeps the P/Q it is given</span><span data-l="ko">입력한 P/Q를 그대로 유지하는 고정 발전원</span></td></tr>
-<tr><th scope="row">Responsive sources</th><td><span data-l="en">Sources whose output (Q and so on) reacts during the calculation</span><span data-l="ko">계산 중 출력(Q 등)이 반응하는 발전원</span></td></tr>
+<tr><th scope="row">Power system</th><td>The whole network of generators, transmission lines and loads</td></tr>
+<tr><th scope="row">Bus</th><td>A connection point where generators, loads and lines meet</td></tr>
+<tr><th scope="row">Branch</th><td>A line or transformer joining two buses</td></tr>
+<tr><th scope="row">IEEE RTS-24</th><td>A public 24-bus test network (benchmark)</td></tr>
+<tr><th scope="row">Benchmark system</th><td>A standard test network anyone can reproduce and compare using the same data</td></tr>
+<tr><th scope="row">Model variant A</th><td>The name of the RTS-24 input data version used here; unrelated to Criterion A</td></tr>
+<tr><th scope="row">Data center load</th><td>The constant P/Q load added at bus 4</td></tr>
+<tr><th scope="row">Static generator (sgen)</th><td>A fixed source that keeps the P/Q it is given</td></tr>
+<tr><th scope="row">Responsive sources</th><td>Sources whose output (Q and so on) reacts during the calculation</td></tr>
 </tbody></table></div></details>
       <details class="data"><summary>Electrical quantities and units</summary>
       <div class="scroll"><table class="gloss"><thead><tr><th>Term</th><th>Meaning</th></tr></thead><tbody>
-<tr><th scope="row">Active power (P), MW</th><td><span data-l="en">Power that does real work</span><span data-l="ko">실제로 일을 하는 전력</span></td></tr>
-<tr><th scope="row">Reactive power (Q), Mvar</th><td><span data-l="en">Power tied to voltage support; it does no work but has to flow</span><span data-l="ko">전압 유지와 관련된 전력. 일을 하지 않지만 흘러야 하는 성분</span></td></tr>
-<tr><th scope="row">Voltage magnitude (Vm)</th><td><span data-l="en">The calculated size of the voltage at a bus</span><span data-l="ko">실제 계산된 bus 전압의 크기</span></td></tr>
-<tr><th scope="row">Voltage setpoint (Vg)</th><td><span data-l="en">The voltage target given to a generator; the calculated Vm can differ</span><span data-l="ko">발전기에 입력한 전압 목표값. 실제 Vm과 다를 수 있음</span></td></tr>
-<tr><th scope="row">Per unit (pu)</th><td><span data-l="en">A value expressed as a ratio to a base value; 1.0 pu is the base voltage</span><span data-l="ko">기준값 대비 비율로 나타낸 값. 1.0 pu = 기준 전압</span></td></tr>
-<tr><th scope="row">Losses</th><td><span data-l="en">Power that disappears in the lines during transmission</span><span data-l="ko">송전 중 선로에서 사라지는 전력</span></td></tr>
+<tr><th scope="row">Active power (P), MW</th><td>Power that does real work</td></tr>
+<tr><th scope="row">Reactive power (Q), Mvar</th><td>Power tied to voltage support; it does no work but has to flow</td></tr>
+<tr><th scope="row">Voltage magnitude (Vm)</th><td>The calculated size of the voltage at a bus</td></tr>
+<tr><th scope="row">Voltage setpoint (Vg)</th><td>The voltage target given to a generator; the calculated Vm can differ</td></tr>
+<tr><th scope="row">Per unit (pu)</th><td>A value expressed as a ratio to a base value; 1.0 pu is the base voltage</td></tr>
+<tr><th scope="row">Losses</th><td>Power that disappears in the lines during transmission</td></tr>
 </tbody></table></div></details>
       <details class="data"><summary>Calculation methods</summary>
       <div class="scroll"><table class="gloss"><thead><tr><th>Term</th><th>Meaning</th></tr></thead><tbody>
-<tr><th scope="row">Power flow (PF)</th><td><span data-l="en">Calculating voltages and power flows for given generation and load</span><span data-l="ko">주어진 발전·부하에서 전압과 전력 흐름을 계산(조류계산)</span></td></tr>
-<tr><th scope="row">AC power flow</th><td><span data-l="en">A power flow that solves P, Q, voltage magnitude and angle; unrelated to the “DC” in data center</span><span data-l="ko">P와 Q, 전압 크기와 각도를 모두 푸는 조류계산. 데이터센터 “DC”와 무관</span></td></tr>
-<tr><th scope="row">Newton-Raphson (NR)</th><td><span data-l="en">A numerical method that solves the power flow equations by iteration</span><span data-l="ko">PF 방정식을 반복해서 푸는 수치 방법</span></td></tr>
-<tr><th scope="row">Convergence</th><td><span data-l="en">The iteration error has fallen below a threshold and a solution is found</span><span data-l="ko">반복 계산의 오차가 기준 이하로 줄어 해를 얻은 상태</span></td></tr>
-<tr><th scope="row">Feasibility</th><td><span data-l="en">The result respects every real limit</span><span data-l="ko">계산 결과가 실제 한계를 모두 지키는 상태</span></td></tr>
-<tr><th scope="row">Optimal power flow (OPF)</th><td><span data-l="en">A power flow that optimizes a goal (such as cost) while respecting limits</span><span data-l="ko">한계를 지키면서 목표(비용 등)를 최적화하는 조류계산</span></td></tr>
-<tr><th scope="row">Steady-state (static) analysis</th><td><span data-l="en">Looks at one stable moment only (a single photograph)</span><span data-l="ko">한 시점의 안정된 상태만 보는 해석(사진 한 장)</span></td></tr>
-<tr><th scope="row">Stability (dynamic) analysis</th><td><span data-l="en">Looks at how things change over the few seconds after an event (a video); outside this study</span><span data-l="ko">사고 직후 수 초간의 시간 변화를 보는 해석(영상). 이 연구의 범위 밖</span></td></tr>
+<tr><th scope="row">Power flow (PF)</th><td>Calculating voltages and power flows for given generation and load</td></tr>
+<tr><th scope="row">AC power flow</th><td>A power flow that solves P, Q, voltage magnitude and angle; unrelated to the “DC” in data center</td></tr>
+<tr><th scope="row">Newton-Raphson (NR)</th><td>A numerical method that solves the power flow equations by iteration</td></tr>
+<tr><th scope="row">Convergence</th><td>The iteration error has fallen below a threshold and a solution is found</td></tr>
+<tr><th scope="row">Feasibility</th><td>The result respects every real limit</td></tr>
+<tr><th scope="row">Optimal power flow (OPF)</th><td>A power flow that optimizes a goal (such as cost) while respecting limits</td></tr>
+<tr><th scope="row">Steady-state (static) analysis</th><td>Looks at one stable moment only (a single photograph)</td></tr>
+<tr><th scope="row">Stability (dynamic) analysis</th><td>Looks at how things change over the few seconds after an event (a video); outside this study</td></tr>
 </tbody></table></div></details>
       <details class="data"><summary>Bus types and control</summary>
       <div class="scroll"><table class="gloss"><thead><tr><th>Term</th><th>Meaning</th></tr></thead><tbody>
-<tr><th scope="row">PQ bus</th><td><span data-l="en">A bus where P and Q are given and the voltage is calculated</span><span data-l="ko">P와 Q를 입력하고 전압을 계산하는 bus</span></td></tr>
-<tr><th scope="row">PV bus</th><td><span data-l="en">A bus where P and a voltage target are given and Q is calculated</span><span data-l="ko">P와 전압 목표를 입력하고 Q를 계산하는 bus</span></td></tr>
-<tr><th scope="row">Slack (reference) bus</th><td><span data-l="en">The bus that balances active power, losses included</span><span data-l="ko">손실 포함 P 수지를 맞추는 기준 bus</span></td></tr>
-<tr><th scope="row">Reference source</th><td><span data-l="en">The source at the slack bus; it balances P but shares Q response with the other generators</span><span data-l="ko">slack bus의 발전원. P 수지를 맞추지만 Q 반응은 다른 발전기들과 나눔</span></td></tr>
-<tr><th scope="row">Q limit enforcement</th><td><span data-l="en">A rule that pins a generator's Q at its limit once it would exceed it</span><span data-l="ko">발전기 Q가 한계를 넘으면 한계값에 고정하는 계산 규칙</span></td></tr>
-<tr><th scope="row">PV → PQ switching</th><td><span data-l="en">The change that releases the voltage target when Q is pinned at its limit</span><span data-l="ko">Q가 한계에 고정되면서 전압 목표를 풀어 주는 전환</span></td></tr>
+<tr><th scope="row">PQ bus</th><td>A bus where P and Q are given and the voltage is calculated</td></tr>
+<tr><th scope="row">PV bus</th><td>A bus where P and a voltage target are given and Q is calculated</td></tr>
+<tr><th scope="row">Slack (reference) bus</th><td>The bus that balances active power, losses included</td></tr>
+<tr><th scope="row">Reference source</th><td>The source at the slack bus; it balances P but shares Q response with the other generators</td></tr>
+<tr><th scope="row">Q limit enforcement</th><td>A rule that pins a generator's Q at its limit once it would exceed it</td></tr>
+<tr><th scope="row">PV → PQ switching</th><td>The change that releases the voltage target when Q is pinned at its limit</td></tr>
 </tbody></table></div></details>
       <details class="data"><summary>Evaluation criteria</summary>
       <div class="scroll"><table class="gloss"><thead><tr><th>Term</th><th>Meaning</th></tr></thead><tbody>
-<tr><th scope="row">Physical limit</th><td><span data-l="en">What the equipment can actually withstand (ratings, voltage range and so on)</span><span data-l="ko">설비가 원래 견딜 수 있는 한계(정격, 전압 범위 등)</span></td></tr>
-<tr><th scope="row">Margin</th><td><span data-l="en">The distance from the current value to a physical limit</span><span data-l="ko">현재 값에서 physical limit까지 남은 거리</span></td></tr>
-<tr><th scope="row">Buffer</th><td><span data-l="en">A margin target I chose for this study; not a regulation</span><span data-l="ko">연구자가 정한 margin 목표값. 규정이 아님</span></td></tr>
-<tr><th scope="row">Criterion A</th><td><span data-l="en">Were all physical limits respected?</span><span data-l="ko">physical limit을 모두 지켰는가</span></td></tr>
-<tr><th scope="row">Criterion B</th><td><span data-l="en">Was the chosen Q and voltage buffer left?</span><span data-l="ko">선택한 Q·voltage buffer를 남겼는가</span></td></tr>
-<tr><th scope="row">Criterion C</th><td><span data-l="en">Was the reference source's P buffer left?</span><span data-l="ko">reference source P buffer를 남겼는가</span></td></tr>
-<tr><th scope="row">Design range (P0/P1, Q0/Q1)</th><td><span data-l="en">The P and Q range given to the reference source in the OPF; “0” does not mean unconstrained</span><span data-l="ko">OPF에서 reference source에 준 P/Q 설계 범위 표기. “0”은 제약 없음이 아님</span></td></tr>
-<tr><th scope="row">Demand test points</th><td><span data-l="en">The 17 data center demand values chosen in advance</span><span data-l="ko">미리 정한 17개 데이터센터 수요값</span></td></tr>
+<tr><th scope="row">Physical limit</th><td>What the equipment can actually withstand (ratings, voltage range and so on)</td></tr>
+<tr><th scope="row">Margin</th><td>The distance from the current value to a physical limit</td></tr>
+<tr><th scope="row">Buffer</th><td>A margin target I chose for this study; not a regulation</td></tr>
+<tr><th scope="row">Criterion A</th><td>Were all physical limits respected?</td></tr>
+<tr><th scope="row">Criterion B</th><td>Was the chosen Q and voltage buffer left?</td></tr>
+<tr><th scope="row">Criterion C</th><td>Was the reference source's P buffer left?</td></tr>
+<tr><th scope="row">Design range (P0/P1, Q0/Q1)</th><td>The P and Q range given to the reference source in the OPF; “0” does not mean unconstrained</td></tr>
+<tr><th scope="row">Demand test points</th><td>The 17 data center demand values chosen in advance</td></tr>
 </tbody></table></div></details>
       <details class="data"><summary>Stage 2: N-1 security</summary>
       <div class="scroll"><table class="gloss"><thead><tr><th>Term</th><th>Meaning</th></tr></thead><tbody>
-<tr><th scope="row">N-1 security</th><td><span data-l="en">A steady-state check of whether the network respects its limits when any one element is out</span><span data-l="ko">설비 하나가 빠져도 계통이 한계를 지키는지 보는 정상상태 검사</span></td></tr>
-<tr><th scope="row">Contingency / outage</th><td><span data-l="en">The loss of one element, for example through a fault</span><span data-l="ko">설비 하나가 고장 등으로 빠지는 사건</span></td></tr>
-<tr><th scope="row">NERC TPL-001</th><td><span data-l="en">The US transmission planning reliability standard</span><span data-l="ko">미국 송전 계획 신뢰도 기준</span></td></tr>
-<tr><th scope="row">P1 event</th><td><span data-l="en">The single-contingency category in TPL-001</span><span data-l="ko">TPL-001의 단일 사고 범주</span></td></tr>
-<tr><th scope="row">Facility rating</th><td><span data-l="en">The power or current an element can carry</span><span data-l="ko">설비가 견딜 수 있는 전력·전류 정격</span></td></tr>
-<tr><th scope="row">Emergency rating</th><td><span data-l="en">A higher rating allowed for a short time after an outage</span><span data-l="ko">사고 후 짧은 시간 허용되는 더 높은 정격</span></td></tr>
-<tr><th scope="row">Islanding</th><td><span data-l="en">Part of the network being cut off by an outage</span><span data-l="ko">사고로 계통 일부가 떨어져 나가는 것</span></td></tr>
-<tr><th scope="row">Consequential load loss</th><td><span data-l="en">Losing only the load directly attached to the removed element; allowed under TPL-001 P1</span><span data-l="ko">빠진 설비에 직접 붙어 있던 부하만 잃는 것. TPL-001 P1에서 허용</span></td></tr>
-<tr><th scope="row">Re-dispatch</th><td><span data-l="en">Redistributing generator output after an outage</span><span data-l="ko">사고 후 발전기 출력을 다시 나누는 조정</span></td></tr>
-<tr><th scope="row">Hosting capacity</th><td><span data-l="en">The largest load that can be connected while respecting limits</span><span data-l="ko">한계를 지키며 연결할 수 있는 최대 부하</span></td></tr>
-<tr><th scope="row">Independent solver check</th><td><span data-l="en">Repeating a calculation in a different program to compare</span><span data-l="ko">다른 프로그램으로 같은 계산을 다시 해 대조하는 검증</span></td></tr>
+<tr><th scope="row">N-1 security</th><td>A steady-state check of whether the network respects its limits when any one element is out</td></tr>
+<tr><th scope="row">Contingency / outage</th><td>The loss of one element, for example through a fault</td></tr>
+<tr><th scope="row">NERC TPL-001</th><td>The US transmission planning reliability standard</td></tr>
+<tr><th scope="row">P1 event</th><td>The single-contingency category in TPL-001</td></tr>
+<tr><th scope="row">Facility rating</th><td>The power or current an element can carry</td></tr>
+<tr><th scope="row">Emergency rating</th><td>A higher rating allowed for a short time after an outage</td></tr>
+<tr><th scope="row">Islanding</th><td>Part of the network being cut off by an outage</td></tr>
+<tr><th scope="row">Consequential load loss</th><td>Losing only the load directly attached to the removed element; allowed under TPL-001 P1</td></tr>
+<tr><th scope="row">Re-dispatch</th><td>Redistributing generator output after an outage</td></tr>
+<tr><th scope="row">Hosting capacity</th><td>The largest load that can be connected while respecting limits</td></tr>
+<tr><th scope="row">Independent solver check</th><td>Repeating a calculation in a different program to compare</td></tr>
 </tbody></table></div></details>
       </div>
     </section>
@@ -445,10 +406,10 @@
       <div class="links">
         <span class="icons"><a href="mailto:haveagoodjay00@gmail.com" aria-label="Email" title="haveagoodjay00@gmail.com"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M0 19.366C0 20.27.732 21 1.636 21h3.819V11.73L0 7.64v11.726z"/><path fill="#34A853" d="M18.545 21h3.819c.904 0 1.636-.732 1.636-1.636V7.64l-5.455 4.09V21z"/><path fill="#FBBC04" d="M18.545 4.64v7.09L24 7.64V5.457c0-2.023-2.309-3.178-3.927-1.964l-1.528 1.147z"/><path fill="#EA4335" d="M5.455 11.73V4.64L12 9.548l6.545-4.91v7.09L12 16.64l-6.545-4.91z"/><path fill="#EA4335" d="M0 5.457V7.64l5.455 4.09V4.64L3.927 3.493C2.309 2.28 0 3.434 0 5.457z"/></svg></a><a href="https://www.linkedin.com/in/hyeongseo-jang-05a7a744a" aria-label="LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 110-4.13 2.06 2.06 0 010 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></a><a href="https://github.com/haveagoodjay00" aria-label="GitHub" title="GitHub"><svg viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg></a></span>
         <!-- CV: upload cv.pdf next to these files, then delete the word hidden -->
-        <a href="cv.pdf" hidden><span data-l="en">Download CV (PDF)</span><span data-l="ko">CV 내려받기 (PDF)</span></a>
+        <a href="cv.pdf" hidden>Download CV (PDF)</a>
       </div>
     </div>
-    <p class="fine">© 2026 <span data-l="en">Hyeongseo Jang</span><span data-l="ko">장형서</span><br><span data-l="en">Updated November 2026</span><span data-l="ko">2026년 11월 업데이트</span></p>
+    <p class="fine">© 2026 Hyeongseo Jang<br>Updated November 2026</p>
   </footer>
 </div>
 <div id="tip" role="status" aria-live="polite" hidden></div>
