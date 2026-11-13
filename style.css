@@ -264,3 +264,7 @@ table.gloss th[scope="row"] { white-space: normal; }
 /* Portrait photo in an activity entry */
 .item img.tall { width: 168px; height: 210px; object-fit: cover; object-position: center top; }
 @media (max-width: 640px) { .item:has(img.tall) { flex-direction: column; gap: 16px; } .item img.tall { width: min(168px, 100%); height: auto; aspect-ratio: 4 / 5; } }
+
+/* School mark beside the school name (official mark, unaltered, small) */
+.schoolhead { display: flex; align-items: center; gap: 12px; margin-bottom: 6px; }
+.schoolhead img { width: 44px; height: 44px; flex: none; }
