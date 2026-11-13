@@ -363,3 +363,6 @@ footer .links .icons a:nth-child(3):hover { color: #181717; }
 .sheet-title .vd { white-space: nowrap; margin-left: 8px; font-family: var(--display); font-size: 0.8125rem; font-weight: 600; color: var(--grid-blue, #1F5FA8); text-decoration: underline; text-underline-offset: 0.2em; vertical-align: 1px; }
 .sheet-title .vd:hover { color: var(--ink); }
 .icons a:nth-child(1) svg { width: 24px; height: 24px; }
+.sheet > h2 .vd, .section > h2 .vd { display: inline-block; margin-left: 6px; font-family: var(--display); font-size: 0.8125rem; font-weight: 600; letter-spacing: 0; color: var(--grid-blue, #1F5FA8); text-decoration: underline; text-underline-offset: 0.2em; white-space: nowrap; vertical-align: 2px; }
+.sheet > h2 .vd:hover { color: var(--ink); }
+.sheet > h2 .vd, .section > h2 .vd { margin-left: 0; margin-right: 4px; }

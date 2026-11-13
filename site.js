@@ -71,7 +71,8 @@
     if (!stages.length) { genericRail(); return; }
     function label(el, short) {
       var h = el.querySelector('h2');
-      var txt = h ? h.textContent.replace(/\s+/g, ' ').trim() : '';
+      var txt = '';
+      if (h) { var c = h.cloneNode(true); c.querySelectorAll('.vd').forEach(function (x) { x.remove(); }); txt = c.textContent.replace(/\s+/g, ' ').trim(); }
       if (short) txt = txt.split(':')[0];
       return txt;
     }
@@ -145,7 +146,8 @@
     if (hero) targets.push({ el: hero, text: 'Top' });
     main.querySelectorAll(':scope > section.section, :scope > .section').forEach(function (sec) {
       var h = sec.querySelector('h2');
-      if (h) targets.push({ el: sec, text: h.textContent.replace(/\s+/g, ' ').trim() });
+      if (h) var c = h.cloneNode(true); c.querySelectorAll('.vd').forEach(function (x) { x.remove(); });
+      targets.push({ el: sec, text: c.textContent.replace(/\s+/g, ' ').trim() });
     });
     var items = main.querySelectorAll('.item h3');
     if (targets.length < 3 && items.length >= 2) {
