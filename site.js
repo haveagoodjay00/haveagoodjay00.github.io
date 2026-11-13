@@ -68,7 +68,7 @@
   // Section rail (research page): stage blocks, sub-sections, scroll-spy
   (function () {
     var stages = document.querySelectorAll('.stage[data-stage]');
-    if (!stages.length) return;
+    if (!stages.length) { genericRail(); return; }
     function label(el, short) {
       var h = el.querySelector('h2');
       var txt = h ? h.textContent.replace(/\s+/g, ' ').trim() : '';
@@ -135,4 +135,58 @@
     document.addEventListener('toggle', update, true);
     update();
   })();
+
+  // Section rail for the other pages: top-level sections (or items) with headings
+  function genericRail() {
+    var main = document.querySelector('main');
+    if (!main) return;
+    var targets = [];
+    var hero = document.getElementById('hero');
+    if (hero) targets.push({ el: hero, text: 'Top' });
+    main.querySelectorAll(':scope > section.section, :scope > .section').forEach(function (sec) {
+      var h = sec.querySelector('h2');
+      if (h) targets.push({ el: sec, text: h.textContent.replace(/\s+/g, ' ').trim() });
+    });
+    var items = main.querySelectorAll('.item h3');
+    if (targets.length < 3 && items.length >= 2) {
+      targets = [];
+      items.forEach(function (h) {
+        targets.push({ el: h.closest('.item'), text: h.textContent.split(',')[0].trim() });
+      });
+    }
+    if (targets.length < 2) return;
+    var nav = document.createElement('nav');
+    nav.className = 'rail';
+    nav.setAttribute('aria-label', 'Sections on this page');
+    var ul = document.createElement('ul');
+    nav.appendChild(ul);
+    var entries = [];
+    targets.forEach(function (t, i) {
+      if (!t.el.id) t.el.id = 'sec-' + (i + 1);
+      t.el.style.scrollMarginTop = '96px';
+      var li = document.createElement('li');
+      li.className = 'l1';
+      var a = document.createElement('a');
+      a.href = '#' + t.el.id;
+      a.innerHTML = '<span class="lbl"></span><span class="dot"></span>';
+      a.querySelector('.lbl').textContent = t.text;
+      li.appendChild(a); ul.appendChild(li);
+      entries.push({ el: t.el, li: li });
+    });
+    document.body.appendChild(nav);
+    var ticking = false;
+    function update() {
+      ticking = false;
+      nav.classList.toggle('show', window.scrollY > 160 || !hero);
+      var line = window.innerHeight * 0.35, cur = entries[0];
+      entries.forEach(function (e) { if (e.el.getBoundingClientRect().top <= line) cur = e; });
+      if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4) cur = entries[entries.length - 1];
+      entries.forEach(function (e) { e.li.classList.toggle('on', e === cur); });
+    }
+    window.addEventListener('scroll', function () {
+      if (!ticking) { ticking = true; requestAnimationFrame(update); }
+    }, { passive: true });
+    window.addEventListener('resize', update);
+    update();
+  }
 })();

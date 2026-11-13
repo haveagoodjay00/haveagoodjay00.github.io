@@ -342,3 +342,20 @@ footer .links .icons a:hover { background: none; color: var(--grid-blue, #1F5FA8
 .icons svg { width: 18px; height: 18px; }
 .icons a { color: var(--slate); padding: 3px; margin: -3px; }
 .icons a:hover, .icons a:focus-visible { transform: none; }
+/* brand colors, slightly larger */
+.icons { gap: 14px; }
+.icons svg { width: 22px; height: 22px; }
+.icons a:nth-child(1) { color: #EA4335; }
+.icons a:nth-child(2) { color: #0A66C2; }
+.icons a:nth-child(3) { color: #181717; }
+.icons a:hover, .icons a:focus-visible, footer .links .icons a:hover { opacity: .75; }
+footer .links .icons a:nth-child(1):hover { color: #EA4335; }
+footer .links .icons a:nth-child(2):hover { color: #0A66C2; }
+footer .links .icons a:nth-child(3):hover { color: #181717; }
+/* clickable stage titles */
+.stlink { color: inherit; text-decoration: underline; text-decoration-color: var(--signal); text-decoration-thickness: 2px; text-underline-offset: 0.2em; }
+.stlink:hover { text-decoration-thickness: 4px; }
+.stages > li { scroll-margin-top: 96px; }
+.stages > li:target { background: rgba(245,196,0,.12); transition: background .6s; }
+.stages > li > .n { cursor: default; }
+.stages > li { scroll-margin-top: 120px; }
