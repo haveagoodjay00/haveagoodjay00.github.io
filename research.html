@@ -101,7 +101,6 @@
     <section class="section" id="s1-model">
       <h2 data-stage-label="1">Model</h2>
       <div>
-        <details class="data"><summary>Show the model assumptions</summary>
         <ul class="plain">
           <li>Network: the IEEE 24-bus Reliability Test System, a public benchmark.</li>
           <li>Data center: a constant-power load at bus 4, with reactive demand assumed to be 0.25 times active demand.</li>
@@ -109,14 +108,12 @@
           <li>Control: each generator's active power and voltage target are held fixed, and its reactive power responds. The reference source balances active power, losses included.</li>
         </ul>
         <p class="note">These are modelling assumptions on a test network, not measurements from a real data center or a real grid.</p>
-        </details>
       </div>
     </section>
 
     <section class="section" id="s1-checks">
       <h2 data-stage-label="1">Three checks</h2>
       <div>
-        <details class="data"><summary>Show the three checks and thresholds</summary>
         <div class="scroll"><table>
           <thead><tr><th>Check</th><th>What it asks</th><th>Threshold used here</th></tr></thead>
           <tbody>
@@ -127,30 +124,28 @@
           </tbody>
         </table></div>
         <p class="note">The margins in B and C are buffers I chose for this study. They are not a regulatory requirement or a guarantee of operating reserve.</p>
-        </details>
       </div>
     </section>
 
     <section class="section" id="s1-r1">
       <h2 data-stage-label="1">Result 1: four candidate settings</h2>
       <div>
-        <p>At first, all I set up was a simple scenario: connecting a data center. Comparing several operating settings was ChatGPT's suggestion; I accepted it and worked out the comparison together with it. The result was four settings (P0Q0, P1Q0, P0Q1, P1Q1) that change the reference source's P design range and Q design range separately and together, each evaluated at 95, 100 and 105 MW. Claude Code carried out the calculations and wrote the code.</p>
-        <p>An optimal power flow at 100 MW produced four candidate generator settings. They differ only in the active and reactive range the reference source was designed to stay within. Each setting was then held fixed and checked by a separate power flow at 95, 100 and 105 MW.</p>
+        <p>An optimal power flow at 100 MW gave four candidate settings that differ only in the active (P) and reactive (Q) range the reference source must stay within. Each was held fixed and checked at 95, 100 and 105 MW.</p>
         <div class="scroll"><table class="verdicts">
           <thead><tr><th>Setting</th><th>P design (MW)</th><th>Q design (Mvar)</th><th>95 MW</th><th>100 MW</th><th>105 MW</th></tr></thead>
           <tbody><tr><th scope="row">P0Q0</th><td>69 to 197</td><td>0.98 to 79.02</td><td><span class="v ok" title="A: pass">A ✓</span><span class="v ok" title="B: pass">B ✓</span><span class="v na" title="C: not applied">C –</span></td><td><span class="v ok" title="A: pass">A ✓</span><span class="v ok" title="B: pass">B ✓</span><span class="v na" title="C: not applied">C –</span></td><td><span class="v no" title="A: fail">A ✕</span><span class="v no" title="B: fail">B ✕</span><span class="v na" title="C: not applied">C –</span></td></tr><tr><th scope="row">P1Q0</th><td>76 to 190</td><td>0.98 to 79.02</td><td><span class="v ok" title="A: pass">A ✓</span><span class="v ok" title="B: pass">B ✓</span><span class="v ok" title="C: pass">C ✓</span></td><td><span class="v ok" title="A: pass">A ✓</span><span class="v ok" title="B: pass">B ✓</span><span class="v ok" title="C: pass">C ✓</span></td><td><span class="v ok" title="A: pass">A ✓</span><span class="v no" title="B: fail">B ✕</span><span class="v ok" title="C: pass">C ✓</span></td></tr><tr><th scope="row">P0Q1</th><td>69 to 197</td><td>1.5 to 78.5</td><td><span class="v ok" title="A: pass">A ✓</span><span class="v ok" title="B: pass">B ✓</span><span class="v ok" title="C: pass">C ✓</span></td><td><span class="v ok" title="A: pass">A ✓</span><span class="v ok" title="B: pass">B ✓</span><span class="v no" title="C: fail">C ✕</span></td><td><span class="v no" title="A: fail">A ✕</span><span class="v ok" title="B: pass">B ✓</span><span class="v no" title="C: fail">C ✕</span></td></tr><tr class="hl"><th scope="row">P1Q1</th><td>76 to 190</td><td>1.5 to 78.5</td><td><span class="v ok" title="A: pass">A ✓</span><span class="v ok" title="B: pass">B ✓</span><span class="v ok" title="C: pass">C ✓</span></td><td><span class="v ok" title="A: pass">A ✓</span><span class="v ok" title="B: pass">B ✓</span><span class="v ok" title="C: pass">C ✓</span></td><td><span class="v ok" title="A: pass">A ✓</span><span class="v ok" title="B: pass">B ✓</span><span class="v ok" title="C: pass">C ✓</span></td></tr></tbody>
         </table></div>
         <p class="legend">P and Q design: the range the reference source was designed to stay within. ✓ pass &nbsp; ✕ fail &nbsp; – not applied</p>
         <h3>How I read this</h3>
-        <p>Only P1Q1, which narrows both ranges, met all three criteria at all three demand levels. The two settings that narrow just one range fail in different ways. With only the active range narrowed (P1Q0), the smallest reactive margin at 105 MW is 0.1833 Mvar, short of the 0.25 Mvar buffer. With only the reactive range narrowed (P0Q1), the reference source reaches 202.494 MW at 105 MW, above its 197 MW limit.</p>
-        <p class="note">Leaving headroom in active power and in reactive power are separate design decisions, and here both were needed. This is one candidate per setting, so it shows what happened in these four cases and not a general rule. Criterion C did not exist when P0Q0 was run, so it is left as not applied.</p>
+        <p>Only P1Q1, which narrows both ranges, passed at all three levels. Narrowing one range is not enough: at 105 MW, P1Q0 leaves 0.1833 Mvar of reactive margin (buffer 0.25), and P0Q1 pushes the reference source to 202.494 MW (limit 197).</p>
+        <p class="note">Active and reactive headroom are separate design decisions, and here both were needed. One candidate per setting, so this describes four cases, not a general rule. Criterion C was added after P0Q0 was run.</p>
       </div>
     </section>
 
     <section class="section" id="s1-r2">
       <h2 data-stage-label="1">Result 2: one setting, seventeen demand levels</h2>
       <div>
-        <p>I held the P1Q1 setting fixed and checked 17 demand levels chosen in advance, 1.25 MW apart from 90 to 110 MW. 13 met all three criteria. The last 4 broke at least one physical limit.</p>
+        <p>With P1Q1 fixed, I checked 17 preset demand levels from 90 to 110 MW in 1.25 MW steps. 13 passed; the last 4 broke at least one physical limit.</p>
         <figure>
           <figcaption>Generator 1 runs out of reactive power first</figcaption>
           <p class="legend"><span class="lg ok"></span>Met criteria A, B and C
@@ -213,7 +208,7 @@
 <circle class="hit" tabindex="0" cx="667.0" cy="39.8" r="14" data-tip-en="110 MW: Gen 1 Q 11.8239 Mvar. Broke a physical limit."/>
 </svg>
         </figure>
-        <p>As demand grows, Gen 1 at bus 2 supplies more reactive power to hold its voltage target, by about half a megavar per step. At 106.25 MW it would need 10.2557 Mvar against a limit of 10. That single violation is the first one in the series.</p>
+        <p>Gen 1 (bus 2) adds about 0.5 Mvar per step to hold its voltage. At 106.25 MW it needs 10.2557 Mvar against a 10 Mvar limit: the first violation.</p>
         <figure>
           <figcaption>The reference source follows one step later</figcaption>
           <p class="legend"><span class="lg ok"></span>Met criteria A, B and C
@@ -278,28 +273,28 @@
 <circle class="hit" tabindex="0" cx="667.0" cy="48.8" r="14" data-tip-en="110 MW: reference source 201.003 MW. Broke a physical limit."/>
 </svg>
         </figure>
-        <p>The reference source picks up the added demand and the added losses, so its output rises almost in a straight line. At 106.25 MW it is at 196.869 MW, still inside its 197 MW limit but inside the 1 MW buffer. At 107.5 MW it is at 198.246 MW and over the limit. From there the violations accumulate: 1/3/4/6 across the last four points.</p>
+        <p>The reference source absorbs the added demand and losses almost linearly. It enters the 1 MW buffer at 106.25 MW (196.869 MW) and passes the 197 MW limit at 107.5 MW (198.246 MW). Violations then accumulate: 1/3/4/6 across the last four points.</p>
         <details class="data"><summary>Show the numbers behind both charts</summary>
 <div class="scroll"><table class="num">
 <thead><tr><th>Demand (MW)</th><th>Gen 1 Q (Mvar)</th><th>Reference P (MW)</th><th>Smallest Q margin (Mvar)</th><th>Smallest voltage margin (pu)</th><th>Violations</th><th>Verdict</th></tr></thead>
 <tbody><tr><td>90</td><td>3.6684</td><td>179.068</td><td>0.2695</td><td>0.001000</td><td>0</td><td>Pass</td></tr><tr><td>91.25</td><td>4.1634</td><td>180.431</td><td>0.2706</td><td>0.001000</td><td>0</td><td>Pass</td></tr><tr><td>92.5</td><td>4.6603</td><td>181.794</td><td>0.2717</td><td>0.001000</td><td>0</td><td>Pass</td></tr><tr><td>93.75</td><td>5.1591</td><td>183.159</td><td>0.2727</td><td>0.001000</td><td>0</td><td>Pass</td></tr><tr><td>95</td><td>5.6599</td><td>184.525</td><td>0.2738</td><td>0.001000</td><td>0</td><td>Pass</td></tr><tr><td>96.25</td><td>6.1626</td><td>185.892</td><td>0.2748</td><td>0.001000</td><td>0</td><td>Pass</td></tr><tr><td>97.5</td><td>6.6673</td><td>187.260</td><td>0.2758</td><td>0.001000</td><td>0</td><td>Pass</td></tr><tr><td>98.75</td><td>7.1739</td><td>188.630</td><td>0.2767</td><td>0.001000</td><td>0</td><td>Pass</td></tr><tr><td>100</td><td>7.6826</td><td>190.000</td><td>0.2777</td><td>0.001000</td><td>0</td><td>Pass</td></tr><tr><td>101.25</td><td>8.1932</td><td>191.371</td><td>0.2786</td><td>0.001000</td><td>0</td><td>Pass</td></tr><tr><td>102.5</td><td>8.7058</td><td>192.744</td><td>0.2795</td><td>0.001000</td><td>0</td><td>Pass</td></tr><tr><td>103.75</td><td>9.2204</td><td>194.118</td><td>0.2804</td><td>0.001000</td><td>0</td><td>Pass</td></tr><tr><td>105</td><td>9.7370</td><td>195.493</td><td>0.2566</td><td>0.001000</td><td>0</td><td>Pass</td></tr><tr><td>106.25</td><td>10.2557</td><td>196.869</td><td>-0.2557</td><td>0.000424</td><td>1</td><td>Physical violation</td></tr><tr><td>107.5</td><td>10.7764</td><td>198.246</td><td>-0.7764</td><td>-0.000172</td><td>3</td><td>Physical violation</td></tr><tr><td>108.75</td><td>11.2991</td><td>199.624</td><td>-1.2991</td><td>-0.000771</td><td>4</td><td>Physical violation</td></tr><tr><td>110</td><td>11.8239</td><td>201.003</td><td>-1.8239</td><td>-0.001371</td><td>6</td><td>Physical violation</td></tr></tbody></table></div></details>
         <h3>How I read this</h3>
-        <p>The setting passes at 105 MW, but only just. Its smallest reactive margin there is 0.2566 Mvar against a 0.25 buffer, and its smallest voltage margin is 0.001000 pu against 0.001. A setting optimized for one demand level sits close to its limits, so it does not carry far to other levels.</p>
-        <p class="note">These are seventeen separate test points. They do not prove that every demand between them passes, and 105 MW is not a maximum capacity for this bus.</p>
+        <p>It passes at 105 MW, but only just: 0.2566 Mvar of reactive margin (buffer 0.25) and 0.001000 pu of voltage margin (buffer 0.001). A setting optimized for one demand level sits close to its limits and does not carry far.</p>
+        <p class="note">Seventeen separate points: this does not prove every level in between passes, and 105 MW is not a maximum capacity.</p>
       </div>
     </section>
 
     <section class="section" id="s1-r3">
       <h2 data-stage-label="1">Result 3: enforcing reactive limits</h2>
       <div>
-        <p>A power-flow solver can be told to enforce generator reactive limits. When a generator reaches its limit, the solver pins its reactive power there and stops holding its voltage target, which changes the bus from PV to PQ. I compared the same inputs with that option off and on.</p>
+        <p>With reactive-limit enforcement on, a generator that hits its Q limit is pinned there and stops holding its voltage (PV to PQ). I ran the same inputs with the option off and on.</p>
         <div class="scroll"><table class="verdicts">
           <thead><tr><th>Case</th><th>Gen 1 Q (Mvar)</th><th>Gen 1 bus type</th><th>Criteria</th></tr></thead>
           <tbody><tr><th scope="row">105.5 MW, limits off</th><td>9.9442</td><td>PV</td><td><span class="v ok" title="A: pass">A ✓</span><span class="v no" title="B: fail">B ✕</span><span class="v no" title="C: fail">C ✕</span></td></tr><tr><th scope="row">105.5 MW, limits on</th><td>9.9442</td><td>PV</td><td><span class="v ok" title="A: pass">A ✓</span><span class="v no" title="B: fail">B ✕</span><span class="v no" title="C: fail">C ✕</span></td></tr><tr><th scope="row">106.25 MW, limits off</th><td>10.2557</td><td>PV</td><td><span class="v no" title="A: fail">A ✕</span><span class="v no" title="B: fail">B ✕</span><span class="v no" title="C: fail">C ✕</span></td></tr><tr><th scope="row">106.25 MW, limits on</th><td>10.0000</td><td>PQ</td><td><span class="v ok" title="A: pass">A ✓</span><span class="v no" title="B: fail">B ✕</span><span class="v no" title="C: fail">C ✕</span></td></tr></tbody>
         </table></div>
         <h3>How I read this</h3>
-        <p>At 105.5 MW no generator reaches a limit, so the option changes nothing and the two rows are identical. At 106.25 MW, turning it on pins Gen 1 at 10 Mvar and the physical violation disappears. The bus 2 voltage ends slightly below its target, and criteria B and C still fail because a generator sitting on its limit has no margin left.</p>
-        <p class="note">Removing a violation is not the same as passing. The PV to PQ switch is a rule inside a static calculation, and not a simulation of how a real voltage regulator behaves over time.</p>
+        <p>At 105.5 MW nothing reaches a limit, so both rows match. At 106.25 MW the option pins Gen 1 at 10 Mvar and the violation disappears, but bus 2 voltage drops slightly below target and B and C still fail: a generator on its limit has no margin.</p>
+        <p class="note">Removing a violation is not passing. PV to PQ switching is a rule in a static calculation, not a model of a real voltage regulator over time.</p>
       </div>
     </section>
 
@@ -321,7 +316,7 @@
       <h2 data-stage-label="1">How it was done</h2>
       <div>
         <p>Stage 1 shows 33 stored results that come from 29 unique power-flow runs, since four results are reused between sections. The four optimal power flows that produced the settings are counted separately. Tools: Python with pandapower, and MATPOWER in MATLAB.</p>
-        <p>I set the direction, scope and pass or fail criteria and reviewed the results. ChatGPT supported planning and review, and Claude Code and Codex implemented and ran the calculations. I did not write all of the code by hand.</p>
+        <p>I set the direction, scope and pass or fail criteria and reviewed the results. ChatGPT supported planning and review; comparing several operating settings was its suggestion, which I adopted. Claude Code and Codex implemented and ran the calculations. I did not write all of the code by hand.</p>
         <p class="note">For the full report, code, run records and the journal of each decision, see my GitHub once the repository is public. This page keeps to the results.</p>
       </div>
     </section>
