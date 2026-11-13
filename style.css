@@ -272,3 +272,51 @@ table.gloss th[scope="row"] { white-space: normal; }
 /* Timeline rows: planned entries are quieter */
 .tl .row.future .when, .tl .row.future .what, .tl .row.future .what strong { color: var(--slate); }
 .tl .row.future { border-bottom-style: dashed; }
+
+/* ===== Home as a one-page academic sheet ===== */
+.id { display: grid; grid-template-columns: minmax(0, 1fr) 220px; gap: 56px; align-items: start; padding: 56px 0 44px; border-bottom: 2px solid var(--ink); }
+.id.no-photo { grid-template-columns: minmax(0, 1fr); }
+.id.no-photo .portrait { display: none; }
+.id h1 { font-family: var(--display); font-weight: 800; font-stretch: 110%; font-size: clamp(2.4rem, 5vw, 3.4rem); line-height: 1.02; letter-spacing: -0.025em; margin: 0 0 10px; }
+.id .role { font-family: var(--display); font-weight: 600; font-size: 1.125rem; color: var(--ink); margin: 0 0 8px; }
+.id .contact { font-family: var(--display); font-size: 0.9375rem; margin: 0 0 22px; display: flex; flex-wrap: wrap; gap: 4px 10px; }
+.id .contact span { color: var(--rule); }
+.id .intro { color: var(--ink); margin-bottom: 18px; }
+.keys { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px 14px; font-family: var(--display); font-size: 0.8438rem; color: var(--slate); }
+.keys li::before { content: "#"; color: var(--grid-blue); margin-right: 1px; }
+.id .portrait img { aspect-ratio: 4 / 5; }
+
+.sheet { padding: 40px 0; }
+.sheet-title { font-family: var(--display); font-weight: 700; font-size: 1.1875rem; line-height: 1.35; margin: 0 0 6px; max-width: none; }
+.sheet-title a { color: var(--ink); text-decoration: none; }
+.sheet-title a:hover { text-decoration: underline; text-decoration-color: var(--signal); text-decoration-thickness: 3px; }
+.sheet-meta { font-size: 0.9375rem; color: var(--slate); margin: 0 0 14px; }
+.sheet .more { font-family: var(--display); font-size: 0.875rem; font-weight: 600; margin: 14px 0 0; }
+
+.stagelist { list-style: none; margin: 16px 0 0; padding: 0; border-top: 1px solid var(--rule); }
+.stagelist li { display: grid; grid-template-columns: 28px minmax(0, 1fr); gap: 14px; padding: 12px 0; border-bottom: 1px solid var(--rule); color: var(--slate); }
+.stagelist .sn { font-family: var(--display); font-weight: 800; font-size: 0.9375rem; width: 26px; height: 26px; display: grid; place-items: center; border: 1.5px solid var(--rule); color: var(--slate); }
+.stagelist li.done .sn { background: var(--ink); border-color: var(--ink); color: #fff; }
+.stagelist li.next .sn { background: var(--signal); border-color: var(--ink); color: var(--ink); }
+.stagelist strong { font-family: var(--display); font-weight: 700; font-size: 1rem; color: var(--ink); margin-right: 6px; }
+.stagelist li:not(.done):not(.next) strong { color: var(--slate); font-weight: 600; }
+.stagelist .finding { display: block; font-size: 0.9375rem; margin-top: 4px; }
+.stagelist li.done .finding { color: var(--ink); }
+.stagelist .chip { font-size: 0.6875rem; vertical-align: 2px; }
+
+.sheet .line { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 20px; align-items: baseline; padding: 10px 0; border-bottom: 1px solid var(--rule); }
+.sheet .line:first-child { border-top: 1px solid var(--rule); }
+.sheet .line strong { display: block; font-family: var(--display); font-weight: 700; font-size: 1.0313rem; color: var(--ink); }
+.sheet .line > div { color: var(--slate); font-size: 0.9375rem; }
+.sheet .yr { font-family: var(--display); font-size: 0.8438rem; color: var(--slate); white-space: nowrap; }
+.sheet .line + .sheet-meta { margin-top: 12px; }
+
+@media (max-width: 760px) {
+  .id { grid-template-columns: minmax(0, 1fr); gap: 24px; padding: 32px 0 28px; }
+  .id .portrait { order: -1; max-width: 150px; }
+  .sheet .line { grid-template-columns: minmax(0, 1fr); gap: 2px; }
+}
+.sheet .tags { margin-bottom: 14px; }
+.id .role { margin-bottom: 4px; }
+.id .focus { font-family: var(--display); font-size: 1rem; color: var(--ink); margin: 0 0 10px; }
+.id .focus .lab { font-size: 0.8125rem; font-weight: 700; color: var(--slate); margin-right: 6px; }
