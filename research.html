@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Research | Hyeongseo Jang</title>
-<meta name="description" content="A static AC study of operating margin when a data center load is added to the IEEE 24-bus Reliability Test System.">
+<meta name="description" content="A design study of where to connect data center load and how to expand it in modules, with Korean data. Restarted in November 2026 after a pilot on the IEEE 24-bus system.">
 <meta property="og:title" content="Research | Hyeongseo Jang">
-<meta property="og:description" content="A static AC study of operating margin when a data center load is added to the IEEE 24-bus Reliability Test System.">
+<meta property="og:description" content="A design study of where to connect data center load and how to expand it in modules, with Korean data. Restarted in November 2026 after a pilot on the IEEE 24-bus system.">
 <meta property="og:type" content="website">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%2310202F'/%3E%3Ccircle cx='16' cy='16' r='9' fill='none' stroke='%23F5C400' stroke-width='2.5'/%3E%3Cpath d='M10.5 16c1.8-4.5 3.7-4.5 5.5 0s3.7 4.5 5.5 0' fill='none' stroke='%23F5C400' stroke-width='2.2'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -29,368 +29,83 @@
   <main>
 
     <section class="pagehead">
-      <p class="status">Stage 1 of 4 completed</p>
-      <h1 class="h1-page">Large loads on a transmission network: a staged study on the IEEE 24-bus Reliability Test System</h1>
-      <p class="lede">I'm studying how much room a transmission network has for a large new load such as a data center, in four stages. The first stage is complete and is reported in detail below.</p>
+      <p class="status">Restarted November 2026 · design phase</p>
+      <h1 class="h1-page">Where to connect data center load, and how to expand it: a modular design study with Korean data</h1>
+      <p class="lede">This page is updated as each part of the study is finished. No new results yet.</p>
     </section>
 
     <section class="section" id="motivation">
       <h2>Motivation</h2>
       <div>
-        <p>This study started from a single question. I see engineering as work that makes people's lives a little more convenient and more harmonious. As the AI industry grows, data centers are being built quickly, and there are continuing reports of nearby households facing problems such as less reliable power supply, outages and noise. Instead of responding after problems appear, could they be prevented at the planning and design stage? This study takes up the power-grid side of that question: when a large data center load is connected, can the existing grid stay within its limits and keep a margin? Other issues, such as noise, are outside its scope.</p>
-        <p class="note"><a href="#glossary">Terms used on this page are listed in the Glossary.</a></p>
+        <p class="note">To be updated.</p>
+      </div>
+    </section>
+
+    <section class="section" id="question">
+      <h2>Research question</h2>
+      <div>
+        <p class="kicker-title">When data center modules are added one at a time to a campus, how do module size and connection structure change N-1 security, margin, losses and the number of modules the network can take? And how does the answer change when the same modules go into an existing area of Seoul or Gyeonggi?</p>
+        <h3>Two cases</h3>
+        <ul class="plain">
+          <li>A. New town</li>
+          <li>B. Existing area of Seoul or Gyeonggi</li>
+        </ul>
+        <h3>Four indicators of a balanced design</h3>
+        <ul class="plain">
+          <li>N-1 security</li>
+          <li>Load balance</li>
+          <li>Losses</li>
+          <li>Expansion room</li>
+        </ul>
+        <h3>Design to test</h3>
+        <p class="note">To be updated.</p>
       </div>
     </section>
 
     <section class="section" id="roadmap">
-      <h2>Roadmap</h2>
+      <h2>Plan</h2>
       <div>
         <ol class="stages">
-          <li class="done" id="plan-s1"><span class="n">1</span><div>
-            <p class="st-head"><a class="stlink" href="#stage1"><strong>Operating margin at one bus</strong></a> <span class="chip done">Completed, Nov 2026</span></p>
-            <p>Do generator settings chosen for a data center of about 100 MW keep the network within its limits, with margin to spare, as that demand moves?</p>
-            <a href="#stage1">Read the stage 1 results</a></div></li>
-          <li class="next" id="plan-s2"><span class="n">2</span><div>
-            <p class="st-head"><strong>N-1 security</strong> <span class="chip next">Up next</span></p>
-            <p>Repeat the check after each single line or generator outage, with post-outage limits and redispatch rules defined before any calculation is run. The outage list and criteria are planned to follow NERC TPL-001-5.1, category P1 (single contingency).</p></div></li>
-          <li class="planned" id="plan-s3"><span class="n">3</span><div>
-            <p class="st-head"><strong>Hosting capacity</strong> <span class="chip planned">Planned</span></p>
-            <p>Under a stated operating policy, find how much load the bus can take before the first violation, in normal operation and after outages.</p></div></li>
-          <li class="planned" id="plan-s4"><span class="n">4</span><div>
-            <p class="st-head"><strong>Other locations</strong> <span class="chip planned">Planned</span></p>
-            <p>Compare candidate buses to see whether a setting or a capacity found at one location carries over to others.</p></div></li>
+          <li class="done" id="plan-pilot"><span class="n">P</span><div>
+            <p class="st-head"><a class="stlink" href="#stage1"><strong>Pilot: operating margin at one bus</strong></a> <span class="chip done">Completed, Nov 2026</span></p></div></li>
+          <li class="next" id="plan-setup"><span class="n">1</span><div>
+            <p class="st-head"><strong>Set up: question, data and decision log</strong> <span class="chip next">Up next</span></p></div></li>
+          <li class="planned" id="plan-a"><span class="n">A</span><div>
+            <p class="st-head"><strong>Load model</strong> <span class="chip planned">Planned</span></p></div></li>
+          <li class="planned" id="plan-b"><span class="n">B</span><div>
+            <p class="st-head"><strong>Design study (core)</strong> <span class="chip planned">Planned</span></p></div></li>
+          <li class="planned" id="plan-c"><span class="n">C</span><div>
+            <p class="st-head"><strong>Siting</strong> <span class="chip planned">Planned</span></p></div></li>
         </ol>
-        <p class="note">Stages 2 to 4 are planned work. Results will be added to this page as each stage is finished.</p>
       </div>
     </section>
 
-    <div class="stage" id="stage1" data-stage="1">
-    <header class="stageband">
-      <span class="stagenum" aria-hidden="true">1</span>
+    <section class="section" id="data">
+      <h2>Data and limits</h2>
       <div>
-        <p class="chip done">Stage 1 of 4, completed November 2026</p>
-        <p class="stagetitle">Operating margin for a data center load at one bus</p>
-        <nav class="jump" aria-label="Stage 1 sections">
-          <a href="#s1-summary">Summary</a> <a href="#s1-question">Question</a> <a href="#s1-model">Model</a> <a href="#s1-checks">Checks</a>
-          <a href="#s1-r1">Result 1</a> <a href="#s1-r2">Result 2</a> <a href="#s1-r3">Result 3</a>
-          <a href="#s1-limits">Limits</a> <a href="#s1-method">Method and role</a>
-        </nav>
-      </div>
-    </header>
-    <section class="section" id="s1-summary">
-      <h2 data-stage-label="1">Summary</h2>
-      <div>
-        <ul class="plain">
-          <li>Question: with generator settings fixed for a data center of about 100 MW at bus 4, does the network stay within its limits as demand changes?</li>
-          <li>Result 1: only one of four candidate settings (P1Q1) met all three criteria at 95, 100 and 105 MW.</li>
-          <li>Result 2: over 17 demand levels from 90 to 110 MW, 13 passed and 4 broke a physical limit, the first at 106.25 MW.</li>
-          <li>Result 3: enforcing generator reactive limits removes the violation at 106.25 MW but still leaves no margin.</li>
-        </ul>
-        <p class="note">The sections below give the model, criteria and numbers. The stage 1 report and code will be on GitHub once I have finished reviewing them for public release.</p>
+        <p class="note">To be updated.</p>
       </div>
     </section>
 
-    <section class="section" id="s1-question">
-      <h2 data-stage-label="1">The question</h2>
+    <section class="section" id="decisions">
+      <h2>Decision log</h2>
       <div>
-        <p>I use a data center as the test case for a general operating question: when a large load is added, how much margin is left before the network reaches its limits?</p>
-        <p>A power-flow calculation that converges only tells you the equations were solved. It does not tell you that every generator and line stayed inside its rating, and it says nothing about how close to the edge the system is running. I kept those three questions separate throughout.</p>
+        <p class="note">To be updated. Each decision will be listed with who proposed the options, what I chose and why.</p>
       </div>
     </section>
 
-    <section class="section" id="s1-model">
-      <h2 data-stage-label="1">Model</h2>
+    <section class="section" id="results">
+      <h2>Results</h2>
       <div>
-        <ul class="plain">
-          <li>Network: the IEEE 24-bus Reliability Test System, a public benchmark.</li>
-          <li>Data center: a constant-power load at bus 4, with reactive demand assumed to be 0.25 times active demand.</li>
-          <li>Generation: 22 fixed injections keep their input values. Eleven sources respond: ten generators and the reference source at bus 13.</li>
-          <li>Control: each generator's active power and voltage target are held fixed, and its reactive power responds. The reference source balances active power, losses included.</li>
-        </ul>
-        <p class="note">These are modelling assumptions on a test network, not measurements from a real data center or a real grid.</p>
+        <p class="note">To be updated.</p>
       </div>
     </section>
 
-    <section class="section" id="s1-checks">
-      <h2 data-stage-label="1">Three checks</h2>
+    <section class="section" id="stage1">
+      <h2>Pilot: operating margin for a data center load at one bus</h2>
       <div>
-        <div class="scroll"><table>
-          <thead><tr><th>Check</th><th>What it asks</th><th>Threshold used here</th></tr></thead>
-          <tbody>
-            <tr><th scope="row">Convergence</th><td>Did the solver reach a solution?</td><td>Recorded separately from the limits below</td></tr>
-            <tr><th scope="row">Criterion A</th><td>Are the original physical limits respected?</td><td>Generator P and Q, bus voltages, line and transformer ratings, power balance</td></tr>
-            <tr><th scope="row">Criterion B</th><td>Is there reactive and voltage margin left?</td><td>At least 0.25 Mvar on every responding source and 0.001 pu on every bus</td></tr>
-            <tr><th scope="row">Criterion C</th><td>Is there active-power margin on the reference source?</td><td>At least 1 MW from either limit</td></tr>
-          </tbody>
-        </table></div>
-        <p class="note">The margins in B and C are buffers I chose for this study. They are not a regulatory requirement or a guarantee of operating reserve.</p>
-      </div>
-    </section>
-
-    <section class="section" id="s1-r1">
-      <h2 data-stage-label="1">Result 1: four candidate settings</h2>
-      <div>
-        <p>An optimal power flow at 100 MW gave four candidate settings that differ only in the active (P) and reactive (Q) range the reference source must stay within. Each was held fixed and checked at 95, 100 and 105 MW.</p>
-        <div class="scroll"><table class="verdicts">
-          <thead><tr><th>Setting</th><th>P design (MW)</th><th>Q design (Mvar)</th><th>95 MW</th><th>100 MW</th><th>105 MW</th></tr></thead>
-          <tbody><tr><th scope="row">P0Q0</th><td>69 to 197</td><td>0.98 to 79.02</td><td><span class="v ok" title="A: pass">A ✓</span><span class="v ok" title="B: pass">B ✓</span><span class="v na" title="C: not applied">C –</span></td><td><span class="v ok" title="A: pass">A ✓</span><span class="v ok" title="B: pass">B ✓</span><span class="v na" title="C: not applied">C –</span></td><td><span class="v no" title="A: fail">A ✕</span><span class="v no" title="B: fail">B ✕</span><span class="v na" title="C: not applied">C –</span></td></tr><tr><th scope="row">P1Q0</th><td>76 to 190</td><td>0.98 to 79.02</td><td><span class="v ok" title="A: pass">A ✓</span><span class="v ok" title="B: pass">B ✓</span><span class="v ok" title="C: pass">C ✓</span></td><td><span class="v ok" title="A: pass">A ✓</span><span class="v ok" title="B: pass">B ✓</span><span class="v ok" title="C: pass">C ✓</span></td><td><span class="v ok" title="A: pass">A ✓</span><span class="v no" title="B: fail">B ✕</span><span class="v ok" title="C: pass">C ✓</span></td></tr><tr><th scope="row">P0Q1</th><td>69 to 197</td><td>1.5 to 78.5</td><td><span class="v ok" title="A: pass">A ✓</span><span class="v ok" title="B: pass">B ✓</span><span class="v ok" title="C: pass">C ✓</span></td><td><span class="v ok" title="A: pass">A ✓</span><span class="v ok" title="B: pass">B ✓</span><span class="v no" title="C: fail">C ✕</span></td><td><span class="v no" title="A: fail">A ✕</span><span class="v ok" title="B: pass">B ✓</span><span class="v no" title="C: fail">C ✕</span></td></tr><tr class="hl"><th scope="row">P1Q1</th><td>76 to 190</td><td>1.5 to 78.5</td><td><span class="v ok" title="A: pass">A ✓</span><span class="v ok" title="B: pass">B ✓</span><span class="v ok" title="C: pass">C ✓</span></td><td><span class="v ok" title="A: pass">A ✓</span><span class="v ok" title="B: pass">B ✓</span><span class="v ok" title="C: pass">C ✓</span></td><td><span class="v ok" title="A: pass">A ✓</span><span class="v ok" title="B: pass">B ✓</span><span class="v ok" title="C: pass">C ✓</span></td></tr></tbody>
-        </table></div>
-        <p class="legend">P and Q design: the range the reference source was designed to stay within. ✓ pass &nbsp; ✕ fail &nbsp; – not applied</p>
-        <h3>How I read this</h3>
-        <p>Only P1Q1, which narrows both ranges, passed at all three levels. Narrowing one range is not enough: at 105 MW, P1Q0 leaves 0.1833 Mvar of reactive margin (buffer 0.25), and P0Q1 pushes the reference source to 202.494 MW (limit 197).</p>
-        <p class="note">Active and reactive headroom are separate design decisions, and here both were needed. One candidate per setting, so this describes four cases, not a general rule. Criterion C was added after P0Q0 was run.</p>
-      </div>
-    </section>
-
-    <section class="section" id="s1-r2">
-      <h2 data-stage-label="1">Result 2: one setting, seventeen demand levels</h2>
-      <div>
-        <p>With P1Q1 fixed, I checked 17 preset demand levels from 90 to 110 MW in 1.25 MW steps. 13 passed; the last 4 broke at least one physical limit.</p>
-        <figure>
-          <figcaption>Generator 1 runs out of reactive power first</figcaption>
-          <p class="legend"><span class="lg ok"></span>Met criteria A, B and C
- <span class="lg bad"></span>Broke a physical limit</p>
-          <svg class="chart" viewBox="0 0 720 320" role="img" aria-label="Line chart of generator 1 reactive power against data center demand from 90 to 110 MW, crossing its 10 Mvar upper limit at 106.25 MW.">
-<line class="grid" x1="58" x2="696" y1="245.7" y2="245.7"/>
-<text class="tick" x="48" y="249.7" text-anchor="end">4</text>
-<line class="grid" x1="58" x2="696" y1="193.1" y2="193.1"/>
-<text class="tick" x="48" y="197.1" text-anchor="end">6</text>
-<line class="grid" x1="58" x2="696" y1="140.4" y2="140.4"/>
-<text class="tick" x="48" y="144.4" text-anchor="end">8</text>
-<line class="grid" x1="58" x2="696" y1="87.8" y2="87.8"/>
-<text class="tick" x="48" y="91.8" text-anchor="end">10</text>
-<line class="grid" x1="58" x2="696" y1="35.2" y2="35.2"/>
-<text class="tick" x="48" y="39.2" text-anchor="end">12</text>
-<text class="tick" x="87.0" y="292" text-anchor="middle">90</text>
-<text class="tick" x="232.0" y="292" text-anchor="middle">95</text>
-<text class="tick" x="377.0" y="292" text-anchor="middle">100</text>
-<text class="tick" x="522.0" y="292" text-anchor="middle">105</text>
-<text class="tick" x="667.0" y="292" text-anchor="middle">110</text>
-<line class="axis" x1="58" x2="696" y1="272" y2="272"/>
-<text class="axlab" x="377.0" y="312" text-anchor="middle">Data center demand (MW)</text>
-<text class="axlab" x="58" y="12">Gen 1 reactive power (Mvar)</text>
-<line class="limit" x1="58" x2="696" y1="87.8" y2="87.8"/>
-<text class="lim-lab limit-lab" x="64" y="80.8">Gen 1 upper limit, 10 Mvar</text>
-<polyline class="series" points="87.0,254.4 123.2,241.4 159.5,228.3 195.8,215.2 232.0,202.0 268.2,188.8 304.5,175.5 340.8,162.2 377.0,148.8 413.2,135.3 449.5,121.8 485.8,108.3 522.0,94.7 558.2,81.1 594.5,67.4 630.8,53.6 667.0,39.8"/>
-<circle class="pt ok" cx="87.0" cy="254.4" r="5"/>
-<circle class="hit" tabindex="0" cx="87.0" cy="254.4" r="14" data-tip-en="90 MW: Gen 1 Q 3.6684 Mvar. Met A, B and C."/>
-<circle class="pt ok" cx="123.2" cy="241.4" r="5"/>
-<circle class="hit" tabindex="0" cx="123.2" cy="241.4" r="14" data-tip-en="91.25 MW: Gen 1 Q 4.1634 Mvar. Met A, B and C."/>
-<circle class="pt ok" cx="159.5" cy="228.3" r="5"/>
-<circle class="hit" tabindex="0" cx="159.5" cy="228.3" r="14" data-tip-en="92.5 MW: Gen 1 Q 4.6603 Mvar. Met A, B and C."/>
-<circle class="pt ok" cx="195.8" cy="215.2" r="5"/>
-<circle class="hit" tabindex="0" cx="195.8" cy="215.2" r="14" data-tip-en="93.75 MW: Gen 1 Q 5.1591 Mvar. Met A, B and C."/>
-<circle class="pt ok" cx="232.0" cy="202.0" r="5"/>
-<circle class="hit" tabindex="0" cx="232.0" cy="202.0" r="14" data-tip-en="95 MW: Gen 1 Q 5.6599 Mvar. Met A, B and C."/>
-<circle class="pt ok" cx="268.2" cy="188.8" r="5"/>
-<circle class="hit" tabindex="0" cx="268.2" cy="188.8" r="14" data-tip-en="96.25 MW: Gen 1 Q 6.1626 Mvar. Met A, B and C."/>
-<circle class="pt ok" cx="304.5" cy="175.5" r="5"/>
-<circle class="hit" tabindex="0" cx="304.5" cy="175.5" r="14" data-tip-en="97.5 MW: Gen 1 Q 6.6673 Mvar. Met A, B and C."/>
-<circle class="pt ok" cx="340.8" cy="162.2" r="5"/>
-<circle class="hit" tabindex="0" cx="340.8" cy="162.2" r="14" data-tip-en="98.75 MW: Gen 1 Q 7.1739 Mvar. Met A, B and C."/>
-<circle class="pt ok" cx="377.0" cy="148.8" r="5"/>
-<circle class="hit" tabindex="0" cx="377.0" cy="148.8" r="14" data-tip-en="100 MW: Gen 1 Q 7.6826 Mvar. Met A, B and C."/>
-<circle class="pt ok" cx="413.2" cy="135.3" r="5"/>
-<circle class="hit" tabindex="0" cx="413.2" cy="135.3" r="14" data-tip-en="101.25 MW: Gen 1 Q 8.1932 Mvar. Met A, B and C."/>
-<circle class="pt ok" cx="449.5" cy="121.8" r="5"/>
-<circle class="hit" tabindex="0" cx="449.5" cy="121.8" r="14" data-tip-en="102.5 MW: Gen 1 Q 8.7058 Mvar. Met A, B and C."/>
-<circle class="pt ok" cx="485.8" cy="108.3" r="5"/>
-<circle class="hit" tabindex="0" cx="485.8" cy="108.3" r="14" data-tip-en="103.75 MW: Gen 1 Q 9.2204 Mvar. Met A, B and C."/>
-<circle class="pt ok" cx="522.0" cy="94.7" r="5"/>
-<circle class="hit" tabindex="0" cx="522.0" cy="94.7" r="14" data-tip-en="105 MW: Gen 1 Q 9.7370 Mvar. Met A, B and C."/>
-<rect class="pt bad" x="552.8" y="75.6" width="11" height="11" transform="rotate(45 558.2 81.1)"/>
-<circle class="hit" tabindex="0" cx="558.2" cy="81.1" r="14" data-tip-en="106.25 MW: Gen 1 Q 10.2557 Mvar. Broke a physical limit."/>
-<rect class="pt bad" x="589.0" y="61.9" width="11" height="11" transform="rotate(45 594.5 67.4)"/>
-<circle class="hit" tabindex="0" cx="594.5" cy="67.4" r="14" data-tip-en="107.5 MW: Gen 1 Q 10.7764 Mvar. Broke a physical limit."/>
-<rect class="pt bad" x="625.2" y="48.1" width="11" height="11" transform="rotate(45 630.8 53.6)"/>
-<circle class="hit" tabindex="0" cx="630.8" cy="53.6" r="14" data-tip-en="108.75 MW: Gen 1 Q 11.2991 Mvar. Broke a physical limit."/>
-<rect class="pt bad" x="661.5" y="34.3" width="11" height="11" transform="rotate(45 667.0 39.8)"/>
-<circle class="hit" tabindex="0" cx="667.0" cy="39.8" r="14" data-tip-en="110 MW: Gen 1 Q 11.8239 Mvar. Broke a physical limit."/>
-</svg>
-        </figure>
-        <p>Gen 1 (bus 2) adds about 0.5 Mvar per step to hold its voltage. At 106.25 MW it needs 10.2557 Mvar against a 10 Mvar limit: the first violation.</p>
-        <figure>
-          <figcaption>The reference source follows one step later</figcaption>
-          <p class="legend"><span class="lg ok"></span>Met criteria A, B and C
- <span class="lg bad"></span>Broke a physical limit</p>
-          <svg class="chart" viewBox="0 0 720 320" role="img" aria-label="Line chart of reference source active power against data center demand, crossing its 197 MW upper limit at 107.5 MW.">
-<line class="grid" x1="58" x2="696" y1="236.3" y2="236.3"/>
-<text class="tick" x="48" y="240.3" text-anchor="end">180</text>
-<line class="grid" x1="58" x2="696" y1="191.6" y2="191.6"/>
-<text class="tick" x="48" y="195.6" text-anchor="end">185</text>
-<line class="grid" x1="58" x2="696" y1="147.0" y2="147.0"/>
-<text class="tick" x="48" y="151.0" text-anchor="end">190</text>
-<line class="grid" x1="58" x2="696" y1="102.4" y2="102.4"/>
-<text class="tick" x="48" y="106.4" text-anchor="end">195</text>
-<line class="grid" x1="58" x2="696" y1="57.7" y2="57.7"/>
-<text class="tick" x="48" y="61.7" text-anchor="end">200</text>
-<text class="tick" x="87.0" y="292" text-anchor="middle">90</text>
-<text class="tick" x="232.0" y="292" text-anchor="middle">95</text>
-<text class="tick" x="377.0" y="292" text-anchor="middle">100</text>
-<text class="tick" x="522.0" y="292" text-anchor="middle">105</text>
-<text class="tick" x="667.0" y="292" text-anchor="middle">110</text>
-<line class="axis" x1="58" x2="696" y1="272" y2="272"/>
-<text class="axlab" x="377.0" y="312" text-anchor="middle">Data center demand (MW)</text>
-<text class="axlab" x="58" y="12">Reference source active power (MW)</text>
-<line class="limit" x1="58" x2="696" y1="84.5" y2="84.5"/>
-<text class="lim-lab limit-lab" x="64" y="77.5">Reference source upper limit, 197 MW</text>
-<line class="buffer" x1="58" x2="696" y1="93.4" y2="93.4"/>
-<text class="lim-lab buffer-lab" x="64" y="109.4">Limit minus the 1 MW buffer (Criterion C)</text>
-<polyline class="series" points="87.0,244.6 123.2,232.4 159.5,220.3 195.8,208.1 232.0,195.9 268.2,183.7 304.5,171.5 340.8,159.2 377.0,147.0 413.2,134.8 449.5,122.5 485.8,110.2 522.0,98.0 558.2,85.7 594.5,73.4 630.8,61.1 667.0,48.8"/>
-<circle class="pt ok" cx="87.0" cy="244.6" r="5"/>
-<circle class="hit" tabindex="0" cx="87.0" cy="244.6" r="14" data-tip-en="90 MW: reference source 179.068 MW. Met A, B and C."/>
-<circle class="pt ok" cx="123.2" cy="232.4" r="5"/>
-<circle class="hit" tabindex="0" cx="123.2" cy="232.4" r="14" data-tip-en="91.25 MW: reference source 180.431 MW. Met A, B and C."/>
-<circle class="pt ok" cx="159.5" cy="220.3" r="5"/>
-<circle class="hit" tabindex="0" cx="159.5" cy="220.3" r="14" data-tip-en="92.5 MW: reference source 181.794 MW. Met A, B and C."/>
-<circle class="pt ok" cx="195.8" cy="208.1" r="5"/>
-<circle class="hit" tabindex="0" cx="195.8" cy="208.1" r="14" data-tip-en="93.75 MW: reference source 183.159 MW. Met A, B and C."/>
-<circle class="pt ok" cx="232.0" cy="195.9" r="5"/>
-<circle class="hit" tabindex="0" cx="232.0" cy="195.9" r="14" data-tip-en="95 MW: reference source 184.525 MW. Met A, B and C."/>
-<circle class="pt ok" cx="268.2" cy="183.7" r="5"/>
-<circle class="hit" tabindex="0" cx="268.2" cy="183.7" r="14" data-tip-en="96.25 MW: reference source 185.892 MW. Met A, B and C."/>
-<circle class="pt ok" cx="304.5" cy="171.5" r="5"/>
-<circle class="hit" tabindex="0" cx="304.5" cy="171.5" r="14" data-tip-en="97.5 MW: reference source 187.260 MW. Met A, B and C."/>
-<circle class="pt ok" cx="340.8" cy="159.2" r="5"/>
-<circle class="hit" tabindex="0" cx="340.8" cy="159.2" r="14" data-tip-en="98.75 MW: reference source 188.630 MW. Met A, B and C."/>
-<circle class="pt ok" cx="377.0" cy="147.0" r="5"/>
-<circle class="hit" tabindex="0" cx="377.0" cy="147.0" r="14" data-tip-en="100 MW: reference source 190.000 MW. Met A, B and C."/>
-<circle class="pt ok" cx="413.2" cy="134.8" r="5"/>
-<circle class="hit" tabindex="0" cx="413.2" cy="134.8" r="14" data-tip-en="101.25 MW: reference source 191.371 MW. Met A, B and C."/>
-<circle class="pt ok" cx="449.5" cy="122.5" r="5"/>
-<circle class="hit" tabindex="0" cx="449.5" cy="122.5" r="14" data-tip-en="102.5 MW: reference source 192.744 MW. Met A, B and C."/>
-<circle class="pt ok" cx="485.8" cy="110.2" r="5"/>
-<circle class="hit" tabindex="0" cx="485.8" cy="110.2" r="14" data-tip-en="103.75 MW: reference source 194.118 MW. Met A, B and C."/>
-<circle class="pt ok" cx="522.0" cy="98.0" r="5"/>
-<circle class="hit" tabindex="0" cx="522.0" cy="98.0" r="14" data-tip-en="105 MW: reference source 195.493 MW. Met A, B and C."/>
-<rect class="pt bad" x="552.8" y="80.2" width="11" height="11" transform="rotate(45 558.2 85.7)"/>
-<circle class="hit" tabindex="0" cx="558.2" cy="85.7" r="14" data-tip-en="106.25 MW: reference source 196.869 MW. Broke a physical limit."/>
-<rect class="pt bad" x="589.0" y="67.9" width="11" height="11" transform="rotate(45 594.5 73.4)"/>
-<circle class="hit" tabindex="0" cx="594.5" cy="73.4" r="14" data-tip-en="107.5 MW: reference source 198.246 MW. Broke a physical limit."/>
-<rect class="pt bad" x="625.2" y="55.6" width="11" height="11" transform="rotate(45 630.8 61.1)"/>
-<circle class="hit" tabindex="0" cx="630.8" cy="61.1" r="14" data-tip-en="108.75 MW: reference source 199.624 MW. Broke a physical limit."/>
-<rect class="pt bad" x="661.5" y="43.3" width="11" height="11" transform="rotate(45 667.0 48.8)"/>
-<circle class="hit" tabindex="0" cx="667.0" cy="48.8" r="14" data-tip-en="110 MW: reference source 201.003 MW. Broke a physical limit."/>
-</svg>
-        </figure>
-        <p>The reference source absorbs the added demand and losses almost linearly. It enters the 1 MW buffer at 106.25 MW (196.869 MW) and passes the 197 MW limit at 107.5 MW (198.246 MW). Violations then accumulate: 1/3/4/6 across the last four points.</p>
-        <details class="data"><summary>Show the numbers behind both charts</summary>
-<div class="scroll"><table class="num">
-<thead><tr><th>Demand (MW)</th><th>Gen 1 Q (Mvar)</th><th>Reference P (MW)</th><th>Smallest Q margin (Mvar)</th><th>Smallest voltage margin (pu)</th><th>Violations</th><th>Verdict</th></tr></thead>
-<tbody><tr><td>90</td><td>3.6684</td><td>179.068</td><td>0.2695</td><td>0.001000</td><td>0</td><td>Pass</td></tr><tr><td>91.25</td><td>4.1634</td><td>180.431</td><td>0.2706</td><td>0.001000</td><td>0</td><td>Pass</td></tr><tr><td>92.5</td><td>4.6603</td><td>181.794</td><td>0.2717</td><td>0.001000</td><td>0</td><td>Pass</td></tr><tr><td>93.75</td><td>5.1591</td><td>183.159</td><td>0.2727</td><td>0.001000</td><td>0</td><td>Pass</td></tr><tr><td>95</td><td>5.6599</td><td>184.525</td><td>0.2738</td><td>0.001000</td><td>0</td><td>Pass</td></tr><tr><td>96.25</td><td>6.1626</td><td>185.892</td><td>0.2748</td><td>0.001000</td><td>0</td><td>Pass</td></tr><tr><td>97.5</td><td>6.6673</td><td>187.260</td><td>0.2758</td><td>0.001000</td><td>0</td><td>Pass</td></tr><tr><td>98.75</td><td>7.1739</td><td>188.630</td><td>0.2767</td><td>0.001000</td><td>0</td><td>Pass</td></tr><tr><td>100</td><td>7.6826</td><td>190.000</td><td>0.2777</td><td>0.001000</td><td>0</td><td>Pass</td></tr><tr><td>101.25</td><td>8.1932</td><td>191.371</td><td>0.2786</td><td>0.001000</td><td>0</td><td>Pass</td></tr><tr><td>102.5</td><td>8.7058</td><td>192.744</td><td>0.2795</td><td>0.001000</td><td>0</td><td>Pass</td></tr><tr><td>103.75</td><td>9.2204</td><td>194.118</td><td>0.2804</td><td>0.001000</td><td>0</td><td>Pass</td></tr><tr><td>105</td><td>9.7370</td><td>195.493</td><td>0.2566</td><td>0.001000</td><td>0</td><td>Pass</td></tr><tr><td>106.25</td><td>10.2557</td><td>196.869</td><td>-0.2557</td><td>0.000424</td><td>1</td><td>Physical violation</td></tr><tr><td>107.5</td><td>10.7764</td><td>198.246</td><td>-0.7764</td><td>-0.000172</td><td>3</td><td>Physical violation</td></tr><tr><td>108.75</td><td>11.2991</td><td>199.624</td><td>-1.2991</td><td>-0.000771</td><td>4</td><td>Physical violation</td></tr><tr><td>110</td><td>11.8239</td><td>201.003</td><td>-1.8239</td><td>-0.001371</td><td>6</td><td>Physical violation</td></tr></tbody></table></div></details>
-        <h3>How I read this</h3>
-        <p>It passes at 105 MW, but only just: 0.2566 Mvar of reactive margin (buffer 0.25) and 0.001000 pu of voltage margin (buffer 0.001). A setting optimized for one demand level sits close to its limits and does not carry far.</p>
-        <p class="note">Seventeen separate points: this does not prove every level in between passes, and 105 MW is not a maximum capacity.</p>
-      </div>
-    </section>
-
-    <section class="section" id="s1-r3">
-      <h2 data-stage-label="1">Result 3: enforcing reactive limits</h2>
-      <div>
-        <p>With reactive-limit enforcement on, a generator that hits its Q limit is pinned there and stops holding its voltage (PV to PQ). I ran the same inputs with the option off and on.</p>
-        <div class="scroll"><table class="verdicts">
-          <thead><tr><th>Case</th><th>Gen 1 Q (Mvar)</th><th>Gen 1 bus type</th><th>Criteria</th></tr></thead>
-          <tbody><tr><th scope="row">105.5 MW, limits off</th><td>9.9442</td><td>PV</td><td><span class="v ok" title="A: pass">A ✓</span><span class="v no" title="B: fail">B ✕</span><span class="v no" title="C: fail">C ✕</span></td></tr><tr><th scope="row">105.5 MW, limits on</th><td>9.9442</td><td>PV</td><td><span class="v ok" title="A: pass">A ✓</span><span class="v no" title="B: fail">B ✕</span><span class="v no" title="C: fail">C ✕</span></td></tr><tr><th scope="row">106.25 MW, limits off</th><td>10.2557</td><td>PV</td><td><span class="v no" title="A: fail">A ✕</span><span class="v no" title="B: fail">B ✕</span><span class="v no" title="C: fail">C ✕</span></td></tr><tr><th scope="row">106.25 MW, limits on</th><td>10.0000</td><td>PQ</td><td><span class="v ok" title="A: pass">A ✓</span><span class="v no" title="B: fail">B ✕</span><span class="v no" title="C: fail">C ✕</span></td></tr></tbody>
-        </table></div>
-        <h3>How I read this</h3>
-        <p>At 105.5 MW nothing reaches a limit, so both rows match. At 106.25 MW the option pins Gen 1 at 10 Mvar and the violation disappears, but bus 2 voltage drops slightly below target and B and C still fail: a generator on its limit has no margin.</p>
-        <p class="note">Removing a violation is not passing. PV to PQ switching is a rule in a static calculation, not a model of a real voltage regulator over time.</p>
-      </div>
-    </section>
-
-    <section class="section" id="s1-limits">
-      <h2 data-stage-label="1">What stage 1 does not show</h2>
-      <div>
-        <p>The original goal was a data center hosting study that includes single-contingency (N-1) security. The first calculations showed that the base network violated normal-operation limits even without the data center, so Stage 1 first established and evaluated operating settings that respect limits and margins under normal conditions. What Stage 1 does not show (N-1 security, hosting capacity, other locations) became the research questions for the later stages.</p>
-        <ul class="plain">
-          <li>N-1 security. Outages were screened earlier for selected cases only. This is stage 2.</li>
-          <li>A maximum hosting capacity, or a continuous range of acceptable demand. This is stage 3.</li>
-          <li>Other locations. The data center stays at bus 4 throughout. This is stage 4.</li>
-          <li>Dynamic behaviour. Every result is a steady-state snapshot.</li>
-          <li>A real system. Open questions about some benchmark reactive limits were inherited and not resolved.</li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="section" id="s1-method">
-      <h2 data-stage-label="1">How it was done</h2>
-      <div>
-        <p>Stage 1 shows 33 stored results that come from 29 unique power-flow runs, since four results are reused between sections. The four optimal power flows that produced the settings are counted separately. Tools: Python with pandapower, and MATPOWER in MATLAB.</p>
-        <p>I set the direction, scope and pass or fail criteria and reviewed the results. ChatGPT supported planning and review; comparing several operating settings was its suggestion, which I adopted. Claude Code and Codex implemented and ran the calculations. I did not write all of the code by hand.</p>
-        <p class="note">For the full report, code, run records and the journal of each decision, see my GitHub once the repository is public. This page keeps to the results.</p>
-      </div>
-    </section>
-    <p class="stageend">End of stage 1. <a href="#roadmap">Back to the roadmap</a></p>
-    </div>
-    <section class="section" id="glossary">
-      <h2>Glossary</h2>
-      <div>
-      <details class="data"><summary>System and model</summary>
-      <div class="scroll"><table class="gloss"><thead><tr><th>Term</th><th>Meaning</th></tr></thead><tbody>
-<tr><th scope="row">Power system</th><td>The whole network of generators, transmission lines and loads</td></tr>
-<tr><th scope="row">Bus</th><td>A connection point where generators, loads and lines meet</td></tr>
-<tr><th scope="row">Branch</th><td>A line or transformer joining two buses</td></tr>
-<tr><th scope="row">IEEE RTS-24</th><td>A public 24-bus test network (benchmark)</td></tr>
-<tr><th scope="row">Benchmark system</th><td>A standard test network anyone can reproduce and compare using the same data</td></tr>
-<tr><th scope="row">Model variant A</th><td>The name of the RTS-24 input data version used here; unrelated to Criterion A</td></tr>
-<tr><th scope="row">Data center load</th><td>The constant P/Q load added at bus 4</td></tr>
-<tr><th scope="row">Static generator (sgen)</th><td>A fixed source that keeps the P/Q it is given</td></tr>
-<tr><th scope="row">Responsive sources</th><td>Sources whose output (Q and so on) reacts during the calculation</td></tr>
-</tbody></table></div></details>
-      <details class="data"><summary>Electrical quantities and units</summary>
-      <div class="scroll"><table class="gloss"><thead><tr><th>Term</th><th>Meaning</th></tr></thead><tbody>
-<tr><th scope="row">Active power (P), MW</th><td>Power that does real work</td></tr>
-<tr><th scope="row">Reactive power (Q), Mvar</th><td>Power tied to voltage support; it does no work but has to flow</td></tr>
-<tr><th scope="row">Voltage magnitude (Vm)</th><td>The calculated size of the voltage at a bus</td></tr>
-<tr><th scope="row">Voltage setpoint (Vg)</th><td>The voltage target given to a generator; the calculated Vm can differ</td></tr>
-<tr><th scope="row">Per unit (pu)</th><td>A value expressed as a ratio to a base value; 1.0 pu is the base voltage</td></tr>
-<tr><th scope="row">Losses</th><td>Power that disappears in the lines during transmission</td></tr>
-</tbody></table></div></details>
-      <details class="data"><summary>Calculation methods</summary>
-      <div class="scroll"><table class="gloss"><thead><tr><th>Term</th><th>Meaning</th></tr></thead><tbody>
-<tr><th scope="row">Power flow (PF)</th><td>Calculating voltages and power flows for given generation and load</td></tr>
-<tr><th scope="row">AC power flow</th><td>A power flow that solves P, Q, voltage magnitude and angle; unrelated to the “DC” in data center</td></tr>
-<tr><th scope="row">Newton-Raphson (NR)</th><td>A numerical method that solves the power flow equations by iteration</td></tr>
-<tr><th scope="row">Convergence</th><td>The iteration error has fallen below a threshold and a solution is found</td></tr>
-<tr><th scope="row">Feasibility</th><td>The result respects every real limit</td></tr>
-<tr><th scope="row">Optimal power flow (OPF)</th><td>A power flow that optimizes a goal (such as cost) while respecting limits</td></tr>
-<tr><th scope="row">Steady-state (static) analysis</th><td>Looks at one stable moment only (a single photograph)</td></tr>
-<tr><th scope="row">Stability (dynamic) analysis</th><td>Looks at how things change over the few seconds after an event (a video); outside this study</td></tr>
-</tbody></table></div></details>
-      <details class="data"><summary>Bus types and control</summary>
-      <div class="scroll"><table class="gloss"><thead><tr><th>Term</th><th>Meaning</th></tr></thead><tbody>
-<tr><th scope="row">PQ bus</th><td>A bus where P and Q are given and the voltage is calculated</td></tr>
-<tr><th scope="row">PV bus</th><td>A bus where P and a voltage target are given and Q is calculated</td></tr>
-<tr><th scope="row">Slack (reference) bus</th><td>The bus that balances active power, losses included</td></tr>
-<tr><th scope="row">Reference source</th><td>The source at the slack bus; it balances P but shares Q response with the other generators</td></tr>
-<tr><th scope="row">Q limit enforcement</th><td>A rule that pins a generator's Q at its limit once it would exceed it</td></tr>
-<tr><th scope="row">PV → PQ switching</th><td>The change that releases the voltage target when Q is pinned at its limit</td></tr>
-</tbody></table></div></details>
-      <details class="data"><summary>Evaluation criteria</summary>
-      <div class="scroll"><table class="gloss"><thead><tr><th>Term</th><th>Meaning</th></tr></thead><tbody>
-<tr><th scope="row">Physical limit</th><td>What the equipment can actually withstand (ratings, voltage range and so on)</td></tr>
-<tr><th scope="row">Margin</th><td>The distance from the current value to a physical limit</td></tr>
-<tr><th scope="row">Buffer</th><td>A margin target I chose for this study; not a regulation</td></tr>
-<tr><th scope="row">Criterion A</th><td>Were all physical limits respected?</td></tr>
-<tr><th scope="row">Criterion B</th><td>Was the chosen Q and voltage buffer left?</td></tr>
-<tr><th scope="row">Criterion C</th><td>Was the reference source's P buffer left?</td></tr>
-<tr><th scope="row">Design range (P0/P1, Q0/Q1)</th><td>The P and Q range given to the reference source in the OPF; “0” does not mean unconstrained</td></tr>
-<tr><th scope="row">Demand test points</th><td>The 17 data center demand values chosen in advance</td></tr>
-</tbody></table></div></details>
-      <details class="data"><summary>Stage 2: N-1 security</summary>
-      <div class="scroll"><table class="gloss"><thead><tr><th>Term</th><th>Meaning</th></tr></thead><tbody>
-<tr><th scope="row">N-1 security</th><td>A steady-state check of whether the network respects its limits when any one element is out</td></tr>
-<tr><th scope="row">Contingency / outage</th><td>The loss of one element, for example through a fault</td></tr>
-<tr><th scope="row">NERC TPL-001</th><td>The US transmission planning reliability standard</td></tr>
-<tr><th scope="row">P1 event</th><td>The single-contingency category in TPL-001</td></tr>
-<tr><th scope="row">Facility rating</th><td>The power or current an element can carry</td></tr>
-<tr><th scope="row">Emergency rating</th><td>A higher rating allowed for a short time after an outage</td></tr>
-<tr><th scope="row">Islanding</th><td>Part of the network being cut off by an outage</td></tr>
-<tr><th scope="row">Consequential load loss</th><td>Losing only the load directly attached to the removed element; allowed under TPL-001 P1</td></tr>
-<tr><th scope="row">Re-dispatch</th><td>Redistributing generator output after an outage</td></tr>
-<tr><th scope="row">Hosting capacity</th><td>The largest load that can be connected while respecting limits</td></tr>
-<tr><th scope="row">Independent solver check</th><td>Repeating a calculation in a different program to compare</td></tr>
-</tbody></table></div></details>
+        <p>A method check on the IEEE 24-bus system, completed in November 2026. It is not a result of this study.</p>
+        <p class="note">To be updated.</p>
       </div>
     </section>
 
