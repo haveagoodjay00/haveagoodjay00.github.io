@@ -1,0 +1,317 @@
+/* =====================================================================
+   PROJECT PROGRESS DATA  (edit this file to update project.html)
+
+   status of a station:  'done' | 'now' | 'next' | 'later'
+   Exactly one station should be 'now'  (the "You are here" pin).
+   tag of a decision:
+     'mine'      idea or requirement came from me
+     'override'  I chose against the assistant's recommendation
+     'choice'    I picked among the drafted options
+     'accepted'  I took the recommended option
+   REPO: set to the public GitHub URL of the study repository to turn
+         record paths into links, e.g. 'https://github.com/USER/REPO'
+   ===================================================================== */
+window.PROJECT = {
+  updated: 'November 18, 2026',
+  REPO: '',
+  decisionCount: 31,   // D1 to D31 in docs/DECISIONS.md
+
+  stations: [
+    {
+      id: 'pilot', status: 'done', when: 'Before November 2026',
+      title: 'Pilot',
+      sub: 'Operating margin for one data center load at one bus, IEEE 24-bus system.',
+      steps: [
+        { title: 'A method check, then a clean restart',
+          text: 'The pilot taught me the tools, but most of its choices were not mine. I archived it read-only and restarted so that every choice in the study is my own and on record. No pilot code or numbers are reused.',
+          decisions: ['D7'] }
+      ]
+    },
+    {
+      id: 'setup', status: 'done', when: 'Nov 15, 2026',
+      title: 'Set up',
+      sub: 'The question, public data, and a log of every decision.',
+      steps: [
+        { title: 'Pick the question',
+          text: 'Compare a new-town campus (Case A) with an existing Seoul/Gyeonggi area (Case B) first, then layer design variables such as module size and structure on top.',
+          decisions: ['D1', 'D3'] },
+        { title: 'Get the public data',
+          text: 'KEPCO hourly electricity use, 2022 to 2024. The API and the CSV matched row for row (394,560 rows). KMA hourly temperature for Seoul and Suwon; three missing hours filled by interpolation.',
+          decisions: ['D2', 'D15'],
+          record: 'data/README.md' },
+        { title: 'Set the ground rules',
+          text: 'Public data first. Anything not public is labeled an assumption and gets a sensitivity range. Every decision is logged with who drafted the options and why I chose. I write my prediction before each step.',
+          decisions: ['D11'],
+          record: 'docs/DECISIONS.md' }
+      ]
+    },
+    {
+      id: 'load', status: 'done', when: 'Nov 15 to 16',
+      title: 'Load model',
+      sub: 'What a data center module draws, and what the grid already carries.',
+      steps: [
+        { title: 'Module load',
+          text: 'A flat rated load first, to build the expansion curve. Then I overlay existing regional load for Case B, because I expect a midday overlap in Seoul/Gyeonggi.',
+          decisions: ['D10', 'D12'] },
+        { title: 'Existing substation load',
+          text: 'No public 154 kV substation load exists, so it becomes a labeled scenario: 70, 85 or 95% of rating.',
+          decisions: ['D13'] },
+        { title: 'Overload limits with a source',
+          text: 'Korean government notices define N-1. Overload limits come from IEEE C57.91 as quoted in a PJM guide: 100, 120, 150 and 200% of rating, each reported as its own verdict.',
+          decisions: ['D14', 'D9'] }
+      ]
+    },
+    {
+      id: 'design', status: 'done', when: 'Nov 16 to 17',
+      title: 'Network design',
+      sub: 'Structures to compare, line data from real sources, and the case list.',
+      steps: [
+        { title: 'Model level and tools',
+          text: 'Two tiers: a fast MVA ledger over all 8,760 hours, then AC power flow on representative cases. pandapower runs the cases; a NumPy DC solver I write myself cross-checks a small network.',
+          decisions: ['D5', 'D17', 'D8'] },
+        { title: 'Four structures',
+          diagram: true,
+          text: 'Radial or ring inside the campus, single or dual supply from outside. Radial with single supply is the baseline, because one line outage cuts the campus off.',
+          decisions: ['D6', 'D6F', 'D26', 'D27'],
+          record: 'modules/B_design/INPUT_TABLE_DRAFT.md' },
+        { title: 'Line parameters from real specs',
+          text: 'ACSR 410 mm² twin-bundle conductor from manufacturer pages gives R ≈ 0.035 Ω/km and X ≈ 0.338 Ω/km. Tower geometry is assumed, with a sensitivity range.',
+          decisions: ['D20', 'D21', 'D22'],
+          record: 'data/processed/conductor_spec_154kV.csv' },
+        { title: 'Line lengths from government notices',
+          text: '29 Seoul/Gyeonggi/Incheon 154 kV lines from Ministry notices. For the existing substation-to-substation lines (n = 17), the quartiles are 4.3, 9.4 and 13.5 km, so d = 4, 9 and 14 km. New branch lines are 0.6 to 1.9 km, so the base is 1.5 km.',
+          decisions: ['D23', 'D24', 'D25'],
+          record: 'data/processed/line_length_evidence_154kV_metro.csv' },
+        { title: 'Model it where practice is complex',
+          text: 'I kept T-tap connections, where the campus taps an existing line midway, after the assistant recommended dropping them.',
+          decisions: ['D28', 'D29'] },
+        { title: 'The case list',
+          text: 'Full factorial on the core axes, one at a time on the rest: about 390 cases for Case B and 219 for Case A. N-1 is a gate; designs that pass are compared side by side.',
+          decisions: ['D18', 'D4'] }
+      ]
+    },
+    {
+      id: 'prereg', status: 'done', when: 'Nov 17',
+      title: 'Pre-registration locked',
+      sub: 'Criteria and predictions fixed before any calculation, so they cannot drift toward the results.',
+      steps: [
+        { title: 'Verdict rules',
+          text: 'Stage 1: each transformer out, 8,760 hours. Stage 2: transformer and 154 kV line outages at peak, with overload and ±10% voltage checks. Convergence, physical limits and safety buffer are reported separately.',
+          decisions: ['D30'],
+          record: 'docs/PREREGISTRATION.md' },
+        { title: 'My predictions, on record',
+          predictions: [
+            'Radial breaks first: one overload and the campus is down.',
+            'Moving the tap point will not change which segments get heavy, or their ranking.',
+            'As modules grow from 20 to 100 MW, ring with single supply will not overtake radial with dual supply.',
+            'T-tap will have a clear effect. I gave a 0% chance that it turns out negligible.'
+          ],
+          text: 'Scored after the runs, right or wrong.',
+          record: 'docs/EXPECTATION_SCORECARD.md' },
+        { title: 'A rule for dropping things',
+          text: 'If T-tap variants change neither the N-1 ranking nor the number of modules that fit, they move to an appendix as a null result. That would also make my fourth prediction wrong.' }
+      ]
+    },
+    {
+      id: 'now', status: 'now', when: 'Nov 18 to early Dec',
+      title: 'Building intuition',
+      sub: 'Concept practice while I prepare for the TOEFL and GRE. No calculations until December.',
+      steps: [
+        { title: 'Where does current go when a line drops?',
+          text: 'I sketch the ring cases by hand and predict which line gets heaviest, before any numbers exist.',
+          record: 'modules/B_design/CONCEPT_CHECK_ring.md' },
+        { title: 'Publishing the record',
+          text: 'The study repository is being prepared for GitHub. Third-party raw data stays out; a source list with checksums goes in.',
+          decisions: ['D31'] }
+      ]
+    },
+    {
+      id: 'hand', status: 'next', when: 'December 2026',
+      title: 'Hand calculation',
+      sub: 'A 3-node ring, by hand first.',
+      steps: [
+        { title: 'DC approximation by hand',
+          text: 'Split the flow across parallel paths by reactance, take out each line in turn, and find the worst case.' },
+        { title: 'Do three tools agree?',
+          text: 'Compare hand, NumPy DC and pandapower AC on the same small network, and explain any gap.' }
+      ]
+    },
+    {
+      id: 'runs', status: 'next', when: 'December 2026',
+      title: 'Full runs',
+      sub: 'Every structure, every module size.',
+      steps: [
+        { title: 'Stage 1: MVA ledger', text: 'All transformer outages over 8,760 hours.' },
+        { title: 'Stage 2: AC N-1', text: 'Transformer and line outages at peak, with loading and voltage limits.' }
+      ]
+    },
+    {
+      id: 'results', status: 'next', when: 'Dec 2026 to Jan 2027',
+      title: 'Results and scoring',
+      sub: 'Expansion curves, and how my predictions held up.',
+      steps: [
+        { title: 'Expansion curves', text: 'Modules added on the x-axis, remaining margin on the y-axis, one curve per structure.' },
+        { title: 'Score my predictions', text: 'Each prediction is marked right, partly right or wrong, with the reason.' }
+      ]
+    },
+    {
+      id: 'siting', status: 'later', when: 'After January 2027',
+      title: 'Siting',
+      sub: 'Where in the region to connect.',
+      steps: []
+    }
+  ],
+
+  decisions: {
+    D1:  { title: 'Center of the research question', tag: 'mine',
+           q: 'Center on design variables, on Seoul-area feasibility, or on comparing the two cases?',
+           options: [['Design variables (module size, structure)', 0], ['Seoul-area feasibility', 0], ['Compare the two cases first, then add design variables', 1]],
+           who: 'Options drafted by Claude. Sequencing (compare first, layer design on top) was my idea.',
+           why: 'With little power-systems background yet, a case comparison is easier to understand. Design changes are added on top of it.' },
+    D2:  { title: 'How to collect the data', tag: 'mine',
+           q: 'File download or API for KEPCO and KMA data?',
+           options: [['Files', 0], ['Both via API (my idea)', 0], ['Hybrid, after checking', 1]],
+           who: 'Options drafted by Claude. API idea and the check on data.go.kr were mine.',
+           why: 'The KEPCO API turned out to be a frozen snapshot identical to the CSV in all 394,560 rows, so the CSV is the source and the API is the check.' },
+    D3:  { title: 'Case B region', tag: 'choice',
+           q: 'Limit Case B to Seoul/Gyeonggi, or add Chungcheong?',
+           options: [['Seoul/Gyeonggi only', 1], ['Add Chungcheong', 0]],
+           who: 'Options drafted by Claude. The Chungcheong-migration idea was mine.',
+           why: 'Keeps the scope aligned with the research question.' },
+    D4:  { title: 'When the four metrics disagree', tag: 'accepted',
+           q: 'How to compare designs when N-1, balance, losses and expansion room conflict?',
+           options: [['Fixed order', 0], ['Report in parallel', 0], ['Weighted score', 0], ['N-1 as a gate, then report in parallel', 1]],
+           who: 'Options and the hybrid drafted by Claude. Choice mine.',
+           why: 'Be conservative, but keep the pool wide. No invented weights.' },
+    D5:  { title: 'Model level', tag: 'accepted',
+           q: 'MVA bookkeeping, DC power flow, AC power flow, or two tiers?',
+           options: [['MVA bookkeeping', 0], ['DC power flow', 0], ['AC power flow', 0], ['Two tiers: MVA broadly, AC on representative cases', 1]],
+           who: 'Options drafted by Claude (recommended two tiers). Choice mine.',
+           why: 'The ledger covers every hour cheaply; AC adds structure, losses and voltage where it matters.' },
+    D6:  { title: 'Module sizes and structures', tag: 'accepted',
+           q: 'Which sizes and structures get full expansion curves?',
+           options: [['Full 3 × 3', 0], ['Ring and dual in full, radial as baseline', 1], ['Ring only', 0]],
+           who: 'Options drafted by Claude. Choice mine. My prediction "radial breaks at once, ring is best" is tested, not assumed.',
+           why: 'Radial fails on any line outage, so its curve says nothing; it stays as the baseline. Sizes 20, 50, 100 MW.' },
+    D6F: { title: 'Dual supply as its own axis', tag: 'mine',
+           q: 'Literature mostly compares radial and ring; dual supply rarely appears. Treat supply as a separate axis?',
+           options: [['Three combinations with curves, radial + single as baseline', 1], ['All four combinations', 0], ['Dual as one appendix case', 0]],
+           who: 'I raised the concern. The two-axis split and options were drafted by Claude.',
+           why: 'Keeps the topic focused but still models realistic dual supply.' },
+    D7:  { title: 'What to keep from the pilot', tag: 'override',
+           q: 'How much of the pilot code and results to carry over?',
+           options: [['Nothing, start fresh', 1], ['Results only, as method check', 0], ['Selective code port', 0], ['Hybrid (recommended)', 0]],
+           who: 'Options and the hybrid drafted by Claude. I chose against the recommendation.',
+           why: 'A from-scratch mindset, so the decision record is clean.' },
+    D8:  { title: 'Calculation tools', tag: 'accepted',
+           q: 'What runs the power flow and N-1?',
+           options: [['pandapower only', 0], ['Hand-written NumPy only', 0], ['pandapower + NumPy DC cross-check on a small network', 1]],
+           who: 'Options drafted by Claude. Choice mine.',
+           why: 'Balance of credibility and schedule. Limit: the cross-check covers only small networks.' },
+    D9:  { title: 'N-1 pass criterion', tag: 'mine',
+           q: 'Which baseline judges load after one outage, and which outages count?',
+           options: [['Two-tier criterion; transformer + one 154 kV line', 1]],
+           who: 'Options drafted by Claude. The conservative-criterion requirement and the choice were mine.',
+           why: 'Data center interconnection calls for a conservative criterion. Without line outages, structures cannot be compared.' },
+    D10: { title: 'Module load assumption', tag: 'mine',
+           q: 'How to set module load, and whether to overlay existing regional load?',
+           options: [['Flat rated load', 0], ['Hourly profile', 0], ['Flat first, then overlay existing load', 1]],
+           who: 'Options drafted by Claude. Wanting the overlay was mine.',
+           why: 'I want to see where data center load and existing load overlap.' },
+    D11: { title: 'Public data first', tag: 'mine',
+           q: 'Common rule for every input.',
+           options: [['Public data where it exists; label everything else an assumption', 1]],
+           who: 'My rule.',
+           why: 'Never present an assumption as a real value.' },
+    D12: { title: 'Power factor and utilization', tag: 'choice',
+           q: 'Default power factor and rated-load utilization u?',
+           options: [['PF 0.95, u = 1.0, with sensitivity', 1], ['Research first', 0], ['Ranges only', 0]],
+           who: 'Options drafted by Claude. Choice mine.',
+           why: 'No public basis, so a labeled assumption with a range.' },
+    D13: { title: 'Existing substation peak load', tag: 'choice',
+           q: 'How to define existing peak load at a 154 kV substation?',
+           options: [['Public data', 0], ['Rating × 70/85/95% scenarios', 1], ['Regional peak ÷ substation count', 0]],
+           who: 'Options drafted by Claude. Choice mine: public data first, scenarios if none.',
+           why: 'No substation-level public load was found, so the fallback applied.' },
+    D14: { title: 'Transformer rating and N-1 basis', tag: 'override',
+           q: 'Assume values, research KEPCO criteria, or assume first and replace later?',
+           options: [['Assume', 0], ['Research published criteria', 1], ['Assume, then replace (recommended)', 0]],
+           who: 'Options drafted by Claude. I chose against the recommendation.',
+           why: 'Ground the work in real guidelines, usable in both Korea and the US. KEPCO limits were not public, so overload numbers cite IEEE C57.91 via PJM.' },
+    D15: { title: 'Three missing temperature hours', tag: 'accepted',
+           q: 'Interpolate, substitute Seoul, or drop?',
+           options: [['Linear interpolation', 1], ['Substitute Seoul', 0], ['Drop', 0]],
+           who: 'Options drafted by Claude. Choice mine.',
+           why: 'Gaps are at most two hours; checked their positions first.' },
+    D17: { title: 'N-1 scenarios by stage', tag: 'choice',
+           q: 'Which outages run at which stage?',
+           options: [['Full enumeration', 0], ['Worst case only', 0], ['Staged: all transformers × 8,760 h, then AC at peak', 1]],
+           who: 'Options drafted by Claude. Choice mine.',
+           why: 'Covers every hour cheaply, and every outage where AC is needed.' },
+    D18: { title: 'How many cases', tag: 'accepted',
+           q: 'Full factorial (162+), one at a time, low/base/high, or hybrid?',
+           options: [['Full factorial', 0], ['One at a time', 0], ['Low/Base/High', 0], ['Hybrid', 1]],
+           who: 'Hybrid drafted by Claude in answer to my question, "Is the full factorial too much?"',
+           why: 'Readable size without losing the core interactions.' },
+    D20: { title: 'Line parameter basis', tag: 'choice',
+           q: 'Assume, borrow textbook cases, or research real 154 kV specs?',
+           options: [['Assume', 0], ['Borrow IEEE cases', 0], ['Research public specs', 1]],
+           who: 'Options drafted by Claude. Choice and criterion mine.',
+           why: 'Only this option meets my rule: sourced, real data.' },
+    D21: { title: 'Getting R and X', tag: 'accepted',
+           q: 'Conductor spec + standard formulas, add ampacity, or borrow values?',
+           options: [['Conductor spec + formulas; I check the sources myself', 1], ['Add ampacity model', 0], ['Borrow', 0]],
+           who: 'Options drafted by Claude. Choice mine.',
+           why: 'Closest to real data; only bundle spacing stays an assumption.' },
+    D22: { title: 'Tower geometry', tag: 'accepted',
+           q: 'Textbook values with sensitivity, or search for Korean tower drawings?',
+           options: [['Textbook values + sensitivity', 1], ['Korean drawings', 0]],
+           who: 'Options drafted by Claude. Choice mine.',
+           why: 'X changes only about ±8% across 4 to 8 m phase spacing.' },
+    D23: { title: 'Line length scenarios', tag: 'mine',
+           q: 'One length set, per-case lengths, or a geometry rule?',
+           options: [['Single set', 0], ['Per case', 0], ['Geometry rule', 0], ['Combine per-case and geometry rule (mine)', 1]],
+           who: 'Options drafted by Claude. Combining two of them was my idea.',
+           why: 'Separates the effect of length from the effect of structure.' },
+    D24: { title: 'Case B distances', tag: 'choice',
+           q: 'Data quartiles or round numbers?',
+           options: [['Quartiles of real lines: 4/9/14 km', 1], ['Round: 5/10/20 km', 0]],
+           who: 'Notice research and options by Claude. Choice mine: "use real values".',
+           why: 'Evidence: 17 existing metro 154 kV lines and 4 new branch lines from Ministry notices.' },
+    D25: { title: 'Case A distances', tag: 'accepted',
+           q: 'Short unsourced distances, or the same as Case B?',
+           options: [['3/5/10 km', 0], ['Same as Case B: 4/9/14 km', 1], ['Branch only', 0]],
+           who: 'Options drafted by Claude. Choice mine.',
+           why: 'Same distances in both cases isolate the case effect.' },
+    D26: { title: 'Ring node count', tag: 'accepted',
+           q: 'Fixed 2 nodes, one node per module, or 2 plus a 4-node check?',
+           options: [['Fixed 2 nodes', 1], ['Node per module', 0], ['2 + 4-node sensitivity', 0]],
+           who: 'Options drafted by Claude. Choice mine.',
+           why: 'Keeps the module-count effect separate from the node-count effect.' },
+    D27: { title: 'Reading the diagrams', tag: 'accepted',
+           q: 'How is ring + dual supply wired, and how long is a branch line?',
+           options: [['M2 from S1, M3 from S2, loop closed by the existing line; branch 1.5 km', 1]],
+           who: 'Interpretation drafted by Claude. I checked the diagrams and confirmed.',
+           why: 'Matches how new branch lines appear in the notices (0.6 to 1.9 km).' },
+    D28: { title: 'Keep the T-tap', tag: 'override',
+           q: 'Include T-tap connections or drop them?',
+           options: [['Drop T-tap (recommended)', 0], ['Keep T-tap', 1]],
+           who: 'Options drafted by Claude. I overrode the recommendation.',
+           why: 'Cases should follow practice: complex where practice is complex, simple where it is simple.' },
+    D29: { title: 'How wide to test the T-tap', tag: 'override',
+           q: 'Trunk load, tap position, and which structures?',
+           options: [['Trunk load 0/30/60%', 1], ['Tap at 1/4, 1/2, 3/4 of d', 1], ['All four structures', 1]],
+           who: 'Options drafted by Claude, who recommended a narrower test. I widened position and scope.',
+           why: 'Try it, and drop it if it does not matter. The drop rule is fixed in advance.' },
+    D30: { title: 'One-page pre-registration', tag: 'accepted',
+           q: 'Fix design, criteria and predictions on one page before calculating?',
+           options: [['Write and lock it', 1], ['Stay flexible', 0]],
+           who: 'Proposed by Claude. Choice mine.',
+           why: 'Criteria cannot be changed after the results are seen.' },
+    D31: { title: 'Raw data on GitHub', tag: 'accepted',
+           q: 'Publish raw third-party files or only a source list?',
+           options: [['Source list with checksums only', 1], ['Publish a checked subset', 0]],
+           who: 'Proposed by Claude. Choice mine.',
+           why: 'Redistribution terms for some sources are unclear.' }
+  }
+};
