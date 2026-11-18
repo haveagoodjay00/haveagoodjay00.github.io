@@ -13,7 +13,7 @@
    ===================================================================== */
 window.PROJECT = {
   REPO: '',
-  decisionCount: 35,   // D1 to D35 in docs/DECISIONS.md
+  decisionCount: 37,   // D1 to D37 in docs/DECISIONS.md
 
   stations: [
     {
@@ -331,6 +331,16 @@ window.PROJECT = {
            q: 'Remaining margin in MVA, in percent, or both?',
            options: [['Spare MVA of the tightest element', 0], ['100% minus worst N-1 utilization', 0], ['Store both; main figure in percent, secondary in MVA', 1]],
            who: 'Options and recommendation drafted by Claude. Choice mine.',
-           why: 'The study is about comparison, and percent puts different structures on one scale.' }
+           why: 'The study is about comparison, and percent puts different structures on one scale.' },
+    D36: { title: 'How results are checked', tag: 'override',
+           q: 'Halt on any failed check, check only representative cases, or flag problems and keep going?',
+           options: [['Automatic checks on every case; any error halts the run', 1], ['Manual checks on a few representative cases', 0], ['Three layers with fatal and warning levels, flag and continue (recommended)', 0]],
+           who: 'Options and recommendation drafted by Claude. I chose against the recommendation.',
+           why: 'Accuracy first: errors must not mix into results. Checks cover inputs, calculations and results. Non-monotone curves and non-convergence are results, so they are recorded, not treated as errors.' },
+    D37: { title: 'When AC does not converge', tag: 'accepted',
+           q: 'Count it as a failure, exclude it, or give it its own state?',
+           options: [['Treat as fail', 0], ['Exclude', 0], ['Own state "unknown"; not counted as a pass', 1]],
+           who: 'Options and recommendation drafted by Claude. Choice mine.',
+           why: 'Convergence and meeting physical limits are different questions, so they are stored separately. Reported conservatively with a sensitivity check.' }
   }
 };
