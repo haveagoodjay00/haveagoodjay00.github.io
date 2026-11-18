@@ -47,8 +47,8 @@
   // Floating scroll buttons: top hides at the top, bottom hides at the bottom
   var box = document.createElement('div');
   box.className = 'scrollbtns';
-  box.innerHTML = '<button type="button" class="up" aria-label="Scroll to top" title="Top">\u2191</button>' +
-                  '<button type="button" class="down" aria-label="Scroll to bottom" title="Bottom">\u2193</button>';
+  box.innerHTML = '<button type="button" class="up" aria-label="Scroll to top" title="Top">↑</button>' +
+                  '<button type="button" class="down" aria-label="Scroll to bottom" title="Bottom">↓</button>';
   document.body.appendChild(box);
   var up = box.querySelector('.up'), down = box.querySelector('.down');
   var smooth = !window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'smooth' : 'auto';
@@ -98,10 +98,10 @@
       if (!el) return;
       entries.push({ el: el, li: mk(el, label(el), 'l1', ul), stage: null, sub: false });
     }
-    plain('motivation');
-    plain('roadmap');
+    ['motivation', 'restart', 'question', 'roadmap', 'data'].forEach(plain);
     stages.forEach(function (st) {
-      var li = mk(st, 'Stage ' + st.getAttribute('data-stage'), 'l1 stagehead', ul);
+      var name = st.getAttribute('data-rail') || ('Stage ' + st.getAttribute('data-stage'));
+      var li = mk(st, name, 'l1 stagehead', ul);
       var subUl = document.createElement('ul');
       subUl.className = 'sub';
       li.appendChild(subUl);
