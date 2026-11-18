@@ -13,7 +13,7 @@
    ===================================================================== */
 window.PROJECT = {
   REPO: '',
-  decisionCount: 32,   // D1 to D32 in docs/DECISIONS.md
+  decisionCount: 33,   // D1 to D33 in docs/DECISIONS.md
 
   stations: [
     {
@@ -316,6 +316,11 @@ window.PROJECT = {
            q: 'Define about 390 + 219 cases by one table and generator, by one script per structure, or table first on a few representative cases?',
            options: [['Case table + one network generator', 0], ['One script per structure', 0], ['Generator, verified on a few representative cases against hand calculation, then the full table', 1]],
            who: 'Options and recommendation drafted by Claude. Choice mine, with my reasoning that real cases rarely keep every variable fixed.',
-           why: 'Catches input errors early and keeps the full table. Hand-calculation agreement is judged within 5%.' }
+           why: 'Catches input errors early and keeps the full table. Hand-calculation agreement is judged within 5%.' },
+    D33: { title: 'How results are stored', tag: 'override',
+           q: 'One wide table, four linked long tables, or a case table plus summary table plus per-case detail files?',
+           options: [['One wide table', 0], ['Four long tables linked by case id (recommended)', 0], ['Case table + summary table + per-case detail files', 1]],
+           who: 'Options and recommendation drafted by Claude. I chose against the recommendation.',
+           why: 'Too many cases for a wide table, and the results are meant to be shared. I accept the extra consistency checks. Research uses the case table; this site uses the summary table.' }
   }
 };
