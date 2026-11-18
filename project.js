@@ -115,15 +115,13 @@
   document.getElementById('openAll').addEventListener('click', function () { host.querySelectorAll('.step').forEach(function (l) { setOpen(l, true); }); });
   document.getElementById('closeAll').addEventListener('click', function () { host.querySelectorAll('.step').forEach(function (l) { setOpen(l, false); }); });
 
-  // ---- Route geometry and scroll ----
+  // ---- Route geometry (completed line up to "You are here") ----
   var route = document.getElementById('route');
   var base = route.querySelector('.rt-base');
   var done = document.getElementById('rtDone');
-  var trail = document.getElementById('rtTrail');
-  var puck = document.getElementById('rtPuck');
   var stns = Array.prototype.slice.call(host.querySelectorAll('.stn'));
   var flag = route.querySelector('.rt-end .flag');
-  var TOP = 56, geo = { end: 0, now: 0, centers: [] };
+  var TOP = 56;
 
   function centerOf(el) {
     var r = el.getBoundingClientRect(), rr = route.getBoundingClientRect();
@@ -132,28 +130,53 @@
   function measure() {
     var hdr = document.querySelector('.top');
     if (hdr) document.documentElement.style.setProperty('--hdr', hdr.offsetHeight + 'px');
-    geo.centers = stns.map(function (s) { return centerOf(s.querySelector('.stn-dot')); });
-    geo.end = centerOf(flag);
+    var end = centerOf(flag);
     var nowEl = route.querySelector('.stn.now .stn-dot');
-    geo.now = nowEl ? centerOf(nowEl) : TOP;
-    base.style.height = Math.max(0, geo.end - TOP) + 'px';
-    done.style.height = Math.max(0, geo.now - TOP) + 'px';
+    var now = nowEl ? centerOf(nowEl) : TOP;
+    base.style.height = Math.max(0, end - TOP) + 'px';
+    done.style.height = Math.max(0, now - TOP) + 'px';
     update();
   }
+
+  // ---- Section rail on the right (same look as the other pages) ----
+  var head = document.querySelector('.pj-head');
+  var limits = document.querySelector('.pj-limits');
+  head.id = head.id || 'overview';
+  limits.id = limits.id || 'limits';
+  var nav = document.createElement('nav');
+  nav.className = 'rail';
+  nav.setAttribute('aria-label', 'Sections on this page');
+  var ul = document.createElement('ul');
+  nav.appendChild(ul);
+  var entries = [];
+  function addRail(el, text, cls) {
+    var li = document.createElement('li');
+    li.className = 'l1' + (cls ? ' ' + cls : '');
+    var a = document.createElement('a');
+    a.href = '#' + el.id;
+    a.innerHTML = '<span class="lbl"></span><span class="dot"></span>';
+    a.querySelector('.lbl').textContent = text;
+    li.appendChild(a); ul.appendChild(li);
+    entries.push({ el: el, li: li });
+  }
+  addRail(head, 'Overview');
+  stns.forEach(function (s, i) {
+    var st = P.stations[i];
+    addRail(s, st.status === 'now' ? 'You are here: ' + st.title : st.title, st.status === 'now' ? 'stagehead' : 'rs-' + st.status);
+  });
+  addRail(limits, 'Limits');
+  document.body.appendChild(nav);
+
   var ticking = false;
   function update() {
     ticking = false;
-    var rr = route.getBoundingClientRect();
-    var y = window.innerHeight * 0.42 - rr.top;
-    var p = Math.min(Math.max(y, TOP), geo.end);
-    trail.style.height = (p - TOP) + 'px';
-    puck.style.transform = 'translateY(' + (p - TOP) + 'px)';
-    var reading = -1;
-    stns.forEach(function (s, i) {
-      var passed = geo.centers[i] <= p + 2;
-      s.classList.toggle('passed', passed);
-      if (passed) reading = i;
-    });
+    nav.classList.toggle('show', window.scrollY > 160);
+    var line = window.innerHeight * 0.35, cur = 0;
+    entries.forEach(function (e, i) { if (e.el.getBoundingClientRect().top <= line) cur = i; });
+    if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4) cur = entries.length - 1;
+    entries.forEach(function (e, i) { e.li.classList.toggle('on', i === cur); });
+    var reading = cur - 1;   // index into stations (-1 = overview)
+    if (reading >= stns.length) reading = stns.length - 1;
     stns.forEach(function (s, i) { s.classList.toggle('reading', i === reading); });
     dotLis.forEach(function (d, i) { d.classList.toggle('reading', i === reading); });
     tripNow.textContent = reading < 0 ? 'Overview' : P.stations[reading].title;
