@@ -1,7 +1,6 @@
 (function () {
   var P = window.PROJECT;
   if (!P) return;
-  document.documentElement.classList.add('js');
 
   var STATUS = { done: 'Done', now: 'In progress', next: 'Ahead', later: 'Later' };
   var TAG = { mine: 'My idea', override: 'Against the recommendation', choice: 'My choice', accepted: 'Took the recommendation' };
@@ -190,6 +189,7 @@
 
   // ---- Reveal stations as they come into view ----
   if ('IntersectionObserver' in window) {
+    document.documentElement.classList.add('js');   // hide-then-reveal only once the observer exists
     var io = new IntersectionObserver(function (es) {
       es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('seen'); io.unobserve(e.target); } });
     }, { rootMargin: '0px 0px -12% 0px' });
