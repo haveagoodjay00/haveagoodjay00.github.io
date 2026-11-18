@@ -12,13 +12,12 @@
          record paths into links, e.g. 'https://github.com/USER/REPO'
    ===================================================================== */
 window.PROJECT = {
-  updated: 'November 18, 2026',
   REPO: '',
-  decisionCount: 31,   // D1 to D31 in docs/DECISIONS.md
+  decisionCount: 32,   // D1 to D32 in docs/DECISIONS.md
 
   stations: [
     {
-      id: 'pilot', status: 'done', when: 'Before November 2026',
+      id: 'pilot', status: 'done', when: 'Stage 1',
       title: 'Pilot',
       sub: 'Operating margin for one data center load at one bus, IEEE 24-bus system.',
       steps: [
@@ -28,7 +27,7 @@ window.PROJECT = {
       ]
     },
     {
-      id: 'setup', status: 'done', when: 'Nov 15, 2026',
+      id: 'setup', status: 'done', when: 'Stage 2',
       title: 'Set up',
       sub: 'The question, public data, and a log of every decision.',
       steps: [
@@ -46,7 +45,7 @@ window.PROJECT = {
       ]
     },
     {
-      id: 'load', status: 'done', when: 'Nov 15 to 16',
+      id: 'load', status: 'done', when: 'Stage 3',
       title: 'Load model',
       sub: 'What a data center module draws, and what the grid already carries.',
       steps: [
@@ -62,7 +61,7 @@ window.PROJECT = {
       ]
     },
     {
-      id: 'design', status: 'done', when: 'Nov 16 to 17',
+      id: 'design', status: 'done', when: 'Stage 4',
       title: 'Network design',
       sub: 'Structures to compare, line data from real sources, and the case list.',
       steps: [
@@ -91,12 +90,12 @@ window.PROJECT = {
       ]
     },
     {
-      id: 'prereg', status: 'done', when: 'Nov 17',
+      id: 'prereg', status: 'done', when: 'Stage 5',
       title: 'Pre-registration locked',
       sub: 'Criteria and predictions fixed before any calculation, so they cannot drift toward the results.',
       steps: [
         { title: 'Verdict rules',
-          text: 'Stage 1: each transformer out, 8,760 hours. Stage 2: transformer and 154 kV line outages at peak, with overload and ±10% voltage checks. Convergence, physical limits and safety buffer are reported separately.',
+          text: 'Tier 1: each transformer out, 8,760 hours. Tier 2: transformer and 154 kV line outages at peak, with overload and ±10% voltage checks. Convergence, physical limits and safety buffer are reported separately.',
           decisions: ['D30'],
           record: 'docs/PREREGISTRATION.md' },
         { title: 'My predictions, on record',
@@ -113,9 +112,9 @@ window.PROJECT = {
       ]
     },
     {
-      id: 'now', status: 'now', when: 'Nov 18 to early Dec',
+      id: 'now', status: 'now', when: 'Stage 6',
       title: 'Building intuition',
-      sub: 'Concept practice while I prepare for the TOEFL and GRE. No calculations until December.',
+      sub: 'Concept practice before any calculation. No calculations yet.',
       steps: [
         { title: 'Where does current go when a line drops?',
           text: 'I sketch the ring cases by hand and predict which line gets heaviest, before any numbers exist.',
@@ -126,7 +125,7 @@ window.PROJECT = {
       ]
     },
     {
-      id: 'hand', status: 'next', when: 'December 2026',
+      id: 'hand', status: 'next', when: 'Stage 7',
       title: 'Hand calculation',
       sub: 'A 3-node ring, by hand first.',
       steps: [
@@ -137,16 +136,16 @@ window.PROJECT = {
       ]
     },
     {
-      id: 'runs', status: 'next', when: 'December 2026',
+      id: 'runs', status: 'next', when: 'Stage 8',
       title: 'Full runs',
       sub: 'Every structure, every module size.',
       steps: [
-        { title: 'Stage 1: MVA ledger', text: 'All transformer outages over 8,760 hours.' },
-        { title: 'Stage 2: AC N-1', text: 'Transformer and line outages at peak, with loading and voltage limits.' }
+        { title: 'Tier 1: MVA ledger', text: 'All transformer outages over 8,760 hours.' },
+        { title: 'Tier 2: AC N-1', text: 'Transformer and line outages at peak, with loading and voltage limits.' }
       ]
     },
     {
-      id: 'results', status: 'next', when: 'Dec 2026 to Jan 2027',
+      id: 'results', status: 'next', when: 'Stage 9',
       title: 'Results and scoring',
       sub: 'Expansion curves, and how my predictions held up.',
       steps: [
@@ -155,7 +154,7 @@ window.PROJECT = {
       ]
     },
     {
-      id: 'siting', status: 'later', when: 'After January 2027',
+      id: 'siting', status: 'later', when: 'Stage 10',
       title: 'Siting',
       sub: 'Where in the region to connect.',
       steps: []
@@ -312,6 +311,11 @@ window.PROJECT = {
            q: 'Publish raw third-party files or only a source list?',
            options: [['Source list with checksums only', 1], ['Publish a checked subset', 0]],
            who: 'Proposed by Claude. Choice mine.',
-           why: 'Redistribution terms for some sources are unclear.' }
+           why: 'Redistribution terms for some sources are unclear.' },
+    D32: { title: 'How cases are built in code', tag: 'choice',
+           q: 'Define about 390 + 219 cases by one table and generator, by one script per structure, or table first on a few representative cases?',
+           options: [['Case table + one network generator', 0], ['One script per structure', 0], ['Generator, verified on a few representative cases against hand calculation, then the full table', 1]],
+           who: 'Options and recommendation drafted by Claude. Choice mine, with my reasoning that real cases rarely keep every variable fixed.',
+           why: 'Catches input errors early and keeps the full table. Hand-calculation agreement is judged within 5%.' }
   }
 };

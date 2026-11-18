@@ -83,7 +83,7 @@
   var nextSt = P.stations.filter(function (s) { return s.status === 'next'; })[0];
   var doneN = P.stations.filter(function (s) { return s.status === 'done'; }).length;
   var decN = P.decisionCount || Object.keys(P.decisions).length;
-  document.getElementById('pjStatus').textContent = 'In progress · updated ' + P.updated;
+  document.getElementById('pjStatus').textContent = 'In progress';
   document.getElementById('pjBoard').innerHTML =
     '<div class="here"><dt>You are here</dt><dd>' + esc(now ? now.title : '') + '<small>' + esc(now ? now.sub : '') + '</small></dd></div>' +
     '<div><dt>Stops done</dt><dd><span class="big">' + doneN + '/' + P.stations.length + '</span>Design locked</dd></div>' +
