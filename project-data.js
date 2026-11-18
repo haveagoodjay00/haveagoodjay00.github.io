@@ -13,7 +13,7 @@
    ===================================================================== */
 window.PROJECT = {
   REPO: '',
-  decisionCount: 33,   // D1 to D33 in docs/DECISIONS.md
+  decisionCount: 35,   // D1 to D35 in docs/DECISIONS.md
 
   stations: [
     {
@@ -321,6 +321,16 @@ window.PROJECT = {
            q: 'One wide table, four linked long tables, or a case table plus summary table plus per-case detail files?',
            options: [['One wide table', 0], ['Four long tables linked by case id (recommended)', 0], ['Case table + summary table + per-case detail files', 1]],
            who: 'Options and recommendation drafted by Claude. I chose against the recommendation.',
-           why: 'Too many cases for a wide table, and the results are meant to be shared. I accept the extra consistency checks. Research uses the case table; this site uses the summary table.' }
+           why: 'Too many cases for a wide table, and the results are meant to be shared. I accept the extra consistency checks. Research uses the case table; this site uses the summary table.' },
+    D34: { title: 'When the expansion loop stops', tag: 'choice',
+           q: 'Stop at the first failure, run to a fixed cap, or run fully and report per overload limit?',
+           options: [['Stop at first failure', 0], ['Fixed cap on module count', 0], ['Run until every limit fails; report modules that fit per limit (100/120/150/200%)', 1]],
+           who: 'Options drafted by Claude. I asked for the setting closest to practice and real data, with no extra assumption, and left the details to Claude.',
+           why: 'No assumed cap: the loop ends when every limit has failed, and each limit already has a source. Which limit decides contracts in practice is unverified, so all are reported.' },
+    D35: { title: 'What the curve shows', tag: 'choice',
+           q: 'Remaining margin in MVA, in percent, or both?',
+           options: [['Spare MVA of the tightest element', 0], ['100% minus worst N-1 utilization', 0], ['Store both; main figure in percent, secondary in MVA', 1]],
+           who: 'Options and recommendation drafted by Claude. Choice mine.',
+           why: 'The study is about comparison, and percent puts different structures on one scale.' }
   }
 };
