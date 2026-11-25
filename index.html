@@ -13,6 +13,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,400&family=Noto+Serif+KR:wght@500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css?v=36">
+<link rel="stylesheet" href="v2.css?v=1">
 </head>
 <body data-title-en="Hyeongseo Jang | Power systems">
 <div class="wrap">
@@ -29,77 +30,86 @@
   </header>
   <main>
 
-    <section class="id" id="hero">
-      <div class="id-text">
-        <h1>Hyeongseo Jang <span class="kname" lang="ko">장형서</span></h1>
-        <p class="role">B.S. student in Aerospace Engineering, Sejong University</p>
-        <p class="focus"><b class="lab">Interests</b> <a href="interests.html">Power system planning, operation, and dynamics and control</a></p>
-        <p class="contact"><span class="icons"><a href="mailto:haveagoodjay00@gmail.com" aria-label="Email" title="haveagoodjay00@gmail.com"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M0 19.366C0 20.27.732 21 1.636 21h3.819V11.73L0 7.64v11.726z"/><path fill="#34A853" d="M18.545 21h3.819c.904 0 1.636-.732 1.636-1.636V7.64l-5.455 4.09V21z"/><path fill="#FBBC04" d="M18.545 4.64v7.09L24 7.64V5.457c0-2.023-2.309-3.178-3.927-1.964l-1.528 1.147z"/><path fill="#EA4335" d="M5.455 11.73V4.64L12 9.548l6.545-4.91v7.09L12 16.64l-6.545-4.91z"/><path fill="#EA4335" d="M0 5.457V7.64l5.455 4.09V4.64L3.927 3.493C2.309 2.28 0 3.434 0 5.457z"/></svg></a><a href="https://www.linkedin.com/in/hyeongseo-jang-05a7a744a" aria-label="LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 110-4.13 2.06 2.06 0 010 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></a><a href="https://github.com/haveagoodjay00" aria-label="GitHub" title="GitHub"><svg viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg></a></span></p>
-        <dl class="brief">
-          <div><dt>Field</dt><dd>Electric utilities: power system planning, design and control</dd></div>
-          <div><dt>Goal</dt><dd>A U.S. utility career and a Professional Engineer (P.E.) license</dd></div>
-        </dl>
+    <section class="hx" id="hero">
+      <img class="hx-bg" src="hero-load-texture.jpg" alt="" aria-hidden="true">
+      <div class="hx-in">
+        <p class="hx-who"><img src="photo.jpg" alt="Portrait of Hyeongseo Jang" onerror="this.remove()">Hyeongseo Jang <span class="kname" lang="ko">장형서</span></p>
+        <h1>Power Systems</h1>
+        <p class="hx-areas"><b>Planning</b><span class="sep">·</span><b>Operation</b><span class="sep">·</span><b>Control</b></p>
+        <p class="hx-sub">Sejong University, B.S. 2027 · Working toward a U.S. utility career and a P.E. license</p>
+        <p class="hx-cta"><a class="pri" href="#projects">See projects</a><a href="#contact">Contact</a></p>
+        <p class="hx-cap">Background: hourly electricity use, Seoul metropolitan area, 2022&ndash;2024 · KEPCO open data, plotted by me</p>
       </div>
-      <figure class="portrait"><img src="photo.jpg" alt="Portrait of Hyeongseo Jang" onerror="document.getElementById('hero').classList.add('no-photo')"></figure>
     </section>
 
-    <section class="section sheet" id="projects">
-      <h2>Projects</h2>
-      <div>
-        <div class="pjrow">
-          <p class="sheet-title"><a href="project.html#power">Where Should a Data Center Connect?</a> <span class="chip next">In progress</span></p>
-          <p class="pj-sub">A modular design study of connection and expansion limits, with Korean public data</p>
-          <p class="sheet-meta">Independent study, 2026 to present · pandapower</p>
-          <p>How module size and connection structure change N-1 security, losses and the number of modules a network can take, for a new town and an existing Seoul/Gyeonggi area.</p>
+    <section class="bands" aria-labelledby="bands-h">
+      <h2 class="bands-h" id="bands-h">What I work on</h2>
+
+      <div class="band" id="planning">
+        <div>
+          <p class="band-k">Planning</p>
+          <p class="band-line">Where can a <span class="hl">large new load</span> connect, and how much can the grid <span class="hl">take</span>?</p>
+          <p class="band-keys">N-1 security (NERC TPL-001) · Expansion limits · Korean public data</p>
+          <p class="band-go"><a href="project.html#power">Project →</a></p>
         </div>
-        <div class="pjrow">
-          <p class="sheet-title"><a href="project.html#t50">T-50 Lateral-Directional Autopilot</a> <span class="chip next">Part 1 completed</span></p>
-          <p class="pj-sub">Root-locus design of a yaw damper and roll attitude hold, checked against MIL-F-8785C</p>
-          <p class="sheet-meta">Automatic Control course project, fall 2026 · MATLAB</p>
-          <p>Dutch-roll damping raised from 0.097 to 0.233, against a requirement of 0.19.</p>
+        <figure><div class="ph"><img src="example-expansion-map.png" alt="Example placeholder: expansion map of module size against modules added, colored by remaining N-1 margin (synthetic data)" width="1280" height="576" loading="lazy"></div><p class="ph-cap">Example of the figure planned here (synthetic). Replaced by my results.</p></figure>
+      </div>
+
+      <div class="band" id="operation">
+        <div>
+          <p class="band-k">Operation</p>
+          <p class="band-line">The grid peaks on <span class="hl">summer afternoons</span> and <span class="hl">winter evenings</span>.</p>
+          <p class="band-keys">AC power flow · Hourly load data</p>
+          <p class="band-go"><a href="interests.html#operation">More →</a></p>
         </div>
-        <p class="more"><a href="project.html">View all projects</a></p>
+        <figure><img src="load-heatmap-metro.png" alt="Heatmap of hourly electricity use in the Seoul metropolitan area from 2022 to 2024, brightest on summer afternoons and winter evenings" width="1760" height="576" loading="lazy"></figure>
       </div>
-    </section>
 
-    <section class="section sheet">
-      <h2>Education</h2>
-      <div>
-        <div class="line"><div class="edu-with-logo"><img src="sejong-mark.png" alt="" width="40" height="40" onerror="this.remove()"><div><strong>Sejong University, Seoul, Korea</strong>Major: Aerospace Engineering (B.S.)</div></div><span class="yr">2020 to 2027 (expected)</span></div>
-        <div class="cgrid"><p class="cg-h">Courses</p><div class="cg-cols"><div class="cg-col"><p class="cg-k">Mathematics</p><ul><li>Calculus I</li><li>Calculus II</li><li>Engineering Mathematics I</li><li>Engineering Mathematics II</li><li>Linear Algebra</li></ul></div><div class="cg-col"><p class="cg-k">Aerospace</p><ul><li>Solid Mechanics</li><li>Dynamics</li><li>Thermodynamics</li><li>Ideal Fluid Mechanics</li></ul></div><div class="cg-col"><p class="cg-k">Electrical</p><ul><li>Signals and Systems</li><li>Automatic Control</li><li>Probability, Statistics and Programming</li><li>Introduction to Electronic Engineering</li></ul></div></div></div>
-        <p class="more"><a href="background.html">View details</a></p>
-      </div>
-    </section>
-
-    <section class="section sheet" id="certifications">
-      <h2>Licenses and certifications</h2>
-      <div>
-        <div class="line"><div><strong>FE Electrical and Computer <span class="issuer">(NCEES)</span></strong>Fundamentals of Engineering exam, the first step toward a U.S. Professional Engineer license</div><span class="yr">Planned 2027</span></div>
-        <div class="line"><div><strong>Industrial Engineer, Information Processing <span class="issuer">(HRD Korea)</span></strong>Software development, databases and systems analysis</div><span class="yr">2022</span></div>
-        <div class="line"><div><strong>Industrial Engineer, Office Automation <span class="issuer">(HRD Korea)</span></strong>Office information systems, computer networks and data processing</div><span class="yr">2022</span></div>
-        <div class="minor-certs">
-          <p class="mc-h">Other Korean national technical qualifications</p>
-          <ul><li>Craftsman, Information Equipment Operation <span class="issuer">(HRD Korea)</span></li><li>Telemarketing Administrator <span class="issuer">(HRD Korea)</span></li><li>Computer Proficiency, Level 2 <span class="issuer">(KCCI)</span></li><li>Word Processor <span class="issuer">(KCCI)</span></li><li>Administrative Secretary, Level 1 <span class="issuer">(KCCI)</span></li></ul>
-          <p class="mc-note">HRD Korea: Human Resources Development Service of Korea · KCCI: Korea Chamber of Commerce and Industry</p>
+      <div class="band" id="control">
+        <div>
+          <p class="band-k">Control</p>
+          <p class="band-line">Set the requirement first, then tune <span class="hl">damping</span> and <span class="hl">margin</span> to meet it.</p>
+          <p class="band-keys">Root locus · Stability · Requirement-based checks</p>
+          <p class="band-go"><a href="project.html#t50">Project →</a></p>
         </div>
-        <p class="more"><a href="background.html#certifications">View details</a></p>
+        <figure><img src="t50-fig2.png" alt="Root locus of a yaw damper loop and damping ratio versus gain, crossing the 0.19 requirement" width="1228" height="737" loading="lazy"><p class="note-small">Control foundations from aerospace: T-50 autopilot design</p></figure>
       </div>
     </section>
 
-    <section class="section sheet">
-      <h2>Skills</h2>
-      <div>
-        <ul class="tags"><li>Python</li><li>MATLAB</li><li>pandapower</li><li>MATPOWER</li><li>Git / GitHub</li><li>C / C++</li></ul>
+    <section class="pj2" id="projects" aria-labelledby="pj2-h">
+      <h2 class="pj2-h" id="pj2-h">Projects</h2>
+      <div class="pj2-row">
+        <p class="pj2-t"><a href="project.html#power">Where Should a Data Center Connect?</a></p>
+        <span class="pj2-st">In progress · pandapower</span>
+        <p class="pj2-r">Module size and topology vs. <span class="hl">N-1 security</span>, losses and <span class="hl">how many modules fit</span>.</p>
+      </div>
+      <div class="pj2-row">
+        <p class="pj2-t"><a href="project.html#t50">T-50 Lateral-Directional Autopilot</a></p>
+        <span class="pj2-st">Fall 2026 · MATLAB</span>
+        <p class="pj2-r">Dutch-roll damping <span class="num">0.097 → 0.233</span> (requirement 0.19)</p>
       </div>
     </section>
 
-    <section class="section sheet">
-      <h2>Service and activities</h2>
-      <div>
-        <div class="line"><div><strong>Republic of Korea Air Force</strong>Model Soldier of the unit; peer counselor. 21 months.</div><span class="yr">2021 to 2023</span></div>
-        <div class="line"><div><strong>UNIT, intercollegiate sports club</strong>74th cohort; won the new-member bowling tournament.</div><span class="yr">2024 to present</span></div>
-        <p class="more"><a href="activities.html">View details</a></p>
+    <section class="bg2" aria-labelledby="bg2-h">
+      <h2 class="bg2-h" id="bg2-h">Background</h2>
+      <div class="bg2-grid">
+        <div>
+          <p class="bg2-k">Education</p>
+          <p><strong>Sejong University</strong>, B.S. Aerospace Engineering</p>
+          <p>2020 to 2027 (expected)</p>
+        </div>
+        <div>
+          <p class="bg2-k">Licenses</p>
+          <p><strong>FE Electrical and Computer</strong> (NCEES), planned 2027</p>
+          <p>Industrial Engineer ×2 (HRD Korea), 2022</p>
+        </div>
+        <div>
+          <p class="bg2-k">Skills</p>
+          <p><strong>Python · MATLAB · pandapower · MATPOWER</strong></p>
+          <p>Git / GitHub · C / C++</p>
+        </div>
       </div>
+      <p class="bg2-more">Republic of Korea Air Force, 2021 to 2023 · UNIT intercollegiate sports club &nbsp;·&nbsp; <a href="background.html">Background</a> · <a href="activities.html">Activities</a></p>
     </section>
 
   </main>
