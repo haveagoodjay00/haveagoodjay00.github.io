@@ -417,3 +417,13 @@ footer .links .icons a { color: #fff; }
 .wrap { min-height: 100vh; display: flex; flex-direction: column; }
 .wrap > footer { margin-top: auto; }
 .wrap > main { margin-bottom: 40px; }
+
+/* ===== Type: serif throughout, paper-like (Nov 2026) ===== */
+:root { --display: "Source Serif 4", "Noto Serif KR", Georgia, "Times New Roman", serif; --text: "Source Serif 4", "Noto Serif KR", Georgia, "Times New Roman", serif; }
+h1, h2, h3, .h1-page, .kicker-title, .pj-title-main, .sheet-title, .pj-list-h { font-weight: 600 !important; letter-spacing: -0.005em !important; }
+h1 { letter-spacing: -0.015em !important; }
+.top .who { font-weight: 600; letter-spacing: .01em; }
+.top nav a { font-size: 0.9688rem; }
+.chip, .status, .pj-title-st, .v, .tg { font-weight: 600 !important; letter-spacing: .01em; }
+thead th, tbody th, .sheet .line strong, .stagelist strong { font-weight: 600 !important; }
+.kname { font-family: "Noto Serif KR", serif; font-weight: 500; }
