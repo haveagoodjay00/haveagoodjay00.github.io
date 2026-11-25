@@ -456,3 +456,38 @@ thead th, tbody th, .sheet .line strong, .stagelist strong { font-weight: 600 !i
 .pj-panel { margin-left: 32px; padding-left: 40px; }
 .pj-panel .trip { margin-left: -40px; padding-left: 40px; }
 @media (max-width: 640px) { .pj-panel { margin-left: 10px; padding-left: 18px; } .pj-panel .trip { margin-left: -18px; padding-left: 18px; } }
+
+/* Project content: smaller, denser type inside an expanded project */
+.pj-panel { font-size: 0.97rem; line-height: 1.6; }
+.pj-panel .h1-page { font-size: clamp(1.35rem, 2.6vw, 1.75rem); margin-bottom: 12px; }
+.pj-panel .lede { font-size: 1rem; line-height: 1.6; margin-bottom: 20px; }
+.pj-panel .pj-head, .pj-panel .pagehead { padding-bottom: 28px; }
+.pj-panel .stn-title { font-size: clamp(1.3rem, 2.4vw, 1.7rem); }
+.pj-panel .stn-sub { font-size: 0.95rem; margin-bottom: 12px; }
+.pj-panel .step-t { font-size: 1.02rem; }
+.pj-panel .step-x { font-size: 0.9rem; line-height: 1.5; }
+.pj-panel .pj-board dd { font-size: 0.97rem; }
+.pj-panel .pj-board .here dd { font-size: 1.05rem; }
+.pj-panel .pj-board dd .big { font-size: 1.75rem; }
+.pj-panel .section { grid-template-columns: 170px minmax(0, 1fr); gap: 32px; padding: 36px 0; }
+.pj-panel .section > h2 { font-size: 1.1rem; }
+.pj-panel ul.plain li, .pj-panel p { font-size: 0.97rem; }
+.pj-panel table { font-size: 0.875rem; }
+.pj-panel .pj-limits h2 { font-size: 1.1rem; }
+@media (max-width: 640px) {
+  .pj-panel { font-size: 0.92rem; }
+  .pj-panel .h1-page { font-size: 1.3rem; }
+  .pj-panel .lede, .pj-panel ul.plain li, .pj-panel p { font-size: 0.92rem; }
+  .pj-panel .stn-title { font-size: 1.25rem; }
+  .pj-panel .step-t { font-size: 0.97rem; }
+  .pj-panel .step-x { font-size: 0.86rem; }
+  .pj-panel .section { grid-template-columns: minmax(0,1fr); gap: 12px; padding: 26px 0; }
+  .pj-title-main { font-size: 1.2rem; }
+  .pj-title { padding: 20px 0; }
+}
+.pj-panel figcaption { font-size: 0.95rem; }
+@media (max-width: 640px) {
+  .pj-panel .step-btn { grid-template-columns: minmax(0,1fr); }
+  .pj-panel .step-more { grid-column: 1; grid-row: auto; justify-self: start; margin-top: 6px; }
+  .pj-panel figcaption { font-size: 0.88rem; }
+}
