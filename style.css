@@ -445,3 +445,10 @@ thead th, tbody th, .sheet .line strong, .stagelist strong { font-weight: 600 !i
 .pj-title[aria-expanded="true"] { padding-bottom: 20px; }
 @media (max-width: 640px) { .pj-panel { margin-left: 4px; padding-left: 16px; } .pj-panel .trip { margin-left: -16px; padding-left: 16px; } }
 .pj-title { scroll-margin-top: 92px; }
+/* Home: short brief instead of a paragraph */
+.brief { margin: 22px 0 0; border-top: 1px solid var(--rule); }
+.brief > div { display: grid; grid-template-columns: 104px minmax(0, 1fr); gap: 16px; padding: 11px 0; border-bottom: 1px solid var(--rule); }
+.brief dt { font-weight: 600; font-size: 0.875rem; color: var(--slate); letter-spacing: .02em; padding-top: 2px; }
+.brief dd { margin: 0; font-size: 1.0313rem; line-height: 1.5; }
+.focus a { color: var(--ink); text-decoration-color: var(--rule); }
+@media (max-width: 640px) { .brief > div { grid-template-columns: minmax(0,1fr); gap: 2px; } }
