@@ -520,3 +520,10 @@ thead th, tbody th, .sheet .line strong, .stagelist strong { font-weight: 600 !i
 .lined + h3 { margin-top: 22px; }
 .courses-line { margin: 12px 0 0; font-size: 0.875rem; line-height: 1.6; color: var(--ink); max-width: none; }
 .courses-line span { color: var(--slate); font-weight: 600; margin-right: 8px; }
+/* Other qualifications: one per row, small type */
+.minor-certs { margin: 14px 0 0; font-size: 0.8438rem; }
+.minor-certs .mc-h { font-weight: 600; color: var(--slate); margin: 0 0 4px; max-width: none; }
+.minor-certs ul { list-style: none; margin: 0; padding: 0; }
+.minor-certs li { padding: 5px 0; border-bottom: 1px solid var(--rule); color: var(--ink); }
+.minor-certs li:first-child { border-top: 1px solid var(--rule); }
+.minor-certs .mc-note { margin: 8px 0 0; font-size: 0.78rem; color: var(--slate); max-width: none; }
