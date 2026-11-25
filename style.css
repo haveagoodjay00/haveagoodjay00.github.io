@@ -527,3 +527,18 @@ thead th, tbody th, .sheet .line strong, .stagelist strong { font-weight: 600 !i
 .minor-certs li { padding: 5px 0; border-bottom: 1px solid var(--rule); color: var(--ink); }
 .minor-certs li:first-child { border-top: 1px solid var(--rule); }
 .minor-certs .mc-note { margin: 8px 0 0; font-size: 0.78rem; color: var(--slate); max-width: none; }
+/* Courses by area, small */
+.courses { margin: 12px 0 0; font-size: 0.8125rem; }
+.courses .c-h { display: block; font-weight: 600; color: var(--slate); margin-bottom: 2px; }
+.courses > div { display: grid; grid-template-columns: 92px minmax(0,1fr); gap: 10px; padding: 2px 0; }
+.courses dt { color: var(--slate); font-weight: 600; }
+.courses dd { margin: 0; line-height: 1.5; }
+.c-grp { font-size: 0.8125rem; font-weight: 600; color: var(--slate); margin: 14px 0 2px; }
+ul.lined.small li { font-size: 0.875rem; padding: 6px 0; }
+/* Other qualifications: smaller, two columns, no rules */
+.minor-certs { margin: 12px 0 0; font-size: 0.78rem; }
+.minor-certs .mc-h { font-size: 0.78rem; margin-bottom: 2px; }
+.minor-certs ul { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 0 20px; }
+.minor-certs li, .minor-certs li:first-child { border: 0; padding: 1px 0; }
+.minor-certs .mc-note { font-size: 0.72rem; margin-top: 4px; }
+@media (max-width: 640px) { .minor-certs ul { grid-template-columns: minmax(0,1fr); } .courses > div { grid-template-columns: 80px minmax(0,1fr); } }
