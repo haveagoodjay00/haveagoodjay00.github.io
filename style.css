@@ -508,3 +508,5 @@ thead th, tbody th, .sheet .line strong, .stagelist strong { font-weight: 600 !i
 .id { grid-template-columns: 300px minmax(0, 1fr); gap: 52px; padding: 48px 0 40px; align-items: center; }
 @media (max-width: 900px) { .id { grid-template-columns: 250px minmax(0, 1fr); gap: 32px; } }
 @media (max-width: 760px) { .id { grid-template-columns: minmax(0, 1fr); } .id .portrait { max-width: 220px; } }
+.edu-with-logo { display: flex; align-items: center; gap: 12px; }
+.edu-with-logo img { width: 40px; height: 40px; flex: none; }
