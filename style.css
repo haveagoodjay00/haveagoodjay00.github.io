@@ -575,3 +575,8 @@ ul.lined.small li { font-size: 0.875rem; padding: 6px 0; }
 /* Course items as a bulleted list */
 .cg-col li { position: relative; padding-left: 14px; }
 .cg-col li::before { content: ""; position: absolute; left: 0; top: 0.72em; width: 5px; height: 5px; background: var(--signal); border-radius: 50%; }
+/* Courses: slightly smaller type */
+.cg-k { font-size: 0.85rem; }
+.cg-col li { font-size: 0.8rem; }
+.cgrid-lg .cg-k { font-size: 0.92rem; }
+.cgrid-lg .cg-col li { font-size: 0.86rem; }
