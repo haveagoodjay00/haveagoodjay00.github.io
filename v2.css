@@ -130,3 +130,17 @@ body { overflow-x: clip; }
 .hx-cta { margin: 0 0 30px; }
 .hx-in > .hx-icons { margin: 0 0 44px; }
 .hx-icons .icons { gap: 18px; }
+
+/* Power project: results-first panel */
+.pw-status { font-size: .9rem; color: var(--slate); margin: 8px 0 0; }
+.pw .pfig .topo { background: #fff; border: 1px solid var(--rule); padding: 14px; }
+.pw .pfig .topo + .rec { font-size: .8rem; color: var(--slate); margin: 8px 0 0; }
+.pw-preds { margin: 0 0 12px; padding-left: 1.3em; font-size: 1.1rem; }
+.pw-preds li { margin: 0 0 6px; }
+.pw-log { margin: 28px 0 40px; border-top: 2px solid var(--ink); }
+.pw-log > summary { cursor: pointer; list-style: none; padding: 18px 0; display: flex; flex-direction: column; gap: 2px; }
+.pw-log > summary::-webkit-details-marker { display: none; }
+.pw-log > summary span { font-size: 1.35rem; font-weight: 700; }
+.pw-log > summary span::before { content: "+ "; color: var(--hot); }
+.pw-log[open] > summary span::before { content: "− "; }
+.pw-log > summary small { font-size: .85rem; color: var(--slate); }

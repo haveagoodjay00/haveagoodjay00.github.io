@@ -13,7 +13,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,400&family=Noto+Serif+KR:wght@500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css?v=36">
-<link rel="stylesheet" href="v2.css?v=2">
+<link rel="stylesheet" href="v2.css?v=3">
 <link rel="stylesheet" href="project.css?v=14">
 </head>
 <body data-title-en="Project Progress | Hyeongseo Jang">
@@ -45,6 +45,69 @@
     <span class="pj-title-ic" aria-hidden="true"></span>
   </button>
   <div class="pj-panel" id="panel-power" data-pj="power" hidden>
+    <div class="t50 pw">
+    <section class="pagehead t50-head pw-sec" id="pw-overview">
+      <p class="lede">How do <span class="hl">module size</span> and <span class="hl">connection structure</span> change N-1 security, losses and <span class="hl">how many data center modules</span> a 154 kV network can take? Case A: a new-town campus. Case B: an existing Seoul/Gyeonggi area.</p>
+      <p class="pw-status"><b>Status:</b> data and design locked, calculations next. The figures below are built from public data; the main result figure is still a placeholder.</p>
+    </section>
+
+    <section class="section pw-sec" id="pw-figures">
+      <h2>Results</h2>
+      <div>
+        <figure class="pfig">
+          <div id="pwTopo"></div>
+          <figcaption><b>Figure 1.</b> Four connection structures compared.<span>Radial with single supply is the baseline: one line outage cuts the campus off.</span></figcaption>
+        </figure>
+        <figure class="pfig">
+          <img src="load-heatmap-metro.png" alt="Heatmap of hourly electricity use in the Seoul metropolitan area from 2022 to 2024, brightest on summer afternoons and winter evenings" width="1760" height="576">
+          <figcaption><b>Figure 2.</b> Existing load the campus would sit on: hourly use, Seoul metropolitan area, 2022&ndash;2024.<span>394,560 hourly rows from KEPCO open data; the API and the CSV matched row for row. Peaks on summer afternoons and winter evenings.</span></figcaption>
+        </figure>
+        <figure class="pfig">
+          <img src="line-length-154kv.png" alt="Histogram of 29 154 kV line lengths in the Seoul metropolitan area from Ministry notices" width="1280" height="576">
+          <figcaption><b>Figure 3.</b> 154 kV line lengths from government notices (n = 29).<span>Existing substation-to-substation lines (n = 17) have quartiles 4.3, 9.4 and 13.5 km, so the model uses <b>4, 9 and 14 km</b>. New branch lines run 0.6 to 1.9 km, so the base is 1.5 km.</span></figcaption>
+        </figure>
+        <figure class="pfig">
+          <div class="ph"><img src="example-expansion-map.png" alt="Example placeholder: expansion map of module size against modules added, colored by remaining N-1 margin (synthetic data)" width="1280" height="576"></div>
+          <figcaption><b>Figure 4.</b> Planned main result: how many modules fit before N-1 fails.<span class="ph-cap">Example of the figure planned here (synthetic data, not a result). Replaced after the runs.</span></figcaption>
+        </figure>
+        <p class="fig-note">Figures 2 and 3 plotted by me in Python from public data.</p>
+      </div>
+    </section>
+
+    <section class="section pw-sec" id="pw-inputs">
+      <h2>Key inputs</h2>
+      <div>
+        <div class="scroll"><table class="num">
+          <thead><tr><th>Item</th><th>Value</th><th>Source</th><th>Status</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Hourly load</th><td>394,560 rows, 2022&ndash;2024</td><td>KEPCO open data</td><td><span class="v">Set</span></td></tr>
+            <tr><th scope="row">Temperature</th><td>Seoul, Suwon hourly</td><td>KMA</td><td><span class="v">Set</span></td></tr>
+            <tr><th scope="row">Line lengths</th><td>4 / 9 / 14 km; branch 1.5 km</td><td>Ministry notices</td><td><span class="v">Set</span></td></tr>
+            <tr><th scope="row">Conductor</th><td>R &asymp; 0.035, X &asymp; 0.338 &Omega;/km</td><td>ACSR 410 mm&sup2; twin, maker specs</td><td><span class="v">Set</span></td></tr>
+            <tr><th scope="row">Overload limits</th><td>100 / 120 / 150 / 200%</td><td>IEEE C57.91 via PJM guide</td><td><span class="v">Set</span></td></tr>
+            <tr><th scope="row">Existing substation load</th><td>70 / 85 / 95% of rating</td><td>Scenario (no public data)</td><td><span class="v na">Assumed</span></td></tr>
+            <tr><th scope="row">Cases</th><td>~390 (Case B), 219 (Case A)</td><td>Pre-registered</td><td><span class="v">Set</span></td></tr>
+            <tr><th scope="row">N-1 results</th><td>Tier 1 and Tier 2</td><td>pandapower runs</td><td><span class="v na">Not yet</span></td></tr>
+          </tbody>
+        </table></div>
+      </div>
+    </section>
+
+    <section class="section pw-sec" id="pw-predictions">
+      <h2>My predictions</h2>
+      <div>
+        <ol class="pw-preds">
+          <li><span class="hl">Radial</span> breaks first.</li>
+          <li>Moving the tap point does <span class="hl">not</span> change the ranking.</li>
+          <li>Ring with single supply does not overtake radial with dual supply as modules grow.</li>
+          <li>T-tap has a clear effect.</li>
+        </ol>
+        <p class="note">Written before any calculation; each is scored right, partly right or wrong after the runs.</p>
+      </div>
+    </section>
+
+    <details class="pw-log" id="pw-log">
+      <summary><span>Full research log</span><small>Every stage and all 37 decisions: the options, who proposed them, and what I chose</small></summary>
   <div class="trip" id="trip" aria-label="Route overview">
     <div class="trip-label"><span class="trip-k">Reading</span> <span id="tripNow">Overview</span></div>
     <ol class="trip-dots" id="tripDots"></ol>
@@ -102,6 +165,9 @@
       </ul>
     </section>
   </main>
+    </details>
+    </div>
+
   </div>
 
   <button type="button" class="pj-title" data-pj="t50" aria-expanded="false" aria-controls="panel-t50">
@@ -187,7 +253,7 @@
 </div>
 <div id="tip" role="status" aria-live="polite" hidden></div>
 <script src="project-data.js?v=14"></script>
-<script src="project.js?v=15"></script>
+<script src="project.js?v=16"></script>
 <script src="site.js"></script>
 </body>
 </html>

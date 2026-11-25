@@ -158,12 +158,15 @@
     li.appendChild(a); ul.appendChild(li);
     entries.push({ el: el, li: li });
   }
-  addRail(head, 'Overview');
-  stns.forEach(function (s, i) {
-    var st = P.stations[i];
-    addRail(s, st.status === 'now' ? 'You are here: ' + st.title : st.title, st.status === 'now' ? 'stagehead' : 'rs-' + st.status);
+  var pwLog = document.getElementById('pw-log');
+  document.querySelectorAll('.pj-panel[data-pj="power"] .pw-sec[id]').forEach(function (sec) {
+    var h = sec.querySelector('h2');
+    addRail(sec, h ? h.textContent.trim() : 'Overview');
   });
-  addRail(limits, 'Limits');
+  if (pwLog) addRail(pwLog, 'Research log');
+  var pwTopo = document.getElementById('pwTopo');
+  if (pwTopo) pwTopo.innerHTML = topoSVG();
+  if (pwLog) pwLog.addEventListener('toggle', function () { measure(); });
   entries.forEach(function (e) { e.pj = 'power'; });
   var nPower = entries.length;
   document.querySelectorAll('.pj-panel[data-pj="t50"] .pagehead, .pj-panel[data-pj="t50"] .section[id]').forEach(function (sec) {
@@ -207,8 +210,8 @@
     if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4) cur = hi;
     entries.forEach(function (e, i) { e.li.classList.toggle('on', i === cur); });
     if (current !== 'power') return;
-    var reading = cur - 1;   // index into stations (-1 = overview)
-    if (reading >= stns.length) reading = stns.length - 1;
+    var reading = -1;   // index into stations (-1 = none)
+    if (pwLog && pwLog.open) stns.forEach(function (s, i) { if (s.getBoundingClientRect().top <= line) reading = i; });
     stns.forEach(function (s, i) { s.classList.toggle('reading', i === reading); });
     dotLis.forEach(function (d, i) { d.classList.toggle('reading', i === reading); });
     tripNow.textContent = reading < 0 ? 'Overview' : P.stations[reading].title;
