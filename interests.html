@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Interests | Hyeongseo Jang</title>
-<meta name="description" content="The parts of power engineering Hyeongseo Jang wants to work in: transmission planning and large loads, N-1 security, power flow and control.">
+<meta name="description" content="Three areas of power systems Hyeongseo Jang wants to work in: planning, operation, and dynamics and control.">
 <meta property="og:title" content="Interests | Hyeongseo Jang">
-<meta property="og:description" content="The parts of power engineering Hyeongseo Jang wants to work in: transmission planning and large loads, N-1 security, power flow and control.">
+<meta property="og:description" content="Three areas of power systems Hyeongseo Jang wants to work in: planning, operation, and dynamics and control.">
 <meta property="og:type" content="website">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%2310202F'/%3E%3Ccircle cx='16' cy='16' r='9' fill='none' stroke='%239FC0DE' stroke-width='2.5'/%3E%3Cpath d='M10.5 16c1.8-4.5 3.7-4.5 5.5 0s3.7 4.5 5.5 0' fill='none' stroke='%239FC0DE' stroke-width='2.2'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -31,11 +31,11 @@
 
     <section class="pagehead">
       <h1 class="h1-page">Interests</h1>
-      <p class="lede">The parts of power engineering I want to work in, and what I have done in each so far. The diagrams are my own sketches of the ideas, not results. My own work is on the <a href="project.html">Project</a> page.</p>
+      <p class="lede">Three areas of power systems I want to work in, with what I have done in each so far. The diagrams are my own sketches of the ideas, not results.</p>
     </section>
 
     <section class="section" id="planning">
-      <h2>Transmission planning and large loads</h2>
+      <h2>Power System Planning</h2>
       <div>
         <figure class="ifig">
           <svg class="chart" viewBox="0 0 640 220" role="img" aria-label="Sketch: a 154 kV substation feeding an existing area and a new large-load campus through two lines">
@@ -53,40 +53,14 @@
             </g>
           </svg>
         </figure>
-        <p>Large new loads such as data centers are arriving faster than grids are being planned for them. I want to work on the planning question of where such a load should connect and how much the network can take.</p>
-        <p class="note">So far: a pilot on the IEEE 24-bus system and a modular design study with Korean public data, now in progress. <a href="project.html#power">See the project</a>.</p>
+        <p>Large new loads such as data centers are arriving faster than grids are being planned for them. I am interested in where such a load should connect, how much the network can take, and whether the plan still holds when any one element is lost.</p>
+        <p class="ikeys">Large-load interconnection · N-1 security (NERC TPL-001) · Expansion limits</p>
+        <p class="note">So far: a pilot on the IEEE 24-bus system and a modular design study with Korean public data, in progress. <a href="project.html#power">See the project</a>.</p>
       </div>
     </section>
 
-    <section class="section" id="security">
-      <h2>N-1 security</h2>
-      <div>
-        <figure class="ifig">
-          <svg class="chart" viewBox="0 0 640 200" role="img" aria-label="Sketch: two parallel lines share the flow; when one is out, the other carries all of it">
-            <g font-family="Source Serif 4, Georgia, serif" font-size="13" fill="#0F1B2A" stroke="#0F1B2A">
-              <text x="160" y="28" text-anchor="middle" stroke="none" font-weight="600">Normal</text>
-              <circle cx="60" cy="100" r="9" fill="#0F1B2A"/><circle cx="260" cy="100" r="9" fill="#0F1B2A"/>
-              <path d="M60 100 Q160 50 260 100" fill="none" stroke-width="2"/>
-              <path d="M60 100 Q160 150 260 100" fill="none" stroke-width="2"/>
-              <text x="160" y="62" text-anchor="middle" stroke="none" font-size="12">50%</text>
-              <text x="160" y="150" text-anchor="middle" stroke="none" font-size="12">50%</text>
-              <text x="480" y="28" text-anchor="middle" stroke="none" font-weight="600">One line out</text>
-              <circle cx="380" cy="100" r="9" fill="#0F1B2A"/><circle cx="580" cy="100" r="9" fill="#0F1B2A"/>
-              <path d="M380 100 Q480 50 580 100" fill="none" stroke="#B0B8C0" stroke-width="2" stroke-dasharray="6 5"/>
-              <path d="M380 100 Q480 150 580 100" fill="none" stroke="#24527F" stroke-width="4"/>
-              <text x="480" y="62" text-anchor="middle" stroke="none" font-size="12" fill="#4B5866">out of service</text>
-              <text x="480" y="150" text-anchor="middle" stroke="none" font-size="12" fill="#24527F" font-weight="600">100%: still within rating?</text>
-              <text x="320" y="190" text-anchor="middle" stroke="none" fill="#4B5866" font-size="12">A plan passes N-1 if losing any one element still keeps every limit.</text>
-            </g>
-          </svg>
-        </figure>
-        <p>A plan is only as good as its worst single outage. I am learning to judge designs the way U.S. planners do, against NERC TPL-001.</p>
-        <p class="note">So far: N-1 verdict rules fixed before any calculation in my study, following TPL-001 category P1.</p>
-      </div>
-    </section>
-
-    <section class="section" id="powerflow">
-      <h2>Power flow and operation</h2>
+    <section class="section" id="operation">
+      <h2>Power System Operation</h2>
       <div>
         <figure class="ifig">
           <svg class="chart" viewBox="0 0 640 200" role="img" aria-label="Sketch: a three-bus network with a generator, two loads and voltage at each bus">
@@ -107,13 +81,14 @@
             </g>
           </svg>
         </figure>
-        <p>Power flow is the base of every planning study: given loads and generation, what are the voltages and the flows on each line? I use AC power flow and optimal power flow as tools and am working toward understanding them by hand.</p>
-        <p class="note">So far: pandapower in my study, with a hand calculation and a small NumPy DC solver of my own planned as cross-checks.</p>
+        <p>Every planning answer rests on power flow: given loads and generation, what are the voltages and the flow on each line. I use AC power flow and optimal power flow as tools and am working toward checking them by hand.</p>
+        <p class="ikeys">AC power flow · Optimal power flow · Hourly load data</p>
+        <p class="note">So far: pandapower in my study, with KEPCO hourly load data for 2022 to 2024. <a href="project.html#power">See the project</a>.</p>
       </div>
     </section>
 
     <section class="section" id="control">
-      <h2>Control</h2>
+      <h2>Power System Dynamics and Control</h2>
       <div>
         <figure class="ifig">
           <svg class="chart" viewBox="0 0 640 170" role="img" aria-label="Sketch: a feedback loop with reference, controller, plant and measured output fed back">
@@ -131,23 +106,11 @@
             </g>
           </svg>
         </figure>
-        <p>From my automatic control coursework I took a habit I want to keep in power systems: write the requirement first, then give each design a numeric verdict.</p>
-        <p class="note">So far: a yaw damper and roll attitude hold for a T-50 model, designed by root locus and checked against MIL-F-8785C. <a href="project.html#t50">See the project</a>.</p>
+        <p>My control work so far is on an aircraft, not a grid. What I want to carry over is the method: write the requirement first, then judge damping, speed and margin against it.</p>
+        <p class="ikeys">Root locus design · Damping and stability · Requirement-based verification</p>
+        <p class="note">So far: a yaw damper and roll attitude hold for a T-50 model, checked against MIL-F-8785C. <a href="project.html#t50">See the project</a>.</p>
       </div>
     </section>
-
-    <!-- FIELD VISITS: when photos are ready, put the files next to this page (e.g. visit-substation.jpg)
-         and remove the comment markers around this section. One line of caption per photo: what, where, when.
-    <section class="section" id="field">
-      <h2>Field visits</h2>
-      <div>
-        <div class="visits">
-          <figure><img src="visit-substation.jpg" alt=""><figcaption>Substation tour, [place], [month year]</figcaption></figure>
-          <figure><img src="visit-expo.jpg" alt=""><figcaption>[Exhibition name], [place], [month year]</figcaption></figure>
-        </div>
-      </div>
-    </section>
-    -->
 
   </main>
 

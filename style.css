@@ -435,3 +435,4 @@ thead th, tbody th, .sheet .line strong, .stagelist strong { font-weight: 600 !i
 .visits figure { margin: 0; }
 .visits img { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border: 1px solid var(--rule); }
 .visits figcaption { font-weight: 400; font-size: 0.875rem; color: var(--slate); margin: 6px 0 0; }
+.ikeys { font-size: 0.9375rem; color: var(--ink); font-weight: 600; margin: -4px 0 12px; }
