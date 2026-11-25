@@ -542,3 +542,10 @@ ul.lined.small li { font-size: 0.875rem; padding: 6px 0; }
 .minor-certs li, .minor-certs li:first-child { border: 0; padding: 1px 0; }
 .minor-certs .mc-note { font-size: 0.72rem; margin-top: 4px; }
 @media (max-width: 640px) { .minor-certs ul { grid-template-columns: minmax(0,1fr); } .courses > div { grid-template-columns: 80px minmax(0,1fr); } }
+/* Courses block as a small labelled table */
+.courses { margin: 14px 0 0; border: 1px solid var(--rule); background: #fff; font-size: 0.8125rem; }
+.courses .c-h { display: block; margin: 0; padding: 6px 12px; font-size: 0.72rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--slate); background: #EEF1F3; border-bottom: 1px solid var(--rule); }
+.courses > div { grid-template-columns: 100px minmax(0,1fr); gap: 12px; padding: 6px 12px; border-bottom: 1px solid var(--rule); }
+.courses > div:last-child { border-bottom: 0; }
+.courses dt { color: var(--ink); font-weight: 600; }
+.c-grp { text-transform: uppercase; letter-spacing: .06em; font-size: 0.72rem; }
