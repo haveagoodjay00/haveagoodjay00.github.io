@@ -552,3 +552,21 @@ ul.lined.small li { font-size: 0.875rem; padding: 6px 0; }
 .courses.courses-lg { grid-column: 1 / -1; font-size: 0.9375rem; margin-top: 4px; }
 .courses.courses-lg .c-h { font-size: 0.75rem; padding: 8px 14px; }
 .courses.courses-lg > div { grid-template-columns: 120px minmax(0,1fr); padding: 9px 14px; }
+/* Courses: three areas side by side */
+.cgrid { margin: 14px 0 0; border-top: 2px solid var(--ink); border-bottom: 1px solid var(--rule); }
+.cgrid-lg { grid-column: 1 / -1; margin-top: 4px; }
+.cg-h { margin: 0; padding: 8px 0 6px; font-size: 0.72rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--slate); max-width: none; }
+.cg-cols { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid var(--rule); }
+.cg-col { padding: 12px 16px 14px; border-left: 1px solid var(--rule); }
+.cg-col:first-child { border-left: 0; padding-left: 0; }
+.cg-k { margin: 0 0 6px; font-weight: 600; font-size: 0.9rem; color: var(--ink); max-width: none; }
+.cg-k::after { content: ""; display: block; width: 18px; height: 2px; background: var(--signal); margin-top: 5px; }
+.cg-col ul { list-style: none; margin: 0; padding: 0; }
+.cg-col li { font-size: 0.84rem; line-height: 1.45; color: var(--slate); padding: 2px 0; }
+.cgrid-lg .cg-k { font-size: 0.97rem; }
+.cgrid-lg .cg-col li { font-size: 0.92rem; color: var(--ink); }
+@media (max-width: 640px) {
+  .cg-cols { grid-template-columns: minmax(0,1fr); }
+  .cg-col, .cg-col:first-child { border-left: 0; padding: 10px 0; border-top: 1px solid var(--rule); }
+  .cg-col:first-child { border-top: 0; }
+}
