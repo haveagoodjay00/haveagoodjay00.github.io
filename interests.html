@@ -12,7 +12,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,400&family=Noto+Serif+KR:wght@500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=27">
+<link rel="stylesheet" href="style.css?v=28">
 </head>
 <body data-title-en="Interests | Hyeongseo Jang">
 <div class="wrap">
@@ -31,7 +31,7 @@
 
     <section class="pagehead">
       <h1 class="h1-page">Interests</h1>
-      <p class="lede">The areas of power systems I study, and the work I have done in each so far. The diagrams are my own sketches of the ideas, not results.</p>
+      <p class="lede">The areas of power systems I study, and the work I have done in each so far.</p>
     </section>
 
     <section class="section" id="planning">
@@ -52,6 +52,7 @@
               <text x="300" y="200" text-anchor="middle" stroke="none" fill="#4B5866" font-size="12">How much new load can the network take before a limit is reached?</text>
             </g>
           </svg>
+          <figcaption>Sketch of the idea, not a result</figcaption>
         </figure>
         <p>Large new loads such as data centers are arriving faster than grids are being planned for them. I am interested in where such a load should connect, how much the network can take, and whether the plan still holds when any one element is lost.</p>
         <p class="ikeys">Large-load interconnection · N-1 security (NERC TPL-001) · Expansion limits</p>
@@ -80,6 +81,7 @@
               <text x="230" y="125" text-anchor="middle" stroke="none" fill="#24527F" font-size="12">P, Q flow</text>
             </g>
           </svg>
+          <figcaption>Sketch of the idea, not a result</figcaption>
         </figure>
         <p>Every planning answer rests on power flow: given loads and generation, what are the voltages and the flow on each line. I use AC power flow and optimal power flow as tools and am working toward checking them by hand.</p>
         <p class="ikeys">AC power flow · Optimal power flow · Hourly load data</p>
@@ -90,22 +92,7 @@
     <section class="section" id="control">
       <h2>Power System Dynamics and Control</h2>
       <div>
-        <figure class="ifig">
-          <svg class="chart" viewBox="0 0 640 170" role="img" aria-label="Sketch: a feedback loop with reference, controller, plant and measured output fed back">
-            <g font-family="Source Serif 4, Georgia, serif" font-size="13" fill="#0F1B2A" stroke="#0F1B2A">
-              <text x="30" y="80" stroke="none">Reference</text>
-              <line x1="100" y1="76" x2="150" y2="76" stroke-width="1.5"/>
-              <circle cx="162" cy="76" r="12" fill="#fff" stroke-width="1.5"/><text x="162" y="81" text-anchor="middle" stroke="none">&#931;</text>
-              <line x1="174" y1="76" x2="230" y2="76" stroke-width="1.5"/>
-              <rect x="230" y="54" width="120" height="44" fill="#E6EDF4" stroke-width="1.5"/><text x="290" y="81" text-anchor="middle" stroke="none">Controller</text>
-              <line x1="350" y1="76" x2="400" y2="76" stroke-width="1.5"/>
-              <rect x="400" y="54" width="120" height="44" fill="#24527F" stroke="#24527F"/><text x="460" y="81" text-anchor="middle" stroke="none" fill="#fff">Plant</text>
-              <line x1="520" y1="76" x2="610" y2="76" stroke-width="1.5"/><text x="560" y="66" text-anchor="middle" stroke="none" font-size="12">Output</text>
-              <polyline points="580,76 580,140 162,140 162,88" fill="none" stroke-width="1.5"/>
-              <text x="370" y="158" text-anchor="middle" stroke="none" fill="#4B5866" font-size="12">Judge it by damping, speed and margin against a written requirement.</text>
-            </g>
-          </svg>
-        </figure>
+        <figure class="ifig ifig-real"><img src="t50-roll-step.png" alt="Roll angle response of the T-50 autopilot to a 10 degree bank command, settling near 10 degrees within about 2 seconds" width="505" height="336"><figcaption>From my T-50 project: roll angle response to a 10&deg; bank command (MATLAB)</figcaption></figure>
         <p>My control work so far is on an aircraft, not a grid. What I want to carry over is the method: write the requirement first, then judge damping, speed and margin against it.</p>
         <p class="ikeys">Root locus design · Damping and stability · Requirement-based verification</p>
         <p class="note">So far: a yaw damper and roll attitude hold for a T-50 model, checked against MIL-F-8785C. <a href="project.html#t50">See the project</a>.</p>
