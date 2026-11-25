@@ -369,15 +369,23 @@ footer .links .icons a:nth-child(3):hover { color: #181717; }
 /* small Korean name next to the English name */
 .id h1 .kname { font-family: "Noto Sans KR", var(--display); font-size: 0.38em; font-weight: 500; letter-spacing: 0; color: var(--slate); margin-left: 10px; vertical-align: 0.35em; white-space: nowrap; }
 
-/* Project selector (Project page) */
-.pj-switch { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; padding: 18px 0; border-bottom: 1px solid var(--rule); }
-.pj-switch-k { font-family: var(--display); font-weight: 700; font-size: 0.8125rem; color: var(--slate); text-transform: uppercase; letter-spacing: .06em; }
-.pj-switch > div { display: flex; flex-wrap: wrap; gap: 10px; }
-.pj-switch button { display: block; text-align: left; cursor: pointer; padding: 8px 14px; border: 1.5px solid var(--rule); background: #fff; color: var(--ink); text-decoration: none; font-family: var(--display); line-height: 1.3; }
-.pj-switch button strong { display: block; font-size: 0.9688rem; }
-.pj-switch button span { display: block; font-size: 0.8125rem; color: var(--slate); }
-.pj-switch button:hover { border-color: var(--ink); }
-.pj-switch button[aria-expanded="true"] { border-color: var(--ink); box-shadow: inset 0 -3px 0 var(--signal); }
 
 .pj-panel[hidden] { display: none; }
 .t50 .pagehead { border-bottom: 2px solid var(--ink); }
+
+/* Project list: big titles, click to expand */
+.pj-list-h { font-size: clamp(1.9rem, 4.2vw, 3rem); line-height: 1.1; margin: 48px 0 20px; }
+.pj-title { scroll-margin-top: 72px; display: grid; grid-template-columns: minmax(0,1fr) auto; grid-template-areas: "meta ic" "main ic" "st ic"; column-gap: 20px; align-items: center; width: 100%; text-align: left; cursor: pointer; background: none; border: 0; border-top: 2px solid var(--ink); padding: 28px 0; color: var(--ink); font: inherit; }
+.pj-title:last-of-type { }
+.pj-title-meta { grid-area: meta; font-family: var(--display); font-size: 0.875rem; color: var(--slate); margin-bottom: 6px; }
+.pj-title-main { grid-area: main; font-family: var(--display); font-weight: 750; font-stretch: 105%; font-size: clamp(1.35rem, 2.8vw, 2rem); line-height: 1.2; max-width: 28em; }
+.pj-title-st { grid-area: st; justify-self: start; margin-top: 10px; font-family: var(--display); font-weight: 700; font-size: 0.8125rem; padding: 3px 10px; background: var(--signal); }
+.pj-title-ic { grid-area: ic; width: 40px; height: 40px; border: 2px solid var(--ink); position: relative; }
+.pj-title-ic::before, .pj-title-ic::after { content: ""; position: absolute; left: 50%; top: 50%; width: 16px; height: 2px; background: var(--ink); transform: translate(-50%,-50%); }
+.pj-title-ic::after { transform: translate(-50%,-50%) rotate(90deg); transition: transform .2s ease; }
+.pj-title[aria-expanded="true"] .pj-title-ic { background: var(--signal); }
+.pj-title[aria-expanded="true"] .pj-title-ic::after { transform: translate(-50%,-50%) rotate(0deg); }
+.pj-title:hover .pj-title-main { text-decoration: underline; text-decoration-color: var(--signal); text-decoration-thickness: 3px; }
+.pj-panel { border-top: 1px solid var(--rule); margin-bottom: 24px; }
+.pj-panel[hidden] { display: none; }
+.t50 .pagehead { padding-top: 28px; }

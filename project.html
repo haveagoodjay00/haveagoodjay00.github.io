@@ -13,7 +13,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,400..800&family=Noto+Sans+KR:wght@400;500;700;800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="project.css?v=8">
+<link rel="stylesheet" href="project.css?v=9">
 </head>
 <body data-title-en="Project Progress | Hyeongseo Jang">
 <div class="wrap">
@@ -28,15 +28,14 @@
       <a href="#contact">Contact</a>
     </nav>
   </header>
-  <nav class="pj-switch" aria-label="Choose a project">
-    <span class="pj-switch-k">Projects</span>
-    <div>
-      <button type="button" data-pj="power" aria-expanded="true"><strong>Power systems study</strong><span>Data center interconnection · in progress</span></button>
-      <button type="button" data-pj="t50" aria-expanded="false"><strong>T-50 autopilot</strong><span>Automatic Control course project</span></button>
-    </div>
-  </nav>
-
-  <div class="pj-panel" data-pj="power">
+  <h1 class="pj-list-h">Projects</h1>
+  <button type="button" class="pj-title" data-pj="power" aria-expanded="false" aria-controls="panel-power">
+    <span class="pj-title-meta">Independent study · 2026 to present</span>
+    <span class="pj-title-main">Where to connect data center load, and how to expand it: a modular design study with Korean data</span>
+    <span class="pj-title-st">In progress</span>
+    <span class="pj-title-ic" aria-hidden="true"></span>
+  </button>
+  <div class="pj-panel" id="panel-power" data-pj="power" hidden>
   <div class="trip" id="trip" aria-label="Route overview">
     <div class="trip-label"><span class="trip-k">Reading</span> <span id="tripNow">Overview</span></div>
     <ol class="trip-dots" id="tripDots"></ol>
@@ -45,8 +44,7 @@
   <main>
     <section class="pj-head">
       <p class="status" id="pjStatus">In progress</p>
-      <h1 class="h1-page">Project progress</h1>
-      <p class="pj-q">Where to connect data center load, and how to expand it: a modular design study with Korean data.</p>
+      <h2 class="h1-page">Project progress</h2>
       <p class="lede">A route map of the study. Each stop shows what I did, which options were on the table, and what I chose and why. Options were often drafted by an AI assistant (Claude); the log records who proposed what, and every choice is mine.</p>
 
       <dl class="pj-board" id="pjBoard"></dl>
@@ -97,12 +95,16 @@
   </main>
   </div>
 
-  <div class="pj-panel" data-pj="t50" hidden>
+  <button type="button" class="pj-title" data-pj="t50" aria-expanded="false" aria-controls="panel-t50">
+    <span class="pj-title-meta">Automatic Control course project · Fall 2026</span>
+    <span class="pj-title-main">Root-locus design of a lateral-directional autopilot for the T-50 trainer</span>
+    <span class="pj-title-st">Part 1 completed</span>
+    <span class="pj-title-ic" aria-hidden="true"></span>
+  </button>
+  <div class="pj-panel" id="panel-t50" data-pj="t50" hidden>
     <div class="t50">
 
     <section class="pagehead t50-head" id="t50-overview">
-      <p class="status">Course project · Part 1 completed · Part 2 in progress</p>
-      <h1 class="h1-page">Root-locus design of a lateral-directional autopilot for the T-50 trainer</h1>
       <p class="lede">Automatic Control term project, Sejong University, fall 2026. A yaw damper and a roll attitude hold loop for a linear T-50 model at 10,000 ft and Mach 0.8, checked against MIL-F-8785C Level 1.</p>
     </section>
 
@@ -182,7 +184,7 @@
 </div>
 <div id="tip" role="status" aria-live="polite" hidden></div>
 <script src="project-data.js?v=7"></script>
-<script src="project.js?v=8"></script>
+<script src="project.js?v=9"></script>
 <script src="site.js"></script>
 </body>
 </html>

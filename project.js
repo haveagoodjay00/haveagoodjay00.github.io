@@ -168,36 +168,38 @@
   var nPower = entries.length;
   document.querySelectorAll('.pj-panel[data-pj="t50"] .pagehead, .pj-panel[data-pj="t50"] .section[id]').forEach(function (sec) {
     var h = sec.querySelector('h2');
-    addRail(sec, h ? h.textContent.trim() : 'T-50 autopilot');
+    addRail(sec, h ? h.textContent.trim() : 'Overview');
     entries[entries.length - 1].pj = 't50';
   });
   document.body.appendChild(nav);
 
   // ---- Project selector: one project open at a time ----
   var panels = document.querySelectorAll('.pj-panel');
-  var btns = document.querySelectorAll('.pj-switch button');
-  var current = 'power';
+  var btns = document.querySelectorAll('.pj-title');
+  var current = null;
   function openProject(name, scroll) {
     current = name;
     panels.forEach(function (pn) { pn.hidden = pn.getAttribute('data-pj') !== name; });
     btns.forEach(function (b) { b.setAttribute('aria-expanded', String(b.getAttribute('data-pj') === name)); });
     entries.forEach(function (e) { e.li.hidden = e.pj !== name; });
     if (name === 'power') measure();
-    if (scroll) document.querySelector('.pj-switch').scrollIntoView({ block: 'start' });
+    if (scroll && name) document.querySelector('.pj-title[data-pj="' + name + '"]').scrollIntoView({ block: 'start' });
     update();
   }
   btns.forEach(function (b) {
     b.addEventListener('click', function () {
       var n = b.getAttribute('data-pj');
-      try { history.replaceState(null, '', n === 'power' ? location.pathname : '#t50'); } catch (e) {}
-      openProject(n, false);
+      if (n === current) n = null;
+      try { history.replaceState(null, '', n ? '#' + n : location.pathname); } catch (e) {}
+      openProject(n, !!n);
     });
   });
 
   var ticking = false;
   function update() {
     ticking = false;
-    nav.classList.toggle('show', window.scrollY > 160);
+    nav.classList.toggle('show', window.scrollY > 160 && !!current);
+    if (!current) return;
     var line = window.innerHeight * 0.35;
     var lo = current === 'power' ? 0 : nPower, hi = current === 'power' ? nPower - 1 : entries.length - 1, cur = lo;
     for (var i = lo; i <= hi; i++) { if (entries[i].el.getBoundingClientRect().top <= line) cur = i; }
@@ -216,7 +218,8 @@
   else host.addEventListener('transitionend', measure);
   window.addEventListener('load', measure);
   measure();
-  openProject(location.hash.indexOf('t50') === 1 ? 't50' : 'power', location.hash.indexOf('t50') === 1);
+  var hs = location.hash.slice(1);
+  openProject(hs === 't50' || hs === 'power' ? hs : (hs && document.getElementById(hs) && document.getElementById(hs).closest('.pj-panel[data-pj="power"]') ? 'power' : null), !!hs);
 
   // ---- Reveal stations as they come into view ----
   if ('IntersectionObserver' in window) {
