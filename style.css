@@ -452,3 +452,7 @@ thead th, tbody th, .sheet .line strong, .stagelist strong { font-weight: 600 !i
 .brief dd { margin: 0; font-size: 1.0313rem; line-height: 1.5; }
 .focus a { color: var(--ink); text-decoration-color: var(--rule); }
 @media (max-width: 640px) { .brief > div { grid-template-columns: minmax(0,1fr); gap: 2px; } }
+/* Stronger indent for expanded project content */
+.pj-panel { margin-left: 32px; padding-left: 40px; }
+.pj-panel .trip { margin-left: -40px; padding-left: 40px; }
+@media (max-width: 640px) { .pj-panel { margin-left: 10px; padding-left: 18px; } .pj-panel .trip { margin-left: -18px; padding-left: 18px; } }
