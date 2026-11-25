@@ -373,8 +373,11 @@ footer .links .icons a:nth-child(3):hover { color: #181717; }
 .pj-switch { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; padding: 18px 0; border-bottom: 1px solid var(--rule); }
 .pj-switch-k { font-family: var(--display); font-weight: 700; font-size: 0.8125rem; color: var(--slate); text-transform: uppercase; letter-spacing: .06em; }
 .pj-switch > div { display: flex; flex-wrap: wrap; gap: 10px; }
-.pj-switch a { display: block; padding: 8px 14px; border: 1.5px solid var(--rule); background: #fff; color: var(--ink); text-decoration: none; font-family: var(--display); line-height: 1.3; }
-.pj-switch a strong { display: block; font-size: 0.9688rem; }
-.pj-switch a span { display: block; font-size: 0.8125rem; color: var(--slate); }
-.pj-switch a:hover { border-color: var(--ink); }
-.pj-switch a[aria-current="true"] { border-color: var(--ink); box-shadow: inset 0 -3px 0 var(--signal); }
+.pj-switch button { display: block; text-align: left; cursor: pointer; padding: 8px 14px; border: 1.5px solid var(--rule); background: #fff; color: var(--ink); text-decoration: none; font-family: var(--display); line-height: 1.3; }
+.pj-switch button strong { display: block; font-size: 0.9688rem; }
+.pj-switch button span { display: block; font-size: 0.8125rem; color: var(--slate); }
+.pj-switch button:hover { border-color: var(--ink); }
+.pj-switch button[aria-expanded="true"] { border-color: var(--ink); box-shadow: inset 0 -3px 0 var(--signal); }
+
+.pj-panel[hidden] { display: none; }
+.t50 .pagehead { border-bottom: 2px solid var(--ink); }

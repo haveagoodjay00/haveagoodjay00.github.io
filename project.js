@@ -164,16 +164,46 @@
     addRail(s, st.status === 'now' ? 'You are here: ' + st.title : st.title, st.status === 'now' ? 'stagehead' : 'rs-' + st.status);
   });
   addRail(limits, 'Limits');
+  entries.forEach(function (e) { e.pj = 'power'; });
+  var nPower = entries.length;
+  document.querySelectorAll('.pj-panel[data-pj="t50"] .pagehead, .pj-panel[data-pj="t50"] .section[id]').forEach(function (sec) {
+    var h = sec.querySelector('h2');
+    addRail(sec, h ? h.textContent.trim() : 'T-50 autopilot');
+    entries[entries.length - 1].pj = 't50';
+  });
   document.body.appendChild(nav);
+
+  // ---- Project selector: one project open at a time ----
+  var panels = document.querySelectorAll('.pj-panel');
+  var btns = document.querySelectorAll('.pj-switch button');
+  var current = 'power';
+  function openProject(name, scroll) {
+    current = name;
+    panels.forEach(function (pn) { pn.hidden = pn.getAttribute('data-pj') !== name; });
+    btns.forEach(function (b) { b.setAttribute('aria-expanded', String(b.getAttribute('data-pj') === name)); });
+    entries.forEach(function (e) { e.li.hidden = e.pj !== name; });
+    if (name === 'power') measure();
+    if (scroll) document.querySelector('.pj-switch').scrollIntoView({ block: 'start' });
+    update();
+  }
+  btns.forEach(function (b) {
+    b.addEventListener('click', function () {
+      var n = b.getAttribute('data-pj');
+      try { history.replaceState(null, '', n === 'power' ? location.pathname : '#t50'); } catch (e) {}
+      openProject(n, false);
+    });
+  });
 
   var ticking = false;
   function update() {
     ticking = false;
     nav.classList.toggle('show', window.scrollY > 160);
-    var line = window.innerHeight * 0.35, cur = 0;
-    entries.forEach(function (e, i) { if (e.el.getBoundingClientRect().top <= line) cur = i; });
-    if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4) cur = entries.length - 1;
+    var line = window.innerHeight * 0.35;
+    var lo = current === 'power' ? 0 : nPower, hi = current === 'power' ? nPower - 1 : entries.length - 1, cur = lo;
+    for (var i = lo; i <= hi; i++) { if (entries[i].el.getBoundingClientRect().top <= line) cur = i; }
+    if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4) cur = hi;
     entries.forEach(function (e, i) { e.li.classList.toggle('on', i === cur); });
+    if (current !== 'power') return;
     var reading = cur - 1;   // index into stations (-1 = overview)
     if (reading >= stns.length) reading = stns.length - 1;
     stns.forEach(function (s, i) { s.classList.toggle('reading', i === reading); });
@@ -186,6 +216,7 @@
   else host.addEventListener('transitionend', measure);
   window.addEventListener('load', measure);
   measure();
+  openProject(location.hash.indexOf('t50') === 1 ? 't50' : 'power', location.hash.indexOf('t50') === 1);
 
   // ---- Reveal stations as they come into view ----
   if ('IntersectionObserver' in window) {

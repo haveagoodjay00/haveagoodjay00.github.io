@@ -13,7 +13,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,400..800&family=Noto+Sans+KR:wght@400;500;700;800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="project.css?v=7">
+<link rel="stylesheet" href="project.css?v=8">
 </head>
 <body data-title-en="Project Progress | Hyeongseo Jang">
 <div class="wrap">
@@ -30,9 +30,13 @@
   </header>
   <nav class="pj-switch" aria-label="Choose a project">
     <span class="pj-switch-k">Projects</span>
-    <div><a href="project.html" aria-current="true"><strong>Power systems study</strong><span>Data center interconnection · in progress</span></a><a href="control.html"><strong>T-50 autopilot</strong><span>Automatic Control course project</span></a></div>
+    <div>
+      <button type="button" data-pj="power" aria-expanded="true"><strong>Power systems study</strong><span>Data center interconnection · in progress</span></button>
+      <button type="button" data-pj="t50" aria-expanded="false"><strong>T-50 autopilot</strong><span>Automatic Control course project</span></button>
+    </div>
   </nav>
 
+  <div class="pj-panel" data-pj="power">
   <div class="trip" id="trip" aria-label="Route overview">
     <div class="trip-label"><span class="trip-k">Reading</span> <span id="tripNow">Overview</span></div>
     <ol class="trip-dots" id="tripDots"></ol>
@@ -91,6 +95,78 @@
       </ul>
     </section>
   </main>
+  </div>
+
+  <div class="pj-panel" data-pj="t50" hidden>
+    <div class="t50">
+
+    <section class="pagehead t50-head" id="t50-overview">
+      <p class="status">Course project · Part 1 completed · Part 2 in progress</p>
+      <h1 class="h1-page">Root-locus design of a lateral-directional autopilot for the T-50 trainer</h1>
+      <p class="lede">Automatic Control term project, Sejong University, fall 2026. A yaw damper and a roll attitude hold loop for a linear T-50 model at 10,000 ft and Mach 0.8, checked against MIL-F-8785C Level 1.</p>
+    </section>
+
+    <section class="section" id="t50-summary">
+      <h2>Summary</h2>
+      <div>
+        <ul class="plain">
+          <li><strong>Problem.</strong> Open-loop Dutch-roll damping is 0.097, below the 0.19 requirement.</li>
+          <li><strong>Design.</strong> Yaw damper (K<sub>r</sub> = 8) and roll attitude hold (K<sub>p</sub> = 1.44, K<sub>&phi;</sub> = 11.35), chosen by root locus in MATLAB.</li>
+          <li><strong>Finding.</strong> The roll loop alone lowers Dutch-roll damping to 0.051. Together with the yaw damper it stays at 0.233.</li>
+          <li><strong>Result.</strong> For a 10&deg; bank command: rise time 0.46 s, overshoot 5.4%.</li>
+        </ul>
+        <figure>
+          <figcaption>Dutch-roll damping ratio by loop configuration</figcaption>
+          <svg class="chart" viewBox="0 0 640 250" role="img" aria-label="Bar chart of Dutch-roll damping ratio: open loop 0.097, roll loop only 0.051, yaw damper only 0.301, combined 0.233, against a requirement of 0.19">
+            <g font-family="Archivo, Arial, sans-serif" font-size="13" fill="#10202F">
+              <line x1="190" y1="20" x2="190" y2="210" stroke="#10202F" stroke-width="1.5"/>
+              <text x="180" y="52" text-anchor="end">Open loop</text>
+              <rect x="190" y="36" width="97" height="24" fill="#8A97A6"/>
+              <text x="296" y="53">0.097</text>
+              <text x="180" y="92" text-anchor="end">Roll loop only</text>
+              <rect x="190" y="76" width="51" height="24" fill="#B3402F"/>
+              <text x="250" y="93">0.051</text>
+              <text x="180" y="132" text-anchor="end">Yaw damper only</text>
+              <rect x="190" y="116" width="301" height="24" fill="#10202F"/>
+              <text x="500" y="133">0.301</text>
+              <text x="180" y="172" text-anchor="end">Roll loop + yaw damper</text>
+              <rect x="190" y="156" width="233" height="24" fill="#F5C400" stroke="#10202F" stroke-width="1.5"/>
+              <text x="432" y="173">0.233</text>
+              <line x1="380" y1="24" x2="380" y2="206" stroke="#10202F" stroke-width="1.5" stroke-dasharray="5 4"/>
+              <text x="384" y="38" font-weight="700">Requirement 0.19</text>
+              <text x="190" y="236" fill="#4A5A6A" font-size="12">Damping ratio &zeta; of the Dutch-roll mode, full fourth-order model (Table 4 of my report)</text>
+            </g>
+          </svg>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section" id="t50-verdict">
+      <h2>Requirement check</h2>
+      <div>
+        <div class="scroll"><table class="num">
+          <thead><tr><th>Item</th><th>Requirement</th><th>Result</th><th>Verdict</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Dutch roll</th><td>&zeta; &ge; 0.19</td><td>0.233</td><td><span class="v">Met</span></td></tr>
+            <tr><th scope="row">Roll mode</th><td>T<sub>p</sub> &le; 1.0 s</td><td>0.178 s</td><td><span class="v">Met</span></td></tr>
+            <tr><th scope="row">Spiral mode</th><td>Pole &le; 0.0576</td><td>Stable</td><td><span class="v">Met</span></td></tr>
+            <tr><th scope="row">Control surfaces</th><td>&le; 21&deg; / 30&deg;</td><td>1.98&deg; / 2.22&deg;</td><td><span class="v">Met</span></td></tr>
+            <tr><th scope="row">Heading, margins</th><td>GM &ge; 6 dB, PM &ge; 30&deg;</td><td>Part 2</td><td><span class="v na">Not yet</span></td></tr>
+          </tbody>
+        </table></div>
+      </div>
+    </section>
+
+    <section class="section" id="t50-next">
+      <h2>Next</h2>
+      <div>
+        <p><strong>Part 2 (due December 11).</strong> Washout filter, aileron-rudder interconnect, heading hold, and gain and phase margins. Results will be added after submission.</p>
+        <p class="note">The design and analysis are my own work, run in MATLAB. Claude was used for calculation support, cross-checking and drafting. The plant model comes from the course lecture materials.</p>
+      </div>
+    </section>
+
+    </div>
+  </div>
 
   <footer id="contact">
     <div>
@@ -106,7 +182,7 @@
 </div>
 <div id="tip" role="status" aria-live="polite" hidden></div>
 <script src="project-data.js?v=7"></script>
-<script src="project.js?v=7"></script>
+<script src="project.js?v=8"></script>
 <script src="site.js"></script>
 </body>
 </html>
