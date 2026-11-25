@@ -572,3 +572,6 @@ ul.lined.small li { font-size: 0.875rem; padding: 6px 0; }
 }
 .ifig figcaption { font-weight: 400; font-size: 0.8125rem; color: var(--slate); margin: 6px 0 0; }
 .ifig-real img { display: block; width: 100%; max-width: 520px; height: auto; background: #fff; border: 1px solid var(--rule); padding: 10px; }
+/* Course items as a bulleted list */
+.cg-col li { position: relative; padding-left: 14px; }
+.cg-col li::before { content: ""; position: absolute; left: 0; top: 0.72em; width: 5px; height: 5px; background: var(--signal); border-radius: 50%; }
