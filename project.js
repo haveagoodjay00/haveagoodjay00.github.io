@@ -168,7 +168,8 @@
   var nPower = entries.length;
   document.querySelectorAll('.pj-panel[data-pj="t50"] .pagehead, .pj-panel[data-pj="t50"] .section[id]').forEach(function (sec) {
     var h = sec.querySelector('h2');
-    addRail(sec, h ? h.textContent.trim() : 'Overview');
+    var hc = h ? h.cloneNode(true) : null; if (hc) hc.querySelectorAll('.vd').forEach(function (x) { x.remove(); });
+    addRail(sec, hc ? hc.textContent.trim() : 'Overview');
     entries[entries.length - 1].pj = 't50';
   });
   document.body.appendChild(nav);
