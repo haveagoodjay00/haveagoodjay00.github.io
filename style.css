@@ -581,3 +581,9 @@ ul.lined.small li { font-size: 0.875rem; padding: 6px 0; }
 .cgrid-lg .cg-k { font-size: 0.92rem; }
 .cgrid-lg .cg-col li { font-size: 0.86rem; }
 .ifig-wide img { max-width: 640px; }
+/* Project figures */
+.pfig { margin: 0 0 30px; }
+.pfig img { display: block; width: 100%; height: auto; background: #fff; border: 1px solid var(--rule); padding: 10px; }
+.pfig-narrow img { max-width: 480px; }
+.pfig figcaption { font-weight: 400; font-size: 0.875rem; line-height: 1.5; color: var(--ink); margin: 8px 0 0; }
+.pfig figcaption span { display: block; color: var(--slate); }

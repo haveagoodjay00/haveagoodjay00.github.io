@@ -12,7 +12,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,400&family=Noto+Serif+KR:wght@500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=31">
+<link rel="stylesheet" href="style.css?v=32">
 <link rel="stylesheet" href="project.css?v=14">
 </head>
 <body data-title-en="Project Progress | Hyeongseo Jang">
@@ -105,43 +105,41 @@
   </button>
   <div class="pj-panel" id="panel-t50" data-pj="t50" hidden>
     <div class="t50">
-
     <section class="pagehead t50-head" id="t50-overview">
-      <p class="lede">Automatic Control term project, Sejong University, fall 2026. A yaw damper and a roll attitude hold loop for a linear T-50 model at 10,000 ft and Mach 0.8, checked against MIL-F-8785C Level 1.</p>
+      <p class="lede">Automatic Control term project, Sejong University, fall 2026. A linear T-50 model at 10,000 ft and Mach 0.8; designed by root locus in MATLAB and judged against MIL-F-8785C Level 1.</p>
     </section>
 
-    <section class="section" id="t50-summary">
-      <h2>Summary</h2>
+    <section class="section" id="t50-figures">
+      <h2>Results</h2>
       <div>
-        <ul class="plain">
-          <li><strong>Problem.</strong> Open-loop Dutch-roll damping is 0.097, below the 0.19 requirement.</li>
-          <li><strong>Design.</strong> Yaw damper (K<sub>r</sub> = 8) and roll attitude hold (K<sub>p</sub> = 1.44, K<sub>&phi;</sub> = 11.35), chosen by root locus in MATLAB.</li>
-          <li><strong>Finding.</strong> The roll loop alone lowers Dutch-roll damping to 0.051. Together with the yaw damper it stays at 0.233.</li>
-          <li><strong>Result.</strong> For a 10&deg; bank command: rise time 0.46 s, overshoot 5.4%.</li>
-        </ul>
-        <figure>
-          <figcaption>Dutch-roll damping ratio by loop configuration</figcaption>
-          <svg class="chart" viewBox="0 0 640 250" role="img" aria-label="Bar chart of Dutch-roll damping ratio: open loop 0.097, roll loop only 0.051, yaw damper only 0.301, combined 0.233, against a requirement of 0.19">
-            <g font-family="Archivo, Arial, sans-serif" font-size="13" fill="#10202F">
-              <line x1="190" y1="20" x2="190" y2="210" stroke="#10202F" stroke-width="1.5"/>
-              <text x="180" y="52" text-anchor="end">Open loop</text>
-              <rect x="190" y="36" width="97" height="24" fill="#8A97A6"/>
-              <text x="296" y="53">0.097</text>
-              <text x="180" y="92" text-anchor="end">Roll loop only</text>
-              <rect x="190" y="76" width="51" height="24" fill="#B3402F"/>
-              <text x="250" y="93">0.051</text>
-              <text x="180" y="132" text-anchor="end">Yaw damper only</text>
-              <rect x="190" y="116" width="301" height="24" fill="#10202F"/>
-              <text x="500" y="133">0.301</text>
-              <text x="180" y="172" text-anchor="end">Roll loop + yaw damper</text>
-              <rect x="190" y="156" width="233" height="24" fill="#24527F" stroke="#10202F" stroke-width="1.5"/>
-              <text x="432" y="173">0.233</text>
-              <line x1="380" y1="24" x2="380" y2="206" stroke="#10202F" stroke-width="1.5" stroke-dasharray="5 4"/>
-              <text x="384" y="38" font-weight="700">Requirement 0.19</text>
-              <text x="190" y="236" fill="#4A5A6A" font-size="12">Damping ratio &zeta; of the Dutch-roll mode, full fourth-order model (Table 4 of my report)</text>
-            </g>
-          </svg>
+        <figure class="pfig pfig-narrow">
+          <img src="t50-fig1.png" alt="Control structure: yaw damper (K<sub>r</sub>) and roll attitude hold (K<sub>p</sub>, K<sub>&phi;</sub>)." width="576" height="308">
+          <figcaption><b>Figure 1.</b> Control structure: yaw damper (K<sub>r</sub>) and roll attitude hold (K<sub>p</sub>, K<sub>&phi;</sub>).<span>Two loops on one aircraft, so each is designed knowing the other is there.</span></figcaption>
         </figure>
+        <figure class="pfig">
+          <img src="t50-fig2.png" alt="Yaw damper design: (a) root locus, (b) Dutch-roll damping versus K<sub>r</sub>." width="1228" height="737">
+          <figcaption><b>Figure 2.</b> Yaw damper design: (a) root locus, (b) Dutch-roll damping versus K<sub>r</sub>.<span>Open-loop damping 0.097 fails the 0.19 requirement; K<sub>r</sub> = 8 lifts it to 0.30, leaving room for the roll loop.</span></figcaption>
+        </figure>
+        <figure class="pfig">
+          <img src="t50-fig3.png" alt="Roll loops by sequential root locus: (a) rate loop K<sub>p</sub>, (b) attitude loop K<sub>&phi;</sub>." width="1167" height="561">
+          <figcaption><b>Figure 3.</b> Roll loops by sequential root locus: (a) rate loop K<sub>p</sub>, (b) attitude loop K<sub>&phi;</sub>.<span>Gains placed for &zeta; = 0.7 and &omega;<sub>n</sub> = 4 rad/s, kept well below the Dutch-roll frequency.</span></figcaption>
+        </figure>
+        <figure class="pfig">
+          <img src="t50-fig4b.png" alt="Closed-loop response to a 10&deg; bank command: &beta;, p and r, &phi;, control surfaces." width="1049" height="704">
+          <figcaption><b>Figure 4b.</b> Closed-loop response to a 10&deg; bank command: &beta;, p and r, &phi;, control surfaces.<span>Rise time 0.46 s, overshoot 5.4%, surfaces under 10% of their limits.</span></figcaption>
+        </figure>
+        <figure class="pfig">
+          <img src="t50-fig4a.png" alt="Closed-loop response to a 5&deg; initial sideslip with no command." width="1049" height="704">
+          <figcaption><b>Figure 4a.</b> Closed-loop response to a 5&deg; initial sideslip with no command.<span>Sideslip stays within 0.1&deg; after about 2.8 s.</span></figcaption>
+        </figure>
+        <p class="note">MATLAB figures from my report; Korean axis labels in Figures 2 and 3 translated to English.</p>
+      </div>
+    </section>
+
+    <section class="section" id="t50-key">
+      <h2>Key finding</h2>
+      <div>
+        <p>Closing the roll loop alone drops Dutch-roll damping from 0.097 to 0.051, because the large dihedral effect couples roll and sideslip. With the yaw damper in place the full fourth-order model keeps 0.233, above the 0.19 requirement.</p>
       </div>
     </section>
 
@@ -162,13 +160,12 @@
     </section>
 
     <section class="section" id="t50-next">
-      <h2>Next</h2>
+      <h2>Notes</h2>
       <div>
-        <p><strong>Part 2 (due December 11).</strong> Washout filter, aileron-rudder interconnect, heading hold, and gain and phase margins. Results will be added after submission.</p>
+        <p><strong>Part 2 (due December 11).</strong> Washout filter, aileron-rudder interconnect, heading hold, and gain and phase margins.</p>
         <p class="note">The design and analysis are my own work, run in MATLAB. Claude was used for calculation support, cross-checking and drafting. The plant model comes from the course lecture materials.</p>
       </div>
     </section>
-
     </div>
   </div>
 
