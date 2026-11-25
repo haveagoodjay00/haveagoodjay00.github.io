@@ -580,3 +580,4 @@ ul.lined.small li { font-size: 0.875rem; padding: 6px 0; }
 .cg-col li { font-size: 0.8rem; }
 .cgrid-lg .cg-k { font-size: 0.92rem; }
 .cgrid-lg .cg-col li { font-size: 0.86rem; }
+.ifig-wide img { max-width: 640px; }

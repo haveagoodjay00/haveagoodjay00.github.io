@@ -12,7 +12,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,400&family=Noto+Serif+KR:wght@500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=30">
+<link rel="stylesheet" href="style.css?v=31">
 </head>
 <body data-title-en="Interests | Hyeongseo Jang">
 <div class="wrap">
@@ -92,7 +92,7 @@
     <section class="section" id="control">
       <h2>Power System Dynamics and Control</h2>
       <div>
-        <figure class="ifig ifig-real"><img src="t50-roll-step.png" alt="Roll angle response of the T-50 autopilot to a 10 degree bank command, settling near 10 degrees within about 2 seconds" width="505" height="336"><figcaption>From my T-50 project: roll angle response to a 10&deg; bank command (MATLAB)</figcaption></figure>
+        <figure class="ifig ifig-real ifig-wide"><img src="t50-fig2.png" alt="Figure 2 of my T-50 report: (a) root locus of the yaw damper loop with the selected gain marked, (b) Dutch-roll damping ratio rising with the yaw damper gain, crossing the 0.19 requirement" width="1228" height="737"><figcaption>From my T-50 project report, Figure 2: (a) root locus of the yaw damper loop, (b) Dutch-roll damping versus gain K<sub>r</sub>. MATLAB; axis labels translated to English.</figcaption></figure>
         <p>My control work so far is on an aircraft, not a grid. What I want to carry over is the method: write the requirement first, then judge damping, speed and margin against it.</p>
         <p class="ikeys">Root locus design · Damping and stability · Requirement-based verification</p>
         <p class="note">So far: a yaw damper and roll attitude hold for a T-50 model, checked against MIL-F-8785C. <a href="project.html#t50">See the project</a>.</p>
