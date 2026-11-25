@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Control Project | Hyeongseo Jang</title>
+<meta name="description" content="Root-locus design of a yaw damper and roll attitude hold autopilot for the T-50 trainer, checked against MIL-F-8785C Level 1. A course project in automatic control.">
+<meta property="og:title" content="Control Project | Hyeongseo Jang">
+<meta property="og:description" content="Root-locus design of a yaw damper and roll attitude hold autopilot for the T-50 trainer, checked against MIL-F-8785C Level 1. A course project in automatic control.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%2310202F'/%3E%3Ccircle cx='16' cy='16' r='9' fill='none' stroke='%23F5C400' stroke-width='2.5'/%3E%3Cpath d='M10.5 16c1.8-4.5 3.7-4.5 5.5 0s3.7 4.5 5.5 0' fill='none' stroke='%23F5C400' stroke-width='2.2'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,400..800&family=Noto+Sans+KR:wght@400;500;700;800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-title-en="Control Project | Hyeongseo Jang">
+<div class="wrap">
+  <header class="top">
+    <a class="who" href="index.html">Hyeongseo Jang</a>
+    <nav aria-label="Pages">
+      <a href="index.html">Home</a>
+      <a href="research.html">Research</a>
+      <a href="control.html" aria-current="page">Control</a>
+      <a href="project.html">Project</a>
+      <a href="background.html">Background</a>
+      <a href="activities.html">Activities</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+  <main>
+
+    <section class="pagehead">
+      <p class="status">Course project · Part 1 completed · Part 2 in progress</p>
+      <h1 class="h1-page">Root-locus design of a lateral-directional autopilot for the T-50 trainer</h1>
+      <p class="lede">Automatic Control term project, Sejong University, fall 2026. A yaw damper and a roll attitude hold loop for a linear T-50 model at 10,000 ft and Mach 0.8, checked against MIL-F-8785C Level 1.</p>
+    </section>
+
+    <section class="section" id="summary">
+      <h2>Summary</h2>
+      <div>
+        <ul class="plain">
+          <li><strong>Problem.</strong> Open-loop Dutch-roll damping is 0.097, below the 0.19 requirement.</li>
+          <li><strong>Design.</strong> Yaw damper (K<sub>r</sub> = 8) and roll attitude hold (K<sub>p</sub> = 1.44, K<sub>&phi;</sub> = 11.35), chosen by root locus in MATLAB.</li>
+          <li><strong>Finding.</strong> The roll loop alone lowers Dutch-roll damping to 0.051. Together with the yaw damper it stays at 0.233.</li>
+          <li><strong>Result.</strong> For a 10&deg; bank command: rise time 0.46 s, overshoot 5.4%.</li>
+        </ul>
+        <figure>
+          <figcaption>Dutch-roll damping ratio by loop configuration</figcaption>
+          <svg class="chart" viewBox="0 0 640 250" role="img" aria-label="Bar chart of Dutch-roll damping ratio: open loop 0.097, roll loop only 0.051, yaw damper only 0.301, combined 0.233, against a requirement of 0.19">
+            <g font-family="Archivo, Arial, sans-serif" font-size="13" fill="#10202F">
+              <line x1="190" y1="20" x2="190" y2="210" stroke="#10202F" stroke-width="1.5"/>
+              <text x="180" y="52" text-anchor="end">Open loop</text>
+              <rect x="190" y="36" width="97" height="24" fill="#8A97A6"/>
+              <text x="296" y="53">0.097</text>
+              <text x="180" y="92" text-anchor="end">Roll loop only</text>
+              <rect x="190" y="76" width="51" height="24" fill="#B3402F"/>
+              <text x="250" y="93">0.051</text>
+              <text x="180" y="132" text-anchor="end">Yaw damper only</text>
+              <rect x="190" y="116" width="301" height="24" fill="#10202F"/>
+              <text x="500" y="133">0.301</text>
+              <text x="180" y="172" text-anchor="end">Roll loop + yaw damper</text>
+              <rect x="190" y="156" width="233" height="24" fill="#F5C400" stroke="#10202F" stroke-width="1.5"/>
+              <text x="432" y="173">0.233</text>
+              <line x1="380" y1="24" x2="380" y2="206" stroke="#10202F" stroke-width="1.5" stroke-dasharray="5 4"/>
+              <text x="384" y="38" font-weight="700">Requirement 0.19</text>
+              <text x="190" y="236" fill="#4A5A6A" font-size="12">Damping ratio &zeta; of the Dutch-roll mode, full fourth-order model (Table 4 of my report)</text>
+            </g>
+          </svg>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section" id="verdict">
+      <h2>Requirement check</h2>
+      <div>
+        <div class="scroll"><table class="num">
+          <thead><tr><th>Item</th><th>Requirement</th><th>Result</th><th>Verdict</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Dutch roll</th><td>&zeta; &ge; 0.19</td><td>0.233</td><td><span class="v">Met</span></td></tr>
+            <tr><th scope="row">Roll mode</th><td>T<sub>p</sub> &le; 1.0 s</td><td>0.178 s</td><td><span class="v">Met</span></td></tr>
+            <tr><th scope="row">Spiral mode</th><td>Pole &le; 0.0576</td><td>Stable</td><td><span class="v">Met</span></td></tr>
+            <tr><th scope="row">Control surfaces</th><td>&le; 21&deg; / 30&deg;</td><td>1.98&deg; / 2.22&deg;</td><td><span class="v">Met</span></td></tr>
+            <tr><th scope="row">Heading, margins</th><td>GM &ge; 6 dB, PM &ge; 30&deg;</td><td>Part 2</td><td><span class="v na">Not yet</span></td></tr>
+          </tbody>
+        </table></div>
+      </div>
+    </section>
+
+    <section class="section" id="next">
+      <h2>Next</h2>
+      <div>
+        <p><strong>Part 2 (due December 11).</strong> Washout filter, aileron-rudder interconnect, heading hold, and gain and phase margins. Results will be added after submission.</p>
+        <p class="note">The design and analysis are my own work, run in MATLAB. Claude was used for calculation support, cross-checking and drafting. The plant model comes from the course lecture materials.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer id="contact">
+    <div>
+      <h2>Contact</h2>
+      <div class="links">
+        <span class="icons"><a href="mailto:haveagoodjay00@gmail.com" aria-label="Email" title="haveagoodjay00@gmail.com"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M0 19.366C0 20.27.732 21 1.636 21h3.819V11.73L0 7.64v11.726z"/><path fill="#34A853" d="M18.545 21h3.819c.904 0 1.636-.732 1.636-1.636V7.64l-5.455 4.09V21z"/><path fill="#FBBC04" d="M18.545 4.64v7.09L24 7.64V5.457c0-2.023-2.309-3.178-3.927-1.964l-1.528 1.147z"/><path fill="#EA4335" d="M5.455 11.73V4.64L12 9.548l6.545-4.91v7.09L12 16.64l-6.545-4.91z"/><path fill="#EA4335" d="M0 5.457V7.64l5.455 4.09V4.64L3.927 3.493C2.309 2.28 0 3.434 0 5.457z"/></svg></a><a href="https://www.linkedin.com/in/hyeongseo-jang-05a7a744a" aria-label="LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 110-4.13 2.06 2.06 0 010 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></a><a href="https://github.com/haveagoodjay00" aria-label="GitHub" title="GitHub"><svg viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg></a></span>
+        <!-- CV: upload cv.pdf next to these files, then delete the word hidden -->
+        <a href="cv.pdf" hidden>Download CV (PDF)</a>
+      </div>
+    </div>
+    <p class="fine">© 2026 Hyeongseo Jang<br>Updated November 2026</p>
+  </footer>
+</div>
+<div id="tip" role="status" aria-live="polite" hidden></div>
+<script src="site.js"></script>
+</body>
+</html>
