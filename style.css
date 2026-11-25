@@ -599,3 +599,4 @@ ul.lined.small li { font-size: 0.875rem; padding: 6px 0; }
 .report-link a:hover { background: var(--signal); }
 .report-link span { margin-left: 10px; font-size: 0.8rem; color: var(--slate); }
 .section > h2 .vd { display: block; margin: 8px 0 0; font-size: 0.875rem; }
+.pj-panel .reports { margin: 0 0 26px; }
