@@ -504,3 +504,7 @@ thead th, tbody th, .sheet .line strong, .stagelist strong { font-weight: 600 !i
 .pjrow .pj-sub { max-width: none; }
 .brief dd a { color: var(--ink); font-weight: 600; text-decoration-color: var(--rule); }
 .brief-sub { display: block; font-size: 0.9rem; color: var(--slate); margin-top: 2px; }
+/* Home hero: slightly smaller portrait, tighter block */
+.id { grid-template-columns: 300px minmax(0, 1fr); gap: 52px; padding: 48px 0 40px; align-items: center; }
+@media (max-width: 900px) { .id { grid-template-columns: 250px minmax(0, 1fr); gap: 32px; } }
+@media (max-width: 760px) { .id { grid-template-columns: minmax(0, 1fr); } .id .portrait { max-width: 220px; } }
