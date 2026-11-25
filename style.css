@@ -436,3 +436,12 @@ thead th, tbody th, .sheet .line strong, .stagelist strong { font-weight: 600 !i
 .visits img { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border: 1px solid var(--rule); }
 .visits figcaption { font-weight: 400; font-size: 0.875rem; color: var(--slate); margin: 6px 0 0; }
 .ikeys { font-size: 0.9375rem; color: var(--ink); font-weight: 600; margin: -4px 0 12px; }
+
+/* Expanded project content: indented under its title with a rule on the left */
+.pj-panel { margin: 0 0 32px 18px; padding: 8px 0 8px 32px; border-top: 0; border-left: 3px solid var(--signal); }
+.pj-panel .status, .pj-panel #pjStatus { display: none; }
+.pj-panel .pagehead, .pj-panel .pj-head { padding-top: 24px; }
+.pj-panel .trip { margin-left: -32px; padding-left: 32px; }
+.pj-title[aria-expanded="true"] { padding-bottom: 20px; }
+@media (max-width: 640px) { .pj-panel { margin-left: 4px; padding-left: 16px; } .pj-panel .trip { margin-left: -16px; padding-left: 16px; } }
+.pj-title { scroll-margin-top: 92px; }
