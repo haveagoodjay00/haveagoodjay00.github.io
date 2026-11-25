@@ -105,3 +105,28 @@ body { overflow-x: clip; }
 .item p .hl { font-weight: 700; }
 .ph-640 { max-width: 640px; }
 .ifig .ph-cap { color: #C0392B; }
+
+/* Hero v2.1: big portrait right, one-line subline, contact icons */
+.hx-in { display: grid; grid-template-columns: minmax(0, 1fr) 300px; column-gap: 48px; align-items: end; }
+.hx-in > * { grid-column: 1; }
+.hx-in > .hx-photo { grid-column: 2; grid-row: 1 / span 5; align-self: center; margin: 0; }
+.hx-in > .hx-cap { grid-column: 1 / -1; }
+.hx-photo img { display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border: 3px solid rgba(255,255,255,.9); box-shadow: 0 18px 40px rgba(0,0,0,.45); }
+.hx-sub { max-width: none; white-space: nowrap; }
+.hx-cta { align-items: center; }
+.hx-icons { margin: 0 0 0 8px; }
+.hx-icons .icons { display: flex; gap: 14px; align-items: center; }
+.hx-icons a { display: inline-flex; width: 26px; height: 26px; color: #fff; padding: 0; border: 0; background: none !important; }
+.hx-icons a:hover { opacity: .8; }
+.hx-icons svg { width: 26px; height: 26px; }
+@media (max-width: 900px) {
+  .hx-in { grid-template-columns: minmax(0, 1fr); }
+  .hx-in > .hx-photo { grid-column: 1; grid-row: auto; order: -1; width: 180px; margin-bottom: 20px; }
+  .hx-sub { white-space: normal; }
+}
+.hx-icons .icons a, .hx-icons .icons a svg { color: #fff !important; }
+.hx-icons .icons a[aria-label="LinkedIn"] svg path, .hx-icons .icons a[aria-label="GitHub"] svg path { fill: #fff; }
+.hx-in > .hx-cap { margin-top: 16px; }
+.hx-cta { margin: 0 0 30px; }
+.hx-in > .hx-icons { margin: 0 0 44px; }
+.hx-icons .icons { gap: 18px; }
