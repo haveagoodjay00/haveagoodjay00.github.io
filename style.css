@@ -594,3 +594,7 @@ ul.lined.small li { font-size: 0.875rem; padding: 6px 0; }
 .reports a { font-weight: 600; }
 .reports .rp-meta { display: block; font-size: 0.8rem; color: var(--slate); margin-top: 2px; }
 .reports .rp-soon > div { color: var(--slate); }
+.report-link { margin: 0 0 22px; font-size: 0.95rem; }
+.report-link a { display: inline-block; font-weight: 600; color: #fff; background: var(--ink); padding: 7px 14px; text-decoration: none; }
+.report-link a:hover { background: var(--signal); }
+.report-link span { margin-left: 10px; font-size: 0.8rem; color: var(--slate); }
