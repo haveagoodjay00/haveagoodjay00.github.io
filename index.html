@@ -12,7 +12,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,400&family=Noto+Serif+KR:wght@500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=15">
+<link rel="stylesheet" href="style.css?v=16">
 </head>
 <body data-title-en="Hyeongseo Jang | Power systems">
 <div class="wrap">
@@ -44,34 +44,20 @@
       <figure class="portrait"><img src="photo.jpg" alt="Portrait of Hyeongseo Jang" onerror="document.getElementById('hero').classList.add('no-photo')"></figure>
     </section>
 
-    <section class="section sheet">
-      <h2>Research</h2>
+    <section class="section sheet" id="projects">
+      <h2>Projects</h2>
       <div>
-        <p class="sheet-title">Where to connect data center load, and how to expand it: a modular design study with Korean data</p>
-        <p class="sheet-meta">Independent study, 2026 to present. Restarted in November 2026 · design phase.</p>
-        <ol class="stagelist">
-          <li class="done"><span class="sn">P</span><div><a class="stlink" href="project.html#power"><strong>Pilot: operating margin at one bus</strong></a> <span class="chip done">Completed</span></div></li>
-          <li class="done"><span class="sn">1</span><div><a class="stlink" href="project.html#power"><strong>Question, data and decision log</strong></a> <span class="chip done">Completed</span></div></li>
-          <li class="done"><span class="sn">A</span><div><a class="stlink" href="project.html#power"><strong>Load model</strong></a> <span class="chip done">Designed</span></div></li>
-          <li class="next"><span class="sn">B</span><div><a class="stlink" href="project.html#power"><strong>Design study</strong></a> <span class="chip next">In progress</span></div></li>
-          <li><span class="sn">C</span><div><a class="stlink" href="project.html#power"><strong>Siting</strong></a> <span class="chip planned">Planned</span></div></li>
-        </ol>
-        <p class="more"><a href="project.html#power">View details</a></p>
-
-      </div>
-    </section>
-
-    <section class="section sheet">
-      <h2>Course project</h2>
-      <div>
-        <p class="sheet-title"><a href="project.html#t50">Root-locus design of a lateral-directional autopilot for the T-50 trainer</a></p>
-        <p class="sheet-meta">Automatic Control term project, Sejong University, fall 2026. MATLAB and Control System Toolbox.</p>
-        <p>Yaw damper and roll attitude hold for a T-50 model. Dutch-roll damping improved from 0.097 to 0.233, against a requirement of 0.19.</p>
-        <ol class="stagelist">
-          <li class="done"><span class="sn">1</span><div><a class="stlink" href="project.html#t50"><strong>Part 1: yaw damper and roll attitude hold</strong></a> <span class="chip done">Completed</span></div></li>
-          <li class="next"><span class="sn">2</span><div><a class="stlink" href="project.html#t50"><strong>Part 2: washout, aileron-rudder interconnect, heading hold, margins</strong></a> <span class="chip next">In progress</span></div></li>
-        </ol>
-        <p class="more"><a href="project.html#t50">View details</a></p>
+        <div class="pjrow">
+          <p class="sheet-title"><a href="project.html#power">Where to connect data center load, and how to expand it: a modular design study with Korean data</a> <span class="chip next">In progress</span></p>
+          <p class="sheet-meta">Independent study, 2026 to present · pandapower, Korean public data</p>
+          <p>How module size and connection structure change N-1 security, losses and the number of modules a network can take, for a new town and an existing Seoul/Gyeonggi area.</p>
+        </div>
+        <div class="pjrow">
+          <p class="sheet-title"><a href="project.html#t50">Root-locus design of a lateral-directional autopilot for the T-50 trainer</a> <span class="chip next">Part 1 completed</span></p>
+          <p class="sheet-meta">Automatic Control course project, fall 2026 · MATLAB</p>
+          <p>A yaw damper and roll attitude hold that raise Dutch-roll damping from 0.097 to 0.233 against a requirement of 0.19.</p>
+        </div>
+        <p class="more"><a href="project.html">View all projects</a></p>
       </div>
     </section>
 

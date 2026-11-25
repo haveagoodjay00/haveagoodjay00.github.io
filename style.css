@@ -491,3 +491,8 @@ thead th, tbody th, .sheet .line strong, .stagelist strong { font-weight: 600 !i
   .pj-panel .step-more { grid-column: 1; grid-row: auto; justify-self: start; margin-top: 6px; }
   .pj-panel figcaption { font-size: 0.88rem; }
 }
+.pjrow { padding: 16px 0; border-bottom: 1px solid var(--rule); }
+.pjrow:first-child { border-top: 1px solid var(--rule); }
+.pjrow p:last-child { margin-bottom: 0; font-size: 0.97rem; }
+.pjrow .sheet-meta { margin-bottom: 8px; }
+.pjrow .sheet-title .chip { font-size: 0.6875rem; margin-left: 6px; vertical-align: 3px; }
