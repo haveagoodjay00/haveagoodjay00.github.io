@@ -518,3 +518,5 @@ thead th, tbody th, .sheet .line strong, .stagelist strong { font-weight: 600 !i
 .issuer { font-weight: 400; color: var(--slate); font-size: 0.9em; }
 @media (max-width: 640px) { .courses > div { grid-template-columns: minmax(0,1fr); gap: 0; } }
 .lined + h3 { margin-top: 22px; }
+.courses-line { margin: 12px 0 0; font-size: 0.875rem; line-height: 1.6; color: var(--ink); max-width: none; }
+.courses-line span { color: var(--slate); font-weight: 600; margin-right: 8px; }
