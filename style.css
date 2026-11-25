@@ -549,3 +549,6 @@ ul.lined.small li { font-size: 0.875rem; padding: 6px 0; }
 .courses > div:last-child { border-bottom: 0; }
 .courses dt { color: var(--ink); font-weight: 600; }
 .c-grp { text-transform: uppercase; letter-spacing: .06em; font-size: 0.72rem; }
+.courses.courses-lg { grid-column: 1 / -1; font-size: 0.9375rem; margin-top: 4px; }
+.courses.courses-lg .c-h { font-size: 0.75rem; padding: 8px 14px; }
+.courses.courses-lg > div { grid-template-columns: 120px minmax(0,1fr); padding: 9px 14px; }
