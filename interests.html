@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Interests | Hyeongseo Jang</title>
+<meta name="description" content="The parts of power engineering Hyeongseo Jang wants to work in: transmission planning and large loads, N-1 security, power flow and control.">
+<meta property="og:title" content="Interests | Hyeongseo Jang">
+<meta property="og:description" content="The parts of power engineering Hyeongseo Jang wants to work in: transmission planning and large loads, N-1 security, power flow and control.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%2310202F'/%3E%3Ccircle cx='16' cy='16' r='9' fill='none' stroke='%239FC0DE' stroke-width='2.5'/%3E%3Cpath d='M10.5 16c1.8-4.5 3.7-4.5 5.5 0s3.7 4.5 5.5 0' fill='none' stroke='%239FC0DE' stroke-width='2.2'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,400&family=Noto+Serif+KR:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=11">
+</head>
+<body data-title-en="Interests | Hyeongseo Jang">
+<div class="wrap">
+  <header class="top">
+    <a class="who" href="index.html">Hyeongseo Jang</a>
+    <nav aria-label="Pages">
+      <a href="index.html">Home</a>
+      <a href="project.html">Project</a>
+      <a href="interests.html" aria-current="page">Interests</a>
+      <a href="background.html">Background</a>
+      <a href="activities.html">Activities</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+  <main>
+
+    <section class="pagehead">
+      <h1 class="h1-page">Interests</h1>
+      <p class="lede">The parts of power engineering I want to work in, and what I have done in each so far. The diagrams are my own sketches of the ideas, not results. My own work is on the <a href="project.html">Project</a> page.</p>
+    </section>
+
+    <section class="section" id="planning">
+      <h2>Transmission planning and large loads</h2>
+      <div>
+        <figure class="ifig">
+          <svg class="chart" viewBox="0 0 640 220" role="img" aria-label="Sketch: a 154 kV substation feeding an existing area and a new large-load campus through two lines">
+            <g font-family="Source Serif 4, Georgia, serif" font-size="13" fill="#0F1B2A" stroke="#0F1B2A">
+              <rect x="40" y="80" width="110" height="60" fill="#fff" stroke-width="1.5"/>
+              <text x="95" y="106" text-anchor="middle" stroke="none">154 kV</text>
+              <text x="95" y="124" text-anchor="middle" stroke="none">substation</text>
+              <line x1="150" y1="95" x2="440" y2="60" stroke-width="2"/>
+              <line x1="150" y1="125" x2="440" y2="160" stroke-width="2"/>
+              <rect x="440" y="35" width="150" height="50" fill="#E6EDF4" stroke-width="1.5"/>
+              <text x="515" y="65" text-anchor="middle" stroke="none">Existing area load</text>
+              <rect x="440" y="135" width="150" height="50" fill="#24527F" stroke="#24527F"/>
+              <text x="515" y="165" text-anchor="middle" stroke="none" fill="#fff">New data center campus</text>
+              <text x="300" y="200" text-anchor="middle" stroke="none" fill="#4B5866" font-size="12">How much new load can the network take before a limit is reached?</text>
+            </g>
+          </svg>
+        </figure>
+        <p>Large new loads such as data centers are arriving faster than grids are being planned for them. I want to work on the planning question of where such a load should connect and how much the network can take.</p>
+        <p class="note">So far: a pilot on the IEEE 24-bus system and a modular design study with Korean public data, now in progress. <a href="project.html#power">See the project</a>.</p>
+      </div>
+    </section>
+
+    <section class="section" id="security">
+      <h2>N-1 security</h2>
+      <div>
+        <figure class="ifig">
+          <svg class="chart" viewBox="0 0 640 200" role="img" aria-label="Sketch: two parallel lines share the flow; when one is out, the other carries all of it">
+            <g font-family="Source Serif 4, Georgia, serif" font-size="13" fill="#0F1B2A" stroke="#0F1B2A">
+              <text x="160" y="28" text-anchor="middle" stroke="none" font-weight="600">Normal</text>
+              <circle cx="60" cy="100" r="9" fill="#0F1B2A"/><circle cx="260" cy="100" r="9" fill="#0F1B2A"/>
+              <path d="M60 100 Q160 50 260 100" fill="none" stroke-width="2"/>
+              <path d="M60 100 Q160 150 260 100" fill="none" stroke-width="2"/>
+              <text x="160" y="62" text-anchor="middle" stroke="none" font-size="12">50%</text>
+              <text x="160" y="150" text-anchor="middle" stroke="none" font-size="12">50%</text>
+              <text x="480" y="28" text-anchor="middle" stroke="none" font-weight="600">One line out</text>
+              <circle cx="380" cy="100" r="9" fill="#0F1B2A"/><circle cx="580" cy="100" r="9" fill="#0F1B2A"/>
+              <path d="M380 100 Q480 50 580 100" fill="none" stroke="#B0B8C0" stroke-width="2" stroke-dasharray="6 5"/>
+              <path d="M380 100 Q480 150 580 100" fill="none" stroke="#24527F" stroke-width="4"/>
+              <text x="480" y="62" text-anchor="middle" stroke="none" font-size="12" fill="#4B5866">out of service</text>
+              <text x="480" y="150" text-anchor="middle" stroke="none" font-size="12" fill="#24527F" font-weight="600">100%: still within rating?</text>
+              <text x="320" y="190" text-anchor="middle" stroke="none" fill="#4B5866" font-size="12">A plan passes N-1 if losing any one element still keeps every limit.</text>
+            </g>
+          </svg>
+        </figure>
+        <p>A plan is only as good as its worst single outage. I am learning to judge designs the way U.S. planners do, against NERC TPL-001.</p>
+        <p class="note">So far: N-1 verdict rules fixed before any calculation in my study, following TPL-001 category P1.</p>
+      </div>
+    </section>
+
+    <section class="section" id="powerflow">
+      <h2>Power flow and operation</h2>
+      <div>
+        <figure class="ifig">
+          <svg class="chart" viewBox="0 0 640 200" role="img" aria-label="Sketch: a three-bus network with a generator, two loads and voltage at each bus">
+            <g font-family="Source Serif 4, Georgia, serif" font-size="13" fill="#0F1B2A" stroke="#0F1B2A">
+              <line x1="140" y1="60" x2="500" y2="60" stroke-width="2"/>
+              <line x1="140" y1="60" x2="320" y2="150" stroke-width="2"/>
+              <line x1="500" y1="60" x2="320" y2="150" stroke-width="2"/>
+              <rect x="110" y="45" width="60" height="30" fill="#fff" stroke-width="1.5"/><text x="140" y="65" text-anchor="middle" stroke="none">Bus 1</text>
+              <rect x="470" y="45" width="60" height="30" fill="#fff" stroke-width="1.5"/><text x="500" y="65" text-anchor="middle" stroke="none">Bus 2</text>
+              <rect x="290" y="135" width="60" height="30" fill="#fff" stroke-width="1.5"/><text x="320" y="155" text-anchor="middle" stroke="none">Bus 3</text>
+              <circle cx="60" cy="60" r="18" fill="#fff" stroke-width="1.5"/><text x="60" y="65" text-anchor="middle" stroke="none">G</text>
+              <line x1="78" y1="60" x2="110" y2="60" stroke-width="1.5"/>
+              <text x="580" y="65" stroke="none" fill="#4B5866" font-size="12">Load</text><line x1="530" y1="60" x2="575" y2="60" stroke-width="1.5"/>
+              <text x="370" y="185" stroke="none" fill="#4B5866" font-size="12">Load</text><line x1="320" y1="165" x2="365" y2="182" stroke-width="1.5"/>
+              <text x="140" y="30" text-anchor="middle" stroke="none" fill="#24527F" font-size="12">V, &#952;</text>
+              <text x="500" y="30" text-anchor="middle" stroke="none" fill="#24527F" font-size="12">V, &#952;</text>
+              <text x="230" y="125" text-anchor="middle" stroke="none" fill="#24527F" font-size="12">P, Q flow</text>
+            </g>
+          </svg>
+        </figure>
+        <p>Power flow is the base of every planning study: given loads and generation, what are the voltages and the flows on each line? I use AC power flow and optimal power flow as tools and am working toward understanding them by hand.</p>
+        <p class="note">So far: pandapower in my study, with a hand calculation and a small NumPy DC solver of my own planned as cross-checks.</p>
+      </div>
+    </section>
+
+    <section class="section" id="control">
+      <h2>Control</h2>
+      <div>
+        <figure class="ifig">
+          <svg class="chart" viewBox="0 0 640 170" role="img" aria-label="Sketch: a feedback loop with reference, controller, plant and measured output fed back">
+            <g font-family="Source Serif 4, Georgia, serif" font-size="13" fill="#0F1B2A" stroke="#0F1B2A">
+              <text x="30" y="80" stroke="none">Reference</text>
+              <line x1="100" y1="76" x2="150" y2="76" stroke-width="1.5"/>
+              <circle cx="162" cy="76" r="12" fill="#fff" stroke-width="1.5"/><text x="162" y="81" text-anchor="middle" stroke="none">&#931;</text>
+              <line x1="174" y1="76" x2="230" y2="76" stroke-width="1.5"/>
+              <rect x="230" y="54" width="120" height="44" fill="#E6EDF4" stroke-width="1.5"/><text x="290" y="81" text-anchor="middle" stroke="none">Controller</text>
+              <line x1="350" y1="76" x2="400" y2="76" stroke-width="1.5"/>
+              <rect x="400" y="54" width="120" height="44" fill="#24527F" stroke="#24527F"/><text x="460" y="81" text-anchor="middle" stroke="none" fill="#fff">Plant</text>
+              <line x1="520" y1="76" x2="610" y2="76" stroke-width="1.5"/><text x="560" y="66" text-anchor="middle" stroke="none" font-size="12">Output</text>
+              <polyline points="580,76 580,140 162,140 162,88" fill="none" stroke-width="1.5"/>
+              <text x="370" y="158" text-anchor="middle" stroke="none" fill="#4B5866" font-size="12">Judge it by damping, speed and margin against a written requirement.</text>
+            </g>
+          </svg>
+        </figure>
+        <p>From my automatic control coursework I took a habit I want to keep in power systems: write the requirement first, then give each design a numeric verdict.</p>
+        <p class="note">So far: a yaw damper and roll attitude hold for a T-50 model, designed by root locus and checked against MIL-F-8785C. <a href="project.html#t50">See the project</a>.</p>
+      </div>
+    </section>
+
+    <!-- FIELD VISITS: when photos are ready, put the files next to this page (e.g. visit-substation.jpg)
+         and remove the comment markers around this section. One line of caption per photo: what, where, when.
+    <section class="section" id="field">
+      <h2>Field visits</h2>
+      <div>
+        <div class="visits">
+          <figure><img src="visit-substation.jpg" alt=""><figcaption>Substation tour, [place], [month year]</figcaption></figure>
+          <figure><img src="visit-expo.jpg" alt=""><figcaption>[Exhibition name], [place], [month year]</figcaption></figure>
+        </div>
+      </div>
+    </section>
+    -->
+
+  </main>
+
+  <footer id="contact">
+    <div>
+      <h2>Contact</h2>
+      <div class="links">
+        <span class="icons"><a href="mailto:haveagoodjay00@gmail.com" aria-label="Email" title="haveagoodjay00@gmail.com"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M0 19.366C0 20.27.732 21 1.636 21h3.819V11.73L0 7.64v11.726z"/><path fill="#34A853" d="M18.545 21h3.819c.904 0 1.636-.732 1.636-1.636V7.64l-5.455 4.09V21z"/><path fill="#FBBC04" d="M18.545 4.64v7.09L24 7.64V5.457c0-2.023-2.309-3.178-3.927-1.964l-1.528 1.147z"/><path fill="#EA4335" d="M5.455 11.73V4.64L12 9.548l6.545-4.91v7.09L12 16.64l-6.545-4.91z"/><path fill="#EA4335" d="M0 5.457V7.64l5.455 4.09V4.64L3.927 3.493C2.309 2.28 0 3.434 0 5.457z"/></svg></a><a href="https://www.linkedin.com/in/hyeongseo-jang-05a7a744a" aria-label="LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 110-4.13 2.06 2.06 0 010 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></a><a href="https://github.com/haveagoodjay00" aria-label="GitHub" title="GitHub"><svg viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg></a></span>
+        <!-- CV: upload cv.pdf next to these files, then delete the word hidden -->
+        <a href="cv.pdf" hidden>Download CV (PDF)</a>
+      </div>
+    </div>
+    <p class="fine">© 2026 Hyeongseo Jang<br>Updated November 2026</p>
+  </footer>
+</div>
+<div id="tip" role="status" aria-live="polite" hidden></div>
+<script src="site.js"></script>
+</body>
+</html>

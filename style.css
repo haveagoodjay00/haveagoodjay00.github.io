@@ -427,3 +427,11 @@ h1 { letter-spacing: -0.015em !important; }
 .chip, .status, .pj-title-st, .v, .tg { font-weight: 600 !important; letter-spacing: .01em; }
 thead th, tbody th, .sheet .line strong, .stagelist strong { font-weight: 600 !important; }
 .kname { font-family: "Noto Serif KR", serif; font-weight: 500; }
+
+/* Interests page */
+.ifig { margin: 0 0 18px; }
+.ifig .chart { max-width: 640px; }
+.visits { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 18px; }
+.visits figure { margin: 0; }
+.visits img { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border: 1px solid var(--rule); }
+.visits figcaption { font-weight: 400; font-size: 0.875rem; color: var(--slate); margin: 6px 0 0; }
