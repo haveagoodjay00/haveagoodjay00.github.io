@@ -69,7 +69,7 @@
       });
     });
     var wide = W > 900;
-    var box = wide ? { l: W * 0.07, r: W * 0.67, t: 84, b: H - 40 } : { l: 8, r: W - 8, t: 8, b: H - 8 };
+    var box = wide ? { l: W * 0.15, r: W * 0.66, t: 100, b: H - 92 } : { l: 8, r: W - 8, t: 8, b: H - 8 };
     var hsPerK = 0.0058, tallest = 0;
     st.forEach(function (s) { var p = rot(s.x, s.y); var top = -p[1] * GF - s.cap * hsPerK; if (b[1] - top > tallest) tallest = b[1] - top; });
     K = Math.min((box.r - box.l) / (b[2] - b[0]), (box.b - box.t) / (b[3] - b[1] + tallest));
@@ -114,6 +114,11 @@
     c.fillStyle = '#1B2733';
     for (var t = T; t > 0; t -= 1) { c.save(); c.translate(0, t); each(c, all, function () { c.fill(); }); c.restore(); }
     c.save(); c.translate(0, T); c.strokeStyle = 'rgba(92,200,255,.12)'; c.lineWidth = 1; each(c, all, function () { c.stroke(); }); c.restore();
+
+    // Seoul Capital Area outline in the same yellow as the locator inset: stroke everything, then let the fills cover the inside
+    c.save(); c.shadowColor = 'rgba(255,181,71,.8)'; c.shadowBlur = 10;
+    c.strokeStyle = '#FFB547'; c.lineWidth = 4.5; c.lineJoin = 'round'; each(c, all, function () { c.stroke(); });
+    c.restore();
 
     // Gyeonggi + Incheon
     var pat = hatch(c);
