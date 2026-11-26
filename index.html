@@ -14,7 +14,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,400&family=Noto+Serif+KR:wght@500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css?v=36">
 <link rel="stylesheet" href="v2.css?v=3">
-<link rel="stylesheet" href="grid-hero.css?v=4">
+<link rel="stylesheet" href="grid-hero.css?v=5">
 </head>
 <body data-title-en="Hyeongseo Jang | Power systems">
 <div class="wrap">
@@ -37,22 +37,23 @@
           <p class="gx-who">Hyeongseo Jang <span class="kname" lang="ko">장형서</span></p>
           <h1 id="gx-h">Power Systems</h1>
           <p class="gx-areas"><a href="interests.html#planning">Planning</a><span class="sep">·</span><a href="interests.html#operation">Operation</a><span class="sep">·</span><a href="interests.html#control">Control</a></p>
+          <p class="gx-chain"><b>24 kV</b> → 765 → 345 → 154 → 22.9 kV → <b>220 V</b></p>
         </div>
         <div class="gx-panel" aria-live="polite">
           <div class="gx-card in">
             <p class="gx-step" id="gx-step">BASELINE</p>
-            <p class="gx-title" id="gx-title">One plant, one grid</p>
-            <p class="gx-body" id="gx-body">A nuclear plant far to the north sends power down one 345 kV line into the grid. Every line is within its limit.</p>
+            <p class="gx-title" id="gx-title">Today&#39;s grid</p>
+            <p class="gx-body" id="gx-body">A coastal nuclear plant steps power up to 765 kV. The metro grid steps it down 345 → 154 → 22.9 kV, and homes get 220 V. Every line is within its limit.</p>
             <span class="gx-verdict gx-good" id="gx-verdict">STABLE</span>
           </div>
-          <p class="gx-rule">Rule of thumb: close to generation, on strong corridors.<br>Concept animation · loadings are illustrative.</p>
+          <p class="gx-rule">Data center modules join an existing 154 kV substation, one at a time, until N-1 fails.<br>Concept animation · loadings are illustrative.</p>
         </div>
         <ul class="gx-legend" aria-label="Line legend">
           <li><i class="k-flow"></i>power flow</li>
           <li><i class="k-hot"></i>overloaded</li>
           <li><i class="k-trip"></i>tripped</li>
         </ul>
-        <div class="gx-scene" id="gx-scene" role="img" aria-label="Isometric power grid fed by a nuclear plant through 345 kV lines on lattice towers. A data center with battery storage moves between four candidate sites; near the plant the lines hold, farther away they overload or trip."></div>
+        <div class="gx-scene" id="gx-scene" role="img" aria-label="Korean-style power grid: a coastal nuclear plant steps up to 765 kV, the metro grid steps down through 345 kV and 154 kV substations to 22.9 kV feeders and homes. Data center modules are added at one of four existing 154 kV substations at a time; near the 765 kV inflow four modules fit, elsewhere lines overload or trip."></div>
       </div>
     </section>
 
@@ -85,6 +86,6 @@
 </div>
 <div id="tip" role="status" aria-live="polite" hidden></div>
 <script src="site.js"></script>
-<script src="grid-hero.js?v=5"></script>
+<script src="grid-hero.js?v=6"></script>
 </body>
 </html>
