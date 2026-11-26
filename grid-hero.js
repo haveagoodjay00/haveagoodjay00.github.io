@@ -5,9 +5,15 @@
   var host = document.getElementById('gx-scene');
   if (!host) return;
 
-  var K = 40, OX = 620, OY = -30, E = '#0B0F14', RX = 1.2247 * K, RY = 0.7071 * K;
+  // Low-angle projection: the ground reads as a wide, flat diamond.
+  var K = 40, OX = 620, OY = 0, E = '#0B0F14', PA = .866, PB = .34, RX = PA * 1.4142 * K, RY = PB * 1.4142 * K;
+  var VW = 1240, VH = 740, BB = [1e9, 1e9, -1e9, -1e9], track = true;
   var MONO = 'ui-monospace, SFMono-Regular, Menlo, Consolas, monospace';
-  function P(x, y, z) { return [OX + (x - y) * 0.866 * K, OY + (x + y) * 0.5 * K - (z || 0) * K]; }
+  function P(x, y, z) {
+    var p = [OX + (x - y) * PA * K, OY + (x + y) * PB * K - (z || 0) * K];
+    if (track) { BB[0] = Math.min(BB[0], p[0]); BB[1] = Math.min(BB[1], p[1]); BB[2] = Math.max(BB[2], p[0]); BB[3] = Math.max(BB[3], p[1]); }
+    return p;
+  }
   function f(n) { return Math.round(n * 10) / 10; }
   function pt(p) { return f(p[0]) + ' ' + f(p[1]); }
   function poly(a) { return 'M' + a.map(pt).join(' L') + ' Z'; }
@@ -52,7 +58,7 @@
 
   // Nuclear plant
   var steam = [];
-  [coolingTower(1.2, 7.2, 3.8), coolingTower(7.4, 1.4, 3.8)].forEach(function (tp, j) {
+  [coolingTower(1.2, 7.2, 2.9), coolingTower(7.4, 1.4, 2.9)].forEach(function (tp, j) {
     [0, 1.5, 3].forEach(function (dl) { steam.push({ x: f(tp[0]), y: f(tp[1] - 8), dl: dl + j * .7 }); });
   });
   cyl(2.4, 2.2, 1.1, 1.9, ['#A9B5C3', '#7D8897'], '#D3DAE3');
@@ -76,10 +82,12 @@
   sub('GS', 6, 6, 2.6, 2.2, 3); sub('HUB', 10, 10, 3.2, 3.2, 3); sub('L', 3, 15, 2.2, 2, 2);
   sub('R', 15, 3, 2, 2.2, 2); sub('B', 16.3, 16.3, 2.4, 2.4, 2);
   N.N = { x: 4.7, y: 2.1, s: P(4.7, 2.1, 1.3) };
-  var labels = [['NUCLEAR PLANT', 3.2, 1.0, 3.6], ['STEP-UP 345 kV', 7.3, 7.1, -1.2], ['HUB 345 kV', 11.6, 11.6, -1.3],
-    ['SUB WEST', 4.1, 16, -1.2], ['SUB EAST', 16, 4.1, -1.2], ['SUB SOUTH', 17.5, 17.5, -1.3]].map(function (a) {
-    var p = P(a[1], a[2], Math.max(a[3], 0));
-    return { t: a[0], x: f(p[0]), y: f(a[3] < 0 ? p[1] - a[3] * K + 6 : p[1]) };
+  // Name tags for every node except the towers
+  var labels = [['Nuclear plant', 'GENERATION', 2.4, 2.2, 3.3, 2.2], ['Step-up substation', '345 kV', 7.3, 7.1, 2.0, 1.4],
+    ['Hub substation', '345 kV', 11.6, 11.6, 2.0, 1.4], ['West substation', '345 / 154 kV', 4.1, 16, 2.0, 1.4],
+    ['East substation', '345 / 154 kV', 16, 4.1, 2.0, 1.4], ['South substation', '345 / 154 kV', 17.5, 17.5, 2.0, 1.4]].map(function (a) {
+    var p = P(a[2], a[3], a[4]), base = P(a[2], a[3], a[5]), w = Math.max(a[0].length * 8.6, a[1].length * 7.6) + 26;
+    return { t: a[0], s: a[1], x: f(p[0]), y: f(p[1]), by: f(base[1]), w: f(w) };
   });
 
   // Transmission lines on lattice towers
@@ -98,7 +106,7 @@
       var pts = [[A.s[0] + o * 8, A.s[1]]].concat(tops.map(function (p) { return [p[0] + o * 50 * sc, p[1]]; }), [[B.s[0] + o * 8, B.s[1]]]);
       var d = 'M' + pt(pts[0]);
       for (var i = 1; i < pts.length; i++) {
-        var m = [(pts[i - 1][0] + pts[i][0]) / 2, (pts[i - 1][1] + pts[i][1]) / 2 + 16];
+        var m = [(pts[i - 1][0] + pts[i][0]) / 2, (pts[i - 1][1] + pts[i][1]) / 2 + 12];
         d += ' Q' + pt(m) + ' ' + pt(pts[i]);
       }
       return d;
@@ -109,7 +117,7 @@
   S.sort(function (p, q) { return p.k - q.k; });
 
   // Data center sites (building + BESS containers)
-  var SITES = [[9.2, 1.6, 4, 2.2, 'GS', 'SITE 1'], [1, 18, 4, 2.4, 'L', 'SITE 2'], [18, 1, 2.4, 4, 'R', 'SITE 3'], [19.2, 15.8, 2.4, 4, 'B', 'SITE 4']];
+  var SITES = [[9.2, 1.6, 4, 2.2, 'GS', 'SITE 1'], [1, 18, 4, 2.4, 'L', 'SITE 2'], [18, 1, 2.4, 4, 'R', 'SITE 3'], [19.2, 15.8, 2.4, 4, 'B', 'SITE 4', -330, 1.6]];
   var sites = [], dcs = [], dcCenter = [];
   SITES.forEach(function (st) {
     var x = st[0], y = st[1], w = st[2], d = st[3], at = st[4], name = st[5], lp = P(x + w / 2, y + d / 2, 0);
@@ -134,8 +142,9 @@
     }
     cur.sort(function (p, q) { return p.k - q.k; });
     var paths = cur; cur = S;
-    var c = P(x + w / 2, y + d / 2, 1.7), lab = P(x + w / 2, y + d / 2, 4.2);
-    dcs.push({ paths: paths, name: name, link: 'M' + pt(c) + ' L' + pt(N[at].s), lead: 'M' + pt(c) + ' L' + pt([lab[0], lab[1] + 26]), lx: f(lab[0]), ly: f(lab[1] - 6), ly2: f(lab[1] + 16) });
+    var c = P(x + w / 2, y + d / 2, 1.7), lab = P(x + w / 2, y + d / 2, st[7] || 4.2);
+    lab = [lab[0] + (st[6] || 0), lab[1]];
+    dcs.push({ paths: paths, name: name, link: 'M' + pt(c) + ' L' + pt(N[at].s), lead: 'M' + pt(c) + ' L' + pt([lab[0] - Math.sign(st[6] || 0) * 40, lab[1] + 26]), lx: f(lab[0]), ly: f(lab[1] - 6), ly2: f(lab[1] + 16) });
   });
 
   // Markup
@@ -144,7 +153,7 @@
       (s.tf ? ' transform="' + s.tf + '"' : '') + ' stroke-linejoin="round"/>';
   }
   var h = [];
-  h.push('<svg viewBox="0 0 1240 820" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false"><g class="gx-cam"><g class="gx-drift">');
+  h.push('<svg viewBox="0 0 1240 740" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false"><g class="gx-cam"><g class="gx-drift">');
   h.push('<path d="' + ground + '" fill="#10161F" stroke="#1C2633"/><path d="' + grid + '" fill="none" stroke="#141C27"/>');
   sites.forEach(function (st, i) {
     h.push('<path class="gx-pad" data-i="' + i + '" d="' + st.pad + '" stroke-width="1.5"/>');
@@ -157,9 +166,7 @@
   dcs.forEach(function (dc, i) {
     h.push('<g class="gx-dc" data-i="' + i + '"><path d="' + dc.link + '" fill="none" stroke="#FFB547" stroke-width="4" stroke-dasharray="5 6"/>');
     dc.paths.forEach(function (s) { h.push(pathTag(s)); });
-    h.push('<path d="' + dc.lead + '" stroke="#FFB547" stroke-width="1.2"/>');
-    h.push('<text x="' + dc.lx + '" y="' + dc.ly + '" text-anchor="middle" font-size="28" font-weight="700" fill="#FFFFFF">Data Center</text>');
-    h.push('<text x="' + dc.lx + '" y="' + dc.ly2 + '" text-anchor="middle" font-family="' + MONO + '" font-size="14" letter-spacing="1.5" fill="#FFB547">+ BESS · ' + dc.name + '</text></g>');
+    h.push('</g>');
   });
   lines.forEach(function (l) {
     h.push('<g class="gx-line" data-id="' + l.id + '">');
@@ -173,10 +180,21 @@
       '<text x="' + l.mx + '" y="' + f(l.my - 30) + '" text-anchor="middle" font-family="' + MONO + '" font-size="17" font-weight="700" fill="#0B0F14"></text></g>');
   });
   labels.forEach(function (lb) {
-    h.push('<text x="' + lb.x + '" y="' + lb.y + '" text-anchor="middle" font-family="' + MONO + '" font-size="13" letter-spacing="1.5" fill="#8A96A8">' + lb.t + '</text>');
+    h.push('<g class="gx-lbl"><path d="M' + lb.x + ' ' + lb.y + ' L' + lb.x + ' ' + lb.by + '" stroke="#5F6B7D" stroke-width="1.2" stroke-dasharray="3 3"/>' +
+      '<rect x="' + f(lb.x - lb.w / 2) + '" y="' + f(lb.y - 50) + '" width="' + lb.w + '" height="46" rx="5" fill="rgba(11,15,20,.88)" stroke="#3A4656"/>' +
+      '<text x="' + lb.x + '" y="' + f(lb.y - 29) + '" text-anchor="middle" font-size="16" font-weight="700" fill="#FFFFFF">' + lb.t + '</text>' +
+      '<text x="' + lb.x + '" y="' + f(lb.y - 12) + '" text-anchor="middle" font-family="' + MONO + '" font-size="12" letter-spacing="1" fill="#9FB0C4">' + lb.s + '</text></g>');
+  });
+  dcs.forEach(function (dc, i) {
+    h.push('<g class="gx-dc gx-dct" data-i="' + i + '"><path d="' + dc.lead + '" stroke="#FFB547" stroke-width="1.2"/>' +
+      '<text x="' + dc.lx + '" y="' + dc.ly + '" text-anchor="middle" font-size="28" font-weight="700" fill="#FFFFFF" stroke="#0B0F14" stroke-width="5" paint-order="stroke">Data Center</text>' +
+      '<text x="' + dc.lx + '" y="' + dc.ly2 + '" text-anchor="middle" font-family="' + MONO + '" font-size="14" letter-spacing="1.5" fill="#FFB547" stroke="#0B0F14" stroke-width="4" paint-order="stroke">+ BESS · ' + dc.name + '</text></g>');
   });
   h.push('</g></g></svg>');
   host.innerHTML = h.join('');
+  track = false;
+  // Fit the whole scene (plus room for tags and steam) inside the view
+  var FIT = [(BB[0] + BB[2]) / 2, (BB[1] + BB[3]) / 2 - 20, Math.min((VW - 40) / (BB[2] - BB[0]), (VH - 40) / (BB[3] - BB[1] + 110))];
 
   // Scenarios (illustrative)
   var SC = [
@@ -200,9 +218,9 @@
   function apply(k) {
     var s = SC[k];
     // Whole grid always in view; a site only gets a slight push-in toward it.
-    var cx = 620, cy = 380, z = .78;
-    if (s.site >= 0) { var dp = dcCenter[s.site]; cx += (dp[0] - cx) * .28; cy += (dp[1] - cy) * .28; z = .85; }
-    camEl.style.transform = 'translate(' + Math.round(620 - z * cx) + 'px,' + Math.round(410 - z * cy) + 'px) scale(' + z + ')';
+    var cx = FIT[0], cy = FIT[1], z = FIT[2];
+    if (s.site >= 0) { var dp = dcCenter[s.site]; cx += (dp[0] - cx) * .25; cy += (dp[1] - cy) * .25; z *= 1.09; }
+    camEl.style.transform = 'translate(' + Math.round(VW / 2 - z * cx) + 'px,' + Math.round(VH / 2 - z * cy) + 'px) scale(' + z + ')';
     each('.gx-pad', function (el) { el.classList.toggle('on', +el.getAttribute('data-i') === s.site); });
     each('.gx-padt', function (el) { el.classList.toggle('on', +el.getAttribute('data-i') === s.site); });
     each('.gx-dc', function (el) { el.classList.toggle('on', +el.getAttribute('data-i') === s.site); });
