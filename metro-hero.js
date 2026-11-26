@@ -10,7 +10,7 @@
 
   var MOD = 20, NMOD = 4;              // one data center = 4 modules of 20 MW
   var YAW = -0.18, GF = 0.72;          // map rotation (rad) and ground foreshortening
-  var MONO = 'ui-monospace, SFMono-Regular, Menlo, Consolas, monospace';
+  var UI = "Inter, system-ui, -apple-system, 'Segoe UI', sans-serif";
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   var canvas = document.createElement('canvas');
@@ -69,7 +69,7 @@
       });
     });
     var wide = W > 900;
-    var box = wide ? { l: Math.max(W * 0.2, 330), r: W * 0.8, t: 24, b: H - 44 } : { l: 8, r: W - 8, t: 8, b: H - 8 };
+    var box = wide ? { l: W * 0.07, r: W * 0.67, t: 84, b: H - 40 } : { l: 8, r: W - 8, t: 8, b: H - 8 };
     var hsPerK = 0.0058, tallest = 0;
     st.forEach(function (s) { var p = rot(s.x, s.y); var top = -p[1] * GF - s.cap * hsPerK; if (b[1] - top > tallest) tallest = b[1] - top; });
     K = Math.min((box.r - box.l) / (b[2] - b[0]), (box.b - box.t) / (b[3] - b[1] + tallest));
@@ -138,9 +138,9 @@
     var p = P(gx, gy, 0), a = ax == null ? null : P(ax, ay, 0);
     var fs = Math.round(Math.max(13, Math.min(24, K * 3.3))), sfs = Math.max(11, Math.round(fs * .52));
     ctx.save(); ctx.globalAlpha = alpha;
-    ctx.font = '700 ' + fs + 'px ' + MONO;
+    ctx.font = '700 ' + fs + 'px ' + UI;
     var w = ctx.measureText(big).width + fs * .18 * (big.length - 1);
-    if (small) { ctx.font = '500 ' + sfs + 'px ' + MONO; w = Math.max(w, ctx.measureText(small).width); }
+    if (small) { ctx.font = '500 ' + sfs + 'px ' + UI; w = Math.max(w, ctx.measureText(small).width); }
     var x = Math.max(8, Math.min(W - w - 8, p[0])), y = p[1];
     if (a) {
       var ex = a[0] < x ? x - 6 : x + w + 6;
@@ -149,9 +149,9 @@
       ctx.beginPath(); ctx.arc(a[0], a[1], 3, 0, Math.PI * 2); ctx.fillStyle = col; ctx.fill();
     }
     ctx.shadowColor = 'rgba(11,15,20,.95)'; ctx.shadowBlur = 8;
-    ctx.font = '700 ' + fs + 'px ' + MONO; ctx.fillStyle = col; ctx.textAlign = 'left';
+    ctx.font = '700 ' + fs + 'px ' + UI; ctx.fillStyle = col; ctx.textAlign = 'left';
     spaced(big, x, y, fs * .18);
-    if (small) { ctx.font = '500 ' + sfs + 'px ' + MONO; ctx.fillStyle = 'rgba(201,210,222,.85)'; ctx.fillText(small, x, y + fs * .95); }
+    if (small) { ctx.font = '500 ' + sfs + 'px ' + UI; ctx.fillStyle = 'rgba(201,210,222,.85)'; ctx.fillText(small, x, y + fs * .95); }
     ctx.restore();
   }
 
@@ -182,7 +182,7 @@
   // ---------- story ----------
   // callout next to the data center site: step, headline, keyword line, verdict
   var STEPS = [
-    { d: 5, c: null },
+    { d: 7, c: ['HOW TO READ', '1 column = 1 substation', 'hover any column for its numbers', null, null] },
     { d: 6, c: ['HEADROOM', totalHead + ' MW free', 'only 1 of ' + st.length + ' substations', 'mx-good', 'LAST SPACE'] },
     { d: 6.5, c: ['DATA CENTER', '+' + campus + ' MW campus', NMOD + ' \u00d7 ' + MOD + ' MW modules', 'mx-warn', (totalHead - campus) + ' MW LEFT'] },
     { d: 6, c: ['NEXT CAMPUS', 'No room', (totalHead - campus) + ' MW < one ' + MOD + ' MW module', 'mx-bad', 'FULL'] },
@@ -198,7 +198,7 @@
     var c = STEPS[i].c;
     if (!c) { elCall.hidden = true; return; }
     elStep.textContent = c[0]; elTitle.textContent = c[1]; elBody.textContent = c[2];
-    elV.className = 'mx-verdict ' + c[3]; elV.textContent = c[4];
+    elV.hidden = !c[3]; if (c[3]) { elV.className = 'mx-verdict ' + c[3]; elV.textContent = c[4]; }
     elCall.className = 'mx-call ' + (c[3] === 'mx-bad' ? 'k-bad' : c[3] === 'mx-good' ? 'k-good' : '');
     elCall.hidden = false; void elCall.offsetWidth; elCall.classList.add('in');
   }
@@ -213,6 +213,30 @@
     ctx.save(); ctx.globalAlpha = alpha; ctx.strokeStyle = 'rgba(255,181,71,.7)'; ctx.lineWidth = 1.2;
     ctx.beginPath(); ctx.moveTo(ax, ay); ctx.lineTo(ex, ey); ctx.stroke();
     ctx.beginPath(); ctx.arc(ax, ay, 2.5, 0, Math.PI * 2); ctx.fillStyle = '#FFB547'; ctx.fill(); ctx.restore();
+  }
+
+  var LIT = ['159,216,255', '127,224,168', '255,181,71', '255,90,90', '127,224,168'];
+  function tag(x, y, text, col) {
+    ctx.font = '600 12px ' + UI; ctx.textAlign = 'right'; ctx.textBaseline = 'middle';
+    var w = ctx.measureText(text).width;
+    ctx.fillStyle = 'rgba(11,15,20,.88)'; ctx.fillRect(x - w - 6, y - 9, w + 12, 18);
+    ctx.fillStyle = col; ctx.fillText(text, x, y);
+    ctx.textBaseline = 'alphabetic';
+  }
+  function dims(bx, by, hc, hf, s, a) {
+    var x0 = bx - RX - 8, xl = x0 - 14;
+    ctx.save(); ctx.globalAlpha = a; ctx.lineWidth = 1;
+    ctx.strokeStyle = 'rgba(230,235,242,.85)';
+    ctx.beginPath(); ctx.moveTo(x0 + 4, by); ctx.lineTo(x0, by); ctx.lineTo(x0, by - hc); ctx.lineTo(x0 + 4, by - hc); ctx.stroke();
+    ctx.strokeStyle = 'rgba(111,183,226,.9)';
+    ctx.beginPath(); ctx.moveTo(x0 - 4, by - hf); ctx.lineTo(bx - RX, by - hf); ctx.stroke();
+    var yc = by - hc - 2, yh = yc + 20, yf = Math.max(by - hf / 2, yh + 20);
+    ctx.strokeStyle = 'rgba(230,235,242,.5)';
+    [[yc, by - hc], [yh, by - hc + (hc - hf) / 2], [yf, by - hf / 2]].forEach(function (l) { ctx.beginPath(); ctx.moveTo(xl + 2, l[0]); ctx.lineTo(x0 - 1, l[1]); ctx.stroke(); });
+    tag(xl, yc, fmt(s.cap) + ' MW capacity', '#E6EBF2');
+    tag(xl, yh, fmt(s.head) + ' MW headroom', '#7FE0A8');
+    tag(xl, yf, fmt(s.fcst) + ' MW load forecast', '#8FCBF0');
+    ctx.restore();
   }
 
   // ---------- frame ----------
@@ -241,9 +265,14 @@
       var hc = s.cap * HS * Math.max(stg, 0.0001), hf = s.fcst * HS * stg;
       var isT = s === target, dcMW = isT && landed ? campus : 0;
       var hd = dcMW * HS * stg, hh = s.head * HS * stg, on = hover === s;
-      if (isT && si >= 1) {
+      // the substation the callout points at lights up as a whole column
+      var lit = isT ? (reduce ? 1 : ease((lt - 1.8) / .8)) * fade : 0;
+      var litC = LIT[si];
+      if (lit > 0) {
         ctx.beginPath(); ctx.ellipse(bx, by, RX * 2.6, RX * GF * 2.6, 0, 0, Math.PI * 2);
-        ctx.fillStyle = (s.head - dcMW >= MOD ? 'rgba(127,224,168,' : 'rgba(255,72,72,') + (.18 + .1 * pulse) * red + ')'; ctx.fill();
+        ctx.fillStyle = 'rgba(' + litC + ',' + (.2 + .1 * pulse) * lit + ')'; ctx.fill();
+        ctx.save(); ctx.shadowColor = 'rgba(' + litC + ',1)'; ctx.shadowBlur = (26 + 14 * pulse) * lit;
+        seg(bx, by, 0, hc, 'rgba(' + litC + ',' + .8 * lit + ')', null); seg(bx, by, 0, hc, 'rgba(' + litC + ',' + .5 * lit + ')', null); ctx.restore();
       }
       ctx.beginPath(); ctx.ellipse(bx + RX * .5, by + 1, RX * 1.5, RX * GF * 1.2, 0, 0, Math.PI * 2);
       ctx.fillStyle = 'rgba(0,0,0,.35)'; ctx.fill();
@@ -253,6 +282,12 @@
       seg(bx, by, 0, hf, grad(bx, '#4790BE', '#1F4A68'), hf >= hc - .5 ? null : '#6FB7E2');
       if (dcMW) seg(bx, by, hf, hf + hd, grad(bx, '#FFC870', '#C77F1A'), '#FFD58F');
       if (s.head > 0 && hh - hd > .3) seg(bx, by, hf + hd, hf + hh, grad(bx, 'rgba(127,224,168,.95)', 'rgba(70,170,115,.95)'), 'rgba(160,240,190,.95)');
+      if (lit > 0) {
+        seg(bx, by, 0, hc, 'rgba(' + litC + ',' + (.3 + .15 * pulse) * lit + ')', null);
+        seg(bx, by, 0, hc, 'rgba(255,255,255,' + (.08 + .06 * pulse) * lit + ')', null);
+        ctx.beginPath(); ctx.moveTo(bx - RX, by - hc); ctx.lineTo(bx - RX, by); ctx.ellipse(bx, by, RX, RX * GF, 0, Math.PI, 0, true); ctx.lineTo(bx + RX, by - hc);
+        ctx.strokeStyle = 'rgba(' + litC + ',' + lit + ')'; ctx.lineWidth = 2; ctx.stroke();
+      }
       ctx.beginPath(); ctx.ellipse(bx, by - hc, RX, RX * GF, 0, 0, Math.PI * 2);
       var full = s.head === 0 || (isT && si >= 3);
       if (full && red > 0) {
@@ -261,14 +296,15 @@
       } else { ctx.strokeStyle = on ? 'rgba(220,235,250,.9)' : 'rgba(159,192,222,.5)'; ctx.lineWidth = 1; ctx.stroke(); }
       last.push({ s: s, x: bx, top: by - hc, by: by });
 
-      if (isT && si >= 1) {
-        var left = Math.max(0, s.head - dcMW);
-        ctx.font = '700 12px ' + MONO; ctx.textAlign = 'center';
-        ctx.fillStyle = left >= MOD ? '#7FE0A8' : '#FF7A7A';
-        // the campus: four module cubes landing together beside the substation
+      if (isT) {
         var cs = Math.max(7, Math.min(12, K * 1.5));
         var spots = [[2.4, .4], [4.4, 1.5], [2.4, 2.6], [4.4, 3.7]];
-        placeCall(bx + 8.5 * cs, by - hc + 6, bx + RX + 3, by - hc, red * fade);
+        placeCall(bx + 8.5 * cs, by - hc + 6, bx + RX + 3, by - hc, lit);
+        // first step: read this one column with its real numbers
+        if (si === 0 && lit > 0) post.push(function () { dims(bx, by, hc, hf, s, lit); });
+      }
+      if (isT && si >= 1) {
+        // the campus: four module cubes landing together beside the substation
         if (si >= 2) {
           var cx = bx + 3.4 * cs, cy = by + 2.05 * cs * GF;
           ctx.beginPath(); ctx.moveTo(bx + RX * .8, by); ctx.lineTo(cx, cy - cs * .3);
@@ -282,7 +318,7 @@
           var fa = reduce ? 1 : (failT < 3.8 ? 1 : 1 - ease((failT - 3.8) / 1.2));
           var fx = bx + 7.4 * cs + sh, fy = by + 1.6 * cs * GF - (1 - fd) * 70;
           for (var m = 0; m < NMOD; m++) cube(fx + (m % 2) * 1.6 * cs, fy + m * .55 * cs * GF, cs * .8, ['#FF9A9A', '#E04848', '#A82E2E'], fd * fa * fade * .9);
-          if (failT > .7) { ctx.globalAlpha = fa * fade; ctx.fillStyle = '#FF7A7A'; ctx.font = '700 16px ' + MONO; ctx.fillText('×', fx + .8 * cs, fy - cs * 2.4); ctx.globalAlpha = 1; }
+          if (failT > .7) { ctx.globalAlpha = fa * fade; ctx.fillStyle = '#FF7A7A'; ctx.font = '700 16px ' + UI; ctx.fillText('×', fx + .8 * cs, fy - cs * 2.4); ctx.globalAlpha = 1; }
         });
       }
     });
