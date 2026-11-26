@@ -74,7 +74,7 @@
   .gx-in { display: flex; flex-direction: column; }
   .gx-head { position: static; order: 1; padding: 36px 20px 4px; }
   .gx-scene { order: 2; }
-  .gx-scene svg { height: auto; min-height: 0; aspect-ratio: 1240 / 740; }
+  .gx-scene svg { height: auto; min-height: 0; aspect-ratio: 1240 / 820; }
   .gx-panel { position: static; order: 3; width: auto; max-width: none; margin: 0 20px 12px; }
   .gx-legend { position: static; order: 4; flex-direction: row; flex-wrap: wrap; margin: 0 20px 28px; }
 }

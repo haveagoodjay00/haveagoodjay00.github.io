@@ -7,7 +7,7 @@
 
   // Low-angle projection: the ground reads as a wide, flat diamond.
   var K = 40, OX = 620, OY = 0, E = '#0B0F14', PA = .866, PB = .34, RX = PA * 1.4142 * K, RY = PB * 1.4142 * K;
-  var VW = 1240, VH = 740, BB = [1e9, 1e9, -1e9, -1e9], track = true;
+  var VW = 1240, VH = 820, BB = [1e9, 1e9, -1e9, -1e9], track = true;
   var MONO = 'ui-monospace, SFMono-Regular, Menlo, Consolas, monospace';
   function P(x, y, z) {
     var p = [OX + (x - y) * PA * K, OY + (x + y) * PB * K - (z || 0) * K];
@@ -52,17 +52,20 @@
 
   // Ground
   var G = 22;
-  var ground = poly([P(0, 0), P(G, 0), P(G, G), P(0, G)]);
+  // Main grid tile, plus a separate tile far to the north for the nuclear plant
+  var PT = [-7, -0.8];
+  var ground = poly([P(0, 0), P(G, 0), P(G, G), P(0, G)]) + ' ' + poly([P(PT[0], PT[0]), P(PT[1], PT[0]), P(PT[1], PT[1]), P(PT[0], PT[1])]);
   var grid = '';
   for (var i = 2; i < G; i += 2) grid += 'M' + pt(P(i, 0)) + ' L' + pt(P(i, G)) + ' M' + pt(P(0, i)) + ' L' + pt(P(G, i)) + ' ';
+  for (var g2 = -5; g2 < -1; g2 += 2) grid += 'M' + pt(P(g2, PT[0])) + ' L' + pt(P(g2, PT[1])) + ' M' + pt(P(PT[0], g2)) + ' L' + pt(P(PT[1], g2)) + ' ';
 
   // Nuclear plant
   var steam = [];
-  [coolingTower(1.2, 7.2, 2.9), coolingTower(7.4, 1.4, 2.9)].forEach(function (tp, j) {
+  [coolingTower(-5.9, -2.6, 2.6), coolingTower(-2.2, -6.0, 2.6)].forEach(function (tp, j) {
     [0, 1.5, 3].forEach(function (dl) { steam.push({ x: f(tp[0]), y: f(tp[1] - 8), dl: dl + j * .7 }); });
   });
-  cyl(2.4, 2.2, 1.1, 1.9, ['#A9B5C3', '#7D8897'], '#D3DAE3');
-  box(3.6, 1.4, 0, 2.2, 1.4, 1.3, ['#55606F', '#3A4452', '#2E3743']);
+  cyl(-4.6, -4.6, 1.0, 1.8, ['#A9B5C3', '#7D8897'], '#D3DAE3');
+  box(-3.4, -5.4, 0, 1.6, 1.2, 1.2, ['#55606F', '#3A4452', '#2E3743']);
 
   // Substations
   var N = {}, MET = ['#8B96A5', '#5E6979', '#4A5463'];
@@ -79,21 +82,22 @@
       ' L' + pt(P(cx + .8, cy + .3, 0)), 'none', '#9AA6B6', 1.8);
     N[id] = { x: cx, y: cy, s: P(cx, cy + .3, 1.4) };
   }
-  sub('GS', 6, 6, 2.6, 2.2, 3); sub('HUB', 10, 10, 3.2, 3.2, 3); sub('L', 3, 15, 2.2, 2, 2);
+  sub('SU', -2.6, -2.6, 1.6, 1.6, 2); sub('GS', 6, 6, 2.6, 2.2, 3); sub('HUB', 10, 10, 3.2, 3.2, 3); sub('L', 3, 15, 2.2, 2, 2);
   sub('R', 15, 3, 2, 2.2, 2); sub('B', 16.3, 16.3, 2.4, 2.4, 2);
-  N.N = { x: 4.7, y: 2.1, s: P(4.7, 2.1, 1.3) };
+  N.N = { x: -2.6, y: -4.8, s: P(-2.6, -4.8, 1.2) };
   // Name tags for every node except the towers
-  var labels = [['Nuclear plant', 'GENERATION', 2.4, 2.2, 3.3, 2.2], ['Step-up substation', '345 kV', 7.3, 7.1, 2.0, 1.4],
-    ['Hub substation', '345 kV', 11.6, 11.6, 2.0, 1.4], ['West substation', '345 / 154 kV', 4.1, 16, 2.0, 1.4],
-    ['East substation', '345 / 154 kV', 16, 4.1, 2.0, 1.4], ['South substation', '345 / 154 kV', 17.5, 17.5, 2.0, 1.4]].map(function (a) {
-    var p = P(a[2], a[3], a[4]), base = P(a[2], a[3], a[5]), w = Math.max(a[0].length * 8.6, a[1].length * 7.6) + 26;
-    return { t: a[0], s: a[1], x: f(p[0]), y: f(p[1]), by: f(base[1]), w: f(w) };
+  var labels = [['Nuclear plant', 'GENERATION', -4.6, -4.6, 3.3, 2.3], ['Step-up yard', '22 → 345 kV', -1.8, -1.8, 1.6, 1.0, 150],
+    ['North substation', '345 kV', 7.3, 7.1, 2.0, 1.4], ['Hub substation', '345 kV', 11.6, 11.6, 2.0, 1.4],
+    ['West substation', '345 → 154 kV', 4.1, 16, 2.0, 1.4], ['East substation', '345 → 154 kV', 16, 4.1, 2.0, 1.4],
+    ['South substation', '345 → 154 kV', 17.5, 17.5, 2.0, 1.4]].map(function (a) {
+    var p = P(a[2], a[3], a[4]), base = P(a[2], a[3], a[5]), w = Math.max(a[0].length * 8.6, a[1].length * 7.6) + 26, dx = a[6] || 0;
+    return { t: a[0], s: a[1], x: f(p[0] + dx), y: f(p[1]), bx: f(base[0]), by: f(base[1]), w: f(w), dx: dx };
   });
 
   // Transmission lines on lattice towers
   var PY = 'M-40 220 L-10 40 L0 0 L10 40 L40 220 M-50 50 H50 M-70 90 H70 M-14 62 L21 104 L-28 150 L35 190 M14 62 L-21 104 L28 150 L-35 190 M-21 104 H21 M-35 190 H35 M-50 50 V62 M50 50 V62 M-70 90 V102 M70 90 V102';
   var sc = .62;
-  var LINES = [['N', 'GS'], ['GS', 'HUB'], ['HUB', 'L'], ['HUB', 'R'], ['HUB', 'B'], ['GS', 'L'], ['GS', 'R'], ['L', 'B'], ['R', 'B']];
+  var LINES = [['N', 'SU'], ['SU', 'GS'], ['GS', 'HUB'], ['HUB', 'L'], ['HUB', 'R'], ['HUB', 'B'], ['GS', 'L'], ['GS', 'R'], ['L', 'B'], ['R', 'B']];
   var lines = LINES.map(function (ab) {
     var A = N[ab[0]], B = N[ab[1]], dist = Math.hypot(A.x - B.x, A.y - B.y);
     var n = dist >= 11 ? 2 : dist >= 6 ? 1 : 0, tops = [];
@@ -153,7 +157,7 @@
       (s.tf ? ' transform="' + s.tf + '"' : '') + ' stroke-linejoin="round"/>';
   }
   var h = [];
-  h.push('<svg viewBox="0 0 1240 740" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false"><g class="gx-cam"><g class="gx-drift">');
+  h.push('<svg viewBox="0 0 1240 820" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false"><g class="gx-cam"><g class="gx-drift">');
   h.push('<path d="' + ground + '" fill="#10161F" stroke="#1C2633"/><path d="' + grid + '" fill="none" stroke="#141C27"/>');
   sites.forEach(function (st, i) {
     h.push('<path class="gx-pad" data-i="' + i + '" d="' + st.pad + '" stroke-width="1.5"/>');
@@ -180,7 +184,7 @@
       '<text x="' + l.mx + '" y="' + f(l.my - 30) + '" text-anchor="middle" font-family="' + MONO + '" font-size="17" font-weight="700" fill="#0B0F14"></text></g>');
   });
   labels.forEach(function (lb) {
-    h.push('<g class="gx-lbl"><path d="M' + lb.x + ' ' + lb.y + ' L' + lb.x + ' ' + lb.by + '" stroke="#5F6B7D" stroke-width="1.2" stroke-dasharray="3 3"/>' +
+    h.push('<g class="gx-lbl"><path d="M' + (lb.dx ? f(lb.x - lb.w / 2) + ' ' + f(lb.y - 27) : lb.x + ' ' + lb.y) + ' L' + lb.bx + ' ' + lb.by + '" stroke="#5F6B7D" stroke-width="1.2" stroke-dasharray="3 3"/>' +
       '<rect x="' + f(lb.x - lb.w / 2) + '" y="' + f(lb.y - 50) + '" width="' + lb.w + '" height="46" rx="5" fill="rgba(11,15,20,.88)" stroke="#3A4656"/>' +
       '<text x="' + lb.x + '" y="' + f(lb.y - 29) + '" text-anchor="middle" font-size="16" font-weight="700" fill="#FFFFFF">' + lb.t + '</text>' +
       '<text x="' + lb.x + '" y="' + f(lb.y - 12) + '" text-anchor="middle" font-family="' + MONO + '" font-size="12" letter-spacing="1" fill="#9FB0C4">' + lb.s + '</text></g>');
@@ -199,9 +203,9 @@
   // Scenarios (illustrative)
   var SC = [
     { site: -1, load: {}, trip: [], cam: [10.5, 10.5, .86], step: 'BASELINE', title: 'One plant, one grid',
-      body: 'A nuclear plant feeds the whole grid through 345 kV lines. Every line is within its limit.', verdict: 'STABLE', v: 0 },
-    { site: 0, load: { 'N-GS': '92%' }, trip: [], cam: [10.9, 6.6, .96], step: 'SITE 1 / 4', title: 'Next to the plant',
-      body: 'Power reaches the data center in one short hop. The lines carry the extra load comfortably.', verdict: 'GOOD SITE', v: 0 },
+      body: 'A nuclear plant far to the north sends power down one 345 kV line into the grid. Every line is within its limit.', verdict: 'STABLE', v: 0 },
+    { site: 0, load: { 'SU-GS': '92%' }, trip: [], cam: [10.9, 6.6, .96], step: 'SITE 1 / 4', title: 'North, near the plant',
+      body: 'Right where the line from the plant arrives. Power reaches the data center in one short hop, and the lines carry it comfortably.', verdict: 'GOOD SITE', v: 0 },
     { site: 1, load: { 'HUB-L': '118%', 'GS-L': '104%' }, trip: [], cam: [8.5, 13.5, .96], step: 'SITE 2 / 4', title: 'Far west',
       body: 'Power has to cross the hub and the west corridor to get here. Two lines run past their limit.', verdict: 'RISKY', v: 1 },
     { site: 2, load: { 'HUB-R': '121%' }, trip: ['GS-R'], cam: [14.9, 6.8, .96], step: 'SITE 3 / 4', title: 'East, one weak corridor',
@@ -219,7 +223,8 @@
     var s = SC[k];
     // Whole grid always in view; a site only gets a slight push-in toward it.
     var cx = FIT[0], cy = FIT[1], z = FIT[2];
-    if (s.site >= 0) { var dp = dcCenter[s.site]; cx += (dp[0] - cx) * .25; cy += (dp[1] - cy) * .25; z *= 1.09; }
+    if (s.site >= 0) { var dp = dcCenter[s.site]; cx += (dp[0] - cx) * .18; cy += (dp[1] - cy) * .18; z *= 1.06;
+      if (s.site === 2) { cx += 110; cy += 35; } /* keep the east site clear of the panel */ }
     camEl.style.transform = 'translate(' + Math.round(VW / 2 - z * cx) + 'px,' + Math.round(VH / 2 - z * cy) + 'px) scale(' + z + ')';
     each('.gx-pad', function (el) { el.classList.toggle('on', +el.getAttribute('data-i') === s.site); });
     each('.gx-padt', function (el) { el.classList.toggle('on', +el.getAttribute('data-i') === s.site); });
