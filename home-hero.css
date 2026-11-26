@@ -77,8 +77,18 @@
 .hm { border-top: 1px solid var(--hx-line); }
 .hm-in { max-width: 1360px; margin: 0 auto; padding: 44px max(28px, calc(50vw - 680px)) 48px; box-sizing: border-box; }
 .hm-label { margin: 0 0 26px; font-family: var(--ui); font-size: .72rem; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--hx-mute); }
+.hm-cols { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.hm-col { position: relative; display: flex; flex-direction: column; padding: 4px 28px 6px; border-left: 1px solid var(--hx-line); color: inherit; text-decoration: none; }
+.hm-col:first-child { padding-left: 0; border-left: 0; }
 .hm-n { font-family: var(--ui); font-size: .74rem; font-weight: 500; letter-spacing: .1em; color: var(--hx-mute); }
+.hm-big { margin: 22px 0 14px !important; font-family: var(--cond) !important; font-size: clamp(2.1rem, 3.5vw, 3.2rem) !important; font-weight: 700 !important; line-height: .98 !important; letter-spacing: -0.01em !important; color: var(--hx-ink); }
+.hm-big em { display: block; font-style: normal; }
+.hm-big .c1 { color: #7FD8FF; } .hm-big .c2 { color: #FFC15E; } .hm-big .c3 { color: #7FE0A8; }
+:root[data-bg="paper"] .hm-big .c1 { color: #1B7FCC; } :root[data-bg="paper"] .hm-big .c2 { color: #D9821A; } :root[data-bg="paper"] .hm-big .c3 { color: #2E9A5E; }
+.hm-sub { margin: 0 0 6px; font-family: var(--ui); font-size: .9rem; font-weight: 700; color: var(--hx-ink2); max-width: none; }
 .hm-tags { margin: 0; font-family: var(--ui); font-size: .84rem; line-height: 1.5; color: var(--hx-mute); max-width: none; }
+.hm-hash { display: flex; flex-wrap: wrap; gap: 6px; margin: 16px 0 0; max-width: none; }
+.hm-hash span { padding: 3px 10px; border: 1px solid var(--hx-line); border-radius: 999px; font-family: var(--ui); font-size: .76rem; font-weight: 500; color: var(--hx-ink3); }
 .hm-title { margin: 0 0 22px !important; font-family: var(--ui) !important; font-size: clamp(1.9rem, 3vw, 2.6rem) !important; font-weight: 700 !important; letter-spacing: -0.01em !important; color: var(--hx-ink); }
 .hm-row { display: grid; grid-template-columns: 56px minmax(0, 1fr) auto; gap: 18px; align-items: baseline; padding: 20px 0; border-top: 1px solid var(--hx-line); color: inherit; text-decoration: none; }
 .hm-row:last-child { border-bottom: 1px solid var(--hx-line); }
@@ -97,29 +107,35 @@ a.hm-row:hover b { text-decoration: underline; text-decoration-thickness: 1px; t
   .sl-scene svg { min-width: 640px; }
 }
 @media (max-width: 860px) {
+  .hm-cols { grid-template-columns: minmax(0, 1fr); }
+  .hm-col { padding: 22px 0; border-left: 0; border-top: 1px solid var(--hx-line); }
+  .hm-col:first-child { border-top: 0; padding-top: 0; }
   .hm-row { grid-template-columns: 36px minmax(0, 1fr); }
   .hm-st { grid-column: 2; }
 }
 
-/* Contact page: photo + details, icon links below (same dark palette as Home) */
-.ct { width: 100vw; margin-left: calc(50% - 50vw); background: var(--hx-bg); color: var(--hx-ink2); --ui: Inter, system-ui, -apple-system, 'Segoe UI', sans-serif; padding: 56px 0 64px; }
+/* Contact page: photo + details, icon buttons under the intro (light, like the other inner pages) */
+.ct { --hx-bg: var(--porcelain); --hx-ink: var(--ink); --hx-ink2: #1F2C3A; --hx-ink3: var(--slate); --hx-mute: #6A7785; --hx-line: var(--rule); --hx-accent: var(--hot, #E8643C);
+  width: 100vw; margin-left: calc(50% - 50vw); background: var(--hx-bg); color: var(--hx-ink2); --ui: Inter, system-ui, -apple-system, 'Segoe UI', sans-serif; padding: 56px 0 64px; }
 .ct-in { display: grid; grid-template-columns: 240px minmax(0, 1fr); gap: 44px; align-items: center; max-width: 960px; margin: 0 auto; padding: 0 28px; box-sizing: border-box; }
 .ct-photo { margin: 0; }
 .ct-photo img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 6px; border: 1px solid var(--hx-line); }
 .ct .hm-label { margin-bottom: 14px; }
-.ct h1 { margin: 0; color: var(--hx-ink); font-size: clamp(2.2rem, 4vw, 3.2rem) !important; line-height: 1.05; letter-spacing: -0.02em !important; font-weight: 700 !important; }
-.ct h1 .kname { font-size: .55em; font-weight: 600; color: var(--hx-mute); margin-left: .2em; }
+.ct h2 { margin: 0; color: var(--hx-ink); font-size: clamp(2.2rem, 4vw, 3.2rem) !important; line-height: 1.05; letter-spacing: -0.02em !important; font-weight: 700 !important; }
+.ct h2 .kname { font-size: .55em; font-weight: 600; color: var(--hx-mute); margin-left: .2em; }
 .ct-role { margin: 14px 0 4px; font-family: var(--ui); font-size: .95rem; color: var(--hx-ink3); max-width: none; }
 .ct-focus { margin: 0 0 22px; font-family: var(--ui); font-size: .95rem; font-weight: 600; color: var(--hx-ink2); max-width: none; }
 .ct-focus i { font-style: normal; color: var(--hx-accent); }
 .ct-icons { display: flex; flex-wrap: wrap; justify-content: flex-start; gap: 14px; margin: 0; padding: 0; }
-.ct-icons a { display: flex; flex-direction: column; align-items: center; gap: 8px; width: 104px; padding: 16px 0 12px; border: 1px solid var(--hx-line); border-radius: 8px; color: var(--hx-ink2); text-decoration: none; font-family: var(--ui); font-size: .78rem; font-weight: 600; transition: border-color .2s, transform .2s; }
+.ct-icons a { background: #fff; display: flex; flex-direction: column; align-items: center; gap: 8px; width: 104px; padding: 16px 0 12px; border: 1px solid var(--hx-line); border-radius: 8px; color: var(--hx-ink2); text-decoration: none; font-family: var(--ui); font-size: .78rem; font-weight: 600; transition: border-color .2s, transform .2s; }
 .ct-icons a:hover { border-color: var(--hx-accent); transform: translateY(-2px); }
 .ct-icons svg { width: 28px; height: 28px; }
 .ct-icons a[hidden] { display: none; }
 /* no light gap between the dark band and the footer */
-.wrap > main:has(> .sl), .wrap > main:has(> .ct) { margin-bottom: 0; }
-body:has(main > .sl), body:has(main > .ct) { background: var(--hx-bg); }
+.wrap > main:has(> .sl) { margin-bottom: 0; }
+body:has(main > .sl) { background: var(--hx-bg); }
+/* Page banner like the other inner pages, so the small label is not needed */
+.ct-banner + .ct .hm-label { display: none; }
 @media (max-width: 700px) {
   .ct { padding: 36px 0 44px; }
   .ct-in { grid-template-columns: minmax(0, 1fr); gap: 24px; padding: 0 20px; }
