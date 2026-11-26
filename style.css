@@ -601,5 +601,5 @@ ul.lined.small li { font-size: 0.875rem; padding: 6px 0; }
 .section > h2 .vd { display: block; margin: 8px 0 0; font-size: 0.875rem; }
 .pj-panel .reports { margin: 0 0 26px; }
 
-/* Top menu bar: thin strip of the Seoul metro hourly-load heatmap along its top edge (all pages) */
-.top::before { content: ""; position: absolute; top: 0; left: 50%; width: 100vw; height: 3px; transform: translateX(-50%); background: url(hero-load-texture.jpg) center / cover no-repeat; pointer-events: none; }
+/* Top menu bar: thin strip of the Seoul metro hourly-load heatmap between the menu and the page (all pages) */
+.top::before { content: ""; position: absolute; bottom: 0; left: 50%; width: 100vw; height: 5px; transform: translateX(-50%); background: url(hero-load-texture.jpg) center / cover no-repeat; pointer-events: none; }
