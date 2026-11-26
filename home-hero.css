@@ -108,8 +108,8 @@ a.hm-row:hover b { text-decoration: underline; text-decoration-thickness: 1px; t
 .ct-photo { margin: 0; }
 .ct-photo img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 6px; border: 1px solid var(--hx-line); }
 .ct .hm-label { margin-bottom: 14px; }
-.ct h1 { margin: 0; color: var(--hx-ink); font-size: clamp(2.2rem, 4vw, 3.2rem) !important; line-height: 1.05; letter-spacing: -0.02em !important; font-weight: 700 !important; }
-.ct h1 .kname { font-size: .55em; font-weight: 600; color: var(--hx-mute); margin-left: .2em; }
+.ct h2 { margin: 0; color: var(--hx-ink); font-size: clamp(2.2rem, 4vw, 3.2rem) !important; line-height: 1.05; letter-spacing: -0.02em !important; font-weight: 700 !important; }
+.ct h2 .kname { font-size: .55em; font-weight: 600; color: var(--hx-mute); margin-left: .2em; }
 .ct-role { margin: 14px 0 4px; font-family: var(--ui); font-size: .95rem; color: var(--hx-ink3); max-width: none; }
 .ct-focus { margin: 0 0 22px; font-family: var(--ui); font-size: .95rem; font-weight: 600; color: var(--hx-ink2); max-width: none; }
 .ct-focus i { font-style: normal; color: var(--hx-accent); }
@@ -121,7 +121,11 @@ a.hm-row:hover b { text-decoration: underline; text-decoration-thickness: 1px; t
 /* no light gap between the dark band and the footer */
 .wrap > main:has(> .sl) { margin-bottom: 0; }
 body:has(main > .sl) { background: var(--hx-bg); }
+/* PC: page banner like the other inner pages, so the small label is not needed; phones skip the banner */
+.ct-banner + .ct .hm-label { display: none; }
 @media (max-width: 700px) {
+  .ct-banner { display: none; }
+  .ct-banner + .ct .hm-label { display: block; }
   .ct { padding: 36px 0 44px; }
   .ct-in { grid-template-columns: minmax(0, 1fr); gap: 24px; padding: 0 20px; }
   .ct-photo { width: 180px; }
