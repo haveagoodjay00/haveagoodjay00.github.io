@@ -603,3 +603,8 @@ ul.lined.small li { font-size: 0.875rem; padding: 6px 0; }
 
 /* Top menu bar: thin strip of the Seoul metro hourly-load heatmap between the menu and the page (all pages) */
 .top::before { content: ""; position: absolute; bottom: 0; left: 50%; width: 100vw; height: 5px; transform: translateX(-50%); background: url(hero-load-texture.jpg) center / cover no-repeat; pointer-events: none; }
+
+/* Large monitors at 100% scaling (QHD/4K): enlarge the whole page a step at a time */
+@media (min-width: 2400px) { html { zoom: 1.25; } }
+@media (min-width: 2880px) { html { zoom: 1.5; } }
+@media (min-width: 3400px) { html { zoom: 1.75; } }
