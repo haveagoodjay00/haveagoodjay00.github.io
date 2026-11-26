@@ -26,13 +26,29 @@
 .sl-grid { fill: none; stroke: rgba(120,150,180,.07); stroke-width: 1; }
 .sl-wire { fill: none; stroke: rgba(159,184,208,.5); stroke-width: 1.6; }
 .bus { stroke: #E6EBF2; stroke-width: 6; stroke-linecap: round; }
-.sym { fill: #0B0F14; stroke: #C9D2DE; stroke-width: 2; }
-.sym-in { fill: none; stroke: #C9D2DE; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 .brk { fill: #0B0F14; stroke: #C9D2DE; stroke-width: 1.6; }
-.ld { fill: rgba(255,255,255,.03); stroke: #C9D2DE; stroke-width: 1.6; }
-.ld.dc { stroke: #FFB547; fill: rgba(255,181,71,.06); }
-.mod { fill: #FFB547; animation: slMod 2.4s ease-in-out infinite; }
-@keyframes slMod { 50% { opacity: .55; } }
+.ic { fill: #141D28; stroke: #C9D2DE; stroke-width: 1.8; stroke-linejoin: round; }
+.ic-l { fill: none; stroke: #C9D2DE; stroke-width: 1.8; stroke-linecap: round; }
+.ic-t { fill: none; stroke: #7F8DA0; stroke-width: 1.2; }
+.ic.pv { fill: #17304F; stroke: #8FB5DD; }
+.ic.xf { fill: #1C2633; }
+.ic.dc { stroke: #FFB547; fill: rgba(255,181,71,.06); }
+.rack { fill: #0E151E; stroke: #4A5566; stroke-width: 1; }
+.led { fill: #FFB547; animation: slLed 1.6s steps(2) infinite; }
+@keyframes slLed { 50% { fill: #6FD3FF; } }
+.win { fill: #F2C46D; opacity: .85; }
+.blade { fill: #E6EBF2; }
+.hub { fill: #C9D2DE; }
+.rotor { animation: slSpin 4s linear infinite; }
+@keyframes slSpin { to { transform: rotate(360deg); } }
+.pyl path { fill: none; stroke: #9AA6B5; stroke-width: 1.6; stroke-linecap: round; }
+.pyl path.t { stroke: #5F6B7D; stroke-width: .9; }
+.pyl path.ins { stroke: #C9D2DE; stroke-width: 2.4; }
+.fence { fill: none; stroke: #5F6B7D; stroke-width: 1.2; }
+.pole { fill: none; stroke: #A08A72; stroke-width: 2.4; stroke-linecap: round; }
+.smoke circle { fill: rgba(200,210,222,.18); animation: slSmoke 4.5s ease-out infinite; }
+.smoke .d2 { animation-delay: -1.5s; } .smoke .d3 { animation-delay: -3s; }
+@keyframes slSmoke { 0% { transform: translate(0,0) scale(.5); opacity: 0; } 25% { opacity: 1; } 100% { transform: translate(-10px,-34px) scale(1.5); opacity: 0; } }
 .sl-flow { fill: none; stroke: #6FD3FF; stroke-width: 2.6; stroke-linecap: round; stroke-dasharray: 3 15; animation: slFlow 1.4s linear infinite; filter: url(#slGlow); }
 .sl-flow.dc { stroke: #FFC15E; stroke-width: 3.2; stroke-dasharray: 4 12; animation-duration: 1s; }
 .sl-flow.lv { stroke: #F2D48A; stroke-width: 2.2; }
@@ -40,7 +56,7 @@
 .sl-name { font-family: var(--ui); font-size: 13px; font-weight: 600; letter-spacing: .12em; fill: #C9D2DE; }
 .sl-sub { font-family: var(--ui); font-size: 11px; fill: #7F8DA0; text-anchor: middle; }
 .sl-v { font-family: var(--ui); font-size: 12px; font-weight: 700; fill: #E6EBF2; text-anchor: middle; }
-@media (prefers-reduced-motion: reduce) { .sl-flow, .mod { animation: none !important; } }
+@media (prefers-reduced-motion: reduce) { .sl-flow, .led, .rotor, .smoke circle { animation: none !important; } }
 @media (max-width: 900px) {
   .sl-stage { padding: 28px 0; }
   .sl-head { padding: 0 20px; }
