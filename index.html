@@ -12,9 +12,10 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,400&family=Noto+Serif+KR:wght@500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css?v=36">
 <link rel="stylesheet" href="v2.css?v=3">
-<link rel="stylesheet" href="metro-hero.css?v=2">
+<link rel="stylesheet" href="metro-hero.css?v=7">
 </head>
 <body data-title-en="Hyeongseo Jang | Power systems">
 <div class="wrap">
@@ -32,47 +33,76 @@
   <main>
 
     <section class="mx" id="hero" aria-labelledby="mx-h">
-      <div class="mx-grid">
-        <div class="mx-stage">
-          <div class="mx-loc">
-            <svg id="mx-inset" role="img" aria-label="Map of South Korea with the capital area highlighted"></svg>
-            <div>
-              <p class="mx-loc-t">Seoul Capital Area, South Korea</p>
-              <p class="mx-loc-s">Seoul · Incheon · Gyeonggi<br><b>26.4 M people, 51% of the country</b></p>
-            </div>
+      <div class="mx-stage">
+        <div class="mx-map" id="mx-map" role="img" aria-label="Tilted 3D map of the Seoul Capital Area (Seoul, Incheon and Gyeonggi) with 25 KEPCO 345 kV substations drawn as columns. Height is capacity and the fill is the load forecast. 24 of 25 list 0 MW of supply headroom; one lists 98 MW, enough for one 80 MW data center of four 20 MW modules.">
+          <div class="mx-call" id="mx-call" aria-live="polite" hidden>
+            <p class="mx-step" id="mx-step"></p>
+            <p class="mx-title" id="mx-title"></p>
+            <p class="mx-body" id="mx-body"></p>
+            <span class="mx-verdict" id="mx-verdict"></span>
           </div>
-          <div class="mx-map" id="mx-map" role="img" aria-label="Tilted 3D map of the Seoul Capital Area (Seoul, Incheon and Gyeonggi) with 25 KEPCO 345 kV substations drawn as columns. Height is capacity and the fill is the load forecast. 24 of 25 list 0 MW of supply headroom; one lists 98 MW, enough for one 80 MW data center of four 20 MW modules."></div>
         </div>
+
         <div class="mx-head">
-          <p class="mx-who">Hyeongseo Jang <span class="kname" lang="ko">장형서</span></p>
-          <h1 id="mx-h">Power Systems</h1>
+          <p class="mx-who">Hyeongseo Jang <span class="kname" lang="ko">장형서</span> <span class="sep">·</span> Power Systems</p>
+          <h1 id="mx-h">Data Center Siting</h1>
+          <p class="mx-keys">Grid headroom <i>×</i> N-1 security <i>×</i> BESS</p>
           <p class="mx-areas"><a href="interests.html#planning">Planning</a><span class="sep">·</span><a href="interests.html#operation">Operation</a><span class="sep">·</span><a href="interests.html#control">Control</a></p>
         </div>
-        <div class="mx-side">
-          <div class="mx-panel" aria-live="polite">
-            <div class="mx-card in" id="mx-card">
-              <p class="mx-step" id="mx-step">TODAY</p>
-              <p class="mx-title" id="mx-title">25 substations · 39.0 GW</p>
-              <p class="mx-body" id="mx-body">345 kV · capacity vs. load forecast</p>
-              <span class="mx-verdict" id="mx-verdict" hidden></span>
-            </div>
+
+        <div class="mx-data">
+          <dl class="mx-stats">
+            <div><dt>345 kV substations</dt><dd>25</dd></div>
+            <div><dt>capacity</dt><dd>39.0 <small>GW</small></dd></div>
+            <div class="bad"><dt>at 0 MW headroom</dt><dd>24</dd></div>
+            <div class="ok"><dt>offered in total</dt><dd>98 <small>MW</small></dd></div>
+          </dl>
+          <div class="mx-anat">
+            <p class="mx-anat-h">How to read · 1 column = 1 substation (345 kV)</p>
+            <svg viewBox="0 0 320 130" role="img" aria-label="Column key: total height is capacity, blue is the load forecast, green is headroom offered, a red cap means 0 MW offered.">
+              <defs><linearGradient id="mxg" x1="0" x2="1"><stop offset="0" stop-color="#4790BE"/><stop offset="1" stop-color="#1F4A68"/></linearGradient>
+              <filter id="mxglow" x="-1" y="-1" width="3" height="3"><feGaussianBlur stdDeviation="2.2"/></filter></defs>
+              <g>
+                <path d="M17 16 V118 A11 4.5 0 0 0 39 118 V16 Z" fill="rgba(159,192,222,.08)" stroke="rgba(159,192,222,.55)"/>
+                <path d="M17 44 V118 A11 4.5 0 0 0 39 118 V44 Z" fill="url(#mxg)"/>
+                <ellipse cx="28" cy="44" rx="11" ry="4.5" fill="#6FB7E2"/>
+                <path d="M17 30 V44 A11 4.5 0 0 0 39 44 V30 Z" fill="#59C48A"/>
+                <ellipse cx="28" cy="30" rx="11" ry="4.5" fill="#A0F0BE"/>
+                <ellipse cx="28" cy="16" rx="11" ry="4.5" fill="none" stroke="rgba(200,220,240,.8)"/>
+                <path d="M45 16 H58 M45 30 H58 M45 82 H58" stroke="rgba(230,235,242,.45)"/>
+                <text x="62" y="20" fill="#E6EBF2" font-weight="600">capacity</text><text x="122" y="20" fill="#8A96A8" font-size="10">full height</text>
+                <text x="62" y="34" fill="#7FE0A8" font-weight="600">headroom offered</text>
+                <text x="62" y="86" fill="#8FCBF0" font-weight="600">load forecast</text>
+              </g>
+              <g>
+                <path d="M209 16 V118 A11 4.5 0 0 0 231 118 V16 Z" fill="url(#mxg)"/>
+                <ellipse cx="220" cy="16" rx="13" ry="6" fill="#FF3B3B" filter="url(#mxglow)"/>
+                <ellipse cx="220" cy="16" rx="11" ry="4.5" fill="#FF5A5A"/>
+                <text x="238" y="20" fill="#FF7A7A" font-weight="600">0 MW offered</text>
+                <text x="238" y="34" fill="#8A96A8" font-size="10">no room left</text>
+              </g>
+            </svg>
+            <ul class="mx-legend" aria-label="Other marks">
+              <li><i class="k-dc"></i>20 MW data center module</li>
+              <li><i class="k-seoul"></i>Seoul</li>
+              <li><i class="k-na"></i>not listed</li>
+            </ul>
           </div>
-          <ul class="mx-legend" aria-label="Legend">
-            <li><i class="k-cap"></i>capacity</li>
-            <li><i class="k-load"></i>load forecast</li>
-            <li><i class="k-free"></i>headroom offered</li>
-            <li><i class="k-zero"></i>0 MW offered</li>
-            <li><i class="k-dc"></i>20 MW data center module</li>
-            <li><i class="k-seoul"></i>Seoul city limits</li>
-            <li><i class="k-na"></i>not listed by KEPCO</li>
-          </ul>
-          <section class="mx-proj" id="projects" aria-labelledby="mx-ph">
-            <h2 id="mx-ph">Projects</h2>
-            <a class="mx-pr" href="project.html#power"><b>Where Should a Data Center Connect?</b><span>In progress · pandapower</span><em>Site by site on the 154 kV grid: module size and topology vs. N-1 security, and how many modules fit.</em></a>
-            <a class="mx-pr" href="project.html#t50"><b>T-50 Lateral-Directional Autopilot</b><span>Fall 2026 · MATLAB</span><em>Where my control work started. Dutch-roll damping <span class="num">0.097 → 0.233</span> (requirement 0.19).</em></a>
-          </section>
-          <p class="mx-rule">Source: KEPCO supply-headroom data (Nov 2026), 345 kV level; station positions approximate. Population: Statistics Korea, 2025 census.</p>
         </div>
+
+        <div class="mx-where">
+          <div class="mx-loc">
+            <svg id="mx-inset" role="img" aria-label="Map of South Korea with the capital area highlighted"></svg>
+            <p><b><i class="k-sca" aria-hidden="true"></i>Seoul Capital Area, South Korea</b><br><span>26.4 M people · 51% of the country</span></p>
+          </div>
+          <p class="mx-rule">Source: KEPCO supply-headroom data (Nov 2026), 345 kV level; station positions approximate · Population: Statistics Korea, 2025 census</p>
+        </div>
+
+        <section class="mx-proj" id="projects" aria-labelledby="mx-ph">
+          <h2 id="mx-ph">Projects</h2>
+          <a class="mx-pbtn" href="project.html#power"><b>Where Should a Data Center Connect?</b><span>In progress · pandapower</span></a>
+          <a class="mx-pbtn" href="project.html#t50"><b>T-50 Lateral-Directional Autopilot</b><span>Fall 2026 · MATLAB</span></a>
+        </section>
       </div>
     </section>
 
@@ -91,7 +121,7 @@
 </div>
 <div id="tip" role="status" aria-live="polite" hidden></div>
 <script src="site.js"></script>
-<script src="metro-hero-data.js?v=2"></script>
-<script src="metro-hero.js?v=2"></script>
+<script src="metro-hero-data.js?v=4"></script>
+<script src="metro-hero.js?v=7"></script>
 </body>
 </html>
