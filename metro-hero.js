@@ -313,22 +313,6 @@
   canvas.addEventListener('mousemove', pick);
   canvas.addEventListener('mouseleave', function () { hover = null; tip.hidden = true; });
 
-  // ---------- project titles: click for results ----------
-  var btns = [].slice.call(document.querySelectorAll('.mx-pbtn'));
-  function closeAll(except) {
-    btns.forEach(function (b) { if (b !== except) { b.setAttribute('aria-expanded', 'false'); var d = document.getElementById(b.getAttribute('aria-controls')); if (d) d.hidden = true; } });
-  }
-  btns.forEach(function (b) {
-    b.addEventListener('click', function () {
-      var open = b.getAttribute('aria-expanded') !== 'true';
-      closeAll(b);
-      b.setAttribute('aria-expanded', open ? 'true' : 'false');
-      var d = document.getElementById(b.getAttribute('aria-controls')); if (d) d.hidden = !open;
-    });
-  });
-  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeAll(null); });
-  document.addEventListener('click', function (e) { if (!e.target.closest || !e.target.closest('.mx-proj')) closeAll(null); });
-
   // ---------- run ----------
   var running = false, start = null, raf = 0, paused = 0;
   function loop(now) {
