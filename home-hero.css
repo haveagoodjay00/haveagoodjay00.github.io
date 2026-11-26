@@ -134,11 +134,9 @@ a.hm-row:hover b { text-decoration: underline; text-decoration-thickness: 1px; t
 /* no light gap between the dark band and the footer */
 .wrap > main:has(> .sl) { margin-bottom: 0; }
 body:has(main > .sl) { background: var(--hx-bg); }
-/* PC: page banner like the other inner pages, so the small label is not needed; phones skip the banner */
+/* Page banner like the other inner pages, so the small label is not needed */
 .ct-banner + .ct .hm-label { display: none; }
 @media (max-width: 700px) {
-  .ct-banner { display: none; }
-  .ct-banner + .ct .hm-label { display: block; }
   .ct { padding: 36px 0 44px; }
   .ct-in { grid-template-columns: minmax(0, 1fr); gap: 24px; padding: 0 20px; }
   .ct-photo { width: 180px; }
