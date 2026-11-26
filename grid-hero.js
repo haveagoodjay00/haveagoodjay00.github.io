@@ -179,15 +179,15 @@
 
   // Scenarios (illustrative)
   var SC = [
-    { site: -1, load: {}, trip: [], cam: [10.5, 10.5, .82], step: 'BASELINE', title: 'One plant, one grid',
+    { site: -1, load: {}, trip: [], cam: [10.5, 10.5, .86], step: 'BASELINE', title: 'One plant, one grid',
       body: 'A nuclear plant feeds the whole grid through 345 kV lines. Every line is within its limit.', verdict: 'STABLE', v: 0 },
-    { site: 0, load: { 'N-GS': '92%' }, trip: [], cam: [11.2, 2.7, 1.2], step: 'SITE 1 / 4', title: 'Next to the plant',
+    { site: 0, load: { 'N-GS': '92%' }, trip: [], cam: [10.9, 6.6, .96], step: 'SITE 1 / 4', title: 'Next to the plant',
       body: 'Power reaches the data center in one short hop. The lines carry the extra load comfortably.', verdict: 'GOOD SITE', v: 0 },
-    { site: 1, load: { 'HUB-L': '118%', 'GS-L': '104%' }, trip: [], cam: [3, 19.2, 1.2], step: 'SITE 2 / 4', title: 'Far west',
+    { site: 1, load: { 'HUB-L': '118%', 'GS-L': '104%' }, trip: [], cam: [8.5, 13.5, .96], step: 'SITE 2 / 4', title: 'Far west',
       body: 'Power has to cross the hub and the west corridor to get here. Two lines run past their limit.', verdict: 'RISKY', v: 1 },
-    { site: 2, load: { 'HUB-R': '121%' }, trip: ['GS-R'], cam: [19.2, 3, 1.2], step: 'SITE 3 / 4', title: 'East, one weak corridor',
+    { site: 2, load: { 'HUB-R': '121%' }, trip: ['GS-R'], cam: [14.9, 6.8, .96], step: 'SITE 3 / 4', title: 'East, one weak corridor',
       body: 'Only one strong path feeds this area. It overloads, and the backup line trips off.', verdict: 'POOR SITE', v: 2 },
-    { site: 3, load: { 'HUB-B': '126%', 'L-B': '109%' }, trip: ['R-B'], cam: [19.4, 16.6, 1.0], step: 'SITE 4 / 4', title: 'Far south',
+    { site: 3, load: { 'HUB-B': '126%', 'L-B': '109%' }, trip: ['R-B'], cam: [16.5, 13.5, .96], step: 'SITE 4 / 4', title: 'Far south',
       body: 'Farthest from the plant. Long paths overload, and one trip pushes the flow onto other lines.', verdict: 'POOR SITE', v: 2 }
   ];
   var VCLASS = ['gx-good', 'gx-warn', 'gx-bad'];
@@ -199,7 +199,7 @@
   function apply(k) {
     var s = SC[k];
     var cp = P(s.cam[0], s.cam[1], 1), z = s.cam[2];
-    camEl.style.transform = 'translate(' + Math.round((s.site < 0 ? 620 : 560) - z * cp[0]) + 'px,' + Math.round((s.site < 0 ? 430 : s.site === 3 ? 560 : 480) - z * cp[1]) + 'px) scale(' + z + ')';
+    camEl.style.transform = 'translate(' + Math.round(620 - z * cp[0]) + 'px,' + Math.round((s.site < 0 ? 430 : 450) - z * cp[1]) + 'px) scale(' + z + ')';
     each('.gx-pad', function (el) { el.classList.toggle('on', +el.getAttribute('data-i') === s.site); });
     each('.gx-padt', function (el) { el.classList.toggle('on', +el.getAttribute('data-i') === s.site); });
     each('.gx-dc', function (el) { el.classList.toggle('on', +el.getAttribute('data-i') === s.site); });
