@@ -110,9 +110,10 @@
 
   // Data center sites (building + BESS containers)
   var SITES = [[9.2, 1.6, 4, 2.2, 'GS', 'SITE 1'], [1, 18, 4, 2.4, 'L', 'SITE 2'], [18, 1, 2.4, 4, 'R', 'SITE 3'], [19.2, 15.8, 2.4, 4, 'B', 'SITE 4']];
-  var sites = [], dcs = [];
+  var sites = [], dcs = [], dcCenter = [];
   SITES.forEach(function (st) {
     var x = st[0], y = st[1], w = st[2], d = st[3], at = st[4], name = st[5], lp = P(x + w / 2, y + d / 2, 0);
+    dcCenter.push(P(x + w / 2, y + d / 2, 1));
     sites.push({ pad: poly([P(x - .3, y - .3), P(x + w + .3, y - .3), P(x + w + .3, y + d + .9), P(x - .3, y + d + .9)]), tx: f(lp[0]), ty: f(lp[1] + 4), name: name });
     cur = [];
     box(x, y, 0, w, d, 1.7, ['#D5DCE4', '#9AA5B3', '#77828F']);
@@ -143,7 +144,7 @@
       (s.tf ? ' transform="' + s.tf + '"' : '') + ' stroke-linejoin="round"/>';
   }
   var h = [];
-  h.push('<svg viewBox="0 0 1240 820" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false"><g class="gx-cam"><g class="gx-drift">');
+  h.push('<svg viewBox="0 0 1240 820" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false"><g class="gx-cam"><g class="gx-drift">');
   h.push('<path d="' + ground + '" fill="#10161F" stroke="#1C2633"/><path d="' + grid + '" fill="none" stroke="#141C27"/>');
   sites.forEach(function (st, i) {
     h.push('<path class="gx-pad" data-i="' + i + '" d="' + st.pad + '" stroke-width="1.5"/>');
@@ -198,8 +199,10 @@
 
   function apply(k) {
     var s = SC[k];
-    var cp = P(s.cam[0], s.cam[1], 1), z = s.cam[2];
-    camEl.style.transform = 'translate(' + Math.round(620 - z * cp[0]) + 'px,' + Math.round((s.site < 0 ? 430 : 450) - z * cp[1]) + 'px) scale(' + z + ')';
+    // Whole grid always in view; a site only gets a slight push-in toward it.
+    var cx = 620, cy = 380, z = .78;
+    if (s.site >= 0) { var dp = dcCenter[s.site]; cx += (dp[0] - cx) * .28; cy += (dp[1] - cy) * .28; z = .85; }
+    camEl.style.transform = 'translate(' + Math.round(620 - z * cx) + 'px,' + Math.round(410 - z * cy) + 'px) scale(' + z + ')';
     each('.gx-pad', function (el) { el.classList.toggle('on', +el.getAttribute('data-i') === s.site); });
     each('.gx-padt', function (el) { el.classList.toggle('on', +el.getAttribute('data-i') === s.site); });
     each('.gx-dc', function (el) { el.classList.toggle('on', +el.getAttribute('data-i') === s.site); });
