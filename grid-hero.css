@@ -3,7 +3,7 @@
 .gx-in { position: relative; }
 .gx { --gx-edge: max(32px, calc(50vw - 624px)); }
 .gx-scene { position: relative; }
-.gx-scene svg { display: block; width: 100%; height: min(952px, 88vh); min-height: 560px; }
+.gx-scene svg { display: block; width: 100%; height: min(860px, 84vh); min-height: 520px; }
 .gx-head { position: absolute; left: var(--gx-edge); top: 36px; z-index: 2; text-shadow: 0 2px 12px rgba(11,15,20,.9); }
 .gx-who { margin: 0 0 6px; font-size: .9rem; letter-spacing: .08em; text-transform: uppercase; color: #B8C3CE; }
 .gx-who .kname { text-transform: none; letter-spacing: 0; opacity: .8; }
@@ -36,6 +36,7 @@
 .gx-cam { transition: transform 2.6s cubic-bezier(.6,0,.2,1); }
 .gx-drift { animation: gxDrift 14s ease-in-out infinite; }
 @keyframes gxDrift { 50% { transform: translate(-14px, 8px); } }
+.gx-lbl text { paint-order: stroke; }
 .gx-pad { fill: transparent; stroke: #3A4656; stroke-dasharray: 5 6; transition: fill 1.4s, stroke 1.4s; }
 .gx-pad.on { fill: rgba(255,181,71,.16); stroke: #FFB547; stroke-dasharray: none; }
 .gx-padt { fill: #5F6B7D; transition: fill 1.4s; }
@@ -73,7 +74,7 @@
   .gx-in { display: flex; flex-direction: column; }
   .gx-head { position: static; order: 1; padding: 36px 20px 4px; }
   .gx-scene { order: 2; }
-  .gx-scene svg { height: auto; min-height: 0; aspect-ratio: 1240 / 820; }
+  .gx-scene svg { height: auto; min-height: 0; aspect-ratio: 1240 / 740; }
   .gx-panel { position: static; order: 3; width: auto; max-width: none; margin: 0 20px 12px; }
   .gx-legend { position: static; order: 4; flex-direction: row; flex-wrap: wrap; margin: 0 20px 28px; }
 }
