@@ -73,9 +73,8 @@
 .sl-sub { font-family: var(--ui); font-size: 11px; fill: var(--hx-mute); text-anchor: middle; }
 .sl-v { font-family: var(--ui); font-size: 12px; font-weight: 700; fill: var(--hx-ink2); text-anchor: middle; }
 
-/* the real load heatmap as a thin line on top of each list */
-.hm-heat { height: 4px; margin: 0 0 20px; border-radius: 2px; background: url(hero-load-texture.jpg) center / cover no-repeat; opacity: .9; }
 /* below: keyword-first research focus + projects */
+.hm { border-top: 1px solid var(--hx-line); }
 .hm-in { max-width: 1360px; margin: 0 auto; padding: 44px max(28px, calc(50vw - 680px)) 48px; box-sizing: border-box; }
 .hm-label { margin: 0 0 26px; font-family: var(--ui); font-size: .72rem; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--hx-mute); }
 .hm-cols { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
