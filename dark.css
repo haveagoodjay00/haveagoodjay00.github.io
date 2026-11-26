@@ -122,3 +122,10 @@ a { color: var(--dk-c1); }
   .top nav { gap: 4px 14px !important; flex-wrap: wrap; }
   .top nav a { font-size: .84rem; }
 }
+/* Skills: one row per area, label left, tags right */
+.skill-rows { grid-template-columns: minmax(0, 1fr) !important; gap: 0 !important; }
+.skill-rows > div { display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 16px; align-items: center; padding: 14px 0; border-top: 0 !important; border-bottom: 1px solid var(--rule); }
+.skill-rows > div:first-child { border-top: 2px solid #22344A !important; }
+.skill-rows h3 { margin: 0 !important; font-size: .95rem; }
+.skill-rows > div:nth-child(4n) h3 { color: var(--dk-mute); }
+@media (max-width: 700px) { .skill-rows > div { grid-template-columns: minmax(0, 1fr); gap: 8px; } }
